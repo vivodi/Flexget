@@ -60,10 +60,18 @@
       ]
     },
     {
-      "groupName": "ruff",
+      "groupName": "Ruff",
       "matchPackageNames": [
-        "ruff",
-        "astral-sh/ruff-pre-commit"
+        "astral-sh/ruff-pre-commit",
+        "ruff"
+      ]
+    },
+    {
+      "groupName": "uv",
+      "matchPackageNames": [
+        "astral-sh/uv-pre-commit",
+        "ghcr.io/astral-sh/uv",
+        "uv"
       ]
     }
   ]

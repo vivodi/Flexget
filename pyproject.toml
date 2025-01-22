@@ -1,6 +1,6 @@
 ## Build settings
 [project]
-name = "FlexGet"
+name = "flexgettest"
 description = """\
     FlexGet is a program aimed to automate downloading or processing content (torrents, podcasts, etc.) from \
     different sources like RSS-feeds, html-pages, various sites and more.\
@@ -69,7 +69,7 @@ docs = [
     "sphinx ~=8.1; python_version >= '3.10'"
 ]
 plugin-test = [
-    # These are optional dependencies for plugins that have tests in the test suite
+    # These are optional dependencies for the plugins that have tests in the test suite
     "boto3 ~=1.35",
     "plexapi ~=4.16",
     "pysftp ~=0.2.9",
@@ -112,7 +112,7 @@ skip-excluded-dirs = true
 [tool.hatch.build.targets.sdist]
 include = [
     "/flexget",
-    "/*.py"
+    "/scripts/bundle_webui.py"
 ]
 # Cassettes will take up all our room on pypi faster
 exclude = ["/flexget/tests/cassettes"]
@@ -120,7 +120,7 @@ exclude = ["/flexget/tests/cassettes"]
 [tool.hatch.build.targets.wheel.hooks.custom]
 # build with env variable HATCH_BUILD_HOOKS_ENABLE=true to bundle the webui when building
 enable-by-default = false
-path = "bundle_webui.py"
+path = "scripts/bundle_webui.py"
 
 [tool.hatch.build.targets.wheel]
 include = [

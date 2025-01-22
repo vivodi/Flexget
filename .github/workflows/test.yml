@@ -13,6 +13,28 @@ concurrency:
 env:
   UV_VERSION: 0.5.22 # renovate: datasource=pypi depName=uv
 jobs:
+  test-scripts:
+    name: Test scripts
+    runs-on: ubuntu-latest
+    env:
+      PYTHON_VERSION: '3.13' # renovate: datasource=python-version depName=python
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - name: Install uv and Python
+        uses: astral-sh/setup-uv@b5f58b2abc5763ade55e4e9d0fe52cd1ff7979ca # v5
+        with:
+          enable-cache: true
+          python-version: ${{ matrix.python-version }}
+          version: ${{ env.UV_VERSION }}
+      - name: Run tests
+        run: |
+          cd scripts
+          uv export --no-hashes --output-file dev_tools.txt --script dev_tools.py
+          uv run --with-requirements dev_tools.txt -m pytest test_dev_tools.py
+          uv export --no-hashes --output-file update_changelog.txt --script update_changelog.py
+          uv run --with-requirements update_changelog.txt -m pytest test_update_changelog.py
+
   tests:
     name: Run Tests
     runs-on: ${{ matrix.operating-system }}

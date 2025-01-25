@@ -12,7 +12,6 @@ from typing import Optional
 
 import click
 import requests
-
 from bundle_webui import bundle_webui
 
 

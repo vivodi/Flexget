@@ -49,7 +49,7 @@ class UrlRewriteDescargas2020:
     def url_rewrite(self, task, entry):
         entry['url'] = self.parse_download_page(entry['url'], task)
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def parse_download_page(self, url, task):
         logger.verbose('Descargas2020 URL: {}', url)
 

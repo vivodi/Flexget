@@ -25,19 +25,19 @@ class ArchiveError(Exception):
     pass
 
 
-class NeedRarFile(ArchiveError):
+class NeedRarFileError(ArchiveError):
     """Exception to be raised when rarfile module is missing"""
 
     pass
 
 
-class BadArchive(ArchiveError):
+class BadArchiveError(ArchiveError):
     """Wrapper exception for BadZipFile and BadRarFile"""
 
     pass
 
 
-class NeedFirstVolume(ArchiveError):
+class NeedFirstVolumeError(ArchiveError):
     """Wrapper exception for rarfile.NeedFirstVolume"""
 
     pass
@@ -55,7 +55,7 @@ class FSError(ArchiveError):
     pass
 
 
-class FileAlreadyExists(ArchiveError):
+class FileAlreadyExistsError(ArchiveError):
     """Exception to be raised when destination file already exists"""
 
     pass
@@ -159,9 +159,9 @@ class RarArchive(Archive):
         try:
             super().__init__(rarfile.RarFile, path)
         except rarfile.BadRarFile as error:
-            raise BadArchive(error)
+            raise BadArchiveError(error)
         except rarfile.NeedFirstVolume as error:
-            raise NeedFirstVolume(error)
+            raise NeedFirstVolumeError(error)
         except rarfile.Error as error:
             raise ArchiveError(error)
 
@@ -179,7 +179,7 @@ class RarArchive(Archive):
     @staticmethod
     def check_import():
         if not rarfile:
-            raise NeedRarFile('Python module rarfile needed to handle RAR archives')
+            raise NeedRarFileError('Python module rarfile needed to handle RAR archives')
 
 
 class ZipArchive(Archive):
@@ -191,7 +191,7 @@ class ZipArchive(Archive):
         try:
             super().__init__(zipfile.ZipFile, path)
         except zipfile.BadZipfile as error:
-            raise BadArchive(error)
+            raise BadArchiveError(error)
 
     def open(self, member):
         """Returns file-like object from where the data of a member file can be read."""
@@ -224,7 +224,7 @@ class ArchiveInfo:
         dest_dir = os.path.dirname(destination)
 
         if os.path.exists(destination):
-            raise FileAlreadyExists(f'File already exists: {destination}')
+            raise FileAlreadyExistsError(f'File already exists: {destination}')
 
         logger.debug('Creating path: {}', dest_dir)
         makepath(dest_dir)

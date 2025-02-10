@@ -7,7 +7,7 @@ from requests.auth import AuthBase
 from flexget import plugin
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.requests import RequestException
 
 logger = logger.bind(name='apple_trailers')
@@ -70,7 +70,7 @@ class AppleTrailers:
         raise plugin.PluginError(f'Plugin is most likely broken. Got: {error_message}')
 
     @plugin.priority(127)
-    @cached('apple_trailers')
+    @Cached('apple_trailers')
     def on_task_input(self, task, config):
         # Turn simple config into full config
         if isinstance(config, str):

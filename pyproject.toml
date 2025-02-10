@@ -157,6 +157,7 @@ select = [
     "ICN",
     "ISC",
     "LOG",
+    "N",
     "PERF",
     "PGH",
     "PL",

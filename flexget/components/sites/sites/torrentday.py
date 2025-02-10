@@ -103,7 +103,7 @@ class UrlRewriteTorrentday:
                 raise UrlRewritingError('No search results found')
             entry['url'] = results[0]['url']
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config=None):
         """
         Search for name from torrentday.

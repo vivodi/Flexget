@@ -8,7 +8,7 @@ from flexget.config_schema import one_or_more
 from flexget.entry import Entry
 from flexget.event import event
 from flexget.utils import json
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.requests import RequestException
 from flexget.utils.soup import get_soup
 
@@ -75,7 +75,7 @@ class ImdbWatchlist:
 
         return config
 
-    @cached('imdb_watchlist', persist='2 hours')
+    @Cached('imdb_watchlist', persist='2 hours')
     def on_task_input(self, task, config) -> list[Entry]:
         config = self.prepare_config(config)
 

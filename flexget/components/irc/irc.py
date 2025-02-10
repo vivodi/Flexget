@@ -148,7 +148,7 @@ class TrackerFileError(Exception):
     """Exception thrown when parsing the tracker file fails"""
 
 
-class MissingConfigOption(Exception):
+class MissingConfigOptionError(Exception):
     """Exception thrown when a config option specified in the tracker file is not on the irc config"""
 
 
@@ -183,7 +183,7 @@ class IRCConnection(SimpleIRCBot):
                     continue
 
                 if self.config.get(value_name) is None:
-                    raise MissingConfigOption(
+                    raise MissingConfigOptionError(
                         f'missing configuration option on irc config {self.connection_name}: {value_name}'
                     )
 
@@ -946,7 +946,12 @@ class IRCConnectionManager:
                 conn = IRCConnection(config, conn_name)
                 irc_connections[conn_name] = conn
                 config_hash['names'][conn_name] = get_config_hash(config)
-            except (MissingConfigOption, TrackerFileParseError, TrackerFileError, OSError) as e:
+            except (
+                MissingConfigOptionError,
+                TrackerFileParseError,
+                TrackerFileError,
+                OSError,
+            ) as e:
                 logger.error(e)
                 if conn_name in irc_connections:
                     del irc_connections[conn_name]  # remove it from the list of connections
@@ -1001,7 +1006,12 @@ class IRCConnectionManager:
             try:
                 new_irc_connections[name] = IRCConnection(conf, name)
                 config_hash['names'][name] = hash
-            except (MissingConfigOption, TrackerFileParseError, TrackerFileError, OSError) as e:
+            except (
+                MissingConfigOptionError,
+                TrackerFileParseError,
+                TrackerFileError,
+                OSError,
+            ) as e:
                 logger.error('Failed to update config. Error when updating {}: {}', name, e)
                 return
 

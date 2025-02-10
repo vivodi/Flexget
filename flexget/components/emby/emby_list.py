@@ -51,7 +51,7 @@ class PluginEmbyList:
     def on_task_start(self, task, config):
         self.login(config)
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def on_task_input(self, task, config):
         self.login(config)
 

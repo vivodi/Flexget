@@ -7,7 +7,7 @@ from requests import RequestException
 from flexget import plugin
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.log import log_once
 from flexget.utils.soup import get_soup
 
@@ -74,8 +74,8 @@ class RlsLog:
 
         return releases
 
-    @cached('rlslog')
-    @plugin.internet(logger)
+    @Cached('rlslog')
+    @plugin.Internet(logger)
     def on_task_input(self, task, config):
         url = config
         if url.endswith('feed/'):

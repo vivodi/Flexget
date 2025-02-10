@@ -3,7 +3,7 @@ from loguru import logger
 from flexget import plugin
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 
 try:
     from filmweb.exceptions import RequestFailed
@@ -53,7 +53,7 @@ class FilmwebWatchlist:
                 logger,
             )
 
-    @cached('filmweb_watchlist', persist='2 hours')
+    @Cached('filmweb_watchlist', persist='2 hours')
     def on_task_input(self, task, config):
         type = translate_type(config['type'])
 

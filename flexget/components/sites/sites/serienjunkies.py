@@ -85,7 +85,7 @@ class UrlRewriteSerienjunkies:
         logger.debug('Episode: {}', search_title)
         logger.debug('Download URL: {}', download_urls)
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def parse_downloads(self, series_url, search_title):
         page = requests.get(series_url).content
         try:

@@ -26,7 +26,7 @@ from flexget.api import api_app
 from flexget.event import event
 from flexget.manager import Manager, Session
 from flexget.plugin import load_plugins
-from flexget.task import Task, TaskAbort
+from flexget.task import Task, TaskAbortError
 from flexget.webserver import User
 
 from .test_sftp_server import TestSFTPServerController
@@ -100,7 +100,7 @@ def execute_task(manager: Manager) -> Callable[..., Task]:
 
         try:
             if abort:
-                with pytest.raises(TaskAbort):
+                with pytest.raises(TaskAbortError):
                     task.execute()
             else:
                 task.execute()
@@ -333,7 +333,7 @@ def clear_caches():
     TimedDict.clear_all()
 
 
-class CrashReport(Exception):
+class CrashReportError(Exception):
     def __init__(self, message: str, crash_log: str):
         self.message = message
         self.crash_log = crash_log
@@ -383,7 +383,7 @@ class MockManager(Manager):
     def crash_report(self):
         # We don't want to silently swallow crash reports during unit tests
         logger.opt(exception=True).error('Crash Report Traceback:')
-        raise CrashReport(
+        raise CrashReportError(
             'Crash report created during unit test, check log for traceback.',
             flexget.log.debug_buffer,
         )

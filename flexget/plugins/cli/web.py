@@ -2,7 +2,7 @@ from flexget import options
 from flexget.event import event
 from flexget.terminal import console
 from flexget.utils.database import with_session
-from flexget.webserver import WeakPassword, change_password, generate_token, get_user
+from flexget.webserver import WeakPasswordError, change_password, generate_token, get_user
 
 
 @with_session
@@ -10,7 +10,7 @@ def do_cli(manager, options, session=None):
     if options.action == 'passwd':
         try:
             change_password(password=options.password, session=session)
-        except WeakPassword as e:
+        except WeakPasswordError as e:
             console(e.value)
             return
         console('Updated password')

@@ -189,7 +189,7 @@ class SearchFileList:
             session.merge(cookie)
             return cookie.cookie
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config):
         """
         Search for entries on FileList.ro

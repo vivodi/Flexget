@@ -58,7 +58,7 @@ def get_secret(session=None):
     return web_secret.value
 
 
-class WeakPassword(Exception):
+class WeakPasswordError(Exception):
     def __init__(self, value, logger=logger, **kwargs):
         super().__init__()
         # Value is expected to be a string
@@ -251,7 +251,7 @@ def change_password(username='flexget', password='', session=None):
             message += warning + ' '
         if suggestions:
             message += f'Suggestions: {suggestions}'
-        raise WeakPassword(message)
+        raise WeakPasswordError(message)
 
     user = get_user(username=username, session=session)
     user.password = str(generate_password_hash(password))

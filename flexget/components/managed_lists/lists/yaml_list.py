@@ -178,7 +178,7 @@ class YamlList:
         config = self.process_config(config)
         return YamlManagedList(**config)
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def on_task_input(self, task, config):
         config = self.process_config(config)
         yaml_list = YamlManagedList(**config)

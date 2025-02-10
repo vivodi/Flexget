@@ -73,7 +73,7 @@ class UrlRewriteAllyoulike:
         except Exception as e:
             raise UrlRewritingError(str(e))
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     # urlrewriter API
     def url_rewrite(self, task, entry):
         soup = self._get_soup(task, entry['url'])

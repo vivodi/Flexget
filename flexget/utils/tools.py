@@ -48,7 +48,7 @@ def str_to_int(string: str) -> Optional[int]:
         return None
 
 
-class MergeException(Exception):
+class MergeError(Exception):
     def __init__(self, value: str):
         self.value = value
 
@@ -130,7 +130,7 @@ def merge_dict_from_to(d1: dict, d2: dict) -> None:
                 # Allow overriding of non-container types with other non-container types
                 pass
             else:
-                raise MergeException(
+                raise MergeError(
                     f'Merging key {k} failed, conflicting datatypes {type(v).__name__!r} vs. {type(d2[k]).__name__!r}.'
                 )
         else:
@@ -218,7 +218,7 @@ def pid_exists(pid: int):
         return False
 
 
-_binOps = {
+_bin_ops = {
     ast.Add: operator.add,
     ast.Sub: operator.sub,
     ast.Mult: operator.mul,

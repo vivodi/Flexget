@@ -1,7 +1,7 @@
 import copy
 
 from flexget.api.app import base_message
-from flexget.components.failed.api import ObjectsContainer as OC
+from flexget.components.failed.api import ObjectsContainer
 from flexget.components.failed.db import FailedEntry
 from flexget.manager import Session
 from flexget.utils import json
@@ -15,7 +15,7 @@ class TestRetryFailedAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.retry_entries_list_object, data)
+        errors = schema_match(ObjectsContainer.retry_entries_list_object, data)
         assert not errors
 
         failed_entry_dict_1 = {
@@ -49,7 +49,7 @@ class TestRetryFailedAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.retry_entries_list_object, data)
+        errors = schema_match(ObjectsContainer.retry_entries_list_object, data)
         assert not errors
 
         # Sorted for result comparison
@@ -93,7 +93,7 @@ class TestRetryFailedAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.retry_failed_entry_object, data)
+        errors = schema_match(ObjectsContainer.retry_failed_entry_object, data)
         assert not errors
         for key, value in failed_entry_dict_1.items():
             assert data.get(key) == value

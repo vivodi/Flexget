@@ -1,7 +1,7 @@
 import copy
 
 from flexget.api.app import base_message
-from flexget.components.seen.api import ObjectsContainer as OC
+from flexget.components.seen.api import ObjectsContainer
 from flexget.components.seen.db import SeenEntry, SeenField
 from flexget.manager import Session
 from flexget.utils import json
@@ -40,7 +40,7 @@ class TestSeenAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.seen_search_object, data)
+        errors = schema_match(ObjectsContainer.seen_search_object, data)
         assert not errors
 
         entries = self.add_seen_entries()
@@ -49,7 +49,7 @@ class TestSeenAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.seen_search_object, data)
+        errors = schema_match(ObjectsContainer.seen_search_object, data)
         assert not errors
 
         for idx, value in enumerate(sorted(data, key=lambda entry: entry['title'])):
@@ -62,7 +62,7 @@ class TestSeenAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.seen_search_object, data)
+        errors = schema_match(ObjectsContainer.seen_search_object, data)
         assert not errors
 
         assert len(data) == 1
@@ -71,7 +71,7 @@ class TestSeenAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.seen_search_object, data)
+        errors = schema_match(ObjectsContainer.seen_search_object, data)
         assert not errors
 
         assert len(data) == 1
@@ -80,7 +80,7 @@ class TestSeenAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.seen_search_object, data)
+        errors = schema_match(ObjectsContainer.seen_search_object, data)
         assert not errors
 
         assert len(data) == 0
@@ -92,7 +92,7 @@ class TestSeenAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.seen_search_object, data)
+        errors = schema_match(ObjectsContainer.seen_search_object, data)
         assert not errors
 
         for idx, value in enumerate(sorted(data, key=lambda entry: entry['title'])):
@@ -132,7 +132,7 @@ class TestSeenAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.seen_search_object, data)
+        errors = schema_match(ObjectsContainer.seen_search_object, data)
         assert not errors
 
         assert data == []
@@ -144,7 +144,7 @@ class TestSeenAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.seen_object, data)
+        errors = schema_match(ObjectsContainer.seen_object, data)
         assert not errors
 
         for key, value in entries[0].items():
@@ -171,7 +171,7 @@ class TestSeenAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.seen_search_object, data)
+        errors = schema_match(ObjectsContainer.seen_search_object, data)
         assert not errors
 
         assert len(data) == 1

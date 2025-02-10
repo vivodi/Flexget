@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 
 from flexget.api.app import base_message
-from flexget.components.status.api import ObjectsContainer as OC
+from flexget.components.status.api import ObjectsContainer
 from flexget.components.status.db import StatusTask, TaskExecution
 from flexget.manager import Session
 from flexget.utils import json
@@ -15,7 +15,7 @@ class TestStatusAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_status_list_schema, data)
+        errors = schema_match(ObjectsContainer.task_status_list_schema, data)
         assert not errors
 
         with Session() as session:
@@ -30,7 +30,7 @@ class TestStatusAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_status_list_schema, data)
+        errors = schema_match(ObjectsContainer.task_status_list_schema, data)
         assert not errors
 
         assert len(data) == 2
@@ -55,7 +55,7 @@ class TestStatusAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_status_schema, data)
+        errors = schema_match(ObjectsContainer.task_status_schema, data)
         assert not errors
 
         assert data['name'] == 'status task 1'
@@ -77,7 +77,7 @@ class TestStatusAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.executions_list, data)
+        errors = schema_match(ObjectsContainer.executions_list, data)
         assert not errors
 
         assert data == []
@@ -99,7 +99,7 @@ class TestStatusAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.executions_list, data)
+        errors = schema_match(ObjectsContainer.executions_list, data)
         assert not errors
 
         assert len(data) == 1

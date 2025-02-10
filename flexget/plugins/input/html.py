@@ -10,7 +10,7 @@ from requests.exceptions import HTTPError
 from flexget import plugin
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.soup import get_soup
 
 logger = logger.bind(name='html')
@@ -86,8 +86,8 @@ class InputHtml:
         get_auth_from_url()
         return config
 
-    @cached('html')
-    @plugin.internet(logger)
+    @Cached('html')
+    @plugin.Internet(logger)
     def on_task_input(self, task, config):
         config = self.build_config(config)
 

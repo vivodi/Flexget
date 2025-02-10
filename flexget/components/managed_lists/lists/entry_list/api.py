@@ -7,7 +7,7 @@ from sqlalchemy.orm.exc import NoResultFound
 
 from flexget.api import APIResource, api
 from flexget.api.app import (
-    Conflict,
+    ConflictError,
     NotFoundError,
     base_message_schema,
     etag,
@@ -102,7 +102,7 @@ class EntryListListsAPI(APIResource):
 
     @api.validate(entry_list_input_object_schema)
     @api.response(201, model=entry_list_object_schema)
-    @api.response(Conflict)
+    @api.response(ConflictError)
     def post(self, session=None):
         """Create a new entry list"""
         data = request.json
@@ -113,7 +113,7 @@ class EntryListListsAPI(APIResource):
         except NoResultFound:
             new_list = True
         if not new_list:
-            raise Conflict(f'list with name \'{name}\' already exists')
+            raise ConflictError(f'list with name \'{name}\' already exists')
         entry_list = db.EntryListList(name=name)
         session.add(entry_list)
         session.commit()
@@ -227,7 +227,7 @@ class EntryListEntriesAPI(APIResource):
     @api.response(
         201, description='Successfully created entry object', model=entry_list_entry_base_schema
     )
-    @api.response(Conflict)
+    @api.response(ConflictError)
     def post(self, list_id, session=None):
         """Create a new entry object"""
         try:
@@ -238,7 +238,7 @@ class EntryListEntriesAPI(APIResource):
         title = data.get('title')
         entry_object = db.get_entry_by_title(list_id=list_id, title=title, session=session)
         if entry_object:
-            raise Conflict(f'entry with title \'{title}\' already exists')
+            raise ConflictError(f'entry with title \'{title}\' already exists')
         entry_object = db.EntryListEntry(entry=data, entry_list_id=list_id)
         session.add(entry_object)
         session.commit()

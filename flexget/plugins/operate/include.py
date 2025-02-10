@@ -6,7 +6,7 @@ from loguru import logger
 from flexget import plugin
 from flexget.config_schema import one_or_more, process_config
 from flexget.event import event
-from flexget.utils.tools import MergeException
+from flexget.utils.tools import MergeError
 
 plugin_name = 'include'
 logger = logger.bind(name=plugin_name)
@@ -52,7 +52,7 @@ class PluginInclude:
             # merge
             try:
                 task.merge_config(include)
-            except MergeException:
+            except MergeError:
                 raise plugin.PluginError(
                     f'Failed to merge include file to task {task.name}, incompatible datatypes'
                 )

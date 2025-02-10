@@ -1,6 +1,6 @@
 import pytest
 
-from flexget.task import TaskAbort
+from flexget.task import TaskAbortError
 
 
 class TestQualityPriority:
@@ -42,6 +42,6 @@ class TestQualityPriority:
         )
 
     def test_invalid_reorder_quality(self, execute_task):
-        with pytest.raises(TaskAbort) as e:
+        with pytest.raises(TaskAbortError) as e:
             execute_task('test_invalid_reorder_quality')
         assert e.value.reason == 'h264=codec and hdtv=source do not have the same quality type'

@@ -20,7 +20,7 @@ class SiteRutracker:
         url = entry['url']
         return url.startswith('https://rutracker.org/forum/viewtopic.php?t=')
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def url_rewrite(self, task, entry):
         """
         Gets torrent information for topic from rutracker api

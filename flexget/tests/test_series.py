@@ -6,7 +6,7 @@ from jinja2 import Template
 from flexget.components.series import db
 from flexget.entry import Entry
 from flexget.manager import Session, get_parser
-from flexget.task import TaskAbort
+from flexget.task import TaskAbortError
 from flexget.terminal import capture_console
 
 
@@ -1290,7 +1290,7 @@ class TestBacklog:
               - test: {timeframe: 6 hours, target: 720p hdtv+}
     """
 
-    def testBacklog(self, manager, execute_task):
+    def test_backlog(self, manager, execute_task):
         """Series plugin: backlog"""
         task = execute_task('backlog')
         assert task.entries, 'no entries at the start'
@@ -1326,7 +1326,7 @@ class TestManipulate:
                   extract: '^PREFIX: (.*)'
     """
 
-    def testManipulate(self, execute_task):
+    def test_manipulate(self, execute_task):
         """Series plugin: test manipulation priority"""
         # should not work with the prefix
         task = execute_task('test_1')
@@ -1527,7 +1527,7 @@ class TestSeriesPremiere:
               - {title: 'Foobar.S02E02.HR-FlexGet'}
     """
 
-    def testOnlyPremieres(self, execute_task):
+    def test_only_premieres(self, execute_task):
         """Test series premiere"""
         task = execute_task('test')
         assert task.find_entry(
@@ -1935,7 +1935,7 @@ class TestAlternateNames:
         )
 
     def test_duplicate_alternate_names_in_different_series(self, execute_task):
-        with pytest.raises(TaskAbort) as ex:
+        with pytest.raises(TaskAbortError) as ex:
             execute_task('duplicate_names_in_different_series')
         # only test that the reason is about alternate names, not which names.
         reason = 'Error adding alternate name'

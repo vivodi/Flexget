@@ -10,7 +10,7 @@ from flexget.components.sites.urlrewriting import UrlRewritingError
 from flexget.components.sites.utils import torrent_availability
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.requests import RequestException, TimedLimiter
 from flexget.utils.soup import get_soup
 
@@ -112,7 +112,7 @@ class Eztv:
             raise plugin.PluginWarning(f'Entry `{entry["title"]}` has no `imdb_id` set')
         yield from self.get_results(task, entry, entry['imdb_id'].lstrip('t'))
 
-    @cached('eztv', persist='2 hours')
+    @Cached('eztv', persist='2 hours')
     def on_task_input(self, task, config=None):
         if not config:
             return

@@ -104,7 +104,7 @@ def db_cleanup(manager, session: DBSession) -> None:
         logger.verbose('Removed {} old input caches.', result)
 
 
-class cached:
+class Cached:
     """
     Implements transparent caching decorator @cached for inputs.
 

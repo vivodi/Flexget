@@ -1,6 +1,6 @@
 import pytest
 
-from flexget.task import TaskAbort
+from flexget.task import TaskAbortError
 
 
 class TestAbortIfExists:
@@ -23,7 +23,7 @@ class TestAbortIfExists:
     """
 
     def test_abort(self, execute_task):
-        with pytest.raises(TaskAbort):
+        with pytest.raises(TaskAbortError):
             execute_task('test_abort')
 
     def test_not_abort(self, execute_task):

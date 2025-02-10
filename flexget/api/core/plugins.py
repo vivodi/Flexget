@@ -7,7 +7,7 @@ from loguru import logger
 from sqlalchemy.orm import Session
 
 from flexget.api import APIResource, api
-from flexget.api.app import BadRequest, NotFoundError, etag, pagination_headers
+from flexget.api.app import BadRequestError, NotFoundError, etag, pagination_headers
 from flexget.plugin import DependencyError, get_plugin_by_name, get_plugins
 
 logger = logger.bind(name='plugins')
@@ -99,7 +99,7 @@ def plugin_to_dict(plugin) -> 'PluginDict':
 class PluginsAPI(APIResource):
     @etag(cache_age=3600)
     @api.response(200, model=plugin_list_reply_schema)
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     @api.response(NotFoundError)
     @api.doc(expect=[plugins_parser])
     def get(self, session: Session = None) -> Response:
@@ -124,7 +124,7 @@ class PluginsAPI(APIResource):
                     p['schema'] = plugin.schema
                 plugin_list.append(p)
         except ValueError as e:
-            raise BadRequest(str(e))
+            raise BadRequestError(str(e))
 
         total_items = len(plugin_list)
 
@@ -152,7 +152,7 @@ class PluginsAPI(APIResource):
 @plugins_api.route('/<string:plugin_name>/')
 class PluginAPI(APIResource):
     @etag(cache_age=3600)
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     @api.response(200, model=plugin_schema)
     @api.doc(expect=[plugin_parser], params={'plugin_name': 'Name of the plugin to return'})
     def get(self, plugin_name: str, session=None):
@@ -161,7 +161,7 @@ class PluginAPI(APIResource):
         try:
             plugin = get_plugin_by_name(plugin_name, issued_by='plugins API')
         except DependencyError as e:
-            raise BadRequest(e.message)
+            raise BadRequestError(e.message)
         p = plugin_to_dict(plugin)
         if args['include_schema']:
             p['schema'] = plugin.schema

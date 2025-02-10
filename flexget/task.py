@@ -32,7 +32,7 @@ from flexget.utils.database import with_session
 from flexget.utils.simple_persistence import SimpleTaskPersistence
 from flexget.utils.sqlalchemy_utils import ContextSession
 from flexget.utils.template import FlexGetTemplate, render_from_task
-from flexget.utils.tools import MergeException, get_config_hash, merge_dict_from_to
+from flexget.utils.tools import MergeError, get_config_hash, merge_dict_from_to
 
 logger = logger.bind(name='task')
 
@@ -159,13 +159,13 @@ class EntryContainer(list):
         return f'<EntryContainer({list.__repr__(self)})>'
 
 
-class TaskAbort(Exception):
+class TaskAbortError(Exception):
     def __init__(self, reason: str, silent: bool = False) -> None:
         self.reason = reason
         self.silent = silent
 
     def __repr__(self):
-        return f'TaskAbort(reason={self.reason}, silent={self.silent})'
+        return f'TaskAbortError(reason={self.reason}, silent={self.silent})'
 
 
 @total_ordering
@@ -420,7 +420,7 @@ class Task:
             logger.warning('Aborting task (plugin: {})', self.current_plugin)
         else:
             logger.debug('Aborting task (plugin: {})', self.current_plugin)
-        raise TaskAbort(reason, silent=silent)
+        raise TaskAbortError(reason, silent=silent)
 
     def find_entry(self, category='entries', **values):
         """
@@ -549,7 +549,7 @@ class Task:
             if isinstance(result, collections.abc.Iterable):
                 result = list(result)
             return result
-        except TaskAbort:
+        except TaskAbortError:
             raise
         except PluginWarning as warn:
             # check if this warning should be logged only once (may keep repeating)
@@ -609,7 +609,7 @@ class Task:
     def merge_config(self, new_config):
         try:
             merge_dict_from_to(new_config, self.config)
-        except MergeException as e:
+        except MergeError as e:
             raise PluginError(f'Failed to merge configs for task {self.name}: {e}')
 
     def check_config_hash(self):
@@ -686,10 +686,10 @@ class Task:
                 if phase == 'start':
                     # Store a copy of the config state after start phase to restore for reruns
                     self.prepared_config = copy.deepcopy(self.config)
-        except TaskAbort:
+        except TaskAbortError:
             try:
                 self.__run_task_phase('abort')
-            except TaskAbort as e:
+            except TaskAbortError as e:
                 logger.exception('abort handlers aborted: {}', e)
             raise
 

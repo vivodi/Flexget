@@ -5,7 +5,7 @@ from requests import RequestException
 from flexget import plugin
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.soup import get_soup
 
 try:
@@ -94,8 +94,8 @@ class InputSceper:
 
         return releases
 
-    @cached('sceper')
-    @plugin.internet(logger)
+    @Cached('sceper')
+    @plugin.Internet(logger)
     def on_task_input(self, task, config):
         releases = self.parse_site(config, task)
         return [Entry(release) for release in releases]

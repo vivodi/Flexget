@@ -89,7 +89,7 @@ class TelegramInput:
         'additionalProperties': False,
     }
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def on_task_input(self, task, config):
         # Load The Configs
         token = config['token']

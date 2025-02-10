@@ -11,7 +11,13 @@ from sqlalchemy.orm import Session
 from werkzeug.security import check_password_hash
 
 from flexget.api import api_app
-from flexget.api.app import APIResource, Unauthorized, api, base_message_schema, success_response
+from flexget.api.app import (
+    APIResource,
+    UnauthorizedError,
+    api,
+    base_message_schema,
+    success_response,
+)
 from flexget.utils.database import with_session
 from flexget.webserver import User
 
@@ -93,7 +99,7 @@ login_parser.add_argument(
 @auth_api.route('/login/')
 class LoginAPI(APIResource):
     @api.validate(login_api_schema, description='Username and Password')
-    @api.response(Unauthorized)
+    @api.response(UnauthorizedError)
     @api.response(200, 'Login successful', model=base_message_schema)
     @api.doc(expect=[login_parser])
     def post(self, session: Session = None) -> Response:
@@ -106,7 +112,7 @@ class LoginAPI(APIResource):
             user = session.query(User).filter(User.name == user_name.lower()).first()
             if user:
                 if user_name == 'flexget' and not user.password:
-                    raise Unauthorized(
+                    raise UnauthorizedError(
                         'If this is your first time running the WebUI you need to set a password via'
                         ' the command line by running `flexget web passwd <new_password>`'
                     )
@@ -116,7 +122,7 @@ class LoginAPI(APIResource):
                     login_user(user, remember=args['remember'])
                     return success_response('user logged in')
 
-        raise Unauthorized('Invalid username or password')
+        raise UnauthorizedError('Invalid username or password')
 
 
 @auth_api.route('/logout/')

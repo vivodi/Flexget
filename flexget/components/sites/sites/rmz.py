@@ -57,7 +57,7 @@ class UrlRewriteRmz:
         rewritable_regex = r'^https?:\/\/(www.)?(rmz\.cr|rapidmoviez\.(com|eu))\/.*'
         return re.match(rewritable_regex, url) is not None
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     # urlrewriter API
     def url_rewrite(self, task, entry):
         try:

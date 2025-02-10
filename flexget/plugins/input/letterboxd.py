@@ -5,7 +5,7 @@ from loguru import logger
 from flexget import plugin
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.requests import RequestException, Session, TimedLimiter
 from flexget.utils.soup import get_soup
 
@@ -109,7 +109,7 @@ class Letterboxd:
 
         return entry
 
-    @cached('letterboxd', persist='2 hours')
+    @Cached('letterboxd', persist='2 hours')
     def on_task_input(self, task, config=None):
         config = self.build_config(config)
         url = base_url + config['p_slug'] + config['sort_by']

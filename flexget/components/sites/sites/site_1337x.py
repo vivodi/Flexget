@@ -72,7 +72,7 @@ class Site1337x:
         entry.setdefault('urls', []).append(torrent_url)
         entry['urls'].append(magnet_url)
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config):
         """
         Search for entries on 1337x

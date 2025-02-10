@@ -213,7 +213,7 @@ def get_api_url(*endpoint):
 @db_schema.upgrade('api_trakt')
 def upgrade(ver, session):
     if ver is None or ver <= 6:
-        raise db_schema.UpgradeImpossible
+        raise db_schema.UpgradeImpossibleError
     return ver
 
 

@@ -3,7 +3,7 @@ from flask_restx import inputs
 
 from flexget.api import APIResource, api
 from flexget.api.app import (
-    BadRequest,
+    BadRequestError,
     NotFoundError,
     base_message_schema,
     empty_response,
@@ -46,13 +46,13 @@ return_schema = api.schema_model('irc.connections', ObjectsContainer.return_resp
 class IRCStatus(APIResource):
     @api.response(200, model=return_schema)
     @api.response(NotFoundError)
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     def get(self, session=None):
         """Returns status of IRC connections"""
         from .irc import irc_manager
 
         if irc_manager is None:
-            raise BadRequest('IRC daemon does not appear to be running')
+            raise BadRequestError('IRC daemon does not appear to be running')
 
         args = irc_parser.parse_args()
         name = args.get('name')
@@ -71,7 +71,7 @@ class IRCEnums(APIResource):
         try:
             from irc_bot import simple_irc_bot
         except ImportError:
-            raise BadRequest('irc_bot dep is not installed')
+            raise BadRequestError('irc_bot dep is not installed')
         return jsonify(simple_irc_bot.IRCChannelStatus().enum_dict)
 
 
@@ -80,13 +80,13 @@ class IRCEnums(APIResource):
 class IRCRestart(APIResource):
     @api.response(200, model=base_message_schema)
     @api.response(NotFoundError)
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     def get(self, session=None):
         """Restarts IRC connections"""
         from .irc import irc_manager
 
         if irc_manager is None:
-            raise BadRequest('IRC daemon does not appear to be running')
+            raise BadRequestError('IRC daemon does not appear to be running')
 
         args = irc_parser.parse_args()
         connection = args.get('name')
@@ -108,13 +108,13 @@ irc_stop_parser.add_argument(
 class IRCStop(APIResource):
     @api.response(200, model=base_message_schema)
     @api.response(NotFoundError)
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     def get(self, session=None):
         """Stops IRC connections"""
         from .irc import irc_manager
 
         if irc_manager is None:
-            raise BadRequest('IRC daemon does not appear to be running')
+            raise BadRequestError('IRC daemon does not appear to be running')
 
         args = irc_stop_parser.parse_args()
         name = args.get('name')

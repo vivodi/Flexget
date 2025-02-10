@@ -108,7 +108,7 @@ class UrlRewriteSolidTorrents:
                 raise UrlRewritingError(f"Torrent with ID {torrent_id} does not exist.")
             entry['url'] = json_result['result']['rating']['magnet']
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config=None):
         """
         Search for name from solidtorrents.

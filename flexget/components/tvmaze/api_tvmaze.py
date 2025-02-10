@@ -42,7 +42,7 @@ TVMAZE_SEASONS = '/shows/{}/seasons'
 @db_schema.upgrade('tvmaze')
 def upgrade(ver, session):
     if ver is None or ver < 7:
-        raise db_schema.UpgradeImpossible
+        raise db_schema.UpgradeImpossibleError
     return ver
 
 

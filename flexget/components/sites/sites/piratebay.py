@@ -128,7 +128,7 @@ class UrlRewritePirateBay:
                 raise UrlRewritingError(f'Torrent with ID {torrent_id} does not exist.')
             entry['url'] = self.info_hash_to_magnet(json_result['info_hash'], json_result['name'])
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config=None):
         """
         Search for name from piratebay.

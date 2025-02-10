@@ -2,7 +2,7 @@ from typing import Any, Callable
 
 import pytest
 
-from flexget.task import Task, TaskAbort
+from flexget.task import Task, TaskAbortError
 
 from .test_sftp_server import TestSFTPFileSystem, TestSFTPServerController
 
@@ -86,7 +86,7 @@ class TestSftpList:
     ):
         sftp.start(username='foo', password='bar')
 
-        with pytest.raises(TaskAbort) as ex:
+        with pytest.raises(TaskAbortError) as ex:
             execute_task('sftp_list_bad_login')
 
         assert ex.value.reason == 'Failed to connect to 127.0.0.1'

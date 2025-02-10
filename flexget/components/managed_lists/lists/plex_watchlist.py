@@ -92,9 +92,9 @@ class PlexManagedWatchlist(MutableSet):
 
     @property
     def account(self) -> "MyPlexAccount":
-        MyPlexAccount = import_plexaccount()
+        my_plex_account = import_plexaccount()
         if self._account is None:
-            self._account = MyPlexAccount(self.username, self.password, self.token)
+            self._account = my_plex_account(self.username, self.password, self.token)
         return self._account
 
     @property
@@ -194,7 +194,7 @@ class PlexWatchlist:
     def get_list(self, config):
         return PlexManagedWatchlist(**config)
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def on_task_input(self, task, config):
         yaml_list = PlexManagedWatchlist(**config)
         yield from yaml_list

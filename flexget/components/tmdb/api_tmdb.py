@@ -78,7 +78,7 @@ def tmdb_request(endpoint, **params):
 @db_schema.upgrade('api_tmdb')
 def upgrade(ver, session):
     if ver is None or ver <= 5:
-        raise db_schema.UpgradeImpossible
+        raise db_schema.UpgradeImpossibleError
     return ver
 
 

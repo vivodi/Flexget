@@ -7,7 +7,7 @@ from requests import RequestException
 from flexget import plugin
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.soup import get_soup
 
 logger = logger.bind(name='myepisodes_list')
@@ -41,8 +41,8 @@ class MyEpisodesList:
         'additionalProperties': False,
     }
 
-    @cached('myepisodes_list')
-    @plugin.internet(logger)
+    @Cached('myepisodes_list')
+    @plugin.Internet(logger)
     def on_task_input(self, task, config):
         if not task.requests.cookies:
             username = config['username']

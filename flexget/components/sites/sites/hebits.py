@@ -90,7 +90,7 @@ class SearchHeBits:
             'passkey': passkey,
         }
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config):
         """Search for entries on HeBits"""
 

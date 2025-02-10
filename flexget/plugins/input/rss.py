@@ -14,7 +14,7 @@ from flexget import plugin
 from flexget.config_schema import one_or_more
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.pathscrub import pathscrub
 from flexget.utils.tools import decode_html
 
@@ -219,8 +219,8 @@ class InputRSS:
             entry['filename'] = basename
             logger.trace('filename `{}` from enclosure', entry['filename'])
 
-    @cached('rss')
-    @plugin.internet(logger)
+    @Cached('rss')
+    @plugin.Internet(logger)
     def on_task_input(self, task, config):
         config = self.build_config(config)
 

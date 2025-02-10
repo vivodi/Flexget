@@ -61,12 +61,12 @@ class JsonRpcClient(RpcClient):
             del req_params['params']
         return req_params
 
-    def _default_error_handle(code, message):
-        logger.critical('Fault code {} message {}', code, message)
-        raise plugin.PluginError(f'Fault code {code} message {message}', logger)
+    def _default_error_handle(self, message):
+        logger.critical('Fault code {} message {}', self, message)
+        raise plugin.PluginError(f'Fault code {self} message {message}', logger)
 
-    def _default_success_handle(response):
-        return response.text
+    def _default_success_handle(self):
+        return self.text
 
     def _post(
         self, method, params, on_success=_default_success_handle, on_fail=_default_error_handle

@@ -92,7 +92,7 @@ class NfoLookup:
         try:
             nfo_reader = NfoReader(nfo_filename)
             fields = nfo_reader.get_fields_from_nfo_file()
-        except BadXmlFile:
+        except BadXmlFileError:
             logger.warning("Invalid '.nfo' file for entry {}", entry.get('title'))
             return
 
@@ -132,7 +132,7 @@ class NfoLookup:
         return None
 
 
-class BadXmlFile(Exception):
+class BadXmlFileError(Exception):
     """
     Exception that is raised if the nfo file can't be parsed due to some invalid nfo file.
     """
@@ -154,13 +154,13 @@ class NfoReader:
             tree = ET.parse(filename)
             root = tree.getroot()
         except ET.ParseError:
-            raise BadXmlFile
+            raise BadXmlFileError
 
         if os.path.exists(filename):
             self._nfo_filename = filename
             self._root = root
         else:
-            raise BadXmlFile
+            raise BadXmlFileError
 
         # Each key in the dictionary correspond to a field that should be read from the nfo file. The values are a tuple
         # with a boolean and a callable. The boolean indicates if the field can appear multiple times, while the

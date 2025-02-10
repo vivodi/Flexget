@@ -4,7 +4,7 @@ from flexget import plugin
 from flexget.config_schema import one_or_more
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.requests import RequestException
 
 logger = logger.bind(name='kitsu')
@@ -50,7 +50,7 @@ class KitsuAnime:
         'additionalProperties': False,
     }
 
-    @cached('kitsu', persist='2 hours')
+    @Cached('kitsu', persist='2 hours')
     def on_task_input(self, task, config):
         user_id = self._resolve_user_id(task, config)
         next_url = f'https://kitsu.io/api/edge/users/{user_id}/library-entries'
@@ -97,8 +97,8 @@ class KitsuAnime:
 
                 types = config.get('type')
                 if types is not None:
-                    subType = anime['attributes']['subtype']
-                    if subType is None or subType.lower() not in types:
+                    sub_type = anime['attributes']['subtype']
+                    if sub_type is None or sub_type.lower() not in types:
                         continue
 
                 entry = Entry()

@@ -2,7 +2,7 @@ import copy
 from datetime import datetime
 
 from flexget.api.app import base_message
-from flexget.components.rejected.api import ObjectsContainer as OC
+from flexget.components.rejected.api import ObjectsContainer
 from flexget.components.rejected.db import RememberEntry, RememberTask
 from flexget.manager import Session
 from flexget.utils import json
@@ -44,7 +44,7 @@ class TestRejectedAPI:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.rejected_entries_list_object, data)
+        errors = schema_match(ObjectsContainer.rejected_entries_list_object, data)
         assert not errors
 
     def test_rejected_get_all(self, api_client, schema_match):
@@ -55,10 +55,10 @@ class TestRejectedAPI:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.rejected_entries_list_object, data)
+        errors = schema_match(ObjectsContainer.rejected_entries_list_object, data)
         assert not errors
 
-        errors = schema_match(OC.rejected_entry_object, data[0])
+        errors = schema_match(ObjectsContainer.rejected_entry_object, data[0])
         assert not errors
 
         values = {
@@ -80,7 +80,7 @@ class TestRejectedAPI:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.rejected_entry_object, data[0])
+        errors = schema_match(ObjectsContainer.rejected_entry_object, data[0])
         assert not errors
 
         rsp = api_client.delete('/rejected/')
@@ -102,7 +102,7 @@ class TestRejectedAPI:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.rejected_entry_object, data)
+        errors = schema_match(ObjectsContainer.rejected_entry_object, data)
         assert not errors
 
         values = {
@@ -131,7 +131,7 @@ class TestRejectedAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.rejected_entry_object, data)
+        errors = schema_match(ObjectsContainer.rejected_entry_object, data)
         assert not errors
 
         rsp = api_client.delete('/rejected/1/')

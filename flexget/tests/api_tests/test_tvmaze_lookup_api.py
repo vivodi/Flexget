@@ -1,7 +1,7 @@
 import pytest
 
 from flexget.api.app import base_message
-from flexget.components.tvmaze.api import ObjectsContainer as OC
+from flexget.components.tvmaze.api import ObjectsContainer
 from flexget.utils import json
 
 
@@ -28,7 +28,7 @@ class TestTVMAzeSeriesLookupAPI:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.tvmaze_series_object, data)
+        errors = schema_match(ObjectsContainer.tvmaze_series_object, data)
         assert not errors
 
         for field, value in values.items():
@@ -48,7 +48,7 @@ class TestTVMAzeSeriesLookupAPI:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.tvmaze_series_object, data)
+        errors = schema_match(ObjectsContainer.tvmaze_series_object, data)
         assert not errors
 
         values = {
@@ -72,7 +72,7 @@ class TestTVMAzeSeriesLookupAPI:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.tvmaze_episode_object, data)
+        errors = schema_match(ObjectsContainer.tvmaze_episode_object, data)
         assert not errors
 
         values = {
@@ -94,7 +94,7 @@ class TestTVMAzeSeriesLookupAPI:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.tvmaze_episode_object, data)
+        errors = schema_match(ObjectsContainer.tvmaze_episode_object, data)
         assert not errors
 
         values = {

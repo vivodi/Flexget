@@ -3,7 +3,7 @@ from loguru import logger
 from flexget import options, plugin
 from flexget.config_schema import register_config_key
 from flexget.event import event
-from flexget.utils.tools import MergeException
+from flexget.utils.tools import MergeError
 
 plugin_name = 'template'
 logger = logger.bind(name=plugin_name)
@@ -107,7 +107,7 @@ class PluginTemplate:
             # Merge
             try:
                 task.merge_config(template_config)
-            except MergeException as exc:
+            except MergeError as exc:
                 raise plugin.PluginError(
                     f'Failed to merge template {template} to task {task.name}. Error: {exc.value}'
                 )

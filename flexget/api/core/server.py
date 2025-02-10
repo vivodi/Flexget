@@ -41,7 +41,7 @@ from flexget._version import __version__
 from flexget.api import APIResource, api
 from flexget.api.app import (
     APIError,
-    BadRequest,
+    BadRequestError,
     base_message,
     base_message_schema,
     empty_response,
@@ -199,7 +199,7 @@ class ServerRawConfigAPI(APIResource):
 
     @api.validate(raw_config_schema)
     @api.response(200, model=base_message_schema, description='Successfully updated config')
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     @api.response(APIError)
     @api.doc(
         description='Config file must be base64 encoded. A backup will be created, and if successful config will'
@@ -212,7 +212,7 @@ class ServerRawConfigAPI(APIResource):
         try:
             raw_config = base64.b64decode(data['raw_config'])
         except (TypeError, binascii.Error):
-            raise BadRequest(message='payload was not a valid base64 encoded string')
+            raise BadRequestError(message='payload was not a valid base64 encoded string')
 
         try:
             config = yaml.safe_load(raw_config)
@@ -225,13 +225,13 @@ class ServerRawConfigAPI(APIResource):
                     error.update({'line': e.context_mark.line, 'column': e.context_mark.column})
                 if e.problem_mark is not None:
                     error.update({'line': e.problem_mark.line, 'column': e.problem_mark.column})
-                raise BadRequest(message='Invalid YAML syntax', payload=error)
+                raise BadRequestError(message='Invalid YAML syntax', payload=error)
 
         try:
             backup_path = self.manager.update_config(config)
         except ConfigError as e:
             errors = [{'error': er.message, 'config_path': er.json_pointer} for er in e.errors]
-            raise BadRequest(
+            raise BadRequestError(
                 message=f'Error loading config: {e.args[0]}', payload={'errors': errors}
             )
 
@@ -280,13 +280,13 @@ class ServerDumpThreads(APIResource):
         """Dump Server threads for debugging"""
         id2name = {th.ident: th.name for th in threading.enumerate()}
         threads = []
-        for threadId, stack in sys._current_frames().items():
+        for thread_id, stack in sys._current_frames().items():
             dump = []
             for filename, lineno, name, line in traceback.extract_stack(stack):
                 dump.append(f'File: "{filename}", line {lineno}, in {name}')
                 if line:
                     dump.append(line.strip())
-            threads.append({'name': id2name.get(threadId), 'id': threadId, 'dump': dump})
+            threads.append({'name': id2name.get(thread_id), 'id': thread_id, 'dump': dump})
 
         return jsonify(threads=threads)
 

@@ -96,9 +96,9 @@ class TestSortBy:
               dict_field: {a: 2, b: 0}
     """
 
-    def generate_test_ids(param):
-        if param[0:5] == 'test_' or not isinstance(param, list):
-            return param
+    def generate_test_ids(self):
+        if self[0:5] == 'test_' or not isinstance(self, list):
+            return self
         return '|'
 
     @pytest.mark.parametrize(

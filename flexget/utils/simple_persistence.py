@@ -52,7 +52,7 @@ def upgrade(ver, session):
             logger.warning(
                 "Couldn't upgrade the simple_persistence table. Commencing nuke. Error: {}", e
             )
-            raise db_schema.UpgradeImpossible
+            raise db_schema.UpgradeImpossibleError
         ver = 1
     if ver == 1:
         logger.info('Creating index on simple_persistence table.')

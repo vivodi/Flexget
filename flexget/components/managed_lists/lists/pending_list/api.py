@@ -7,8 +7,8 @@ from sqlalchemy.orm.exc import NoResultFound
 
 from flexget.api import APIResource, api
 from flexget.api.app import (
-    BadRequest,
-    Conflict,
+    BadRequestError,
+    ConflictError,
     NotFoundError,
     base_message_schema,
     etag,
@@ -137,7 +137,7 @@ class PendingListListsAPI(APIResource):
 
     @api.validate(pending_list_input_object_schema)
     @api.response(201, model=pending_list_object_schema)
-    @api.response(Conflict)
+    @api.response(ConflictError)
     def post(self, session=None):
         """Create a new pending list"""
         data = request.json
@@ -148,7 +148,7 @@ class PendingListListsAPI(APIResource):
         except NoResultFound:
             pass
         else:
-            raise Conflict(f'list with name \'{name}\' already exists')
+            raise ConflictError(f'list with name \'{name}\' already exists')
 
         pending_list = db.PendingListList()
         pending_list.name = name
@@ -268,7 +268,7 @@ class PendingListEntriesAPI(APIResource):
     @api.response(
         201, description='Successfully created entry object', model=pending_list_entry_base_schema
     )
-    @api.response(Conflict)
+    @api.response(ConflictError)
     def post(self, list_id, session=None):
         """Create a new entry object"""
         try:
@@ -279,7 +279,7 @@ class PendingListEntriesAPI(APIResource):
         title = data.get('title')
         entry_object = db.get_entry_by_title(list_id=list_id, title=title, session=session)
         if entry_object:
-            raise Conflict(f'entry with title \'{title}\' already exists')
+            raise ConflictError(f'entry with title \'{title}\' already exists')
         entry_object = db.PendingListEntry(entry=data, pending_list_id=list_id)
         if data.get('approved'):
             entry_object.approved = data['approved']
@@ -376,7 +376,7 @@ class PendingListEntryAPI(APIResource):
         approved = data['operation'] == 'approve'
         operation_text = 'approved' if approved else 'pending'
         if entry.approved is approved:
-            raise BadRequest(f'Entry with id {entry_id} is already {operation_text}')
+            raise BadRequestError(f'Entry with id {entry_id} is already {operation_text}')
 
         entry.approved = approved
         session.commit()

@@ -6,7 +6,7 @@ from flexget import plugin
 from flexget.entry import Entry
 from flexget.event import event
 from flexget.utils import json
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.requests import RequestException, TimedLimiter
 from flexget.utils.tools import split_title_year
 
@@ -505,7 +505,7 @@ class TraktList:
         return TraktSet(config)
 
     # TODO: we should somehow invalidate this cache when the list is modified
-    @cached('trakt_list', persist='2 hours')
+    @Cached('trakt_list', persist='2 hours')
     def on_task_input(self, task, config):
         # We use the generator here rather than the cached list in case limit plugin is used.
         return TraktSet(config).get_items()

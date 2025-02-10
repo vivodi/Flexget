@@ -3,7 +3,7 @@ from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from flexget.api import APIResource, api
-from flexget.api.app import BadRequest, base_message_schema, success_response
+from flexget.api.app import BadRequestError, base_message_schema, success_response
 from flexget.db_schema import plugin_schemas, reset_schema
 
 db_api = api.namespace('database', description='Manage Flexget DB')
@@ -46,14 +46,14 @@ class DBOperation(APIResource):
         elif operation == 'plugin_reset':
             plugin_name = data.get('plugin_name')
             if not plugin_name:
-                raise BadRequest(
+                raise BadRequestError(
                     "'plugin_name' attribute must be used when trying to reset plugin"
                 )
             try:
                 reset_schema(plugin_name)
                 msg = f'Plugin {plugin_name} DB reset was successful'
             except ValueError:
-                raise BadRequest(f'The plugin {plugin_name} has no stored schema to reset')
+                raise BadRequestError(f'The plugin {plugin_name} has no stored schema to reset')
         return success_response(msg)
 
 

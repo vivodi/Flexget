@@ -1,5 +1,5 @@
 from flexget.api.app import base_message
-from flexget.components.history.api import ObjectsContainer as OC
+from flexget.components.history.api import ObjectsContainer
 from flexget.components.history.db import History
 from flexget.manager import Session
 from flexget.utils import json
@@ -13,7 +13,7 @@ class TestHistoryAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.history_list_object, data)
+        errors = schema_match(ObjectsContainer.history_list_object, data)
         assert not errors
 
         assert data == []
@@ -37,7 +37,7 @@ class TestHistoryAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.history_list_object, data)
+        errors = schema_match(ObjectsContainer.history_list_object, data)
         assert not errors
 
         for key, value in history_entry.items():
@@ -47,7 +47,7 @@ class TestHistoryAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.history_list_object, data)
+        errors = schema_match(ObjectsContainer.history_list_object, data)
         assert not errors
 
         for key, value in history_entry.items():
@@ -57,7 +57,7 @@ class TestHistoryAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.history_list_object, data)
+        errors = schema_match(ObjectsContainer.history_list_object, data)
         assert not errors
 
         assert data == []
@@ -87,7 +87,7 @@ class TestHistoryPaginationAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.history_list_object, data)
+        errors = schema_match(ObjectsContainer.history_list_object, data)
         assert not errors
 
         assert len(data) == 50  # Default page size
@@ -102,7 +102,7 @@ class TestHistoryPaginationAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.history_list_object, data)
+        errors = schema_match(ObjectsContainer.history_list_object, data)
         assert not errors
 
         assert len(data) == 100
@@ -117,7 +117,7 @@ class TestHistoryPaginationAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.history_list_object, data)
+        errors = schema_match(ObjectsContainer.history_list_object, data)
         assert not errors
 
         assert len(data) == 100
@@ -126,7 +126,7 @@ class TestHistoryPaginationAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.history_list_object, data)
+        errors = schema_match(ObjectsContainer.history_list_object, data)
         assert not errors
 
         assert data[0]['task'] == 'test_task_50'
@@ -182,7 +182,7 @@ class TestHistoryPaginationAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.history_list_object, data)
+        errors = schema_match(ObjectsContainer.history_list_object, data)
         assert not errors
 
         assert data[0]['id'] == 3
@@ -193,7 +193,7 @@ class TestHistoryPaginationAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.history_list_object, data)
+        errors = schema_match(ObjectsContainer.history_list_object, data)
         assert not errors
 
         assert data[0]['task'] == 'test_task_1'
@@ -202,7 +202,7 @@ class TestHistoryPaginationAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.history_list_object, data)
+        errors = schema_match(ObjectsContainer.history_list_object, data)
         assert not errors
 
         assert data[0]['details'] == 'test_details_3'
@@ -211,7 +211,7 @@ class TestHistoryPaginationAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.history_list_object, data)
+        errors = schema_match(ObjectsContainer.history_list_object, data)
         assert not errors
 
         assert len(data) == 2
@@ -222,7 +222,7 @@ class TestHistoryPaginationAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.history_list_object, data)
+        errors = schema_match(ObjectsContainer.history_list_object, data)
         assert not errors
 
         assert len(data) == 1

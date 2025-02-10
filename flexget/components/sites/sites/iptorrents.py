@@ -127,7 +127,7 @@ class UrlRewriteIPTorrents:
             # TODO: Search doesn't enforce close match to title, be more picky
             entry['url'] = results[0]['url']
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config=None):
         """
         Search for name from iptorrents.

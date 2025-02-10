@@ -1,7 +1,7 @@
 import pytest
 from jinja2 import Template
 
-from flexget.task import TaskAbort
+from flexget.task import TaskAbortError
 from flexget.utils import qualities
 
 
@@ -126,7 +126,7 @@ class TestAssumeQuality:
         assert entry.get('quality') == qualities.Quality('720p h264 flac')
 
     def test_invalid_target(self, execute_task):
-        with pytest.raises(TaskAbort):
+        with pytest.raises(TaskAbortError):
             execute_task('test_invalid_target')
 
     def test_with_series(self, execute_task):

@@ -2,7 +2,7 @@ import pytest
 
 from flexget.api.app import base_message
 from flexget.components.seen.db import SeenEntry
-from flexget.components.series.api import ObjectsContainer as OC
+from flexget.components.series.api import ObjectsContainer
 
 # TODO: would be nicer to import db module
 from flexget.components.series.db import (
@@ -14,8 +14,8 @@ from flexget.components.series.db import (
     Series,
     SeriesTask,
 )
-from flexget.components.thetvdb.api import ObjectsContainer as tvdb
-from flexget.components.tvmaze.api import ObjectsContainer as tvmaze
+from flexget.components.thetvdb.api import ObjectsContainer as TvdbObjectsContainer
+from flexget.components.tvmaze.api import ObjectsContainer as TvmazeObjectsContainer
 from flexget.manager import Session
 from flexget.utils import json
 
@@ -31,7 +31,7 @@ class TestSeriesRootAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         assert data == []
@@ -48,11 +48,11 @@ class TestSeriesRootAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         show = data[0]
-        errors = schema_match(OC.single_series_object, show)
+        errors = schema_match(ObjectsContainer.single_series_object, show)
         assert not errors
 
         assert show['name'] == 'test series'
@@ -68,7 +68,7 @@ class TestSeriesRootAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         assert data == []
@@ -78,11 +78,11 @@ class TestSeriesRootAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         show = data[0]
-        errors = schema_match(OC.single_series_object, show)
+        errors = schema_match(ObjectsContainer.single_series_object, show)
         assert not errors
 
         assert len(data) == 1
@@ -102,11 +102,11 @@ class TestSeriesRootAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         show = data[0]
-        errors = schema_match(OC.single_series_object, show)
+        errors = schema_match(ObjectsContainer.single_series_object, show)
         assert not errors
 
         assert len(data) == 1
@@ -117,7 +117,7 @@ class TestSeriesRootAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         assert len(data) == 2
@@ -151,7 +151,7 @@ class TestSeriesRootAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         assert len(data) == 1
@@ -161,7 +161,7 @@ class TestSeriesRootAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         assert len(data) == 0
@@ -192,7 +192,7 @@ class TestSeriesRootAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         assert len(data) == 1
@@ -213,7 +213,7 @@ class TestSeriesRootAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         assert len(data) == 2
@@ -221,12 +221,12 @@ class TestSeriesRootAPI:
         for show in data:
             tvdb_lookup = show['lookup']['tvdb']
             assert tvdb_lookup
-            errors = schema_match(tvdb.tvdb_series_object, tvdb_lookup)
+            errors = schema_match(TvdbObjectsContainer.tvdb_series_object, tvdb_lookup)
             assert not errors
 
             tvmaze_lookup = show['lookup']['tvmaze']
             assert tvmaze_lookup
-            errors = schema_match(tvmaze.tvmaze_series_object, tvmaze_lookup)
+            errors = schema_match(TvmazeObjectsContainer.tvmaze_series_object, tvmaze_lookup)
             assert not errors
 
     def test_series_post(self, api_client, schema_match):
@@ -237,7 +237,7 @@ class TestSeriesRootAPI:
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.single_series_object, data)
+        errors = schema_match(ObjectsContainer.single_series_object, data)
         assert not errors
 
         # Try to add again
@@ -269,7 +269,7 @@ class TestSeriesRootAPI:
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.single_series_object, data)
+        errors = schema_match(ObjectsContainer.single_series_object, data)
         assert not errors
 
         assert data['name'] == payload3['name']
@@ -306,7 +306,7 @@ class TestSeriesSearchAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         assert len(data) == 2
@@ -315,7 +315,7 @@ class TestSeriesSearchAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         assert len(data) == 1
@@ -324,7 +324,7 @@ class TestSeriesSearchAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         assert len(data) == 0
@@ -345,7 +345,7 @@ class TestSeriesSingleAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.single_series_object, data)
+        errors = schema_match(ObjectsContainer.single_series_object, data)
         assert not errors
 
         assert data['name'] == 'test series1'
@@ -401,7 +401,7 @@ class TestSeriesSingleAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.single_series_object, data)
+        errors = schema_match(ObjectsContainer.single_series_object, data)
         assert not errors
 
         assert data['begin_episode']['identifier'].lower() == payload1['begin_episode']
@@ -481,7 +481,7 @@ class TestSeriesSeasonsAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.seasons_list_schema, data)
+        errors = schema_match(ObjectsContainer.seasons_list_schema, data)
         assert not errors
 
         assert len(data) == 2
@@ -498,7 +498,7 @@ class TestSeriesSeasonsAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.seasons_list_schema, data)
+        errors = schema_match(ObjectsContainer.seasons_list_schema, data)
         assert not errors
 
         assert len(data) == 0
@@ -547,7 +547,7 @@ class TestSeriesSeasonAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.season_object, data)
+        errors = schema_match(ObjectsContainer.season_object, data)
         assert not errors
 
         assert data['identifier'] == 'S01'
@@ -655,7 +655,7 @@ class TestSeriesSeasonReleasesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.season_release_list_schema, data)
+        errors = schema_match(ObjectsContainer.season_release_list_schema, data)
         assert not errors
 
         assert len(data) == 2
@@ -665,7 +665,7 @@ class TestSeriesSeasonReleasesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.season_release_list_schema, data)
+        errors = schema_match(ObjectsContainer.season_release_list_schema, data)
         assert not errors
 
         assert len(data) == 1
@@ -676,7 +676,7 @@ class TestSeriesSeasonReleasesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.season_release_list_schema, data)
+        errors = schema_match(ObjectsContainer.season_release_list_schema, data)
         assert not errors
 
         assert len(data) == 1
@@ -720,7 +720,7 @@ class TestSeriesSeasonReleasesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.season_release_list_schema, data)
+        errors = schema_match(ObjectsContainer.season_release_list_schema, data)
         assert not errors
 
         assert len(data) == 1
@@ -737,7 +737,7 @@ class TestSeriesSeasonReleasesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.season_release_list_schema, data)
+        errors = schema_match(ObjectsContainer.season_release_list_schema, data)
         assert not errors
 
         assert len(data) == 0
@@ -780,7 +780,7 @@ class TestSeriesSeasonReleasesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.season_release_list_schema, data)
+        errors = schema_match(ObjectsContainer.season_release_list_schema, data)
         assert not errors
 
         assert len(data) == 0
@@ -789,7 +789,7 @@ class TestSeriesSeasonReleasesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.season_release_list_schema, data)
+        errors = schema_match(ObjectsContainer.season_release_list_schema, data)
         assert not errors
 
         assert len(data) == 2
@@ -868,7 +868,7 @@ class TestSeriesEpisodesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_list_schema, data)
+        errors = schema_match(ObjectsContainer.episode_list_schema, data)
         assert not errors
 
         assert len(data) == 2
@@ -885,7 +885,7 @@ class TestSeriesEpisodesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_list_schema, data)
+        errors = schema_match(ObjectsContainer.episode_list_schema, data)
         assert not errors
 
         assert len(data) == 0
@@ -936,7 +936,7 @@ class TestSeriesEpisodeAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_object, data)
+        errors = schema_match(ObjectsContainer.episode_object, data)
         assert not errors
 
         assert data['identifier'] == 'S01E01'
@@ -1053,7 +1053,7 @@ class TestSeriesEpisodeReleasesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_release_list_schema, data)
+        errors = schema_match(ObjectsContainer.episode_release_list_schema, data)
         assert not errors
 
         assert len(data) == 2
@@ -1063,7 +1063,7 @@ class TestSeriesEpisodeReleasesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_release_list_schema, data)
+        errors = schema_match(ObjectsContainer.episode_release_list_schema, data)
         assert not errors
 
         assert len(data) == 1
@@ -1074,7 +1074,7 @@ class TestSeriesEpisodeReleasesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_release_list_schema, data)
+        errors = schema_match(ObjectsContainer.episode_release_list_schema, data)
         assert not errors
 
         assert len(data) == 1
@@ -1152,7 +1152,7 @@ class TestSeriesEpisodeReleasesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_release_list_schema, data)
+        errors = schema_match(ObjectsContainer.episode_release_list_schema, data)
         assert not errors
 
         assert len(data) == 1
@@ -1169,7 +1169,7 @@ class TestSeriesEpisodeReleasesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_release_list_schema, data)
+        errors = schema_match(ObjectsContainer.episode_release_list_schema, data)
         assert not errors
 
         assert len(data) == 0
@@ -1246,7 +1246,7 @@ class TestSeriesEpisodeReleasesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_release_list_schema, data)
+        errors = schema_match(ObjectsContainer.episode_release_list_schema, data)
         assert not errors
 
         assert len(data) == 0
@@ -1255,7 +1255,7 @@ class TestSeriesEpisodeReleasesAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_release_list_schema, data)
+        errors = schema_match(ObjectsContainer.episode_release_list_schema, data)
         assert not errors
 
         assert len(data) == 2
@@ -1344,7 +1344,7 @@ class TestSeriesEpisodeReleaseAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_release_object, data)
+        errors = schema_match(ObjectsContainer.episode_release_object, data)
         assert not errors
 
         assert data['downloaded'] is True
@@ -1354,7 +1354,7 @@ class TestSeriesEpisodeReleaseAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_release_object, data)
+        errors = schema_match(ObjectsContainer.episode_release_object, data)
         assert not errors
 
         assert data['downloaded'] is False
@@ -1462,7 +1462,7 @@ class TestSeriesEpisodeReleaseAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_release_object, data)
+        errors = schema_match(ObjectsContainer.episode_release_object, data)
         assert not errors
 
         # Cannot reset if already downloaded
@@ -1643,7 +1643,7 @@ class TestSeriesForgetFlag:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         assert len(data) == 1
@@ -1666,7 +1666,7 @@ class TestSeriesForgetFlag:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.series_list_schema, data)
+        errors = schema_match(ObjectsContainer.series_list_schema, data)
         assert not errors
 
         assert len(data) == 0
@@ -1685,7 +1685,7 @@ class TestSeriesForgetFlag:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_object, data)
+        errors = schema_match(ObjectsContainer.episode_object, data)
         assert not errors
 
         # Get episode 2
@@ -1693,7 +1693,7 @@ class TestSeriesForgetFlag:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_object, data)
+        errors = schema_match(ObjectsContainer.episode_object, data)
         assert not errors
 
         # Get seen object
@@ -1722,7 +1722,7 @@ class TestSeriesForgetFlag:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_object, data)
+        errors = schema_match(ObjectsContainer.episode_object, data)
         assert not errors
 
         # Get seen object
@@ -1739,7 +1739,7 @@ class TestSeriesForgetFlag:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.episode_release_object, data)
+        errors = schema_match(ObjectsContainer.episode_release_object, data)
         assert not errors
 
         # Get seen object

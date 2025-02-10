@@ -8,7 +8,7 @@ import pytest
 from flexget import __version__
 from flexget.api.app import __version__ as __api_version__
 from flexget.api.app import base_message
-from flexget.api.core.server import ObjectsContainer as OC
+from flexget.api.core.server import ObjectsContainer
 from flexget.tests.conftest import MockManager
 from flexget.utils.tools import get_latest_flexget_version_number
 
@@ -28,7 +28,7 @@ class TestServerAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pid_object, data)
+        errors = schema_match(ObjectsContainer.pid_object, data)
         assert not errors
         assert data['pid'] == os.getpid()
 
@@ -84,7 +84,7 @@ class TestServerAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.raw_config_object, data)
+        errors = schema_match(ObjectsContainer.raw_config_object, data)
         assert not errors
 
         assert (
@@ -101,7 +101,7 @@ class TestServerAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.version_object, data)
+        errors = schema_match(ObjectsContainer.version_object, data)
         assert not errors
         assert data == {
             'flexget_version': __version__,
@@ -114,7 +114,7 @@ class TestServerAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.crash_logs, data)
+        errors = schema_match(ObjectsContainer.crash_logs, data)
         assert not errors
 
         assert not data
@@ -125,7 +125,7 @@ class TestServerAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.crash_logs, data)
+        errors = schema_match(ObjectsContainer.crash_logs, data)
         assert not errors
 
         assert len(data) == 2

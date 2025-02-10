@@ -32,9 +32,9 @@ def open_archive_entry(entry):
         return None
     try:
         archive = archiveutil.open_archive(archive_path)
-    except archiveutil.BadArchive as error:
+    except archiveutil.BadArchiveError as error:
         fail_entry_with_error(entry, f'Bad archive: {archive_path} ({error})')
-    except archiveutil.NeedFirstVolume:
+    except archiveutil.NeedFirstVolumeError:
         logger.error('Not the first volume: {}', archive_path)
     except archiveutil.ArchiveError as error:
         fail_entry_with_error(entry, f'Failed to open Archive: {archive_path} ({error})')
@@ -65,7 +65,7 @@ def extract_info(info, archive, to, keep_dirs, test=False):
         info.extract(archive, destination)
     except archiveutil.FSError as error:
         logger.error('OS error while creating file: {} ({})', destination, error)
-    except archiveutil.FileAlreadyExists:
+    except archiveutil.FileAlreadyExistsError:
         logger.warning('File already exists: {}', destination)
     except archiveutil.ArchiveError as error:
         logger.error('Failed to extract file: {} from {} ({})', info.filename, archive.path, error)
@@ -197,7 +197,7 @@ class Decompress:
     def on_task_start(self, task, config):
         try:
             archiveutil.RarArchive.check_import()
-        except archiveutil.NeedRarFile as e:
+        except archiveutil.NeedRarFileError as e:
             raise plugin.PluginError(e)
 
     @plugin.priority(plugin.PRIORITY_FIRST)

@@ -151,9 +151,9 @@ class TestInputRSS:
         task = execute_task('test_all_entries_no')
         assert task.entries, 'Entries should have been produced on first run.'
         # reset input cache so that the cache is not used for second execution
-        from flexget.utils.cached_input import cached
+        from flexget.utils.cached_input import Cached
 
-        cached.cache.clear()
+        Cached.cache.clear()
         task = execute_task('test_all_entries_no')
         assert not task.entries, 'No entries should have been produced the second run.'
 

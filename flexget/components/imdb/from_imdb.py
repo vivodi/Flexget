@@ -6,7 +6,7 @@ from flexget import plugin
 from flexget.config_schema import one_or_more
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 
 logger = logger.bind(name='from_imdb')
 
@@ -310,7 +310,7 @@ class FromIMDB:
         """
         return company.get('production companies')
 
-    @cached('from_imdb', persist='2 hours')
+    @Cached('from_imdb', persist='2 hours')
     def on_task_input(self, task, config):
         try:
             from imdb import IMDb

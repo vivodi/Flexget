@@ -2,7 +2,7 @@ from flask import jsonify
 from flask_restx import inputs
 
 from flexget.api import APIResource, api
-from flexget.api.app import BadRequest, NotFoundError, etag
+from flexget.api.app import BadRequestError, NotFoundError, etag
 from flexget.components.tvmaze.api_tvmaze import APITVMaze
 
 tvmaze_api = api.namespace('tvmaze', description='TVMaze Shows')
@@ -163,7 +163,7 @@ class TVDBEpisodeSearchAPI(APIResource):
     @etag(cache_age=3600)
     @api.response(200, 'Successfully found episode', tvmaze_episode_schema)
     @api.response(NotFoundError)
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     def get(self, tvmaze_id, session=None):
         """TVMaze episode lookup"""
         args = episode_parser.parse_args()
@@ -180,7 +180,7 @@ class TVDBEpisodeSearchAPI(APIResource):
             kwargs['series_season'] = season_num
             kwargs['series_episode'] = ep_num
         else:
-            raise BadRequest('not enough parameters sent for lookup')
+            raise BadRequestError('not enough parameters sent for lookup')
         try:
             episode = APITVMaze.episode_lookup(**kwargs)
         except LookupError as e:

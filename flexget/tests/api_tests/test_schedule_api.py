@@ -1,7 +1,7 @@
 from unittest.mock import patch
 
 from flexget.api.app import base_message
-from flexget.components.scheduler.api import ObjectsContainer as OC
+from flexget.components.scheduler.api import ObjectsContainer
 from flexget.manager import Manager
 from flexget.utils import json
 
@@ -14,7 +14,7 @@ class TestEmptyScheduledAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedules_list, data)
+        errors = schema_match(ObjectsContainer.schedules_list, data)
         assert not errors
 
         assert data == []
@@ -27,7 +27,7 @@ class TestEmptyScheduledAPI:
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedule_object, data)
+        errors = schema_match(ObjectsContainer.schedule_object, data)
         assert not errors
         assert mocked_save_config.called
 
@@ -57,7 +57,7 @@ class TestScheduledAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedules_list, data)
+        errors = schema_match(ObjectsContainer.schedules_list, data)
         assert not errors
 
         for key, value in self.schedule.items():
@@ -71,7 +71,7 @@ class TestScheduledAPI:
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedule_object, data)
+        errors = schema_match(ObjectsContainer.schedule_object, data)
         assert not errors
         assert mocked_save_config.called
 
@@ -84,7 +84,7 @@ class TestScheduledAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedules_list, data)
+        errors = schema_match(ObjectsContainer.schedules_list, data)
         assert not errors
 
         schedule_id = data[0]['id']
@@ -94,7 +94,7 @@ class TestScheduledAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedule_object, data)
+        errors = schema_match(ObjectsContainer.schedule_object, data)
         assert not errors
 
         for key, value in self.schedule.items():
@@ -115,7 +115,7 @@ class TestScheduledAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedules_list, data)
+        errors = schema_match(ObjectsContainer.schedules_list, data)
         assert not errors
 
         schedule_id = data[0]['id']
@@ -124,7 +124,7 @@ class TestScheduledAPI:
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedule_object, data)
+        errors = schema_match(ObjectsContainer.schedule_object, data)
         assert not errors
         assert mocked_save_config.called
 
@@ -145,7 +145,7 @@ class TestScheduledAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedules_list, data)
+        errors = schema_match(ObjectsContainer.schedules_list, data)
         assert not errors
 
         schedule_id = data[0]['id']
@@ -183,7 +183,7 @@ class TestPositiveBooleanSchedule:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedules_list, data)
+        errors = schema_match(ObjectsContainer.schedules_list, data)
         assert not errors
 
     @patch.object(Manager, 'save_config')
@@ -194,7 +194,7 @@ class TestPositiveBooleanSchedule:
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedule_object, data)
+        errors = schema_match(ObjectsContainer.schedule_object, data)
         assert not errors
         assert mocked_save_config.called
 
@@ -207,7 +207,7 @@ class TestPositiveBooleanSchedule:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedules_list, data)
+        errors = schema_match(ObjectsContainer.schedules_list, data)
         assert not errors
 
         schedule_id = data[0]['id']
@@ -217,7 +217,7 @@ class TestPositiveBooleanSchedule:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedule_object, data)
+        errors = schema_match(ObjectsContainer.schedule_object, data)
         assert not errors
 
         # Non-existent schedule ID
@@ -235,7 +235,7 @@ class TestPositiveBooleanSchedule:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedules_list, data)
+        errors = schema_match(ObjectsContainer.schedules_list, data)
         assert not errors
 
         schedule_id = data[0]['id']
@@ -244,7 +244,7 @@ class TestPositiveBooleanSchedule:
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedule_object, data)
+        errors = schema_match(ObjectsContainer.schedule_object, data)
         assert not errors
         assert mocked_save_config.called
 
@@ -264,7 +264,7 @@ class TestPositiveBooleanSchedule:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.schedules_list, data)
+        errors = schema_match(ObjectsContainer.schedules_list, data)
         assert not errors
 
         schedule_id = data[0]['id']

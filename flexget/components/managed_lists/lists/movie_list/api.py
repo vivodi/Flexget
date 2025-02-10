@@ -7,8 +7,8 @@ from sqlalchemy.orm.exc import NoResultFound
 
 from flexget.api import APIResource, api
 from flexget.api.app import (
-    BadRequest,
-    Conflict,
+    BadRequestError,
+    ConflictError,
     NotFoundError,
     base_message_schema,
     etag,
@@ -138,7 +138,7 @@ class MovieListAPI(APIResource):
 
     @api.validate(new_list_schema)
     @api.response(201, model=list_object_schema)
-    @api.response(Conflict)
+    @api.response(ConflictError)
     def post(self, session=None):
         """Create a new list"""
         data = request.json
@@ -148,7 +148,7 @@ class MovieListAPI(APIResource):
         except NoResultFound:
             movie_list = None
         if movie_list:
-            raise Conflict(f'list with name \'{name}\' already exists')
+            raise ConflictError(f'list with name \'{name}\' already exists')
         movie_list = db.MovieListList(name=name)
         session.add(movie_list)
         session.commit()
@@ -252,8 +252,8 @@ class MovieListMoviesAPI(APIResource):
     @api.validate(model=input_movie_entry_schema, description=movie_identifiers_doc)
     @api.response(201, model=movie_list_object_schema)
     @api.response(NotFoundError)
-    @api.response(Conflict)
-    @api.response(BadRequest)
+    @api.response(ConflictError)
+    @api.response(BadRequestError)
     def post(self, list_id, session=None):
         """Add movies to list by ID"""
         try:
@@ -265,13 +265,13 @@ class MovieListMoviesAPI(APIResource):
         # Validates ID type based on allowed ID
         for id_name in movie_identifiers:
             if next(iter(id_name)) not in MovieListBase().supported_ids:
-                raise BadRequest(f'movie identifier {id_name} is not allowed')
+                raise BadRequestError(f'movie identifier {id_name} is not allowed')
         title, year = data['movie_name'], data.get('movie_year')
         movie = db.get_movie_by_title_and_year(
             list_id=list_id, title=title, year=year, session=session
         )
         if movie:
-            raise Conflict(f'movie with name "{title}" already exist in list {list_id}')
+            raise ConflictError(f'movie with name "{title}" already exist in list {list_id}')
         movie = db.MovieListMovie()
         movie.title = title
         movie.year = year
@@ -311,7 +311,7 @@ class MovieListMovieAPI(APIResource):
 
     @api.validate(model=input_movie_list_id_schema, description=movie_identifiers_doc)
     @api.response(200, model=movie_list_object_schema)
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     @api.doc(
         description='Sent movie identifiers will override any existing identifiers that the movie currently holds'
     )
@@ -326,7 +326,7 @@ class MovieListMovieAPI(APIResource):
         # Validates ID type based on allowed ID
         for id_name in data:
             if next(iter(id_name)) not in MovieListBase().supported_ids:
-                raise BadRequest(f'movie identifier {id_name} is not allowed')
+                raise BadRequestError(f'movie identifier {id_name} is not allowed')
         movie.ids[:] = db.get_db_movie_identifiers(
             identifier_list=data, movie_id=movie_id, session=session
         )

@@ -2,7 +2,7 @@ from flask import jsonify
 from flask_restx import inputs
 
 from flexget.api import APIResource, api
-from flexget.api.app import BadRequest, NotFoundError, etag
+from flexget.api.app import BadRequestError, NotFoundError, etag
 from flexget.components.thetvdb.api_tvdb import lookup_episode, lookup_series, search_for_series
 
 tvdb_api = api.namespace('tvdb', description='TheTVDB Shows')
@@ -187,7 +187,7 @@ class TVDBEpisodeSearchAPI(APIResource):
     @etag(cache_age=3600)
     @api.response(200, 'Successfully found episode', tvdb_episode_schema)
     @api.response(NotFoundError)
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     def get(self, tvdb_id, session=None):
         """TheTVDB episode lookup"""
         args = episode_parser.parse_args()
@@ -199,7 +199,7 @@ class TVDBEpisodeSearchAPI(APIResource):
         air_date = args.get('air_date')
 
         if not ((season_number and ep_number) or absolute_number or air_date):
-            raise BadRequest(
+            raise BadRequestError(
                 'not enough parameters for lookup. Either season and episode number or absolute number '
                 'are required.'
             )
@@ -236,7 +236,7 @@ search_parser.add_argument(
 class TVDBSeriesSearchAPI(APIResource):
     @etag(cache_age=3600)
     @api.response(200, 'Successfully got results', search_results_schema)
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     @api.response(NotFoundError)
     def get(self, session=None):
         """TheTVDB series search"""
@@ -249,7 +249,7 @@ class TVDBSeriesSearchAPI(APIResource):
         force_search = args.get('force_search')
 
         if not any(arg for arg in [search_name, imdb_id, zap2it_id]):
-            raise BadRequest('Not enough lookup arguments')
+            raise BadRequestError('Not enough lookup arguments')
         kwargs = {
             'search_name': search_name,
             'imdb_id': imdb_id,

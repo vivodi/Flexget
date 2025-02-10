@@ -3,8 +3,8 @@ from flask_login import current_user
 from sqlalchemy.orm import Session
 
 from flexget.api import APIResource, api
-from flexget.api.app import BadRequest, base_message_schema, success_response
-from flexget.webserver import WeakPassword, change_password, generate_token
+from flexget.api.app import BadRequestError, base_message_schema, success_response
+from flexget.webserver import WeakPasswordError, change_password, generate_token
 
 user_api = api.namespace('user', description='Manage user login credentials')
 
@@ -32,7 +32,7 @@ user_token_response_schema = api.schema_model(
 @api.doc('Change user password')
 class UserManagementAPI(APIResource):
     @api.validate(model=user_password_input_schema, description='Password change schema')
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     @api.response(200, 'Success', model=base_message_schema)
     @api.doc(
         description='Change user password. A score of at least 3 is needed.'
@@ -44,8 +44,8 @@ class UserManagementAPI(APIResource):
         data = request.json
         try:
             change_password(username=user.name, password=data.get('password'), session=session)
-        except WeakPassword as e:
-            raise BadRequest(e.value)
+        except WeakPasswordError as e:
+            raise BadRequestError(e.value)
         return success_response('Successfully changed user password')
 
 

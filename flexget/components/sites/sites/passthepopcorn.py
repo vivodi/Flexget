@@ -96,7 +96,7 @@ class SearchPassThePopcorn:
     base_url = 'https://passthepopcorn.me/'
     errors = False
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config):
         """
         Search for entries on PassThePopcorn

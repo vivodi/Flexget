@@ -3,7 +3,7 @@ import json
 import pytest
 
 from flexget.api.app import base_message
-from flexget.api.core.database import ObjectsContainer as OC
+from flexget.api.core.database import ObjectsContainer
 
 
 class TestDatabaseAPI:
@@ -37,5 +37,5 @@ class TestDatabaseAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.plugin_list, data)
+        errors = schema_match(ObjectsContainer.plugin_list, data)
         assert not errors

@@ -4,7 +4,7 @@ from flexget import plugin
 from flexget.config_schema import one_or_more
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.requests import RequestException
 
 logger = logger.bind(name='my_anime_list')
@@ -54,7 +54,7 @@ class MyAnimeList:
         'additionalProperties': False,
     }
 
-    @cached('my_anime_list', persist='2 hours')
+    @Cached('my_anime_list', persist='2 hours')
     def on_task_input(self, task, config):
         selected_status = config.get('status', ['all'])
         if not isinstance(selected_status, list):

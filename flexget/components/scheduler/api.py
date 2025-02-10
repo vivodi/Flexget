@@ -5,7 +5,7 @@ from flask import jsonify, request
 from flexget.api import APIResource, api
 from flexget.api.app import (
     APIError,
-    Conflict,
+    ConflictError,
     NotFoundError,
     base_message_schema,
     etag,
@@ -53,7 +53,7 @@ schedule_desc = (
 
 @schedule_api.route('/')
 @api.doc(description=schedule_desc)
-@api.response(Conflict)
+@api.response(ConflictError)
 class SchedulesAPI(APIResource):
     @etag
     @api.response(200, model=api_schedules_list_schema)
@@ -67,7 +67,7 @@ class SchedulesAPI(APIResource):
         if schedules is True:
             schedules = DEFAULT_SCHEDULES
         elif schedules is False:
-            raise Conflict('Schedules are disables in config')
+            raise ConflictError('Schedules are disables in config')
 
         for schedule in schedules:
             # Copy the object so we don't apply id to the config
@@ -91,7 +91,7 @@ class SchedulesAPI(APIResource):
         if schedules is True:
             schedules = DEFAULT_SCHEDULES
         elif schedules is False:
-            raise Conflict('Schedules are disables in config')
+            raise ConflictError('Schedules are disables in config')
 
         self.manager.config['schedules'] = schedules
 
@@ -114,7 +114,7 @@ class SchedulesAPI(APIResource):
 @api.doc(params={'schedule_id': 'ID of Schedule'})
 @api.doc(description=schedule_desc)
 @api.response(NotFoundError)
-@api.response(Conflict)
+@api.response(ConflictError)
 class ScheduleAPI(APIResource):
     @etag
     @api.response(200, model=api_schedule_schema)
@@ -126,7 +126,7 @@ class ScheduleAPI(APIResource):
         if schedules is True:
             schedules = DEFAULT_SCHEDULES
         elif schedules is False:
-            raise Conflict('Schedules are disables in config')
+            raise ConflictError('Schedules are disables in config')
 
         schedule, _ = _schedule_by_id(schedule_id, schedules)
         if schedule is None:
@@ -163,7 +163,7 @@ class ScheduleAPI(APIResource):
         if schedules is True:
             self.manager.config['schedules'] = DEFAULT_SCHEDULES
         elif schedules is False:
-            raise Conflict('Schedules are disables in config')
+            raise ConflictError('Schedules are disables in config')
 
         schedule, idx = _schedule_by_id(schedule_id, self.manager.config['schedules'])
         if not schedule:
@@ -185,9 +185,9 @@ class ScheduleAPI(APIResource):
 
         # Checks for boolean config
         if schedules is True:
-            raise Conflict('Schedules usage is set to default, cannot delete')
+            raise ConflictError('Schedules usage is set to default, cannot delete')
         if schedules is False:
-            raise Conflict('Schedules are disables in config')
+            raise ConflictError('Schedules are disables in config')
 
         for i in range(len(self.manager.config.get('schedules', []))):
             if id(self.manager.config['schedules'][i]) == schedule_id:

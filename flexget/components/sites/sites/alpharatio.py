@@ -214,7 +214,7 @@ class SearchAlphaRatio:
             'AlphaRatio layout has changed, unable to parse correctly. Please open a Github issue'
         )
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config):
         """
         Search for entries on AlphaRatio

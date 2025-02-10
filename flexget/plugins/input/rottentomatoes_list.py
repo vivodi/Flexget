@@ -3,7 +3,7 @@ from loguru import logger
 from flexget import plugin
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 
 try:
     # NOTE: Importing other plugins is discouraged!
@@ -48,7 +48,7 @@ class RottenTomatoesList:
         'additionalProperties': False,
     }
 
-    @cached('rottentomatoes_list', persist='2 hours')
+    @Cached('rottentomatoes_list', persist='2 hours')
     def on_task_input(self, task, config):
         entries = []
         api_key = config.get('api_key', None)

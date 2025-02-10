@@ -10,7 +10,7 @@ from flexget import plugin
 from flexget.entry import Entry
 from flexget.event import event
 from flexget.utils import requests
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.simple_persistence import SimplePersistence
 from flexget.utils.soup import get_soup
 from flexget.utils.tools import parse_filesize
@@ -96,7 +96,7 @@ class MagnetDL:
             except AttributeError as e:
                 raise plugin.PluginError('Parsing crashed, please report the issue') from e
 
-    @cached('magnetdl', persist='4 minutes')
+    @Cached('magnetdl', persist='4 minutes')
     def on_task_input(self, task, config):
         category = config['category']
         persistence = SimplePersistence(plugin='magnetdl')

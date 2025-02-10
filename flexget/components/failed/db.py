@@ -18,7 +18,7 @@ Base = db_schema.versioned_base('failed', SCHEMA_VER)
 @db_schema.upgrade('failed')
 def upgrade(ver, session):
     if ver is None or ver < 1:
-        raise db_schema.UpgradeImpossible
+        raise db_schema.UpgradeImpossibleError
     if ver == 1:
         table_add_column('failed', 'reason', Unicode, session)
         ver = 2

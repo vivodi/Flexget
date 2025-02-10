@@ -5,7 +5,7 @@ from loguru import logger
 from sqlalchemy import asc, desc
 
 from flexget.api import APIResource, api
-from flexget.api.app import BadRequest, NotFoundError, etag, pagination_headers
+from flexget.api.app import BadRequestError, NotFoundError, etag, pagination_headers
 
 from . import db
 
@@ -92,7 +92,7 @@ class HistoryAPI(APIResource):
         try:
             items = query.order_by(order(getattr(db.History, sort_by))).slice(start, finish)
         except AttributeError as e:
-            raise BadRequest(str(e))
+            raise BadRequestError(str(e))
 
         # Actual results in page
         actual_size = min(items.count(), per_page)

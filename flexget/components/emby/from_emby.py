@@ -73,7 +73,7 @@ class EmbyInput:
     def on_task_start(self, task, config):
         self.login(config)
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def on_task_input(self, task, config):
         self.login(config)
 
@@ -83,7 +83,7 @@ class EmbyInput:
             entry = s_list.to_entry()
             yield entry
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config=None):
         self.login(config)
 

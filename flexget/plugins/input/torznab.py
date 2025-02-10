@@ -82,7 +82,7 @@ class Torznab:
         logger.debug('Config: {}', config)
         self._setup_caps(task, config['searcher'], config['categories'])
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def _setup_caps(self, task, searcher, categories):
         """Gets the capabilities of the torznab indexer and matches it with the provided configuration"""
 
@@ -153,7 +153,7 @@ class Torznab:
             logger.debug('Setting search categories to {}', used_categories)
             self.params['cat'] = ','.join(str(e) for e in used_categories)
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def create_entries_from_query(self, url, task):
         """Fetch feed and fill entries from"""
 

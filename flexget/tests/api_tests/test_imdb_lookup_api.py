@@ -1,6 +1,6 @@
 import pytest
 
-from flexget.components.imdb.api import ObjectsContainer as OC
+from flexget.components.imdb.api import ObjectsContainer
 from flexget.utils import json
 
 
@@ -18,7 +18,7 @@ class TestIMDBLookupAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.return_object, data)
+        errors = schema_match(ObjectsContainer.return_object, data)
         assert not errors
         assert len(data) > 1
 
@@ -27,7 +27,7 @@ class TestIMDBLookupAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.return_object, data)
+        errors = schema_match(ObjectsContainer.return_object, data)
         assert not errors
 
         assert len(data) == 1
@@ -37,7 +37,7 @@ class TestIMDBLookupAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.return_object, data)
+        errors = schema_match(ObjectsContainer.return_object, data)
         assert not errors
 
         assert len(data) == 0

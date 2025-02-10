@@ -3,7 +3,7 @@ from flask_restx import inputs
 
 from flexget import plugin
 from flexget.api import APIResource, api
-from flexget.api.app import BadRequest, NotFoundError, etag
+from flexget.api.app import BadRequestError, NotFoundError, etag
 
 tmdb_api = api.namespace('tmdb', description='TMDB lookup endpoint')
 
@@ -115,7 +115,7 @@ class TMDBMoviesAPI(APIResource):
     @etag(cache_age=3600)
     @api.response(200, model=return_schema)
     @api.response(NotFoundError)
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     @api.doc(expect=[tmdb_parser])
     def get(self, session=None):
         """Get TMDB movie data"""
@@ -128,7 +128,7 @@ class TMDBMoviesAPI(APIResource):
         backdrops = args.pop('include_backdrops', False)
 
         if not (title or tmdb_id or imdb_id):
-            raise BadRequest(description)
+            raise BadRequestError(description)
 
         lookup = plugin.get('api_tmdb', 'tmdb.api').lookup
 

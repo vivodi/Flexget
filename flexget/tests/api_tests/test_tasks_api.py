@@ -2,7 +2,7 @@ import json
 from unittest.mock import patch
 
 from flexget.api.app import base_message
-from flexget.api.core.tasks import ObjectsContainer as OC
+from flexget.api.core.tasks import ObjectsContainer
 from flexget.manager import Manager
 
 
@@ -65,7 +65,7 @@ class TestTaskAPI:
         rsp = api_client.json_post('/tasks/', data=json.dumps(new_task))
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_return_object, data)
+        errors = schema_match(ObjectsContainer.task_return_object, data)
         assert not errors
 
         assert rsp.status_code == 201
@@ -89,7 +89,7 @@ class TestTaskAPI:
         assert rsp.status_code == 200
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.task_return_object, data)
+        errors = schema_match(ObjectsContainer.task_return_object, data)
         assert not errors
 
         assert data == {
@@ -125,7 +125,7 @@ class TestTaskAPI:
         rsp = api_client.json_put('/tasks/test/', data=json.dumps(same_task))
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.task_return_object, data)
+        errors = schema_match(ObjectsContainer.task_return_object, data)
         assert not errors
 
         updated_task = {
@@ -137,7 +137,7 @@ class TestTaskAPI:
 
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.task_return_object, data)
+        errors = schema_match(ObjectsContainer.task_return_object, data)
         assert not errors
         assert mocked_save_config.called
         assert data == updated_task
@@ -162,7 +162,7 @@ class TestTaskAPI:
 
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.task_return_object, data)
+        errors = schema_match(ObjectsContainer.task_return_object, data)
         assert not errors
         assert mocked_save_config.called
         assert data == updated_task
@@ -220,7 +220,7 @@ class TestTaskQueue:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_execution_results_schema, data)
+        errors = schema_match(ObjectsContainer.task_execution_results_schema, data)
         assert not errors
 
         # Get task queue
@@ -228,7 +228,7 @@ class TestTaskQueue:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_queue_schema, data)
+        errors = schema_match(ObjectsContainer.task_queue_schema, data)
         assert not errors
 
         assert len(data) == 1
@@ -242,7 +242,7 @@ class TestTaskQueue:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_queue_schema, data)
+        errors = schema_match(ObjectsContainer.task_queue_schema, data)
         assert not errors
 
         assert data == []

@@ -12,8 +12,8 @@ from sqlalchemy.orm import Session
 from flexget.api import APIResource, api
 from flexget.api.app import (
     APIError,
-    BadRequest,
-    Conflict,
+    BadRequestError,
+    ConflictError,
     NotFoundError,
     base_message_schema,
     etag,
@@ -218,7 +218,7 @@ class TasksAPI(APIResource):
 
     @api.validate(task_input_schema, description='New task object')
     @api.response(201, description='Newly created task', model=task_return_schema)
-    @api.response(Conflict)
+    @api.response(ConflictError)
     @api.response(APIError)
     def post(self, session: Session = None) -> Response:
         """Add new task"""
@@ -227,7 +227,7 @@ class TasksAPI(APIResource):
         task_name = data['name']
 
         if task_name in self.manager.user_config.get('tasks', {}):
-            raise Conflict('task already exists')
+            raise ConflictError('task already exists')
 
         if 'tasks' not in self.manager.user_config:
             self.manager.user_config['tasks'] = {}
@@ -269,7 +269,7 @@ class TaskAPI(APIResource):
     @api.validate(task_input_schema)
     @api.response(200, model=task_return_schema)
     @api.response(NotFoundError)
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     def put(self, task, session: Session = None) -> Response:
         """Update tasks config"""
         data = request.json
@@ -287,7 +287,7 @@ class TaskAPI(APIResource):
         if task != new_task_name:
             # Rename task
             if new_task_name in self.manager.user_config['tasks']:
-                raise BadRequest('cannot rename task as it already exist')
+                raise BadRequestError('cannot rename task as it already exist')
 
             del self.manager.user_config['tasks'][task]
             del self.manager.config['tasks'][task]
@@ -420,7 +420,7 @@ class TaskExecutionParams(APIResource):
 @api.doc(description='For details on available parameters query /params/ endpoint')
 class TaskExecutionAPI(APIResource):
     @api.response(NotFoundError)
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     @api.response(200, model=task_api_execute_schema)
     @api.validate(task_execution_schema)
     def post(self, session: Session = None) -> Response:
@@ -465,7 +465,7 @@ class TaskExecutionAPI(APIResource):
                         )
                         entry['title'] = params['filename']
                     except KeyError:
-                        raise BadRequest(
+                        raise BadRequestError(
                             'No title given, and couldn\'t get one from the URL\'s HTTP response'
                         )
 

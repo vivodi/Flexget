@@ -29,7 +29,7 @@ class SearchArgenteam:
 
     base_url = 'http://www.argenteam.net/api/v1/'
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config):
         """
         Search for releases

@@ -1,7 +1,7 @@
 import copy
 
 from flexget.api.app import base_message
-from flexget.components.managed_lists.lists.entry_list.api import ObjectsContainer as OC
+from flexget.components.managed_lists.lists.entry_list.api import ObjectsContainer
 from flexget.components.managed_lists.lists.entry_list.db import EntryListEntry, EntryListList
 from flexget.entry import Entry
 from flexget.manager import Session
@@ -18,7 +18,7 @@ class TestEntryListAPI:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_list_return_lists, data)
+        errors = schema_match(ObjectsContainer.entry_list_return_lists, data)
         assert not errors
 
         payload = {'name': 'test_list'}
@@ -28,7 +28,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_list_base_object, data)
+        errors = schema_match(ObjectsContainer.entry_list_base_object, data)
         assert not errors
 
         for field, value in payload.items():
@@ -39,7 +39,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_list_return_lists, data)
+        errors = schema_match(ObjectsContainer.entry_list_return_lists, data)
         assert not errors
 
         for field, value in payload.items():
@@ -61,7 +61,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_list_base_object, data)
+        errors = schema_match(ObjectsContainer.entry_list_base_object, data)
         assert not errors
 
         for field, value in payload.items():
@@ -72,7 +72,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_list_base_object, data)
+        errors = schema_match(ObjectsContainer.entry_list_base_object, data)
         assert not errors
 
         for field, value in payload.items():
@@ -118,7 +118,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_list_base_object, data)
+        errors = schema_match(ObjectsContainer.entry_list_base_object, data)
         assert not errors
 
         for field, value in payload.items():
@@ -131,7 +131,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_list_entry_base_object, data)
+        errors = schema_match(ObjectsContainer.entry_list_entry_base_object, data)
         assert not errors
 
         for field, value in entry_data.items():
@@ -142,7 +142,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_lists_entries_return_object, data)
+        errors = schema_match(ObjectsContainer.entry_lists_entries_return_object, data)
         assert not errors
 
         for field, value in entry_data.items():
@@ -153,7 +153,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 409, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_list_entry_base_object, data)
+        errors = schema_match(ObjectsContainer.entry_list_entry_base_object, data)
         assert not errors
 
         # Try to post to non existing list
@@ -161,7 +161,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 404, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_list_entry_base_object, data)
+        errors = schema_match(ObjectsContainer.entry_list_entry_base_object, data)
         assert not errors
 
     def test_entry_list_entry(self, api_client, schema_match):
@@ -172,7 +172,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_list_base_object, data)
+        errors = schema_match(ObjectsContainer.entry_list_base_object, data)
         assert not errors
 
         for field, value in payload.items():
@@ -185,7 +185,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_list_entry_base_object, data)
+        errors = schema_match(ObjectsContainer.entry_list_entry_base_object, data)
         assert not errors
 
         for field, value in entry_data.items():
@@ -196,7 +196,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_lists_entries_return_object, data)
+        errors = schema_match(ObjectsContainer.entry_lists_entries_return_object, data)
         assert not errors
 
         for field, value in entry_data.items():
@@ -207,7 +207,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_list_entry_base_object, data)
+        errors = schema_match(ObjectsContainer.entry_list_entry_base_object, data)
         assert not errors
 
         for field, value in entry_data.items():
@@ -220,7 +220,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_list_entry_base_object, data)
+        errors = schema_match(ObjectsContainer.entry_list_entry_base_object, data)
         assert not errors
 
         for field, value in new_entry_data.items():
@@ -275,7 +275,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_lists_entries_return_object, data)
+        errors = schema_match(ObjectsContainer.entry_lists_entries_return_object, data)
         assert not errors
         assert len(data) == 3
 
@@ -288,7 +288,7 @@ class TestEntryListAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.entry_lists_entries_return_object, data)
+        errors = schema_match(ObjectsContainer.entry_lists_entries_return_object, data)
         assert not errors
         assert not data
 

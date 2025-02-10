@@ -1,7 +1,7 @@
 import copy
 
 from flexget.api.app import base_message
-from flexget.components.managed_lists.lists.pending_list.api import ObjectsContainer as OC
+from flexget.components.managed_lists.lists.pending_list.api import ObjectsContainer
 from flexget.components.managed_lists.lists.pending_list.db import (
     PendingListEntry,
     PendingListList,
@@ -21,7 +21,7 @@ class TestPendingListAPI:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_list_return_lists, data)
+        errors = schema_match(ObjectsContainer.pending_list_return_lists, data)
         assert not errors
 
         payload = {'name': 'test_list'}
@@ -31,7 +31,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 201
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_list_base_object, data)
+        errors = schema_match(ObjectsContainer.pending_list_base_object, data)
         assert not errors
 
         for field, value in payload.items():
@@ -42,7 +42,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_list_return_lists, data)
+        errors = schema_match(ObjectsContainer.pending_list_return_lists, data)
         assert not errors
 
         for field, value in payload.items():
@@ -64,7 +64,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 201
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_list_base_object, data)
+        errors = schema_match(ObjectsContainer.pending_list_base_object, data)
         assert not errors
 
         for field, value in payload.items():
@@ -75,7 +75,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_list_base_object, data)
+        errors = schema_match(ObjectsContainer.pending_list_base_object, data)
         assert not errors
 
         for field, value in payload.items():
@@ -121,7 +121,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 201
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_list_base_object, data)
+        errors = schema_match(ObjectsContainer.pending_list_base_object, data)
         assert not errors
 
         for field, value in payload.items():
@@ -134,7 +134,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 201
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_list_entry_base_object, data)
+        errors = schema_match(ObjectsContainer.pending_list_entry_base_object, data)
         assert not errors
 
         for field, value in entry_data.items():
@@ -145,7 +145,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_lists_entries_return_object, data)
+        errors = schema_match(ObjectsContainer.pending_lists_entries_return_object, data)
         assert not errors
 
         for field, value in entry_data.items():
@@ -156,7 +156,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 409
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_list_entry_base_object, data)
+        errors = schema_match(ObjectsContainer.pending_list_entry_base_object, data)
         assert not errors
 
         # Try to post to non existing list
@@ -164,7 +164,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 404
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_list_entry_base_object, data)
+        errors = schema_match(ObjectsContainer.pending_list_entry_base_object, data)
         assert not errors
 
     def test_pending_list_entries_batch_operation(self, api_client, schema_match):
@@ -186,7 +186,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 201
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_lists_entries_return_object, data)
+        errors = schema_match(ObjectsContainer.pending_lists_entries_return_object, data)
         assert not errors
         assert len(data) == 3
 
@@ -197,7 +197,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_lists_entries_return_object, data)
+        errors = schema_match(ObjectsContainer.pending_lists_entries_return_object, data)
         assert not errors
         assert len(data) == 3
 
@@ -211,7 +211,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 201
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_lists_entries_return_object, data)
+        errors = schema_match(ObjectsContainer.pending_lists_entries_return_object, data)
         assert not errors
         assert len(data) == 3
 
@@ -222,7 +222,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_lists_entries_return_object, data)
+        errors = schema_match(ObjectsContainer.pending_lists_entries_return_object, data)
         assert not errors
         assert len(data) == 3
 
@@ -246,7 +246,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_lists_entries_return_object, data)
+        errors = schema_match(ObjectsContainer.pending_lists_entries_return_object, data)
         assert not errors
         assert len(data) == 3
 
@@ -259,7 +259,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_lists_entries_return_object, data)
+        errors = schema_match(ObjectsContainer.pending_lists_entries_return_object, data)
         assert not errors
         assert not data
 
@@ -271,7 +271,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 201
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_list_base_object, data)
+        errors = schema_match(ObjectsContainer.pending_list_base_object, data)
         assert not errors
 
         for field, value in payload.items():
@@ -284,7 +284,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 201
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_list_entry_base_object, data)
+        errors = schema_match(ObjectsContainer.pending_list_entry_base_object, data)
         assert not errors
 
         for field, value in entry_data.items():
@@ -295,7 +295,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_lists_entries_return_object, data)
+        errors = schema_match(ObjectsContainer.pending_lists_entries_return_object, data)
         assert not errors
 
         for field, value in entry_data.items():
@@ -306,7 +306,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_list_entry_base_object, data)
+        errors = schema_match(ObjectsContainer.pending_list_entry_base_object, data)
         assert not errors
 
         for field, value in entry_data.items():
@@ -319,7 +319,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 201
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_list_entry_base_object, data)
+        errors = schema_match(ObjectsContainer.pending_list_entry_base_object, data)
         assert not errors
 
         assert data['approved']
@@ -375,7 +375,7 @@ class TestPendingListAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.pending_lists_entries_return_object, data)
+        errors = schema_match(ObjectsContainer.pending_lists_entries_return_object, data)
         assert not errors
 
         assert len(data) == 1

@@ -7,7 +7,7 @@ from sqlalchemy.schema import ForeignKey, Index
 
 from flexget import db_schema
 from flexget.components.imdb.utils import extract_id
-from flexget.db_schema import UpgradeImpossible
+from flexget.db_schema import UpgradeImpossibleError
 
 logger = logger.bind(name='imdb.db')
 
@@ -225,7 +225,7 @@ def upgrade(ver, session):
     # v9  Added Metacritic score exftraction/filtering
     # v10 Added plot keywords to the DB schema
     if ver is None or ver <= 9:
-        raise UpgradeImpossible(
+        raise UpgradeImpossibleError(
             'Resetting imdb_lookup caches because bad data may have been cached.'
         )
     return ver

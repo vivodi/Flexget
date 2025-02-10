@@ -6,7 +6,7 @@ from sqlalchemy.orm.exc import NoResultFound
 
 from flexget.api import APIResource, api
 from flexget.api.app import (
-    BadRequest,
+    BadRequestError,
     NotFoundError,
     base_message_schema,
     etag,
@@ -185,7 +185,7 @@ class PendingEntryAPI(APIResource):
         return jsonify(entry.to_dict())
 
     @api.response(201, model=pending_entry_schema)
-    @api.response(BadRequest)
+    @api.response(BadRequestError)
     @api.validate(operation_schema, description=description)
     def put(self, entry_id, session=None):
         """Approve/Reject the status of a pending entry"""
@@ -198,7 +198,7 @@ class PendingEntryAPI(APIResource):
         approved = data['operation'] == 'approve'
         operation_text = 'approved' if approved else 'pending'
         if entry.approved is approved:
-            raise BadRequest(f'Entry with id {entry_id} is already {operation_text}')
+            raise BadRequestError(f'Entry with id {entry_id} is already {operation_text}')
 
         entry.approved = approved
         session.commit()

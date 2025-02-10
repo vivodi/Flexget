@@ -257,27 +257,27 @@ class NotFoundError(APIError):
     description = 'Not found'
 
 
-class Unauthorized(APIError):
+class UnauthorizedError(APIError):
     status_code = 401
     description = 'Unauthorized'
 
 
-class BadRequest(APIError):
+class BadRequestError(APIError):
     status_code = 400
     description = 'Bad request'
 
 
-class Conflict(APIError):
+class ConflictError(APIError):
     status_code = 409
     description = 'Conflict'
 
 
-class PreconditionFailed(APIError):
+class PreconditionFailedError(APIError):
     status_code = 412
     description = 'Precondition failed'
 
 
-class NotModified(APIError):
+class NotModifiedError(APIError):
     status_code = 304
     description = 'not modified'
 
@@ -359,11 +359,11 @@ def success_response(message: str, status_code: int = 200, status: str = 'succes
 @api.errorhandler(APIError)
 @api.errorhandler(NotFoundError)
 @api.errorhandler(ValidationError)
-@api.errorhandler(BadRequest)
-@api.errorhandler(Unauthorized)
-@api.errorhandler(Conflict)
-@api.errorhandler(NotModified)
-@api.errorhandler(PreconditionFailed)
+@api.errorhandler(BadRequestError)
+@api.errorhandler(UnauthorizedError)
+@api.errorhandler(ConflictError)
+@api.errorhandler(NotModifiedError)
+@api.errorhandler(PreconditionFailedError)
 def api_errors(error: APIError) -> tuple[dict, int]:
     return error.to_dict(), error.status_code
 
@@ -413,11 +413,11 @@ def etag(method: Optional[Callable] = None, cache_age: int = 0):
         if if_match:
             etag_list = [tag.strip() for tag in if_match.split(',')]
             if etag not in etag_list and '*' not in etag_list:
-                raise PreconditionFailed('etag does not match')
+                raise PreconditionFailedError('etag does not match')
         elif if_none_match:
             etag_list = [tag.strip() for tag in if_none_match.split(',')]
             if etag in etag_list or '*' in etag_list:
-                raise NotModified
+                raise NotModifiedError
 
         return rv
 

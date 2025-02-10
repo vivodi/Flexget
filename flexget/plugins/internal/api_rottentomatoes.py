@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session, relationship
 from sqlalchemy.schema import ForeignKey, Index
 
 from flexget import db_schema, plugin
-from flexget.plugin import PluginError, internet
+from flexget.plugin import Internet, PluginError
 from flexget.utils import requests
 from flexget.utils.database import text_date_synonym, with_session
 from flexget.utils.sqlalchemy_utils import table_add_column, table_schema
@@ -256,7 +256,7 @@ class RottenTomatoesSearchResult(Base):
         return f'<RottenTomatoesSearchResult(search={self.search},movie_id={self.movie_id},movie={self.movie})>'
 
 
-@internet(logger)
+@Internet(logger)
 @with_session
 def lookup_movie(
     title: Optional[str] = None,

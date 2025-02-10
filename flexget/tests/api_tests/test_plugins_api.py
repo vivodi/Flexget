@@ -1,5 +1,5 @@
 from flexget.api.app import base_message
-from flexget.api.core.plugins import ObjectsContainer as OC
+from flexget.api.core.plugins import ObjectsContainer
 from flexget.utils import json
 
 
@@ -11,28 +11,28 @@ class TestPluginsAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.plugin_list_reply, data)
+        errors = schema_match(ObjectsContainer.plugin_list_reply, data)
         assert not errors
 
         rsp = api_client.get('/plugins/?include_schema=true')
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.plugin_list_reply, data)
+        errors = schema_match(ObjectsContainer.plugin_list_reply, data)
         assert not errors
 
         rsp = api_client.get('/plugins/?interface=search')
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.plugin_list_reply, data)
+        errors = schema_match(ObjectsContainer.plugin_list_reply, data)
         assert not errors
 
         rsp = api_client.get('/plugins/?interface=fgfg')
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.plugin_list_reply, data)
+        errors = schema_match(ObjectsContainer.plugin_list_reply, data)
         assert not errors
         assert data == []
 
@@ -47,7 +47,7 @@ class TestPluginsAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.plugin_list_reply, data)
+        errors = schema_match(ObjectsContainer.plugin_list_reply, data)
         assert not errors
 
         rsp = api_client.get('/plugins/bla/')
@@ -61,12 +61,12 @@ class TestPluginsAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.plugin_object, data)
+        errors = schema_match(ObjectsContainer.plugin_object, data)
         assert not errors
 
         rsp = api_client.get('/plugins/seen/?include_schema=true')
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.plugin_object, data)
+        errors = schema_match(ObjectsContainer.plugin_object, data)
         assert not errors

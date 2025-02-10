@@ -6,7 +6,7 @@ from requests import RequestException
 from flexget import plugin
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.soup import get_soup
 
 logger = logger.bind(name='anidb_list')
@@ -51,7 +51,7 @@ class AnidbList:
             params['pass'] = config['pass']
         return params
 
-    @cached('anidb_list', persist='2 hours')
+    @Cached('anidb_list', persist='2 hours')
     def on_task_input(self, task, config):
         # Create entries by parsing AniDB wishlist page html using beautifulsoup
         logger.verbose('Retrieving AniDB list: mywishlist:{}', config['mode'])

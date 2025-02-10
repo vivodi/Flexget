@@ -4,7 +4,7 @@ import sys
 import pytest
 
 from flexget.api.app import base_message
-from flexget.api.core.user import ObjectsContainer as OC
+from flexget.api.core.user import ObjectsContainer
 from flexget.utils import json
 
 
@@ -46,5 +46,5 @@ class TestUserAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.user_token_response, data)
+        errors = schema_match(ObjectsContainer.user_token_response, data)
         assert not errors

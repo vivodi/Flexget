@@ -1,7 +1,7 @@
 import pytest
 
 from flexget.api.app import base_message
-from flexget.components.thetvdb.api import ObjectsContainer as OC
+from flexget.components.thetvdb.api import ObjectsContainer
 from flexget.utils import json
 
 
@@ -23,7 +23,7 @@ class TestTVDBSeriesLookupAPI:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.tvdb_series_object, data)
+        errors = schema_match(ObjectsContainer.tvdb_series_object, data)
         assert not errors
 
         for field, value in values.items():
@@ -43,7 +43,7 @@ class TestTVDBSeriesLookupAPI:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.tvdb_series_object, data)
+        errors = schema_match(ObjectsContainer.tvdb_series_object, data)
         assert not errors
 
         for field, value in values.items():
@@ -75,7 +75,7 @@ class TestTVDBSeriesActorsLookupAPI:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.tvdb_series_object, data)
+        errors = schema_match(ObjectsContainer.tvdb_series_object, data)
         assert not errors
 
         for field, value in values.items():
@@ -102,7 +102,7 @@ class TestTVDBEpisodeLookupAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.episode_object, data)
+        errors = schema_match(ObjectsContainer.episode_object, data)
         assert not errors
 
         for field, value in values.items():
@@ -126,7 +126,7 @@ class TestTVDBEpisodeABSLookupAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.episode_object, data)
+        errors = schema_match(ObjectsContainer.episode_object, data)
         assert not errors
 
         for field, value in values.items():
@@ -150,7 +150,7 @@ class TestTVDBEpisodeAirDateLookupAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.episode_object, data)
+        errors = schema_match(ObjectsContainer.episode_object, data)
         assert not errors
 
         for field, value in values.items():
@@ -167,7 +167,7 @@ class TestTVDSearchNameLookupAPI:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.search_results_object, data)
+        errors = schema_match(ObjectsContainer.search_results_object, data)
         assert not errors
 
         values = {'series_name': "Supernatural", 'tvdb_id': 78901}
@@ -185,7 +185,7 @@ class TestTVDSearchIMDBLookupAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.search_results_object, data)
+        errors = schema_match(ObjectsContainer.search_results_object, data)
         assert not errors
 
         values = {'series_name': "Game of Thrones", 'tvdb_id': 121361}
@@ -203,7 +203,7 @@ class TestTVDSearchZAP2ITLookupAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.search_results_object, data)
+        errors = schema_match(ObjectsContainer.search_results_object, data)
         assert not errors
 
         values = {'series_name': "The Flash (2014)", 'tvdb_id': 279121}
@@ -251,7 +251,7 @@ class TestTVDBLanguages:
 
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.tvdb_series_object, data)
+        errors = schema_match(ObjectsContainer.tvdb_series_object, data)
         assert not errors
 
         for field, value in values.items():
@@ -270,7 +270,7 @@ class TestTVDBLanguages:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.episode_object, data)
+        errors = schema_match(ObjectsContainer.episode_object, data)
         assert not errors
 
         for field, value in values.items():
@@ -281,7 +281,7 @@ class TestTVDBLanguages:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.search_results_object, data)
+        errors = schema_match(ObjectsContainer.search_results_object, data)
         assert not errors
 
         values = {'series_name': "Tegenlicht", 'tvdb_id': 252712}

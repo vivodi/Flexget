@@ -7,7 +7,7 @@ from flexget import plugin
 from flexget.config_schema import one_or_more
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 from flexget.utils.requests import RequestException, TokenBucketLimiter
 
 logger = logger.bind(name='anilist')
@@ -72,7 +72,7 @@ class AniList:
         ]
     }
 
-    @cached('anilist', persist='2 hours')
+    @Cached('anilist', persist='2 hours')
     def on_task_input(self, task, config):
         task.requests.add_domain_limiter(TokenBucketLimiter('anilist.co', 90, '1 minute'))
         if isinstance(config, str):

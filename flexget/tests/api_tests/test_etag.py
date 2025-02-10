@@ -1,4 +1,4 @@
-from flexget.components.managed_lists.lists.movie_list.api import ObjectsContainer as OC
+from flexget.components.managed_lists.lists.movie_list.api import ObjectsContainer
 from flexget.utils import json
 
 
@@ -54,7 +54,7 @@ class TestETAG:
         rsp = api_client.get('/movie_list/', headers=header)
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.return_lists, data)
+        errors = schema_match(ObjectsContainer.return_lists, data)
         assert not errors
 
         # Verify all 3 lists are received as payload

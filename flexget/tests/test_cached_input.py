@@ -4,7 +4,7 @@ import pytest
 
 from flexget import plugin
 from flexget.entry import Entry
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 
 
 class InputPersist:
@@ -12,7 +12,7 @@ class InputPersist:
 
     hasrun = False
 
-    @cached('test_input', persist='5 minutes')
+    @Cached('test_input', persist='5 minutes')
     def on_task_input(self, task, config):
         if self.hasrun:
             return []
@@ -43,7 +43,7 @@ class TestInputCache:
         task = execute_task('test_memory')
         assert task.entries, 'should have created entries from the cache'
         # Turn the cache time down and run again to make sure the entries are not created again
-        cached.cache.cache_time = timedelta(minutes=0)
+        Cached.cache.cache_time = timedelta(minutes=0)
         task = execute_task('test_memory')
         assert not task.entries, 'cache should have been expired'
 
@@ -53,6 +53,6 @@ class TestInputCache:
         task = execute_task('test_db')
         assert task.entries, 'should have created entries at the start'
         # Clear out the memory cache to make sure we are loading from db
-        cached.cache.clear()
+        Cached.cache.clear()
         task = execute_task('test_db')
         assert task.entries, 'should have created entries from the cache'

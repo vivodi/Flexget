@@ -98,7 +98,7 @@ class UrlRewriteRlsbb:
         link_divs = link_list.find_all('div')
         return [link.string() for link in link_divs]
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     # urlrewriter API
     def url_rewrite(self, task, entry):
         soup = self._get_soup(task, entry['url'])

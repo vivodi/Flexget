@@ -42,7 +42,7 @@ class SearchCPASBIEN:
         'additionalProperties': False,
     }
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config):
         """CPASBIEN search plugin
 

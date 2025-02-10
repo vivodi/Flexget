@@ -73,7 +73,7 @@ class DependencyError(Exception):
         return f'<DependencyError(issued_by={self.issued_by!r},missing={self.missing!r},message={self.message!r},silent={self.silent!r})>'
 
 
-class RegisterException(Exception):
+class RegisterError(Exception):
     def __init__(self, value):
         super().__init__()
         self.value = value
@@ -108,7 +108,7 @@ class PluginError(Exception):
 
 
 # TODO: move to utils or somewhere more appropriate
-class internet:
+class Internet:
     """@internet decorator for plugin phase methods.
 
     Catches all internet related exceptions and raises PluginError with relevant message.
@@ -203,11 +203,11 @@ _new_phase_queue: dict[str, list[Optional[str]]] = {}
 def register_task_phase(name: str, before: Optional[str] = None, after: Optional[str] = None):
     """Adds a new task phase to the available phases."""
     if before and after:
-        raise RegisterException('You can only give either before or after for a phase.')
+        raise RegisterError('You can only give either before or after for a phase.')
     if not before and not after:
-        raise RegisterException('You must specify either a before or after phase.')
+        raise RegisterError('You must specify either a before or after phase.')
     if name in task_phases or name in _new_phase_queue:
-        raise RegisterException(f'Phase {name} already exists.')
+        raise RegisterError(f'Phase {name} already exists.')
 
     def add_phase(phase_name: str, before: Optional[str], after: Optional[str]):
         if before is not None and before not in task_phases:

@@ -63,7 +63,7 @@ class EmbyRefreshLibrary:
     def on_task_start(self, task, config):
         self.login(config)
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def on_task_exit(self, task, config):
         self.login(config)
         self.prepare_config(config)

@@ -290,7 +290,7 @@ class InputGazelle:
                     content_size=parse_filesize(str(tor['size']) + "b"),
                 )
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config):
         """Search interface"""
         self.setup(task, config)
@@ -303,7 +303,7 @@ class InputGazelle:
             entries.update(self.get_entries(self.search_results(params)))
         return entries
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def on_task_input(self, task, config):
         """Task input interface"""
         self.setup(task, config)

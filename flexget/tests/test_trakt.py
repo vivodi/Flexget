@@ -1,6 +1,6 @@
 import pytest
 
-from flexget.components.trakt.api import ObjectsContainer as OC
+from flexget.components.trakt.api import ObjectsContainer
 from flexget.components.trakt.api_trakt import ApiTrakt
 from flexget.components.trakt.db import (
     TraktActor,
@@ -207,7 +207,7 @@ class TestTraktShowLookup:
         entry = task.entries[0]
 
         assert entry['series_name'] == 'Game Of Thrones', 'series lookup failed'
-        errors = schema_match(OC.translation_object, entry['trakt_translations'])
+        errors = schema_match(ObjectsContainer.translation_object, entry['trakt_translations'])
         assert not errors
 
     def test_season_lookup(self, execute_task):
@@ -537,7 +537,7 @@ class TestTraktMovieLookup:
         entry = task.entries[0]
 
         assert entry['movie_name'] == 'The Matrix Reloaded', 'movie lookup failed'
-        errors = schema_match(OC.translation_object, entry['trakt_translations'])
+        errors = schema_match(ObjectsContainer.translation_object, entry['trakt_translations'])
         assert not errors, 'JSON schema does not match'
 
 

@@ -6,7 +6,7 @@ from typing import Optional
 from loguru import logger
 from sqlalchemy.exc import OperationalError, ProgrammingError
 
-from flexget.task import Task, TaskAbort
+from flexget.task import Task, TaskAbortError
 
 logger = logger.bind(name='task_queue')
 
@@ -44,7 +44,7 @@ class TaskQueue:
                 continue
             try:
                 self.current_task.execute()
-            except TaskAbort as e:
+            except TaskAbortError as e:
                 logger.debug('task {} aborted: {!r}', self.current_task.name, e)
             except (ProgrammingError, OperationalError):
                 logger.critical('Database error while running a task. Attempting to recover.')

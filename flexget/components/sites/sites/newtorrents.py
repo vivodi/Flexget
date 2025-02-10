@@ -56,7 +56,7 @@ class NewTorrents:
             entries.update(self.entries_from_search(search_string))
         return entries
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def url_from_page(self, url):
         """Parses torrent url from newtorrents download page"""
         try:
@@ -73,7 +73,7 @@ class NewTorrents:
             )
         return f.group(1)
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def entries_from_search(self, name, url=None):
         """Parses torrent download url from search results"""
         name = normalize_unicode(name)

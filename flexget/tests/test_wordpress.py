@@ -5,7 +5,7 @@ from requests import RequestException
 from requests.cookies import RequestsCookieJar
 from requests.utils import cookiejar_from_dict
 
-from flexget.task import TaskAbort
+from flexget.task import TaskAbortError
 
 
 def _mock_session_response(mock_, monkeypatch):
@@ -27,12 +27,12 @@ class TestWordPress:
 
     def test_task_aborts_for_status_not_ok(self, execute_task, monkeypatch):
         _mock_session_response(mock.Mock(ok=False), monkeypatch)
-        with pytest.raises(TaskAbort):
+        with pytest.raises(TaskAbortError):
             execute_task('test')
 
     def test_task_aborts_for_requests_exception(self, execute_task, monkeypatch):
         monkeypatch.setattr('requests.Session.send', mock.Mock(side_effect=RequestException))
-        with pytest.raises(TaskAbort):
+        with pytest.raises(TaskAbortError):
             execute_task('test')
 
     def test_task_aborts_when_response_has_no_valid_cookies(self, execute_task, monkeypatch):
@@ -43,7 +43,7 @@ class TestWordPress:
         _mock_session_response(
             mock.Mock(cookies=cookiejar_from_dict(invalid_cookies), history=[]), monkeypatch
         )
-        with pytest.raises(TaskAbort):
+        with pytest.raises(TaskAbortError):
             execute_task('test')
 
     def test_cookies_collected_across_redirects(self, execute_task, monkeypatch):

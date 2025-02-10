@@ -14,7 +14,7 @@ from loguru import logger
 
 from flexget import plugin
 from flexget.entry import Entry
-from flexget.task import TaskAbort
+from flexget.task import TaskAbortError
 
 # retry configuration constants
 RETRY_INTERVAL_SEC: int = 15
@@ -331,7 +331,7 @@ class SftpClient:
                 tries -= 1
                 logger.debug('Caught exception: {}', e)
                 if not tries:
-                    raise TaskAbort(f'Failed to connect to {self.host}')
+                    raise TaskAbortError(f'Failed to connect to {self.host}')
                 logger.debug('Caught exception: {}', e)
                 logger.warning(
                     'Failed to connect to {}; waiting {} seconds before retrying.',
@@ -346,10 +346,10 @@ class SftpClient:
     def _get_cnopts(self) -> Optional['pysftp.CnOpts']:
         if not self.host_key:
             return None
-        KeyClass = getattr(
+        key_class = getattr(
             importlib.import_module("paramiko"), HOST_KEY_TYPES[self.host_key.key_type]
         )
-        key = KeyClass(data=b64decode(self.host_key.public_key))
+        key = key_class(data=b64decode(self.host_key.public_key))
         cnopts = pysftp.CnOpts()
         cnopts.hostkeys.add(self.host, self.host_key.key_type, key)
         return cnopts

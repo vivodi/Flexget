@@ -17,7 +17,7 @@ def upgrade(ver, session):
     if ver is None:
         columns = table_columns('remember_rejected_entry', session)
         if 'uid' in columns:
-            raise db_schema.UpgradeImpossible
+            raise db_schema.UpgradeImpossibleError
         ver = 0
     if ver == 0:
         logger.info('Adding reason column to remember_rejected_entry table.')

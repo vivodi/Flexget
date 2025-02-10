@@ -1,7 +1,7 @@
 import copy
 
 from flexget.api.app import base_message
-from flexget.components.managed_lists.lists.movie_list.api import ObjectsContainer as OC
+from flexget.components.managed_lists.lists.movie_list.api import ObjectsContainer
 from flexget.components.managed_lists.lists.movie_list.db import (
     MovieListBase,
     MovieListList,
@@ -20,7 +20,7 @@ class TestMovieListAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.return_lists, data)
+        errors = schema_match(ObjectsContainer.return_lists, data)
         assert not errors
 
         assert data == []
@@ -29,7 +29,7 @@ class TestMovieListAPI:
         rsp = api_client.get('/movie_list/?name=name')
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.return_lists, data)
+        errors = schema_match(ObjectsContainer.return_lists, data)
         assert not errors
 
         payload = {'name': 'test'}
@@ -38,7 +38,7 @@ class TestMovieListAPI:
         rsp = api_client.json_post('/movie_list/', data=json.dumps(payload))
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.list_object, data)
+        errors = schema_match(ObjectsContainer.list_object, data)
         assert not errors
 
         values = {'name': 'test', 'id': 1}
@@ -49,7 +49,7 @@ class TestMovieListAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.return_lists, data)
+        errors = schema_match(ObjectsContainer.return_lists, data)
         assert not errors
 
         for field, value in values.items():
@@ -69,7 +69,7 @@ class TestMovieListAPI:
         rsp = api_client.json_post('/movie_list/', data=json.dumps(payload))
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.list_object, data)
+        errors = schema_match(ObjectsContainer.list_object, data)
         assert not errors
 
         values = {'name': 'test', 'id': 1}
@@ -80,7 +80,7 @@ class TestMovieListAPI:
         rsp = api_client.get('/movie_list/1/')
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.list_object, data)
+        errors = schema_match(ObjectsContainer.list_object, data)
         assert not errors
 
         values = {'name': 'test', 'id': 1}
@@ -121,14 +121,14 @@ class TestMovieListAPI:
         rsp = api_client.json_post('/movie_list/1/movies/', data=json.dumps(movie_data))
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         movie = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.movie_list_object, movie)
+        errors = schema_match(ObjectsContainer.movie_list_object, movie)
         assert not errors
 
         # Get movies from list
         rsp = api_client.get('/movie_list/1/movies/')
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.return_movies, data)
+        errors = schema_match(ObjectsContainer.return_movies, data)
         assert not errors
 
         assert data[0] == movie
@@ -154,14 +154,14 @@ class TestMovieListAPI:
         rsp = api_client.json_post('/movie_list/1/movies/', data=json.dumps(movie_data))
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.movie_list_object, data)
+        errors = schema_match(ObjectsContainer.movie_list_object, data)
         assert not errors
 
         # Get movies from list
         rsp = api_client.get('/movie_list/1/movies/')
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.return_movies, data)
+        errors = schema_match(ObjectsContainer.return_movies, data)
         assert not errors
 
         returned_identifier = data[0]['movies_list_ids'][0]
@@ -205,7 +205,7 @@ class TestMovieListAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.movie_list_object, data)
+        errors = schema_match(ObjectsContainer.movie_list_object, data)
         assert not errors
 
         returned_identifier = data['movies_list_ids'][0]
@@ -220,7 +220,7 @@ class TestMovieListAPI:
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
 
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.movie_list_object, data)
+        errors = schema_match(ObjectsContainer.movie_list_object, data)
         assert not errors
 
         returned_identifier = data['movies_list_ids'][0]
@@ -272,7 +272,7 @@ class TestMovieListUseCases:
         rsp = api_client.json_post('/movie_list/', data=json.dumps(payload))
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.list_object, data)
+        errors = schema_match(ObjectsContainer.list_object, data)
         assert not errors
 
         movie = {'movie_name': 'test movie', 'movie_year': 2000}
@@ -281,7 +281,7 @@ class TestMovieListUseCases:
         rsp = api_client.json_post('/movie_list/1/movies/', data=json.dumps(movie))
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.movie_list_object, data)
+        errors = schema_match(ObjectsContainer.movie_list_object, data)
         assert not errors
 
         # Try to add it again
@@ -298,7 +298,7 @@ class TestMovieListUseCases:
         rsp = api_client.json_post('/movie_list/1/movies/', data=json.dumps(movie_2))
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.movie_list_object, data)
+        errors = schema_match(ObjectsContainer.movie_list_object, data)
         assert not errors
 
         movie_3 = copy.deepcopy(movie)
@@ -308,14 +308,14 @@ class TestMovieListUseCases:
         rsp = api_client.json_post('/movie_list/1/movies/', data=json.dumps(movie_3))
         assert rsp.status_code == 201, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.movie_list_object, data)
+        errors = schema_match(ObjectsContainer.movie_list_object, data)
         assert not errors
 
     def test_identifiers(self, api_client, schema_match):
         rsp = api_client.get('/movie_list/identifiers/')
         assert rsp.status_code == 200, f'Response code is {rsp.status_code}'
         data = json.loads(rsp.get_data(as_text=True))
-        errors = schema_match(OC.return_identifiers, data)
+        errors = schema_match(ObjectsContainer.return_identifiers, data)
         assert not errors
 
         identifiers = MovieListBase().supported_ids
@@ -338,7 +338,7 @@ class TestMovieListUseCases:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.return_movies, data)
+        errors = schema_match(ObjectsContainer.return_movies, data)
         assert not errors
         assert len(data) == 3
 
@@ -351,7 +351,7 @@ class TestMovieListUseCases:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.return_movies, data)
+        errors = schema_match(ObjectsContainer.return_movies, data)
         assert not errors
         assert not data
 

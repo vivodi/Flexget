@@ -6,7 +6,7 @@ from requests import RequestException
 from flexget import plugin
 from flexget.entry import Entry
 from flexget.event import event
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 
 logger = logger.bind(name='csv')
 
@@ -50,7 +50,7 @@ class InputCSV:
         'additionalProperties': False,
     }
 
-    @cached('csv')
+    @Cached('csv')
     def on_task_input(self, task, config):
         entries = []
         try:

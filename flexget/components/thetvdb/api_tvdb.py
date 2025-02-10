@@ -107,7 +107,7 @@ class TVDBRequest:
 @db_schema.upgrade('api_tvdb')
 def upgrade(ver, session):
     if ver is None or ver <= 6:
-        raise db_schema.UpgradeImpossible
+        raise db_schema.UpgradeImpossibleError
     return ver
 
 

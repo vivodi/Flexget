@@ -8,7 +8,7 @@ from flexget import plugin
 from flexget.entry import Entry
 from flexget.event import event
 from flexget.utils import requests
-from flexget.utils.cached_input import cached
+from flexget.utils.cached_input import Cached
 
 logger = logger.bind(name='betaseries_list')
 
@@ -70,7 +70,7 @@ class BetaSeriesList:
         'additionalProperties': False,
     }
 
-    @cached('betaseries_list', persist='2 hours')
+    @Cached('betaseries_list', persist='2 hours')
     def on_task_input(self, task, config):
         username = config['username']
         password = config['password']

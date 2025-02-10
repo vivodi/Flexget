@@ -41,7 +41,7 @@ class SearchAwesomeHD:
 
         return config
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config):
         """
         Search for entries on AwesomeHD

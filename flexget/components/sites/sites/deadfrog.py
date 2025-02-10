@@ -26,7 +26,7 @@ class UrlRewriteDeadFrog:
     def url_rewrite(self, task, entry):
         entry['url'] = self.parse_download_page(entry['url'], task.requests)
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def parse_download_page(self, url, requests):
         txheaders = {'User-agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'}
         page = requests.get(url, headers=txheaders)

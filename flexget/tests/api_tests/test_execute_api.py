@@ -1,7 +1,7 @@
 import json
 
 from flexget.api.app import base_message
-from flexget.api.core.tasks import ObjectsContainer as OC
+from flexget.api.core.tasks import ObjectsContainer
 
 
 class TestExecuteAPI:
@@ -33,7 +33,7 @@ class TestExecuteAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_execution_results_schema, data)
+        errors = schema_match(ObjectsContainer.task_execution_results_schema, data)
         assert not errors
 
         task = self.get_task_queue(manager)
@@ -49,7 +49,7 @@ class TestExecuteAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_execution_results_schema, data)
+        errors = schema_match(ObjectsContainer.task_execution_results_schema, data)
         assert not errors
 
         task = self.get_task_queue(manager)
@@ -71,7 +71,7 @@ class TestExecuteAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_execution_results_schema, data)
+        errors = schema_match(ObjectsContainer.task_execution_results_schema, data)
         assert not errors
 
         task = self.get_task_queue(manager)
@@ -88,7 +88,7 @@ class TestExecuteAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_execution_results_schema, data)
+        errors = schema_match(ObjectsContainer.task_execution_results_schema, data)
         assert not errors
 
         task = self.get_task_queue(manager)
@@ -101,7 +101,7 @@ class TestExecuteAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_execution_results_schema, data)
+        errors = schema_match(ObjectsContainer.task_execution_results_schema, data)
         assert not errors
 
         task = self.get_task_queue(manager)
@@ -118,7 +118,7 @@ class TestExecuteAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_execution_results_schema, data)
+        errors = schema_match(ObjectsContainer.task_execution_results_schema, data)
         assert not errors
 
         task = self.get_task_queue(manager)
@@ -137,7 +137,7 @@ class TestExecuteAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_execution_results_schema, data)
+        errors = schema_match(ObjectsContainer.task_execution_results_schema, data)
         assert not errors
 
         task = self.get_task_queue(manager)
@@ -159,7 +159,7 @@ class TestExecuteAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_execution_results_schema, data)
+        errors = schema_match(ObjectsContainer.task_execution_results_schema, data)
         assert not errors
 
         task = self.get_task_queue(manager)
@@ -176,7 +176,7 @@ class TestExecuteAPI:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_execution_results_schema, data)
+        errors = schema_match(ObjectsContainer.task_execution_results_schema, data)
         assert not errors
 
         task = self.get_task_queue(manager)
@@ -220,5 +220,5 @@ class TestExecuteMultipleTasks:
         assert rsp.status_code == 200
         data = json.loads(rsp.get_data(as_text=True))
 
-        errors = schema_match(OC.task_execution_results_schema, data)
+        errors = schema_match(ObjectsContainer.task_execution_results_schema, data)
         assert not errors

@@ -118,7 +118,7 @@ class UrlRewriteFuzer:
             entries.append(e)
         return entries
 
-    @plugin.internet(logger)
+    @plugin.Internet(logger)
     def search(self, task, entry, config=None):
         """
         Search for name from fuzer.

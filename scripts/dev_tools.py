@@ -13,7 +13,10 @@ from typing import Optional
 import click
 import requests
 
-from scripts.bundle_webui import bundle_webui
+if __name__ == '__main__':
+    from bundle_webui import bundle_webui
+else:
+    from scripts.bundle_webui import bundle_webui
 
 
 def _get_version():

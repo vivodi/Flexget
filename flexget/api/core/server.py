@@ -193,7 +193,7 @@ class ServerRawConfigAPI(APIResource):
     )
     def get(self, session: Session = None) -> Response:
         """Get raw YAML config file."""
-        with open(self.manager.config_path, encoding='utf-8') as f:
+        with Path(self.manager.config_path).open(encoding='utf-8') as f:
             raw_config = base64.b64encode(f.read().encode("utf-8"))
         return jsonify(raw_config=raw_config.decode('utf-8'))
 
@@ -244,7 +244,7 @@ class ServerRawConfigAPI(APIResource):
             )
 
         try:
-            with open(self.manager.config_path, 'w', encoding='utf-8') as f:
+            with Path(self.manager.config_path).open('w', encoding='utf-8') as f:
                 f.write(raw_config.decode('utf-8').replace('\r\n', '\n'))
         except Exception as e:
             raise APIError(
@@ -359,12 +359,10 @@ class ServerLogAPI(APIResource):
 
             lines_found = []
 
-            if os.path.isabs(self.manager.options.logfile):
+            if Path(self.manager.options.logfile).is_absolute():
                 base_log_file = self.manager.options.logfile
             else:
-                base_log_file = os.path.join(
-                    self.manager.config_base, self.manager.options.logfile
-                )
+                base_log_file = self.manager.config_base / self.manager.options.logfile
 
             yield '{"stream": ['  # Start of the json stream
 
@@ -372,10 +370,10 @@ class ServerLogAPI(APIResource):
             for i in range(9):
                 log_file = (f'{base_log_file}.{i}').rstrip('.0')  # 1st log file has no number
 
-                if not os.path.isfile(log_file):
+                if not Path(log_file).is_file():
                     break
 
-                with open(log_file, 'rb') as fh:
+                with Path(log_file).open('rb') as fh:
                     fh.seek(0, 2)  # Seek to bottom of file
                     end_byte = fh.tell()
                     if i == 0:
@@ -409,7 +407,7 @@ class ServerLogAPI(APIResource):
                     current_inode = new_inode
 
                 try:
-                    with open(base_log_file, 'rb') as fh:
+                    with Path(base_log_file).open('rb') as fh:
                         fh.seek(stream_from_byte)
                         line = fh.readline().decode(sys.getfilesystemencoding())
                         stream_from_byte = fh.tell()

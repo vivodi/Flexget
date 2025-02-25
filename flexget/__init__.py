@@ -1,6 +1,7 @@
 import os
 import sys
 from collections.abc import Sequence
+from pathlib import Path
 from typing import Optional
 
 # __version__ import need to be first in order to avoid circular import within logger
@@ -48,7 +49,7 @@ def main(args: Optional[Sequence[str]] = None):
                     'manager.start()',
                     globals(),
                     locals(),
-                    os.path.join(manager.config_base, manager.options.profile),
+                    manager.config_base / manager.options.profile,
                 )
             else:
                 manager.start()

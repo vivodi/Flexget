@@ -7,6 +7,7 @@ archive extraction
 import os
 import shutil
 import zipfile
+from pathlib import Path
 
 from loguru import logger
 
@@ -66,9 +67,9 @@ def rarfile_set_path_sep(separator):
 
 def makepath(path):
     """Make directories as needed."""
-    if not os.path.exists(path):
+    if not Path(path).exists():
         logger.debug('Creating path: {}', path)
-        os.makedirs(path)
+        Path(path).mkdir(parents=True)
 
 
 class Archive:
@@ -90,7 +91,7 @@ class Archive:
 
         try:
             for volume in volumes:
-                os.remove(volume)
+                Path(volume).unlink()
                 logger.verbose('Deleted archive: {}', volume)
         except OSError as error:
             raise FSError(error)
@@ -119,7 +120,7 @@ class Archive:
     def extract_file(self, member, destination):
         """Extract a member file to the specified destination."""
         try:
-            with self.open(member) as source, open(destination, 'wb') as target:
+            with self.open(member) as source, Path(destination).open('wb') as target:
                 shutil.copyfileobj(source, target)
         except OSError as error:
             raise FSError(error)
@@ -193,7 +194,7 @@ class ArchiveInfo:
 
     def extract(self, archive, destination):
         """Extract ArchiveInfo object to the specified destination."""
-        dest_dir = os.path.dirname(destination)
+        dest_dir = Path(destination).parent
 
         if os.path.exists(destination):
             raise FileAlreadyExists(f'File already exists: {destination}')

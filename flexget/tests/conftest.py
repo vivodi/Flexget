@@ -31,11 +31,11 @@ from flexget.webserver import User
 
 logger = logger.bind(name='tests')
 
-VCR_CASSETTE_DIR = os.path.join(os.path.dirname(__file__), 'cassettes')
+VCR_CASSETTE_DIR = Path(__file__).parent / 'cassettes'
 VCR_RECORD_MODE = os.environ.get('VCR_RECORD_MODE', 'once')
 
 vcr = VCR(
-    cassette_library_dir=VCR_CASSETTE_DIR,
+    cassette_library_dir=str(VCR_CASSETTE_DIR),
     record_mode=VCR_RECORD_MODE,
     custom_patches=(
         (client, 'HTTPSConnection', VCRHTTPSConnection),
@@ -119,17 +119,17 @@ def use_vcr(request, monkeypatch):
         module = request.module.__name__.split('tests.')[-1]
         class_name = request.cls.__name__
         cassette_name = f'{module}.{class_name}.{request.function.__name__}'
-        cassette_path = os.path.join(VCR_CASSETTE_DIR, cassette_name)
+        cassette_path = VCR_CASSETTE_DIR / cassette_name
         online = True
         if vcr.record_mode == 'none':
             online = False
         elif vcr.record_mode == 'once':
-            online = not os.path.exists(cassette_path)
+            online = not cassette_path.exists()
         # If we are not going online, disable domain limiting during test
         if not online:
             logger.debug('Disabling domain limiters during VCR playback.')
             monkeypatch.setattr('flexget.utils.requests.limit_domains', mock.Mock())
-        with vcr.use_cassette(path=cassette_path) as cassette:
+        with vcr.use_cassette(path=str(cassette_path)) as cassette:
             yield cassette
 
 
@@ -210,7 +210,7 @@ def pytest_runtest_setup(item):
 
 @pytest.fixture
 def filecopy(request):
-    out_files = []
+    out_files: list[Path] = []
     for marker in request.node.iter_markers('filecopy'):
         copy_list = marker.args[0] if len(marker.args) == 1 else [marker.args]
 
@@ -219,14 +219,15 @@ def filecopy(request):
                 sources = [sources]
             dst = dst.replace('__tmp__', request.getfixturevalue('tmp_path').as_posix())
             dst = Path(dst)
-            for f in itertools.chain(*(Path().glob(src) for src in sources)):
+            paths: itertools.chain[Path] = itertools.chain(*(Path().glob(src) for src in sources))
+            for f in paths:
                 dest_path = dst
                 if dest_path.is_dir():
                     dest_path = dest_path / f.name
                 logger.debug('copying {} to {}', f, dest_path)
-                if not os.path.isdir(os.path.dirname(dest_path)):
-                    os.makedirs(os.path.dirname(dest_path))
-                if os.path.isdir(f):
+                if not dest_path.parent.is_dir():
+                    dest_path.parent.mkdir(parents=True)
+                if f.is_dir():
                     shutil.copytree(f, dest_path)
                 else:
                     shutil.copy(f, dest_path)
@@ -235,7 +236,7 @@ def filecopy(request):
     if out_files:
         for f in out_files:
             try:
-                if os.path.isdir(f):
+                if f.is_dir():
                     shutil.rmtree(f)
                 else:
                     f.unlink()
@@ -285,7 +286,7 @@ def chdir(pytestconfig, request):
     Task configuration can then assume this being location for relative paths
     """
     if 'chdir' in request.fixturenames:
-        os.chdir(os.path.dirname(request.module.__file__))
+        os.chdir(Path(request.module.__file__).parent)
 
 
 @pytest.fixture(autouse=True)

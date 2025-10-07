@@ -27,6 +27,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',
+    'myst_parser',
     'sphinx_copybutton',
     'sphinx_design',
     'sphinxcontrib.rsvgconverter',
@@ -64,6 +65,10 @@ intersphinx_mapping = {
     'sqlalchemy': ('https://docs.sqlalchemy.org', None),
     'transmission-rpc': ('https://transmission-rpc.readthedocs.io/en/stable', None),
 }
+
+# -- myst_parser options -----------------------------------------------------
+
+myst_enable_extensions = ['colon_fence']
 
 # -- sphinx_copybutton options -----------------------------------------------
 

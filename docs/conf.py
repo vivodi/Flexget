@@ -32,6 +32,7 @@ extensions = [
     'sphinx_design',
     'sphinxcontrib.rsvgconverter',
     '_extensions.gallery_directive',
+    '_extensions.toc_table'
 ]
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 suppress_warnings = [

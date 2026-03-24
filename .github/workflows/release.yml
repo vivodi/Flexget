@@ -66,3 +66,4 @@ jobs:
           tag: ${{ env.RELEASE_TAG }}
           artifacts: dist/*,flexget-config.schema.json
           body: ${{ env.CHANGELOG_BODY }}
+          immutableCreate: true

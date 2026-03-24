@@ -1246,7 +1246,7 @@ wheels = [
 ]
 
 [[package]]
-name = "flexget"
+name = "flexgettest"
 source = { editable = "." }
 dependencies = [
     { name = "apscheduler" },

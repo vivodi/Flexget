@@ -5,7 +5,7 @@ aniso8601==10.0.1
 annotated-doc==0.0.5
     # via typer
 apscheduler==3.11.3
-    # via flexget
+    # via flexgettest
 attrs==26.1.0
     # via
     #   jsonschema
@@ -17,7 +17,7 @@ backports-tarfile==1.2.0 ; python_full_version < '3.12'
 backports-zstd==1.6.0 ; python_full_version < '3.14'
     # via flask-compress
 beautifulsoup4==4.15.0
-    # via flexget
+    # via flexgettest
 blinker==1.9.0
     # via flask
 brotli==1.2.0 ; platform_python_implementation != 'PyPy'
@@ -33,7 +33,7 @@ charset-normalizer==3.4.9
 cheroot==11.1.2
     # via cherrypy
 cherrypy==18.10.0
-    # via flexget
+    # via flexgettest
 click==8.4.2
     # via flask
 colorama==0.4.6 ; sys_platform == 'win32'
@@ -42,7 +42,7 @@ colorama==0.4.6 ; sys_platform == 'win32'
     #   loguru
     #   typer
 feedparser==6.0.14
-    # via flexget
+    # via flexgettest
 feedparser-sgmllib==2.1.0
     # via feedparser
 flask==3.1.3
@@ -51,21 +51,21 @@ flask==3.1.3
     #   flask-cors
     #   flask-login
     #   flask-restx
-    #   flexget
+    #   flexgettest
 flask-compress==1.24
-    # via flexget
+    # via flexgettest
 flask-cors==6.0.5
-    # via flexget
+    # via flexgettest
 flask-login==0.6.3
-    # via flexget
+    # via flexgettest
 flask-restx==1.3.2
-    # via flexget
+    # via flexgettest
 greenlet==3.5.4 ; platform_machine == 'AMD64' or platform_machine == 'WIN32' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'ppc64le' or platform_machine == 'win32' or platform_machine == 'x86_64'
     # via sqlalchemy
 guessit==3.8.0
-    # via flexget
+    # via flexgettest
 html5lib==1.1
-    # via flexget
+    # via flexgettest
 idna==3.18
     # via requests
 importlib-resources==7.1.0
@@ -90,15 +90,15 @@ jaraco-text==4.3.0
 jinja2==3.1.6
     # via
     #   flask
-    #   flexget
+    #   flexgettest
 jsonschema==4.26.0
     # via
     #   flask-restx
-    #   flexget
+    #   flexgettest
 jsonschema-specifications==2025.9.1
     # via jsonschema
 loguru==0.7.3
-    # via flexget
+    # via flexgettest
 markdown-it-py==4.2.0
     # via rich
 markupsafe==3.0.3
@@ -115,36 +115,36 @@ more-itertools==11.1.0
     #   jaraco-functools
     #   jaraco-text
 packaging==26.2
-    # via flexget
+    # via flexgettest
 pendulum==3.2.0
-    # via flexget
+    # via flexgettest
 plumbum==2.0.2
     # via rpyc
 portend==3.2.1
     # via cherrypy
 psutil==7.2.2
-    # via flexget
+    # via flexgettest
 pycparser==3.0 ; implementation_name != 'PyPy' and platform_python_implementation == 'PyPy'
     # via cffi
 pygments==2.20.0
     # via rich
 pynzb==0.1.0
-    # via flexget
+    # via flexgettest
 pyparsing==3.3.2
-    # via flexget
+    # via flexgettest
 pyrss2gen==1.1
-    # via flexget
+    # via flexgettest
 python-dateutil==2.9.0.post0
     # via
-    #   flexget
+    #   flexgettest
     #   guessit
     #   pendulum
     #   tempora
 pyyaml==6.0.3
-    # via flexget
+    # via flexgettest
 rebulk==3.2.0
     # via
-    #   flexget
+    #   flexgettest
     #   guessit
 referencing==0.37.0
     # via
@@ -152,10 +152,10 @@ referencing==0.37.0
     #   jsonschema
     #   jsonschema-specifications
 requests==2.34.2
-    # via flexget
+    # via flexgettest
 rich==15.0.0
     # via
-    #   flexget
+    #   flexgettest
     #   typer
 rpds-py==0.30.0 ; python_full_version < '3.11'
     # via
@@ -166,7 +166,7 @@ rpds-py==2026.6.3 ; python_full_version >= '3.11'
     #   jsonschema
     #   referencing
 rpyc==6.0.2
-    # via flexget
+    # via flexgettest
 setuptools==83.0.0
     # via
     #   pynzb
@@ -180,7 +180,7 @@ six==1.17.0
 soupsieve==2.9.1
     # via beautifulsoup4
 sqlalchemy==2.0.51
-    # via flexget
+    # via flexgettest
 tempora==5.12.0
     # via portend
 typer==0.27.1
@@ -191,7 +191,7 @@ typing-extensions==4.16.0
     # via
     #   beautifulsoup4
     #   flask-cors
-    #   flexget
+    #   flexgettest
     #   plumbum
     #   referencing
     #   sqlalchemy
@@ -212,10 +212,10 @@ werkzeug==3.1.8
     #   flask-cors
     #   flask-login
     #   flask-restx
-    #   flexget
+    #   flexgettest
 win32-setctime==1.2.0 ; sys_platform == 'win32'
     # via loguru
 zc-lockfile==4.0
     # via cherrypy
 zxcvbn==4.5.0
-    # via flexget
+    # via flexgettest

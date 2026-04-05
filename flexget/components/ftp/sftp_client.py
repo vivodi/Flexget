@@ -269,6 +269,7 @@ class SftpClient:
     def close(self) -> None:
         """Close SFTP and SSH connections."""
         try:
+            # asyncssh SFTPClient.exit() is synchronous; wait_closed() is the awaitable shutdown step.
             self._sftp.exit()
         except Exception as e:
             logger.debug('Ignoring SFTP session close error for {} ({}).', self.host, e)
@@ -342,7 +343,8 @@ class SftpClient:
         if self.private_key:
             kwargs['client_keys'] = [str(Path(self.private_key).expanduser())]
             if self.password is None:
-                # Allow asyncssh to use server-provided auth methods as-is.
+                # Use asyncssh's full auth-method negotiation order when no password is set.
+                # Passing an empty list keeps all server-advertised methods available.
                 kwargs['preferred_auth'] = []
 
         if self.private_key_pass:

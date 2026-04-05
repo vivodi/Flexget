@@ -732,4 +732,5 @@ class SftpError(Exception):
 
     def __getitem__(self, index):
         """Support string-like indexing/slicing for legacy reason formatting."""
-        return str(self)[index]
+        message = self.args[0] if self.args else ''
+        return str(message)[index]

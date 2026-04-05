@@ -28,6 +28,13 @@ try:
     import asyncssh
 except ImportError:
     asyncssh = None
+else:
+    _lookup_client_auth = asyncssh.connection.lookup_client_auth
+
+    def _lookup_client_auth_with_strip(conn, method):
+        return _lookup_client_auth(conn, method.strip())
+
+    asyncssh.connection.lookup_client_auth = _lookup_client_auth_with_strip
 
 NodeHandler = Callable[[str], None]
 
@@ -262,9 +269,13 @@ class SftpClient:
     def close(self) -> None:
         """Close SFTP and SSH connections."""
         try:
-            self._run(self._sftp.exit(), use_timeout=False)
+            self._sftp.exit()
         except Exception as e:
             logger.debug('Ignoring SFTP session close error for {} ({}).', self.host, e)
+        try:
+            self._run(self._sftp.wait_closed(), use_timeout=False)
+        except Exception as e:
+            logger.debug('Ignoring SFTP wait_closed error for {} ({}).', self.host, e)
         try:
             self._conn.close()
         except Exception as e:
@@ -330,6 +341,9 @@ class SftpClient:
 
         if self.private_key:
             kwargs['client_keys'] = [str(Path(self.private_key).expanduser())]
+            if self.password is None:
+                # Allow asyncssh to use server-provided auth methods as-is.
+                kwargs['preferred_auth'] = []
 
         if self.private_key_pass:
             kwargs['passphrase'] = self.private_key_pass
@@ -624,7 +638,7 @@ class SftpClient:
         logger.verbose('Downloading file {} to {}', source, destination_path)
 
         try:
-            self._run(self._sftp.get(source, destination_path))
+            self._run(self._sftp.get(source, destination_path, preserve=False, follow_symlinks=True))
         except Exception as e:
             logger.error('Failed to download {} ({})', source, e)
             if Path(destination_path).exists():

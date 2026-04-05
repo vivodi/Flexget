@@ -37,7 +37,7 @@ class SftpConfig(NamedTuple):
 
 
 class SftpList:
-    """Generate entries from SFTP. This plugin requires the pysftp Python module and its dependencies.
+    """Generate entries from SFTP. This plugin requires the asyncssh Python module and its dependencies.
 
     Configuration options
 
@@ -153,7 +153,7 @@ class SftpList:
 class SftpDownload:
     """Download files from a SFTP server.
 
-    This plugin requires the pysftp Python module and its dependencies.
+    This plugin requires the asyncssh Python module and its dependencies.
 
     Configuration options
 
@@ -274,7 +274,7 @@ class SftpDownload:
 
 
 class SftpUpload:
-    """Upload files to a SFTP server. This plugin requires the pysftp Python module and its dependencies.
+    """Upload files to a SFTP server. This plugin requires the asyncssh Python module and its dependencies.
 
     ==================    ======================================================================================
     Option                Description
@@ -379,17 +379,19 @@ class SftpUpload:
 
         sftp_config: SftpConfig = task_config_to_sftp_config(config)
         sftp = sftp_connect(sftp_config, socket_timeout_sec, connection_tries)
-
-        for entry in task.accepted:
-            if sftp:
-                logger.debug('Uploading file: {}', entry['location'])
-                cls.handle_entry(entry, sftp, config)
-            else:
-                entry.fail('SFTP connection failed.')
+        try:
+            for entry in task.accepted:
+                if sftp:
+                    logger.debug('Uploading file: {}', entry['location'])
+                    cls.handle_entry(entry, sftp, config)
+                else:
+                    entry.fail('SFTP connection failed.')
+        finally:
+            sftp.close()
 
 
 def task_config_to_sftp_config(config: dict) -> SftpConfig:
-    """Create an SFTP connection from a Flexget config object."""
+    """Create an SFTP connection from a FlexGet config object."""
     host: int = config['host']
     port: int = config['port']
     username: str = config['username']

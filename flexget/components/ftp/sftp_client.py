@@ -729,3 +729,7 @@ class SftpClient:
 
 class SftpError(Exception):
     """Generic SFTP operation error."""
+
+    def __getitem__(self, index):
+        """Support string-like indexing/slicing for legacy reason formatting."""
+        return str(self)[index]

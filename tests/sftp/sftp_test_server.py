@@ -206,7 +206,7 @@ else:
             return AUTH_FAILED
 
         def check_auth_publickey(self, username: str, key) -> int:
-            if key:
+            if self.__username == username and key:
                 return AUTH_SUCCESSFUL
             return AUTH_FAILED
 
@@ -216,7 +216,7 @@ else:
         def get_allowed_auths(self, username: str) -> str:
             if self.__key_only:
                 return 'publickey'
-            return 'password, publickey'
+            return 'password,publickey'
 
     class TestSFTPHandle(SFTPHandle):
         __test__ = False

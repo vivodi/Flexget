@@ -247,6 +247,19 @@ wheels = [
 ]
 
 [[package]]
+name = "asyncssh"
+version = "2.22.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "cryptography" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/fc/d5/957886c316466349d55c4de6a688a10a98295c0b4429deb8db1a17f3eb19/asyncssh-2.22.0.tar.gz", hash = "sha256:c3ce72b01be4f97b40e62844dd384227e5ff5a401a3793007c42f86a5c8eb537", size = 540523, upload-time = "2025-12-21T23:38:30.5Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ed/ae/0da2f2214fc183338af1afe5a103a2052fd03464e8eafbd827abff58a4d0/asyncssh-2.22.0-py3-none-any.whl", hash = "sha256:d16465ccdf1ed20eba1131b14415b155e047f6f5be0d19f39c2e0b61331ee0e7", size = 374938, upload-time = "2025-12-21T23:38:28.976Z" },
+]
+
+[[package]]
 name = "attrs"
 version = "26.1.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1129,7 +1142,7 @@ name = "exceptiongroup"
 version = "1.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "typing-extensions", marker = "python_full_version < '3.13'" },
+    { name = "typing-extensions", marker = "python_full_version < '3.12'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/50/79/66800aadf48771f6b62f7eb014e352e5d06856655206165d775e675a02c9/exceptiongroup-1.3.1.tar.gz", hash = "sha256:8b412432c6055b0b7d14c310000ae93352ed6754f70fa8f7c34141f91c4e3219", size = 30371, upload-time = "2025-11-21T23:01:54.787Z" }
 wheels = [
@@ -1269,13 +1282,12 @@ dependencies = [
 
 [package.dev-dependencies]
 all = [
+    { name = "asyncssh" },
     { name = "boto3" },
     { name = "deluge-client" },
     { name = "ftputil" },
     { name = "matrix-nio" },
-    { name = "paramiko" },
     { name = "plexapi" },
-    { name = "pysftp" },
     { name = "python-telegram-bot", extra = ["http2", "socks"] },
     { name = "qbittorrent-api" },
     { name = "rarfile" },
@@ -1320,8 +1332,7 @@ rarfile = [
     { name = "rarfile" },
 ]
 sftp = [
-    { name = "paramiko" },
-    { name = "pysftp" },
+    { name = "asyncssh" },
 ]
 subliminal = [
     { name = "subliminal" },
@@ -1330,6 +1341,7 @@ telegram = [
     { name = "python-telegram-bot", extra = ["http2", "socks"] },
 ]
 test = [
+    { name = "asyncssh" },
     { name = "boto3" },
     { name = "deluge-client" },
     { name = "ftputil" },
@@ -1337,7 +1349,6 @@ test = [
     { name = "paramiko" },
     { name = "pillow" },
     { name = "plexapi" },
-    { name = "pysftp" },
     { name = "pytest-ftpserver" },
     { name = "python-telegram-bot", extra = ["http2", "socks"] },
     { name = "qbittorrent-api" },
@@ -1384,13 +1395,12 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 all = [
+    { name = "asyncssh", specifier = "~=2.22" },
     { name = "boto3", specifier = "~=1.35" },
     { name = "deluge-client", specifier = "~=1.10" },
     { name = "ftputil", specifier = "~=5.1" },
     { name = "matrix-nio", specifier = "~=0.25.2" },
-    { name = "paramiko", specifier = "~=3.5" },
     { name = "plexapi", specifier = "~=4.17" },
-    { name = "pysftp", specifier = "~=0.2.9" },
     { name = "python-telegram-bot", extras = ["http2", "socks"], specifier = "~=22.0" },
     { name = "qbittorrent-api", specifier = "~=2025.2" },
     { name = "rarfile", specifier = "~=4.0" },
@@ -1420,21 +1430,18 @@ matrix = [{ name = "matrix-nio", specifier = "~=0.25.2" }]
 plexapi = [{ name = "plexapi", specifier = "~=4.17" }]
 qbittorrent = [{ name = "qbittorrent-api", specifier = "~=2025.2" }]
 rarfile = [{ name = "rarfile", specifier = "~=4.0" }]
-sftp = [
-    { name = "paramiko", specifier = "~=3.5" },
-    { name = "pysftp", specifier = "~=0.2.9" },
-]
+sftp = [{ name = "asyncssh", specifier = "~=2.22" }]
 subliminal = [{ name = "subliminal", specifier = "~=2.6" }]
 telegram = [{ name = "python-telegram-bot", extras = ["http2", "socks"], specifier = "~=22.0" }]
 test = [
+    { name = "asyncssh", specifier = "~=2.22" },
     { name = "boto3", specifier = "~=1.35" },
     { name = "deluge-client", specifier = "~=1.10" },
     { name = "ftputil", specifier = "~=5.1" },
     { name = "matrix-nio", specifier = "~=0.25.2" },
-    { name = "paramiko", specifier = "~=3.5" },
+    { name = "paramiko", specifier = "~=4.0" },
     { name = "pillow", specifier = "~=12.1" },
     { name = "plexapi", specifier = "~=4.17" },
-    { name = "pysftp", specifier = "~=0.2.9" },
     { name = "pytest-ftpserver", specifier = "~=1.0" },
     { name = "python-telegram-bot", extras = ["http2", "socks"], specifier = "~=22.0" },
     { name = "qbittorrent-api", specifier = "~=2025.2" },
@@ -1762,6 +1769,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/72/34/14ca021ce8e5dfedc35312d08ba8bf51fdd999c576889fc2c24cb97f4f10/iniconfig-2.3.0.tar.gz", hash = "sha256:c76315c77db068650d49c5b56314774a7804df16fee4402c1f19d6d15d8c4730", size = 20503, upload-time = "2025-10-18T21:55:43.219Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/cb/b1/3846dd7f199d53cb17f49cba7e651e9ce294d8497c8c150530ed11865bb8/iniconfig-2.3.0-py3-none-any.whl", hash = "sha256:f631c04d2c48c52b84d0d0549c99ff3859c98df65b3101406327ecc7d53fbf12", size = 7484, upload-time = "2025-10-18T21:55:41.639Z" },
+]
+
+[[package]]
+name = "invoke"
+version = "2.2.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/de/bd/b461d3424a24c80490313fd77feeb666ca4f6a28c7e72713e3d9095719b4/invoke-2.2.1.tar.gz", hash = "sha256:515bf49b4a48932b79b024590348da22f39c4942dff991ad1fb8b8baea1be707", size = 304762, upload-time = "2025-10-11T00:36:35.172Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/32/4b/b99e37f88336009971405cbb7630610322ed6fbfa31e1d7ab3fbf3049a2d/invoke-2.2.1-py3-none-any.whl", hash = "sha256:2413bc441b376e5cd3f55bb5d364f973ad8bdd7bf87e53c79de3c11bf3feecc8", size = 160287, upload-time = "2025-10-11T00:36:33.703Z" },
 ]
 
 [[package]]
@@ -2184,16 +2200,17 @@ wheels = [
 
 [[package]]
 name = "paramiko"
-version = "3.5.1"
+version = "4.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "bcrypt" },
     { name = "cryptography" },
+    { name = "invoke" },
     { name = "pynacl" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/7d/15/ad6ce226e8138315f2451c2aeea985bf35ee910afb477bae7477dc3a8f3b/paramiko-3.5.1.tar.gz", hash = "sha256:b2c665bc45b2b215bd7d7f039901b14b067da00f3a11e6640995fd58f2664822", size = 1566110, upload-time = "2025-02-04T02:37:59.783Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/1f/e7/81fdcbc7f190cdb058cffc9431587eb289833bdd633e2002455ca9bb13d4/paramiko-4.0.0.tar.gz", hash = "sha256:6a25f07b380cc9c9a88d2b920ad37167ac4667f8d9886ccebd8f90f654b5d69f", size = 1630743, upload-time = "2025-08-04T01:02:03.711Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/15/f8/c7bd0ef12954a81a1d3cea60a13946bd9a49a0036a5927770c461eade7ae/paramiko-3.5.1-py3-none-any.whl", hash = "sha256:43b9a0501fc2b5e70680388d9346cf252cfb7d00b0667c39e80eb43a408b8f61", size = 227298, upload-time = "2025-02-04T02:37:57.672Z" },
+    { url = "https://files.pythonhosted.org/packages/a9/90/a744336f5af32c433bd09af7854599682a383b37cfd78f7de263de6ad6cb/paramiko-4.0.0-py3-none-any.whl", hash = "sha256:0e20e00ac666503bf0b4eda3b6d833465a2b7aff2e2b3d79a8bba5ef144ee3b9", size = 223932, upload-time = "2025-08-04T01:02:02.029Z" },
 ]
 
 [[package]]
@@ -2769,15 +2786,6 @@ name = "pyrss2gen"
 version = "1.1"
 source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/6d/01/fd610d5fc86f7dbdbefc4baa8f7fe15a2e5484244c41dcf363ca7e89f60c/PyRSS2Gen-1.1.tar.gz", hash = "sha256:7960aed7e998d2482bf58716c316509786f596426f879b05f8d84e98b82c6ee7", size = 6854, upload-time = "2013-02-21T03:23:02.807Z" }
-
-[[package]]
-name = "pysftp"
-version = "0.2.9"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "paramiko" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/36/60/45f30390a38b1f92e0a8cf4de178cd7c2bc3f874c85430e40ccf99df8fe7/pysftp-0.2.9.tar.gz", hash = "sha256:fbf55a802e74d663673400acd92d5373c1c7ee94d765b428d9f977567ac4854a", size = 25949, upload-time = "2016-07-06T00:19:28.988Z" }
 
 [[package]]
 name = "pysubs2"

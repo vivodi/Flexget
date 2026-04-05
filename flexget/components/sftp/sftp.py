@@ -7,13 +7,12 @@ from urllib.parse import unquote, urlparse
 from loguru import logger
 
 from flexget import plugin
-from flexget.components.ftp.sftp_client import HOST_KEY_TYPES, HostKey, SftpClient, SftpError
+from flexget.components.sftp.sftp_client import HOST_KEY_TYPES, HostKey, SftpClient, SftpError
 from flexget.config_schema import one_or_more
 from flexget.event import event
 from flexget.utils.template import RenderError, render_from_entry
 
 if TYPE_CHECKING:
-    from pathlib import Path
 
     from flexget.entry import Entry
     from flexget.task import Task
@@ -37,7 +36,7 @@ class SftpConfig(NamedTuple):
 
 
 class SftpList:
-    """Generate entries from SFTP. This plugin requires the pysftp Python module and its dependencies.
+    """Generate entries from SFTP. This plugin requires the asyncssh Python module and its dependencies.
 
     Configuration options
 
@@ -153,7 +152,7 @@ class SftpList:
 class SftpDownload:
     """Download files from a SFTP server.
 
-    This plugin requires the pysftp Python module and its dependencies.
+    This plugin requires the asyncssh Python module and its dependencies.
 
     Configuration options
 
@@ -273,123 +272,8 @@ class SftpDownload:
         return config
 
 
-class SftpUpload:
-    """Upload files to a SFTP server. This plugin requires the pysftp Python module and its dependencies.
-
-    ==================    ======================================================================================
-    Option                Description
-    ==================    ======================================================================================
-    host                  Host to connect to
-    port                  Port the remote SSH server is listening on. Defaults to port 22.
-    username              Username to log in as
-    password              The password to use. Optional if a private key is provided.
-    private_key           Path to the private key (if any) to log into the SSH server
-    private_key_pass      Password for the private key (if needed)
-    to                    Path to upload the file to; supports Jinja2 templating on the input entry. Fields such
-                          as series_name must be populated prior to input into this plugin using
-                          metainfo_series or similar.
-    delete_origin         Indicates whether to delete the original file after a successful
-                          upload.
-    socket_timeout_sec    Socket timeout in seconds
-    connection_tries      Number of times to attempt to connect before failing (default 3).
-    host_key              Specifies a host key not already in known_hosts
-    ==================    ======================================================================================
-
-    Example::
-
-      sftp_list:
-          host: example.com
-          username: Username
-          private_key: /Users/username/.ssh/id_rsa
-          to: /TV/{{series_name}}/Series {{series_season}}
-          delete_origin: False
-
-    """
-
-    schema = {
-        'type': 'object',
-        'properties': {
-            'host': {'type': 'string'},
-            'username': {'type': 'string'},
-            'password': {'type': 'string'},
-            'port': {'type': 'integer', 'default': DEFAULT_SFTP_PORT},
-            'private_key': {'type': 'string'},
-            'private_key_pass': {'type': 'string'},
-            'to': {'type': 'string'},
-            'delete_origin': {'type': 'boolean', 'default': False},
-            'host_key': {
-                'type': 'object',
-                'properties': {
-                    'key_type': {'type': 'string', 'enum': list(HOST_KEY_TYPES.keys())},
-                    'public_key': {'type': 'string'},
-                },
-                'required': ['key_type', 'public_key'],
-                'additionalProperties': False,
-            },
-            'socket_timeout_sec': {'type': 'integer', 'default': DEFAULT_SOCKET_TIMEOUT_SEC},
-            'connection_tries': {'type': 'integer', 'default': DEFAULT_CONNECT_TRIES},
-        },
-        'additionalProperties': False,
-        'required': ['host', 'username'],
-    }
-
-    @staticmethod
-    def prepare_config(config: dict) -> dict:
-        """Set defaults for the provided configuration."""
-        config.setdefault('password', None)
-        config.setdefault('private_key', None)
-        config.setdefault('private_key_pass', None)
-        config.setdefault('to', None)
-
-        return config
-
-    @classmethod
-    def handle_entry(cls, entry: Entry, sftp: SftpClient, config: dict):
-        to: str = config['to']
-        location: Path = entry['location']
-        delete_origin: bool = config['delete_origin']
-
-        if to:
-            try:
-                to = render_from_entry(to, entry)
-            except RenderError as e:
-                logger.error('Could not render path: {}', to)
-                entry.fail(str(e))
-                return
-
-        try:
-            sftp.upload(location, to)
-        except SftpError as e:
-            entry.fail(str(e))
-            return
-
-        if delete_origin and location.is_file():
-            try:
-                location.unlink()
-            except Exception as e:
-                logger.warning('Failed to delete file {} ({})', location, e)
-
-    @classmethod
-    def on_task_output(cls, task: Task, config: dict) -> None:
-        """Upload accepted entries to the specified SFTP server."""
-        config = cls.prepare_config(config)
-
-        socket_timeout_sec: int = config['socket_timeout_sec']
-        connection_tries: int = config['connection_tries']
-
-        sftp_config: SftpConfig = task_config_to_sftp_config(config)
-        sftp = sftp_connect(sftp_config, socket_timeout_sec, connection_tries)
-
-        for entry in task.accepted:
-            if sftp:
-                logger.debug('Uploading file: {}', entry['location'])
-                cls.handle_entry(entry, sftp, config)
-            else:
-                entry.fail('SFTP connection failed.')
-
-
 def task_config_to_sftp_config(config: dict) -> SftpConfig:
-    """Create an SFTP connection from a Flexget config object."""
+    """Create an SFTP connection from a FlexGet config object."""
     host: int = config['host']
     port: int = config['port']
     username: str = config['username']
@@ -426,4 +310,3 @@ def sftp_connect(
 def register_plugin() -> None:
     plugin.register(SftpList, 'sftp_list', api_ver=2)
     plugin.register(SftpDownload, 'sftp_download', api_ver=2)
-    plugin.register(SftpUpload, 'sftp_upload', api_ver=2)

@@ -83,6 +83,7 @@ dev = [
   "vcrpy~=8.1",
 ]
 test = [
+  "paramiko~=4.0",
   "pillow~=12.1",
   "pytest-ftpserver~=1.0",
   { include-group = "all" },
@@ -116,10 +117,7 @@ matrix = [ "matrix-nio~=0.25.2" ]
 plexapi = [ "plexapi~=4.17" ]
 qbittorrent = [ "qbittorrent-api~=2025.2" ]
 rarfile = [ "rarfile~=4.0" ]
-sftp = [
-  "paramiko~=3.5",
-  "pysftp~=0.2.9", # TODO: `pysftp` was last updated in 2016 and is merely a wrapper around `paramiko`. It is now incompatible with `paramiko` 4.0, so consider migrating to `paramiko` directly. See https://github.com/Flexget/Flexget/issues/4532
-]
+sftp = [ "asyncssh~=2.22" ]
 subliminal = [ "subliminal~=2.6" ]
 telegram = [ "python-telegram-bot[http2,socks]~=22.0" ]
 transmission = [ "transmission-rpc~=7.0" ]
@@ -267,11 +265,7 @@ files.extend-exclude = [
 
 [tool.pytest]
 addopts = [ "-p no:legacypath" ]
-filterwarnings = [
-  "error",
-  "ignore:Failed to load HostKeys from:UserWarning:pysftp",                                                         # It's a bug in pysftp (unmaintained) 0.2.9, not in 0.2.8: https://stackoverflow.com/q/56521549
-  "ignore:urllib3 \\(.*\\) or chardet \\(.*\\)/charset_normalizer \\(.*\\) doesn't match a supported version!::requests", # This can be removed once requests makes a new release
-]
+filterwarnings = [ "error" ]
 markers = [
   "filecopy(src, dst): mark test to copy a file from `src` to `dst` before running",
   "online: mark test that goes online. VCR will automatically be used.",

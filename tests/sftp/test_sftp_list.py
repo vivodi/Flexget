@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
     from flexget.task import Task
 
-    from .test_sftp_server import TestSFTPFileSystem, TestSFTPServerController
+    from .sftp_test_server import TestSFTPFileSystem, TestSFTPServerController
 
 
 @pytest.mark.require_optional_deps

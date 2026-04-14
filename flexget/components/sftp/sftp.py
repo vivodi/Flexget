@@ -13,7 +13,6 @@ from flexget.event import event
 from flexget.utils.template import RenderError, render_from_entry
 
 if TYPE_CHECKING:
-
     from flexget.entry import Entry
     from flexget.task import Task
 

@@ -22,6 +22,7 @@ from flexget.utils.template import RenderError, render_from_entry
 
 if TYPE_CHECKING:
     from asyncssh import SFTPClient, SSHClientConnection
+
     from flexget.task import Task
 
 logger = logger.bind(name='sftp_upload')
@@ -101,7 +102,7 @@ class SFTPUpload:
     def on_task_output(cls, task: Task, config: dict) -> None:
         """Upload accepted entries to the specified SFTP server."""
         if task.accepted:
-            host_key=config.get('host_key')
+            host_key = config.get('host_key')
             sftp_config = SFTPConfig(
                 host=config['host'],
                 port=config['port'],
@@ -109,7 +110,9 @@ class SFTPUpload:
                 password=config.get('password'),
                 client_keys=config.get('private_key'),
                 passphrase=config.get('private_key_pass'),
-                known_hosts=f'{config['host']} {host_key['key_type']} {host_key['public_key']}'.encode() if host_key else None,
+                known_hosts=f'{config["host"]} {host_key["key_type"]} {host_key["public_key"]}'.encode()
+                if host_key
+                else None,
                 login_timeout=config['socket_timeout_sec'],
             )
             sftp_manager = SFTPManager(

@@ -4,7 +4,7 @@
    :height: 50
 
 |
-
+0
 .. image:: https://img.shields.io/pypi/v/flexget?logo=pypi&labelColor=F3F3F3
    :target: https://pypi.org/project/flexget/
 

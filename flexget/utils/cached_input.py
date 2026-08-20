@@ -216,7 +216,7 @@ class cached:  # noqa: N801 It acts like a function in usage
             if db_cache:
                 entries = [ent.entry for ent in db_cache.entries]
                 logger.log(
-                    'verbose', f'Restored {len(entries)} entries from db cache for {self.name}'
+                    'verbose', 'Restored {} entries from db cache for {}', len(entries), self.name
                 )
                 # Store to in memory cache
                 self.cache[self.cache_name] = copy.deepcopy(entries)

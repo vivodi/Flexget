@@ -91,7 +91,7 @@ class BetaSeriesList:
                 'Failed to get series at BetaSeries.com: {}', err.message
             )
 
-        logger.log('verbose', 'series: ' + ', '.join(titles))
+        logger.log('verbose', 'series: {}', ', '.join(titles))
         entries = []
         for t in titles:
             e = Entry()

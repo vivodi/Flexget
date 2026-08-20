@@ -573,7 +573,9 @@ class FilterSeries(FilterSeriesBase):
                             ep_id = latest.identifier
                         logger.log(
                             'verbose',
-                            f'Defaulting series `{series_name}` begin to start of current season `{ep_id}`',
+                            'Defaulting series `{}` begin to start of current season `{}`',
+                            series_name,
+                            ep_id,
                         )
                     else:
                         if db_series.identified_by == 'ep':
@@ -583,7 +585,9 @@ class FilterSeries(FilterSeriesBase):
                         if ep_id is not None:
                             logger.log(
                                 'verbose',
-                                f'Defaulting series `{series_name}` begin to best guess `{ep_id}`',
+                                'Defaulting series `{}` begin to best guess `{}`',
+                                series_name,
+                                ep_id,
                             )
 
                     if ep_id is not None:

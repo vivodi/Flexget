@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import contextlib
-import functools
 import logging
 import os
 import sys
@@ -126,7 +125,6 @@ def initialize(unit_test: bool = False) -> None:
 
     logger.level('VERBOSE', no=VERBOSE, color='<bold>', icon='👄')
 
-    logger.__class__.verbose = functools.partialmethod(logger.__class__.log, 'VERBOSE')
     logger.configure(extra={'task': '', 'session_id': None}, patcher=record_patcher)
 
     _logging_configured = True

@@ -237,12 +237,17 @@ class FromIMDB:
                 )
                 self.ia.update(item)
                 if item['kind'] in content_types:
-                    logger.verbose(
-                        'Adding item "{}" to list. Item kind is "{}"', item, item['kind']
+                    logger.log(
+                        'verbose',
+                        'Adding item "{}" to list. Item kind is "{}"',
+                        item,
+                        item['kind'],
                     )
                     items.append(item)
                 else:
-                    logger.verbose('Rejecting item "{}". Item kind is "{}', item, item['kind'])
+                    logger.log(
+                        'verbose', 'Rejecting item "{}". Item kind is "{}', item, item['kind']
+                    )
             else:
                 logger.debug('Match type is loose, all items are being added')
                 items.append(item)

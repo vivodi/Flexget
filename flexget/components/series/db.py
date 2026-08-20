@@ -699,7 +699,7 @@ def upgrade(ver: int | None, session: Session) -> int:
         # Due to bad db cleanups there may be invalid entries in series_tasks table
         series_tasks = table_schema('series_tasks', session)
         series_table = table_schema('series', session)
-        logger.verbose('Repairing series_tasks table data')
+        logger.log('verbose', 'Repairing series_tasks table data')
         session.execute(
             delete(series_tasks).where(~series_tasks.c.series_id.in_(select(series_table.c.id)))
         )
@@ -737,7 +737,7 @@ def db_cleanup(manager, session: Session) -> None:
         .delete(False)
     )
     if result:
-        logger.verbose('Removed {} undownloaded episode releases.', result)
+        logger.log('verbose', 'Removed {} undownloaded episode releases.', result)
     # Clean up episodes without releases
     result = (
         session
@@ -747,7 +747,7 @@ def db_cleanup(manager, session: Session) -> None:
         .delete(False)
     )
     if result:
-        logger.verbose('Removed {} episodes without releases.', result)
+        logger.log('verbose', 'Removed {} episodes without releases.', result)
     # Clean up series without episodes that aren't in any tasks
     result = (
         session
@@ -757,7 +757,7 @@ def db_cleanup(manager, session: Session) -> None:
         .delete(False)
     )
     if result:
-        logger.verbose('Removed {} series without episodes.', result)
+        logger.log('verbose', 'Removed {} series without episodes.', result)
 
 
 def set_alt_names(alt_names: Iterable[str], db_series: Series, session: Session) -> None:
@@ -1014,7 +1014,8 @@ def auto_identified_by(series: Series) -> str:
     if total >= 5:
         logger.info('identified_by has locked in to type `{}` for {}', best, series.name)
         return best
-    logger.verbose(
+    logger.log(
+        'verbose',
         'identified by is currently on `auto` for {}. '
         'Multiple id types may be accepted until it locks in on the appropriate type.',
         series.name,

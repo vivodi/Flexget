@@ -90,11 +90,11 @@ class Symlink:
             ):
                 msg = f'Symlink destination {linkto} already exists'
                 if existing == 'ignore':
-                    logger.verbose(msg)
+                    logger.log('verbose', msg)
                 else:
                     entry.fail(msg)
                 continue
-            logger.verbose('{}link `{}` to `{}`', config['link_type'], linkfrom, linkto)
+            logger.log('verbose', '{}link `{}` to `{}`', config['link_type'], linkfrom, linkto)
             try:
                 if config['link_type'] == 'soft':
                     os.symlink(linkfrom, linkto)

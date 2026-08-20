@@ -54,7 +54,7 @@ class AnidbList:
     @cached('anidb_list', persist='2 hours')
     def on_task_input(self, task, config):
         # Create entries by parsing AniDB wishlist page html using beautifulsoup
-        logger.verbose('Retrieving AniDB list: mywishlist:{}', config['mode'])
+        logger.log('verbose', 'Retrieving AniDB list: mywishlist:{}', config['mode'])
 
         task_headers = task.requests.headers.copy()
         task_headers['User-Agent'] = self.default_user_agent
@@ -87,7 +87,7 @@ class AnidbList:
 
             trs = soup_table.find_all('tr')
             if not trs:
-                logger.verbose('No movies were found in AniDB list: mywishlist')
+                logger.log('verbose', 'No movies were found in AniDB list: mywishlist')
                 return
             for tr in trs:
                 if tr.find('span', title=entry_type):
@@ -111,13 +111,13 @@ class AnidbList:
                     entry['anidb_name'] = entry['title']
                     yield entry
                 else:
-                    logger.verbose('Entry does not match the requested type')
+                    logger.log('verbose', 'Entry does not match the requested type')
             try:
                 # Try to get the link to the next page.
                 next_link = soup.find('li', class_='next').find('a')['href']
             except TypeError:
                 # If it isn't there, there are no more pages to be crawled.
-                logger.verbose('No more pages on the wishlist.')
+                logger.log('verbose', 'No more pages on the wishlist.')
                 break
             comp_link = self.anidb_url + next_link
             logger.debug('Requesting: {}', comp_link)

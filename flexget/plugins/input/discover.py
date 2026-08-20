@@ -121,7 +121,8 @@ class Discover:
                         'Search plugin {} does not implement search method', plugin_name
                     )
                     continue
-                logger.verbose(
+                logger.log(
+                    'verbose',
                     'Searching for `{}` with plugin `{}` ({} of {})',
                     entry['title'],
                     plugin_name,
@@ -148,11 +149,11 @@ class Discover:
                     entry_results.extend(search_results)
 
                 except plugin.PluginWarning as e:
-                    logger.verbose('No results from {}: {}', plugin_name, e)
+                    logger.log('verbose', 'No results from {}: {}', plugin_name, e)
                 except plugin.PluginError as e:
                     logger.error('Error searching with {}: {}', plugin_name, e)
             if not entry_results:
-                logger.verbose('No search results for `{}`', entry['title'])
+                logger.log('verbose', 'No search results for `{}`', entry['title'])
                 entry.complete()
                 continue
             result.extend(entry_results)
@@ -185,7 +186,8 @@ class Discover:
 
             if est_date is None:
                 if estimation_mode['mode'] == 'strict':
-                    logger.verbose(
+                    logger.log(
+                        'verbose',
                         'Skipping discovery for `{}`, no release date could be determined. '
                         'To discover anyway, add `release_estimations: ignore` to your configuration.',
                         entry['title'],
@@ -227,8 +229,11 @@ class Discover:
             else:
                 entry.reject('has not been released')
                 entry.complete()
-                logger.verbose(
-                    "{} hasn't been released yet (Expected: {})", entry['title'], est_date
+                logger.log(
+                    'verbose',
+                    "{} hasn't been released yet (Expected: {})",
+                    entry['title'],
+                    est_date,
                 )
         return result
 
@@ -281,7 +286,8 @@ class Discover:
                 logger.trace('interval passed for {}', entry['title'])
                 result.append(entry)
         if interval_count and not task.is_rerun:
-            logger.verbose(
+            logger.log(
+                'verbose',
                 'Discover interval of {} not met for {} entries. Use --discover-now to override.',
                 config['interval'],
                 interval_count,
@@ -298,7 +304,7 @@ class Discover:
 
         task.no_entries_ok = True
         entries = aggregate_inputs(task, config['what'])
-        logger.verbose('Discovering {} titles ...', len(entries))
+        logger.log('verbose', 'Discovering {} titles ...', len(entries))
         if len(entries) > 500:
             logger.critical(
                 'Looks like your inputs in discover configuration produced '

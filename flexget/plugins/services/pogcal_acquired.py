@@ -50,7 +50,7 @@ class PogcalAcquired:
             logger.error('Username/password for pogdesign calendar appear to be incorrect.')
             return
         if task.options.test:
-            logger.verbose('Successfully logged in to pogdesign calendar.')
+            logger.log('verbose', 'Successfully logged in to pogdesign calendar.')
         for entry in task.accepted:
             if not entry.get('series_name') or entry.get('series_id_type') != 'ep':
                 continue
@@ -59,13 +59,15 @@ class PogcalAcquired:
                 logger.debug('Could not find pogdesign calendar id for `{}`', entry['series_name'])
                 continue
             if task.options.test:
-                logger.verbose(
+                logger.log(
+                    'verbose',
                     'Would mark {} {} in pogdesign calenadar.',
                     entry['series_name'],
                     entry['series_id'],
                 )
                 continue
-            logger.verbose(
+            logger.log(
+                'verbose',
                 'Marking {} {} in pogdesign calenadar.',
                 entry['series_name'],
                 entry['series_id'],
@@ -110,7 +112,7 @@ class PogcalAcquired:
             id = int(show.find_previous('input')['value'])
             db_sess.add(PogcalShow(id=id, name=show_name))
             return id
-        logger.verbose('Could not find pogdesign calendar id for show `{}`', show_re)
+        logger.log('verbose', 'Could not find pogdesign calendar id for show `{}`', show_re)
         return None
 
 

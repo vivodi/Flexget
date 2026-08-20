@@ -85,7 +85,7 @@ class MQTTNotifier:
             import paho.mqtt.client as mqtt
 
         except ImportError as e:
-            logger.verbose('Error importing paho.mqtt.client: {}', e)
+            logger.log('verbose', 'Error importing paho.mqtt.client: {}', e)
             raise DependencyError(
                 plugin_name,
                 'paho.mqtt.client',
@@ -93,17 +93,19 @@ class MQTTNotifier:
             )
 
         def on_log_cb(client, userdata, level, buff):
-            logger.verbose(str(buff))
+            logger.log('verbose', str(buff))
 
         def on_publish_cb(client, userdata, mid):
-            logger.verbose(
+            logger.log(
+                'verbose',
                 'MQTT on_publish callback -  message was successfully published to broker as messageID={}',
                 mid,
             )
             client.disconnect()
 
         def on_disconnect_cb(client, userdata, rc):
-            logger.verbose(
+            logger.log(
+                'verbose',
                 'MQTT on_disconnect callback - disconnected with result code {} [{}]',
                 rc,
                 conn_rc_description_map.get(rc),
@@ -156,8 +158,10 @@ class MQTTNotifier:
 
             client.tls_insecure_set(True)
 
-            logger.verbose('Basic SSL/TLS encrypted communications enabled')
-            logger.verbose('TLS insecure cert mode enabled. Broker cert will not be validated')
+            logger.log('verbose', 'Basic SSL/TLS encrypted communications enabled')
+            logger.log(
+                'verbose', 'TLS insecure cert mode enabled. Broker cert will not be validated'
+            )
 
         # Handle SSL/TLS communication with certificate authentication
         if config.get('certificates'):
@@ -171,7 +175,7 @@ class MQTTNotifier:
                 '': None,
             }
             tls_version = tls_version_map.get(certs.get('tls_version'), ssl.PROTOCOL_TLSv1_2)
-            logger.verbose('TLS version is {}', tls_version)
+            logger.log('verbose', 'TLS version is {}', tls_version)
 
             cert_required = (
                 ssl.CERT_REQUIRED if certs.get('validate_broker_cert', True) else ssl.CERT_NONE
@@ -210,20 +214,24 @@ class MQTTNotifier:
             client.username_pw_set = (config.get('username'), config.get('password'))
 
         try:
-            logger.verbose(
-                'Connecting to {}:{}', config.get('broker_address'), config.get('broker_port')
+            logger.log(
+                'verbose',
+                'Connecting to {}:{}',
+                config.get('broker_address'),
+                config.get('broker_port'),
             )
             client.connect(
                 config.get('broker_address'),
                 config.get('broker_port'),
                 config.get('broker_timeout'),
             )
-            logger.verbose('Connected to MQTT broker')
+            logger.log('verbose', 'Connected to MQTT broker')
         except Exception as e:
             raise PluginWarning(f'Error connecting to MQTT broker: {e}')
 
         try:
-            logger.verbose(
+            logger.log(
+                'verbose',
                 'Publishing message [{}] to topic [{}] ',
                 config.get('payload'),
                 config.get('topic'),
@@ -234,7 +242,8 @@ class MQTTNotifier:
                 qos=config.get('qos'),
                 retain=config.get('retain'),
             )
-            logger.verbose(
+            logger.log(
+                'verbose',
                 'Notification sent to broker, waiting for callback response to confirm publishing success - rc={}',
                 publish_info,
             )

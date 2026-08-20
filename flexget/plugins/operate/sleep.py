@@ -48,7 +48,7 @@ class PluginSleep:
         if isinstance(config, int):
             config = {'phase': 'start', 'seconds': config}
         if config and config['phase'] == phase:
-            logger.verbose('Sleeping for {} seconds.', config['seconds'])
+            logger.log('verbose', 'Sleeping for {} seconds.', config['seconds'])
             time.sleep(int(config['seconds']))
 
     @plugin.priority(plugin.PRIORITY_FIRST)

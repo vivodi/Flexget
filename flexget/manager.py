@@ -433,7 +433,7 @@ class Manager:
                 self.task_queue = TaskQueue()
                 self.task_queue.start()
             if len(self.task_queue):
-                logger.verbose('There is a task already running, execution queued.')
+                logger.log('verbose', 'There is a task already running, execution queued.')
             finished_events = self.execute(options)
             if not options.cron:
                 # Wait until execution of all tasks has finished
@@ -786,7 +786,9 @@ class Manager:
             self.database_uri = f'sqlite:///{filename}'
 
         if self.db_filename and not os.path.exists(self.db_filename):
-            logger.verbose('Creating new database {} - DO NOT INTERRUPT ...', self.db_filename)
+            logger.log(
+                'verbose', 'Creating new database {} - DO NOT INTERRUPT ...', self.db_filename
+            )
 
         # fire up the engine
         logger.debug('Connecting to: {}', self.database_uri)

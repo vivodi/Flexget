@@ -71,7 +71,7 @@ class Archive:
                 task.session.add(ae)
                 count += 1
         if count:
-            logger.verbose('Added {} new entries to archive', count)
+            logger.log('verbose', 'Added {} new entries to archive', count)
 
     def on_task_abort(self, task, config):
         """Archive even on task abort, except if the abort has happened before session was started."""

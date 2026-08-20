@@ -145,7 +145,7 @@ class Notify:
                     )
         if 'task' in config:
             if not (task.accepted or task.failed) and not config['task']['always_send']:
-                logger.verbose('No accepted or failed entries, not sending a notification.')
+                logger.log('verbose', 'No accepted or failed entries, not sending a notification.')
                 return
             if config['task'].get('message'):
                 template = config['task']['message']

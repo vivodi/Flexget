@@ -59,7 +59,7 @@ class PendingApproval:
                 if entry.get('approved'):
                     entry.accept('entry is marked as approved')
                 elif not self._item_query(entry, task, session):
-                    logger.verbose('creating new pending entry {}', entry)
+                    logger.log('verbose', 'creating new pending entry {}', entry)
                     session.add(db.PendingEntry(task_name=task.name, entry=entry))
                     entry.reject('new unapproved entry, caching and waiting for approval')
 

@@ -255,7 +255,7 @@ class PluginSubliminal:
 
         if downloaded_subtitles:
             if task.options.test:
-                logger.verbose('Test mode. Found subtitles:')
+                logger.log('verbose', 'Test mode. Found subtitles:')
             # save subtitles to disk
             for video, subtitle in downloaded_subtitles.items():
                 if subtitle:
@@ -263,7 +263,8 @@ class PluginSubliminal:
                     if _directory:
                         _directory = os.path.expanduser(_directory)
                     if task.options.test:
-                        logger.verbose(
+                        logger.log(
+                            'verbose',
                             '     FOUND LANGUAGES {} for {}',
                             [str(s.language) for s in subtitle],
                             video.name,

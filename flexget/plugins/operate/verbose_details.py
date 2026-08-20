@@ -15,20 +15,21 @@ class PluginDetails:
     def on_task_input(self, task, config):
         if not task.entries:
             if task.no_entries_ok:
-                logger.verbose("Task didn't produce any entries.")
+                logger.log('verbose', "Task didn't produce any entries.")
             else:
                 logger.warning(
                     "Task didn't produce any entries. "
                     'This is likely due to a misconfigured or non-functional input.'
                 )
         else:
-            logger.verbose('Produced {} entries.', len(task.entries))
+            logger.log('verbose', 'Produced {} entries.', len(task.entries))
 
     @plugin.priority(-512)
     def on_task_download(self, task, config):
         # Needs to happen as the first in download, so it runs after urlrewrites
         # and IMDB queue acceptance.
-        logger.verbose(
+        logger.log(
+            'verbose',
             'Summary - Accepted: {} (Rejected: {} Undecided: {} Failed: {})',
             len(task.accepted),
             len(task.rejected),

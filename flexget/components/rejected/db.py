@@ -72,7 +72,7 @@ def db_cleanup(manager, session):
         .delete()
     )
     if result:
-        logger.verbose('Removed {} entries from remember rejected table.', result)
+        logger.log('verbose', 'Removed {} entries from remember rejected table.', result)
 
 
 def get_rejected(session, count=None, start=None, stop=None, sort_by=None, descending=None):

@@ -86,7 +86,7 @@ class AssumeQuality:
 
         self.assumptions = []
         for target, quality in list(config.items()):
-            logger.verbose('New assumption: {} is {}', target, quality)
+            logger.log('verbose', 'New assumption: {} is {}', target, quality)
             try:
                 target = qualities.Requirements(target)
             except ValueError:
@@ -111,13 +111,13 @@ class AssumeQuality:
     @plugin.priority(100)  # run after other plugins which fill quality (series, quality)
     def on_task_metainfo(self, task, config):
         for entry in task.entries:
-            logger.verbose(entry.get('title'))
+            logger.log('verbose', entry.get('title'))
             for assumption in self.assumptions:
                 logger.debug('Trying {} - {}', assumption.target, assumption.quality)
                 if assumption.target.allows(entry.get('quality')):
                     logger.debug('Match: {}', assumption.target)
                     self.assume(entry, assumption.quality)
-            logger.verbose('New quality: {}', entry.get('quality'))
+            logger.log('verbose', 'New quality: {}', entry.get('quality'))
 
 
 @event('plugin.register')

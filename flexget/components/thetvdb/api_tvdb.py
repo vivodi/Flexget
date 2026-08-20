@@ -571,7 +571,7 @@ def lookup_series(name=None, tvdb_id=None, only_cached=False, session=None, lang
         if not only_cached:
             mark_expired(session)
         if not only_cached and series.expired:
-            logger.verbose('Data for {} has expired, refreshing from tvdb', series.name)
+            logger.log('verbose', 'Data for {} has expired, refreshing from tvdb', series.name)
             try:
                 updated_series = TVDBSeries(series.id, language)
                 series = session.merge(updated_series)

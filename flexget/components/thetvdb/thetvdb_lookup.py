@@ -200,7 +200,8 @@ class PluginThetvdbLookup:
                 # If there is season and ep info as well, register episode lazy fields
                 if entry.get('series_id_type') in ('ep', 'sequence', 'date'):
                     if entry.get('season_pack'):
-                        logger.verbose(
+                        logger.log(
+                            'verbose',
                             'TheTVDB API does not support season lookup at this time, skipping {}',
                             entry,
                         )

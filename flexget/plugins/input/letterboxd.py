@@ -117,7 +117,7 @@ class Letterboxd:
         rcount = 0
         next_page = ''
 
-        logger.verbose('Looking for films in Letterboxd list: {}', url)
+        logger.log('verbose', 'Looking for films in Letterboxd list: {}', url)
 
         while next_page is not None and rcount < max_results:
             try:

@@ -106,7 +106,7 @@ def db_cleanup(manager, session: DBSession) -> None:
         .delete()
     )
     if result:
-        logger.verbose('Removed {} old input caches.', result)
+        logger.log('verbose', 'Removed {} old input caches.', result)
 
 
 class cached:  # noqa: N801 It acts like a function in usage
@@ -150,7 +150,7 @@ class cached:  # noqa: N801 It acts like a function in usage
                 cache_value = self.cache.get(self.cache_name, None)
                 if cache_value:
                     # return from the cache
-                    logger.verbose('Restored entries from cache')
+                    logger.log('verbose', 'Restored entries from cache')
                     return cache_value
 
                 if self.persist:
@@ -215,7 +215,9 @@ class cached:  # noqa: N801 It acts like a function in usage
             db_cache = db_cache.first()
             if db_cache:
                 entries = [ent.entry for ent in db_cache.entries]
-                logger.verbose(f'Restored {len(entries)} entries from db cache for {self.name}')
+                logger.log(
+                    'verbose', f'Restored {len(entries)} entries from db cache for {self.name}'
+                )
                 # Store to in memory cache
                 self.cache[self.cache_name] = copy.deepcopy(entries)
                 return entries

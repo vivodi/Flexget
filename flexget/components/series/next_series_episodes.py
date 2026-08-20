@@ -230,7 +230,8 @@ class NextSeriesEpisodes:
                     ):
                         entries.append(self.search_entry(series, season, 1, task))
                     else:
-                        logger.verbose(
+                        logger.log(
+                            'verbose',
                             'Series `{}` has no history. Set begin option, or use CLI `series begin` '
                             'subcommand to set first episode to emit',
                             series.name,
@@ -242,7 +243,8 @@ class NextSeriesEpisodes:
                         break
 
         for reason, series in impossible.items():
-            logger.verbose(
+            logger.log(
+                'verbose',
                 'Series `{}` with identified_by value `{}` are not supported. ',
                 ', '.join(sorted(series)),
                 reason,

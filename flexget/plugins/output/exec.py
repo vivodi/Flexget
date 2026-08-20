@@ -100,7 +100,7 @@ class PluginExec:
         return config
 
     def execute_cmd(self, cmd, allow_background, encoding):
-        logger.verbose('Executing: {}', cmd)
+        logger.log('verbose', 'Executing: {}', cmd)
         p = subprocess.Popen(
             cmd,
             shell=True,

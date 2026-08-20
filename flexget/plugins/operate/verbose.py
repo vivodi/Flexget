@@ -39,7 +39,7 @@ class Verbose:
                 if entry in task.accepted:
                     continue
                 undecided = True
-                logger.verbose('UNDECIDED: `{}`', entry['title'])
+                logger.log('verbose', 'UNDECIDED: `{}`', entry['title'])
             if undecided:
                 log_once(
                     'Undecided entries have not been accepted or rejected. If you expected these to reach output,'

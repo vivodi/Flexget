@@ -83,7 +83,7 @@ class ImdbWatchlist:
         config = self.prepare_config(config)
 
         # Create movie entries by parsing imdb list page(s) html using beautifulsoup
-        logger.verbose('Retrieving imdb list: {}', config['list'])
+        logger.log('verbose', 'Retrieving imdb list: {}', config['list'])
 
         headers = {
             'Accept-Language': config.get('force_language'),
@@ -132,13 +132,13 @@ class ImdbWatchlist:
             else:
                 total_item_count = query_result['props']['pageProps']['totalItems']
             items = advanced_search['edges']
-            logger.verbose('imdb list contains {} items', total_item_count)
+            logger.log('verbose', 'imdb list contains {} items', total_item_count)
         except Exception:
             total_item_count = 0
             items = []
 
         if not total_item_count:
-            logger.verbose('Nothing found in imdb list: {}', config['list'])
+            logger.log('verbose', 'Nothing found in imdb list: {}', config['list'])
             return []
 
         page_no = 1

@@ -93,8 +93,9 @@ class TheTVDBSet(MutableSet):
 
     def add(self, entry):
         if not entry.get('tvdb_id'):
-            logger.verbose(
-                'entry does not have `tvdb_id`, cannot add to list. Consider using a lookup plugin`'
+            logger.log(
+                'verbose',
+                'entry does not have `tvdb_id`, cannot add to list. Consider using a lookup plugin`',
             )
             return
         try:
@@ -109,8 +110,9 @@ class TheTVDBSet(MutableSet):
 
     def discard(self, entry):
         if not entry.get('tvdb_id'):
-            logger.verbose(
-                'entry does not have `tvdb_id`, cannot remove from list. Consider using a lookup plugin`'
+            logger.log(
+                'verbose',
+                'entry does not have `tvdb_id`, cannot remove from list. Consider using a lookup plugin`',
             )
             return
         try:

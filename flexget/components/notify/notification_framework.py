@@ -125,7 +125,9 @@ class NotificationFramework:
                         'Error while sending notification to `{}`: {}', notifier_name, e.value
                     )
                 else:
-                    logger.verbose('Successfully sent a notification to `{}`', notifier_name)
+                    logger.log(
+                        'verbose', 'Successfully sent a notification to `{}`', notifier_name
+                    )
 
 
 @event('plugin.register')

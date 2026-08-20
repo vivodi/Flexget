@@ -364,7 +364,7 @@ def lookup_movie(
 
             if not movie and title:
                 # TODO: Extract to method
-                logger.verbose('Searching from rt `{}`', search_string)
+                logger.log('verbose', 'Searching from rt `{}`', search_string)
                 results = movies_search(search_string, api_key=api_key)
                 if results:
                     results = results.get('movies')

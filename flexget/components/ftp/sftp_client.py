@@ -214,7 +214,7 @@ class SftpClient:
         :param to: destination
         """
         if source.is_dir():
-            logger.verbose('Skipping directory {}', source)
+            logger.log('verbose', 'Skipping directory {}', source)
         else:
             self._upload_file(source, to)
 
@@ -316,7 +316,7 @@ class SftpClient:
                     private_key_pass=self.private_key_pass,
                     cnopts=self._get_cnopts(),
                 )
-                logger.verbose('Connected to {}', self.host)
+                logger.log('verbose', 'Connected to {}', self.host)
             except Exception as e:
                 tries -= 1
                 logger.debug('Caught exception: {}', e)
@@ -363,7 +363,7 @@ class SftpClient:
 
         try:
             self._put_file(source, destination)
-            logger.verbose('Successfully uploaded {} to {}', source, destination_url)
+            logger.log('verbose', 'Successfully uploaded {} to {}', source, destination_url)
         except OSError:
             raise SftpError(f'Remote directory does not exist: {to}')
         except Exception as e:
@@ -374,14 +374,17 @@ class SftpClient:
         destination_dir: str = str(Path(destination_path).parent)
 
         if Path(destination_path).exists():
-            logger.verbose(
-                'Skipping {} because destination file {} already exists.', source, destination_path
+            logger.log(
+                'verbose',
+                'Skipping {} because destination file {} already exists.',
+                source,
+                destination_path,
             )
             return
 
         Path(destination_dir).mkdir(parents=True, exist_ok=True)
 
-        logger.verbose('Downloading file {} to {}', source, destination)
+        logger.log('verbose', 'Downloading file {} to {}', source, destination)
 
         try:
             self._sftp.get(source, destination_path)

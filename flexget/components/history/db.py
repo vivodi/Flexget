@@ -45,4 +45,4 @@ def db_cleanup(manager, session):
         session.query(History).filter(History.time < datetime.now() - timedelta(days=365)).delete()
     )
     if result:
-        logger.verbose('Removed {} accepted entries from history older than 1 year', result)
+        logger.log('verbose', 'Removed {} accepted entries from history older than 1 year', result)

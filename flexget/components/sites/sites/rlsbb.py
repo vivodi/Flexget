@@ -167,7 +167,7 @@ class UrlRewriteRlsbb:
         else:
             logger.debug('No filehoster filters configured, using all found links.')
         num_links = len(urls)
-        logger.verbose('Found {} links at {}.', num_links, entry['url'])
+        logger.log('verbose', 'Found {} links at {}.', num_links, entry['url'])
         if num_links:
             entry['urls'] = urls
             entry['url'] = urls[0]

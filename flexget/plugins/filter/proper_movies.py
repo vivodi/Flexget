@@ -130,7 +130,9 @@ class FilterProperMovies:
                     if datetime.now() < expires:
                         accept_proper = True
                     else:
-                        logger.verbose("Proper `{}` has past it's expiration time", entry['title'])
+                        logger.log(
+                            'verbose', "Proper `{}` has past it's expiration time", entry['title']
+                        )
 
             if accept_proper:
                 logger.info(

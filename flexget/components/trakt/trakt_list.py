@@ -198,7 +198,9 @@ class TraktSet(MutableSet):
 
         list_type = (self.config['type']).rstrip('s')
 
-        logger.verbose('Retrieving `{}` list `{}`', self.config['type'], self.config['list'])
+        logger.log(
+            'verbose', 'Retrieving `{}` list `{}`', self.config['type'], self.config['list']
+        )
         try:
             page = 1
             collecting_finished = False
@@ -210,7 +212,8 @@ class TraktSet(MutableSet):
                 number_of_pages = int(result.headers.get('X-Pagination-Page-Count', 1))
                 if page == 2:
                     # If there is more than one page (more than 1000 items) warn user they may want to limit
-                    logger.verbose(
+                    logger.log(
+                        'verbose',
                         'There are a large number of items in trakt `{}` list. You may want to enable `limit` '
                         'plugin to reduce the amount of entries in this task.',
                         self.config['list'],
@@ -294,7 +297,8 @@ class TraktSet(MutableSet):
                                 entry['title'],
                             )
                         else:
-                            logger.verbose(
+                            logger.log(
+                                'verbose',
                                 'Found `{}` translation for movie `{}`: {}',
                                 language,
                                 entry['movie_name'],

@@ -139,11 +139,11 @@ def pre_check_config(config_path):
             # as duplicates are not always wrong in a list. see #697
             duplicates[indentation] = {}
 
-    logger.verbose('Pre-checked {} configuration lines', line_num)
+    logger.log('verbose', 'Pre-checked {} configuration lines', line_num)
 
 
 def check(manager, options):
-    logger.verbose('Checking config file `{}`', manager.config_path)
+    logger.log('verbose', 'Checking config file `{}`', manager.config_path)
     if manager.is_daemon:
         # If we are running in a daemon, check disk config
         pre_check_config(manager.config_path)
@@ -161,10 +161,10 @@ def check(manager, options):
                 for error in getattr(e, 'errors', []):
                     logger.critical('[{}] {}', error.json_pointer, error.message)
             else:
-                logger.verbose('Config passed check.')
+                logger.log('verbose', 'Config passed check.')
     else:
         # If we aren't in a daemon, the config already validated if we got here
-        logger.verbose('Config passed check.')
+        logger.log('verbose', 'Config passed check.')
 
 
 @event('options.register')

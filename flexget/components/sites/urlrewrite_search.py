@@ -55,7 +55,7 @@ class PluginSearch:
                 if isinstance(name, dict):
                     # the name is the first/only key in the dict.
                     name, search_config = next(iter(name.items()))
-                logger.verbose('Searching `{}` from {}', entry['title'], name)
+                logger.log('verbose', 'Searching `{}` from {}', entry['title'], name)
                 try:
                     try:
                         results = plugins[name].search(
@@ -79,7 +79,7 @@ class PluginSearch:
                         continue
                     break
                 except (plugin.PluginError, plugin.PluginWarning) as pw:
-                    logger.verbose('Failed: {}', pw.value)
+                    logger.log('verbose', 'Failed: {}', pw.value)
                     continue
 
             # Search failed

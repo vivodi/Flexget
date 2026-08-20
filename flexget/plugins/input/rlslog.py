@@ -89,7 +89,8 @@ class RlsLog:
             except RequestException as e:
                 if number == 1:
                     raise
-                logger.verbose(
+                logger.log(
+                    'verbose',
                     'Error receiving content, retrying in 5s. Try [{} of 2]. Error: {}',
                     number + 1,
                     e,

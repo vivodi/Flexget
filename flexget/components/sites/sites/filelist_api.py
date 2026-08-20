@@ -127,10 +127,13 @@ class SearchFileList:
 
             results = response.json()
             if not results:
-                logger.verbose('No torrent found on Filelist for `{}`', search_title)
+                logger.log('verbose', 'No torrent found on Filelist for `{}`', search_title)
             else:
-                logger.verbose(
-                    '{} torrent(s) were found on Filelist for `{}`', len(results), search_title
+                logger.log(
+                    'verbose',
+                    '{} torrent(s) were found on Filelist for `{}`',
+                    len(results),
+                    search_title,
                 )
 
             for result in results:

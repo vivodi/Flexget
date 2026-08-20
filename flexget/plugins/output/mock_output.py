@@ -18,7 +18,8 @@ class MockOutput:
         task.mock_output.extend(e.copy() for e in task.all_entries if e.accepted)
 
     def on_task_exit(self, task, config):
-        logger.verbose(
+        logger.log(
+            'verbose',
             'The following titles were output during this task run: {}',
             ', '.join(e['title'] for e in task.mock_output),
         )

@@ -49,7 +49,9 @@ class ListAdd:
                         plugin_name,
                     )
                     continue
-                logger.verbose('adding accepted entries into {} - {}', plugin_name, plugin_config)
+                logger.log(
+                    'verbose', 'adding accepted entries into {} - {}', plugin_name, plugin_config
+                )
                 thelist |= task.accepted
 
 

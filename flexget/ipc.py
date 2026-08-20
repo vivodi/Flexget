@@ -74,7 +74,7 @@ class DaemonService(rpyc.Service):
 
     def exposed_handle_cli(self, args):
         args = rpyc.utils.classic.obtain(args)
-        logger.verbose('Running command `{}` for client.', ' '.join(args))
+        logger.log('verbose', 'Running command `{}` for client.', ' '.join(args))
         with unittest.mock.patch.dict(os.environ, {'FORCE_COLOR': '1'}):
             parser = get_parser()
             try:

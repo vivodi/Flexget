@@ -314,8 +314,10 @@ class InputRSS:
             # status checks
             status = response.status_code
             if status == 304:
-                logger.verbose(
-                    "{} hasn't changed since last run. Not creating entries.", config['url']
+                logger.log(
+                    'verbose',
+                    "{} hasn't changed since last run. Not creating entries.",
+                    config['url'],
                 )
                 # Let details plugin know that it is ok if this feed doesn't produce any entries
                 task.no_entries_ok = True
@@ -380,7 +382,7 @@ class InputRSS:
                 if config.get('silent', False):
                     logger.debug(msg)
                 else:
-                    logger.verbose(msg)
+                    logger.log('verbose', msg)
             elif isinstance(ex, feedparser.NonXMLContentType):
                 # see: http://www.feedparser.org/docs/character-encoding.html#advanced.encoding.nonxml
                 logger.debug('ignoring feedparser.NonXMLContentType')
@@ -456,7 +458,7 @@ class InputRSS:
 
             # Check we haven't already processed this entry in a previous run
             if last_entry_id == entry.title + entry.get('guid', ''):
-                logger.verbose('Not processing entries from last run.')
+                logger.log('verbose', 'Not processing entries from last run.')
                 # Let details plugin know that it is ok if this task doesn't produce any entries
                 task.no_entries_ok = True
                 break

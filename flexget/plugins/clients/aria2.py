@@ -223,7 +223,7 @@ class OutputAria2:
 
         for entry in task.accepted:
             if task.options.test:
-                logger.verbose('Would add `{}` to aria2.', entry['title'])
+                logger.log('verbose', 'Would add `{}` to aria2.', entry['title'])
                 continue
             try:
                 self.add_entry(aria2, entry, config, task)

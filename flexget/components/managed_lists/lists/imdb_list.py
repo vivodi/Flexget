@@ -345,7 +345,9 @@ class ImdbEntrySet(MutableSet):
                 elif item_type in OTHER_TYPES:
                     entry['title'] = name
                 else:
-                    logger.verbose('Unknown IMDB type entry received: {}. Skipping', item_type)
+                    logger.log(
+                        'verbose', 'Unknown IMDB type entry received: {}. Skipping', item_type
+                    )
                     continue
                 self._items.append(entry)
         return self._items

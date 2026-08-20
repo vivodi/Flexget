@@ -30,9 +30,9 @@ class FromTask:
             session_id=task.session_id,
             priority=task.priority,
         )
-        logger.verbose('Running task `{}` as subtask.', target_task_name)
+        logger.log('verbose', 'Running task `{}` as subtask.', target_task_name)
         input_task.execute()
-        logger.verbose('Finished running subtask `{}`.', target_task_name)
+        logger.log('verbose', 'Finished running subtask `{}`.', target_task_name)
         # Create fresh entries to reset state and strip association to old task
         return [Entry(e) for e in input_task.accepted]
 

@@ -151,7 +151,7 @@ class Filesystem:
         entries = []
 
         for folder in path_list:
-            logger.verbose('Scanning folder {}. Recursion is set to {}.', folder, recursion)
+            logger.log('verbose', 'Scanning folder {}. Recursion is set to {}.', folder, recursion)
             folder = Path(folder).expanduser()
             if not folder.exists():
                 logger.error('{} does not exist (anymore.)', folder)
@@ -201,7 +201,7 @@ class Filesystem:
         get_dirs = 'dirs' in config['retrieve']
         get_symlinks = 'symlinks' in config['retrieve']
 
-        logger.verbose('Starting to scan folders.')
+        logger.log('verbose', 'Starting to scan folders.')
         return self.get_entries_from_path(
             path_list, match, recursive, test_mode, get_files, get_dirs, get_symlinks
         )

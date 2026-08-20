@@ -149,7 +149,9 @@ class LostFilm:
         if config['prefilter']:
             prefilter_list = self._get_series(task)
             if prefilter_list:
-                logger.verbose('Generated pre-filter list with {} entries', len(prefilter_list))
+                logger.log(
+                    'verbose', 'Generated pre-filter list with {} entries', len(prefilter_list)
+                )
             else:
                 logger.warning('Pre-filter list is empty. No series names are configured?')
 
@@ -172,7 +174,7 @@ class LostFilm:
                 )
                 status = rss.get('status')
                 if status == 200:
-                    logger.verbose('Received RSS feed from {}', rss_url)
+                    logger.log('verbose', 'Received RSS feed from {}', rss_url)
                     break
                 logger.info(
                     'Received {} status instead of 200 (OK) when trying to download the RSS feed {}',
@@ -240,7 +242,8 @@ class LostFilm:
                         folded_name = None
                     if folded_name and folded_name not in prefilter_list:
                         if idx != len(rss.entries) or entries or task.no_entries_ok:
-                            logger.verbose(
+                            logger.log(
+                                'verbose',
                                 'Skipping "{}" as "{}" is not found in the list of configured series',
                                 item['title'],
                                 series_name_org,
@@ -289,7 +292,7 @@ class LostFilm:
                 series_name_org = link_match['sr_org2'].replace('_', ' ')
                 season_num = int(link_match['season'])
                 episode_num = int(link_match['episode'])
-                logger.verbose("Using imprecise information from RSS item 'link'")
+                logger.log('verbose', "Using imprecise information from RSS item 'link'")
 
             logger.trace(
                 (
@@ -315,14 +318,18 @@ class LostFilm:
                     if response.status_code == 200:
                         logger.debug('The redirect page is downloaded from {}', redirect_url)
                         break
-                    logger.verbose(
+                    logger.log(
+                        'verbose',
                         'Got status {} while retrieving the redirect page {}',
                         response.status_code,
                         redirect_url,
                     )
                 except RequestException as e:
-                    logger.verbose(
-                        'Failed to get the redirect page from {}. Error: {}', redirect_url, e
+                    logger.log(
+                        'verbose',
+                        'Failed to get the redirect page from {}. Error: {}',
+                        redirect_url,
+                        e,
                     )
                 except Exception as e:
                     # Catch other errors related to download to avoid crash

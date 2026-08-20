@@ -57,10 +57,10 @@ class FilmwebWatchlist:
     def on_task_input(self, task, config):
         type = translate_type(config['type'])
 
-        logger.verbose('Retrieving filmweb watch list for user: {}', config['login'])
+        logger.log('verbose', 'Retrieving filmweb watch list for user: {}', config['login'])
 
         fw = FilmwebAPI()
-        logger.verbose('Logging as {}', config['login'])
+        logger.log('verbose', 'Logging as {}', config['login'])
 
         try:
             fw.login(str(config['login']), str(config['password']))
@@ -74,7 +74,7 @@ class FilmwebWatchlist:
         except RequestFailed as error:
             raise plugin.PluginError(f'Fetching watch list failed, reason {error!s}')
 
-        logger.verbose('Filmweb list contains {} items', len(watch_list))
+        logger.log('verbose', 'Filmweb list contains {} items', len(watch_list))
 
         entries = []
         for item in watch_list:

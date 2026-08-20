@@ -399,7 +399,7 @@ class RTorrent:
         torrent = self.torrent(info_hash, fields=['base_path'])
 
         try:
-            logger.verbose('Creating destination directory `{}`', dst_path)
+            logger.log('verbose', 'Creating destination directory `{}`', dst_path)
             self._server.execute.throw('', 'mkdir', '-p', dst_path)
         except xmlrpc_client.Error:
             raise xmlrpc_client.Error(f'unable to create folder {dst_path}')
@@ -595,8 +595,11 @@ class RTorrentOutputPlugin(RTorrentPluginBase):
     def delete_entry(self, client, entry):
         try:
             client.delete(entry['torrent_info_hash'])
-            logger.verbose(
-                'Deleted {} ({}) in rtorrent ', entry['title'], entry['torrent_info_hash']
+            logger.log(
+                'verbose',
+                'Deleted {} ({}) in rtorrent ',
+                entry['title'],
+                entry['torrent_info_hash'],
             )
         except xmlrpc_client.Error as e:
             entry.fail(f'Failed to delete: {e!s}')
@@ -605,8 +608,11 @@ class RTorrentOutputPlugin(RTorrentPluginBase):
     def purge_entry(self, client, entry):
         try:
             client.purge_torrent(entry['torrent_info_hash'])
-            logger.verbose(
-                'Purged {} ({}) in rtorrent ', entry['title'], entry['torrent_info_hash']
+            logger.log(
+                'verbose',
+                'Purged {} ({}) in rtorrent ',
+                entry['title'],
+                entry['torrent_info_hash'],
             )
         except xmlrpc_client.Error as e:
             entry.fail(f'Failed to purge: {e!s}')
@@ -636,7 +642,8 @@ class RTorrentOutputPlugin(RTorrentPluginBase):
             and options['directory'] != os.path.dirname(existing['base_path'])
         ):
             try:
-                logger.verbose(
+                logger.log(
+                    'verbose',
                     "Path is changing, moving files from '{}' to '{}'",
                     existing['base_path'],
                     options['directory'],
@@ -654,7 +661,7 @@ class RTorrentOutputPlugin(RTorrentPluginBase):
 
         try:
             client.update(info_hash=info_hash, fields=options, custom_fields=custom_fields)
-            logger.verbose('Updated {} ({}) in rtorrent ', entry['title'], info_hash)
+            logger.log('verbose', 'Updated {} ({}) in rtorrent ', entry['title'], info_hash)
         except xmlrpc_client.Error as e:
             entry.fail(f'Failed to update: {e!s}')
             return

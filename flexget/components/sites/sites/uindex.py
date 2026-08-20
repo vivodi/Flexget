@@ -151,7 +151,9 @@ class UIndex:
             return []
 
         entries = self._parse_section_entries(table, section)
-        logger.verbose('UIndex produced {} entries for category `{}`', len(entries), section)
+        logger.log(
+            'verbose', 'UIndex produced {} entries for category `{}`', len(entries), section
+        )
         return entries
 
     def search(self, task, entry, config):
@@ -175,7 +177,8 @@ class UIndex:
                     seen_urls.add(url)
                 found_entries.append(result)
 
-        logger.verbose(
+        logger.log(
+            'verbose',
             'UIndex search produced {} entries for `{}` in category `{}`',
             len(found_entries),
             entry.get('title'),

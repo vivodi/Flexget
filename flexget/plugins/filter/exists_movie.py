@@ -92,7 +92,7 @@ class FilterExistsMovie:
             # see if this path has already been scanned
             cached_qualities = self.cache.get(folder, None)
             if cached_qualities:
-                logger.verbose('Using cached scan for {} ...', folder)
+                logger.log('verbose', 'Using cached scan for {} ...', folder)
                 merge_found_qualities(existing_qualities, cached_qualities)
                 continue
 
@@ -102,7 +102,7 @@ class FilterExistsMovie:
                 logger.critical('Path {} does not exist', folder)
                 continue
 
-            logger.verbose('Scanning path {} ...', folder)
+            logger.log('verbose', 'Scanning path {} ...', folder)
 
             # Help debugging by removing a lot of noise
             # logging.getLogger('movieparser').setLevel(logging.WARNING)
@@ -123,8 +123,8 @@ class FilterExistsMovie:
                     items.append(p.name)
 
             if not items:
-                logger.verbose(
-                    'No items with type {} were found in {}', config.get('type'), folder
+                logger.log(
+                    'verbose', 'No items with type {} were found in {}', config.get('type'), folder
                 )
                 continue
 
@@ -199,7 +199,8 @@ class FilterExistsMovie:
                 entry.reject('movie exists')
 
         if incompatible_files or incompatible_entries:
-            logger.verbose(
+            logger.log(
+                'verbose',
                 'There were some incompatible items. {} of {} entries and {} of {} directories could not be verified.',
                 incompatible_entries,
                 count_entries,

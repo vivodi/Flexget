@@ -92,7 +92,7 @@ class Archive:
         try:
             for volume in volumes:
                 Path(volume).unlink()
-                logger.verbose('Deleted archive: {}', volume)
+                logger.log('verbose', 'Deleted archive: {}', volume)
         except OSError as error:
             raise FSError(error)
 
@@ -204,7 +204,7 @@ class ArchiveInfo:
 
         try:
             archive.extract_file(self.info, destination)
-            logger.verbose('Extracted: {} to {}', self.path, destination)
+            logger.log('verbose', 'Extracted: {} to {}', self.path, destination)
         except Exception:
             if destination.exists():
                 logger.debug('Cleaning up partially extracted file: {}', destination)

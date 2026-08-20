@@ -715,7 +715,7 @@ class IRCConnection(SimpleIRCBot):
                 )
                 continue
 
-            logger.verbose('IRC message in {} generated an entry: {}', channel, entry)
+            logger.log('verbose', 'IRC message in {} generated an entry: {}', channel, entry)
             self.queue_entry(entry)
 
         # reset the line cache
@@ -1046,7 +1046,7 @@ def irc_update_config(manager):
     new_config_hash = get_config_hash(config)
 
     if config_hash.get('config') == new_config_hash:
-        logger.verbose('IRC config has not been changed. Not reloading any connections.')
+        logger.log('verbose', 'IRC config has not been changed. Not reloading any connections.')
         return
     config_hash['manager'] = new_config_hash
 

@@ -96,7 +96,7 @@ class TrayIcon:
     def run(self):
         """Run the tray icon. Must be run from the main thread and is blocking."""
         try:
-            logger.verbose('Starting tray icon')
+            logger.log('verbose', 'Starting tray icon')
             self.icon = Icon('Flexget', Image.open(self.path_to_image), menu=self.menu)
             self.running = True
             self.icon.run()
@@ -109,7 +109,7 @@ class TrayIcon:
         if not self.running:
             return
 
-        logger.verbose('Stopping tray icon')
+        logger.log('verbose', 'Stopping tray icon')
         self.icon.stop()
         self.running = False
 

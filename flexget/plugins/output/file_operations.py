@@ -85,8 +85,10 @@ class BaseFileOps:
             return
         for entry in task.accepted:
             if 'location' not in entry:
-                self.logger.verbose(
-                    'Cannot handle {} because it does not have the field location.', entry['title']
+                self.logger.log(
+                    'verbose',
+                    'Cannot handle {} because it does not have the field location.',
+                    entry['title'],
                 )
                 continue
             src = entry['location']
@@ -294,8 +296,10 @@ class TransformingOps(BaseFileOps):
                 new_size = src.stat().st_size
                 if size != new_size:
                     if not count % 10:
-                        self.logger.verbose(
-                            'File `{}` is possibly being unpacked, waiting ...', src_name
+                        self.logger.log(
+                            'verbose',
+                            'File `{}` is possibly being unpacked, waiting ...',
+                            src_name,
                         )
                 else:
                     break
@@ -310,7 +314,7 @@ class TransformingOps(BaseFileOps):
             and not src_isdir
             and dst_ext != src_ext
         ):
-            self.logger.verbose('Adding extension `{}` to dst `{}`', src_ext, dst)
+            self.logger.log('verbose', 'Adding extension `{}` to dst `{}`', src_ext, dst)
             dst = Path(f'{dst}{src_ext}')
             dst_file += dst_ext  # this is used for sibling files. dst_ext turns out not to be an extension!
 

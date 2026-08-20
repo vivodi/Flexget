@@ -34,9 +34,11 @@ def consolidate():
     """Convert previous archive data model to new one."""
     session = Session()
     try:
-        logger.verbose('Checking archive size ...')
+        logger.log('verbose', 'Checking archive size ...')
         count = session.query(flexget.components.archive.db.ArchiveEntry).count()
-        logger.verbose('Found {} items to migrate, this can be aborted with CTRL-C safely.', count)
+        logger.log(
+            'verbose', 'Found {} items to migrate, this can be aborted with CTRL-C safely.', count
+        )
 
         # consolidate old data
         # id's for duplicates
@@ -125,7 +127,7 @@ def tag_source(source_name, tag_names=None):
         tags = [flexget.components.archive.db.get_tag(tag_name, session) for tag_name in tag_names]
 
         # tag 'em
-        logger.verbose('Please wait while adding tags {} ...', ', '.join(tag_names))
+        logger.log('verbose', 'Please wait while adding tags {} ...', ', '.join(tag_names))
         for a in (
             session
             .query(flexget.components.archive.db.ArchiveEntry)

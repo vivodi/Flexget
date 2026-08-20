@@ -70,7 +70,7 @@ class Newznab:
 
     def fill_entries_for_url(self, url, params, task):
         entries = []
-        logger.verbose("Fetching '{}', with parameters '{}'", url, params)
+        logger.log('verbose', "Fetching '{}', with parameters '{}'", url, params)
 
         try:
             r = task.requests.get(url, params=params)

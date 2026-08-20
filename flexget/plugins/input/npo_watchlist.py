@@ -198,13 +198,15 @@ class NPOWatchlist:
             logger.error('Request error: {}', str(e))  # if it fails, just go to next favourite
 
         if not entries and page == 1:
-            logger.verbose('No new episodes found for {} ({})', series_info['npo_name'], media_id)
+            logger.log(
+                'verbose', 'No new episodes found for {} ({})', series_info['npo_name'], media_id
+            )
         return entries
 
     def _get_series_info(self, task, config, media_id):
         series_info_url = 'https://www.npostart.nl/{0}'
         series_info = None
-        logger.verbose('Retrieving series info for {}', media_id)
+        logger.log('verbose', 'Retrieving series info for {}', media_id)
         try:
             response = requests.get(series_info_url.format(media_id))
             logger.debug('Series info found at: {}', response.url)
@@ -242,8 +244,11 @@ class NPOWatchlist:
                     url = list_item.find('a')['href']
                     # Check if the URL found to the episode matches the expected pattern
                     if len(url.split('/')) != 6:
-                        logger.verbose(
-                            'Skipping {}, the URL has an unexpected pattern: {}', episode_id, url
+                        logger.log(
+                            'verbose',
+                            'Skipping {}, the URL has an unexpected pattern: {}',
+                            episode_id,
+                            url,
                         )
                         continue  # something is wrong; skip this episode
 
@@ -296,7 +301,7 @@ class NPOWatchlist:
         account_profile_url = 'https://www.npostart.nl/account-profile'
 
         email = config.get('email')
-        logger.verbose('Retrieving NPOStart profiles for account {}', email)
+        logger.log('verbose', 'Retrieving NPOStart profiles for account {}', email)
 
         profilejson = self._get_page(task, config, account_profile_url).json()
         if 'profileId' not in profilejson:

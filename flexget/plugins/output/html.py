@@ -33,7 +33,7 @@ class OutputHtml:
         # create the template
         try:
             template = render_from_task(get_template(filename), task)
-            logger.verbose('Writing output html to {}', output)
+            logger.log('verbose', 'Writing output html to {}', output)
             with open(output, 'wb') as f:
                 f.write(template.encode('utf-8'))
         except RenderError as e:

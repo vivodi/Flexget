@@ -90,7 +90,7 @@ class Manipulate:
             # return if no jobs for this phase
             return
         modified = sum(self.process(entry, self.phase_jobs['metainfo']) for entry in task.entries)
-        logger.verbose('Modified {} entries.', modified)
+        logger.log('verbose', 'Modified {} entries.', modified)
 
     @plugin.priority(plugin.PRIORITY_FIRST)
     def on_task_filter(self, task, config):
@@ -98,7 +98,7 @@ class Manipulate:
             # return if no jobs for this phase
             return
         modified = sum(self.process(entry, self.phase_jobs['filter']) for entry in task.entries)
-        logger.verbose('Modified {} entries.', modified)
+        logger.log('verbose', 'Modified {} entries.', modified)
 
     @plugin.priority(plugin.PRIORITY_FIRST)
     def on_task_modify(self, task, config):
@@ -106,7 +106,7 @@ class Manipulate:
             # return if no jobs for this phase
             return
         modified = sum(self.process(entry, self.phase_jobs['modify']) for entry in task.entries)
-        logger.verbose('Modified {} entries.', modified)
+        logger.log('verbose', 'Modified {} entries.', modified)
 
     def process(self, entry, jobs):
         """Process given jobs from config for an entry.
@@ -183,7 +183,7 @@ class Manipulate:
                     logger.debug('field `{}` after replace: `{}`', field, field_value)
 
                 if from_field != field or entry[field] != field_value:
-                    logger.verbose('Field `{}` is now `{}`', field, field_value)
+                    logger.log('verbose', 'Field `{}` is now `{}`', field, field_value)
                     modified = True
                 entry[field] = field_value
         return modified

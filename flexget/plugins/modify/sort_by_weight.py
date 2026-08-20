@@ -128,7 +128,8 @@ class PluginSortByWeight:
         if len(entries) < 2:
             return
         config = self.prepare_config(config)
-        logger.verbose(
+        logger.log(
+            'verbose',
             'Calculating weights for undecided, accepted entries and sorting by result field: {}',
             ENTRY_WEIGHT_FIELD_NAME,
         )

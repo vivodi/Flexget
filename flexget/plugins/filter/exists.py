@@ -31,7 +31,7 @@ class FilterExists:
         if not task.accepted:
             logger.debug('No accepted entries, not scanning for existing.')
             return
-        logger.verbose('Scanning path(s) for existing files.')
+        logger.log('verbose', 'Scanning path(s) for existing files.')
         config = self.prepare_config(config)
         filenames = {}
         for folder in config:

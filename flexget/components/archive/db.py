@@ -185,4 +185,4 @@ def db_cleanup(manager, session):
         .delete()
     )
     if result:
-        logger.verbose('Removed {} archive entries older than 2 years', result)
+        logger.log('verbose', 'Removed {} archive entries older than 2 years', result)

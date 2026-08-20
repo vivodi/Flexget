@@ -1101,7 +1101,8 @@ def get_user_data(data_type, media_type, session, username):
         if not data:
             logger.warning('No {} data returned from trakt endpoint {}.', data_type, endpoint)
             return []
-        logger.verbose(
+        logger.log(
+            'verbose',
             'Received {} records from trakt.tv for user {} from endpoint {}',
             len(data),
             username,

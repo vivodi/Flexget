@@ -119,7 +119,7 @@ class SonarrSet(MutableSet):
                 tag = entry.render(tag).lower()
                 found = self._tags.get(tag)
                 if not found:
-                    logger.verbose('Adding missing tag {} to Sonarr', tag)
+                    logger.log('verbose', 'Adding missing tag {} to Sonarr', tag)
                     found = self._sonarr_request('tag', method='post', data={'label': tag})['id']
                     self._tags[tag] = found
                 tags_ids.append(found)
@@ -258,7 +258,7 @@ class SonarrSet(MutableSet):
             show = self.add_show(entry)
             if show:
                 self._shows = None
-                logger.verbose('Successfully added show {} to Sonarr', show['title'])
+                logger.log('verbose', 'Successfully added show {} to Sonarr', show['title'])
         else:
             logger.debug('entry {} already exists in Sonarr list', entry)
 
@@ -268,7 +268,7 @@ class SonarrSet(MutableSet):
             logger.debug('Did not find matching show in Sonarr for {}, skipping', entry)
             return
         self.remove_show(show)
-        logger.verbose('removed show {} from Sonarr', show['title'])
+        logger.log('verbose', 'removed show {} from Sonarr', show['title'])
 
     @property
     def immutable(self):

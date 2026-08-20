@@ -145,14 +145,14 @@ class InputHtml:
         return self._request_url(task, config, base_url, auth, dump_name=config.get('dump'))
 
     def _request_url(self, task, config, url, auth, dump_name=None):
-        logger.verbose('Requesting: {}', url)
+        logger.log('verbose', 'Requesting: {}', url)
         page = task.requests.get(url, auth=auth)
-        logger.verbose('Response: {} ({})', page.status_code, page.reason)
+        logger.log('verbose', 'Response: {} ({})', page.status_code, page.reason)
         soup = get_soup(page.content)
 
         # dump received content into a file
         if dump_name:
-            logger.verbose('Dumping: {}', dump_name)
+            logger.log('verbose', 'Dumping: {}', dump_name)
             data = soup.prettify()
             with open(dump_name, 'w', encoding='utf-8') as f:
                 f.write(data)

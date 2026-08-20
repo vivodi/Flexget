@@ -166,7 +166,8 @@ class FTPList:
         session_factory = ftputil.session.session_factory(
             base_class=base_class, port=self.port, encoding=self.encoding
         )
-        logger.verbose(
+        logger.log(
+            'verbose',
             'trying to establish connection to FTP: {}:{}@{}:{}',
             self.username,
             self.password,

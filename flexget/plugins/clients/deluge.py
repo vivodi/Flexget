@@ -435,7 +435,7 @@ class OutputDeluge(DelugePlugin):
                     with open(entry['file'], 'rb') as f:
                         filedump = base64.encodebytes(f.read())
 
-                logger.verbose('Adding {} to deluge.', entry['title'])
+                logger.log('verbose', 'Adding {} to deluge.', entry['title'])
                 added_torrent = None
                 if magnet:
                     try:
@@ -452,8 +452,11 @@ class OutputDeluge(DelugePlugin):
                             logger.debug('{} moved to top of queue', entry['title'])
                         if config.get('magnetization_timeout'):
                             timeout = config['magnetization_timeout']
-                            logger.verbose(
-                                'Waiting {} seconds for "{}" to magnetize', timeout, entry['title']
+                            logger.log(
+                                'verbose',
+                                'Waiting {} seconds for "{}" to magnetize',
+                                timeout,
+                                entry['title'],
                             )
                             for _ in range(timeout):
                                 time.sleep(1)
@@ -703,8 +706,8 @@ class OutputDeluge(DelugePlugin):
             else:
                 folder_structure = []
             if len(folder_structure) > 1:
-                logger.verbose(
-                    'Renaming Folder {} to {}', folder_structure[0], container_directory
+                logger.log(
+                    'verbose', 'Renaming Folder {} to {}', folder_structure[0], container_directory
                 )
                 client.call(
                     'core.rename_folder', torrent_id, folder_structure[0], container_directory

@@ -380,7 +380,7 @@ class ApiTmdb:
             if only_cached:
                 raise LookupError(f'Movie {id_str} not found from cache')
             # There was no movie found in the cache, do a lookup from tmdb
-            logger.verbose('Searching from TMDb {}', id_str)
+            logger.log('verbose', 'Searching from TMDb {}', id_str)
             if imdb_id and not tmdb_id:
                 try:
                     result = tmdb_request(f'find/{imdb_id}', external_source='imdb_id')

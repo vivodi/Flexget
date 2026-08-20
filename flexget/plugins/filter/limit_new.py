@@ -31,7 +31,7 @@ class FilterLimitNew:
         amount = config
         for index, entry in enumerate(task.accepted):
             if index < amount:
-                logger.verbose('Allowed {} ({})', entry['title'], entry['url'])
+                logger.log('verbose', 'Allowed {} ({})', entry['title'], entry['url'])
             else:
                 entry.reject('limit exceeded')
                 # Also save this in backlog so that it can be accepted next time.

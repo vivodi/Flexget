@@ -503,7 +503,7 @@ def aggregate_inputs(task: Task, inputs: list[dict]) -> list[Entry]:
             if not result:
                 msg = f'Input {input_name} did not return anything'
                 if getattr(task, 'no_entries_ok', False):
-                    logger.verbose(msg)
+                    logger.log('verbose', msg)
                 else:
                     logger.warning(msg)
                 continue

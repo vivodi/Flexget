@@ -52,7 +52,9 @@ class ListClear:
                             'would have cleared all items from {} - {}', plugin_name, plugin_config
                         )
                         continue
-                    logger.verbose('clearing all items from {} - {}', plugin_name, plugin_config)
+                    logger.log(
+                        'verbose', 'clearing all items from {} - {}', plugin_name, plugin_config
+                    )
                     thelist.clear()
 
 

@@ -37,8 +37,11 @@ class PluginInterval:
             next_time = last_time + parse_interval(config)
             logger.debug('next_time: {!r}', next_time)
             if datetime.datetime.now() < next_time:
-                logger.verbose(
-                    'Interval {} not met on task {}. Use --now to override.', config, task.name
+                logger.log(
+                    'verbose',
+                    'Interval {} not met on task {}. Use --now to override.',
+                    config,
+                    task.name,
                 )
                 task.abort('Interval not met', silent=True)
                 return

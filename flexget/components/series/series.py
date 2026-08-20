@@ -82,7 +82,8 @@ def populate_entry_fields(entry, parser, config):
     # add series, season and episode to entry
     entry['series_name'] = parser.name
     if 'quality' in entry and entry['quality'] != parser.quality:
-        logger.verbose(
+        logger.log(
+            'verbose',
             'Found different quality for `{}`. Was `{}`, overriding with `{}`.',
             entry['title'],
             entry['quality'],
@@ -374,7 +375,8 @@ class FilterSeries(FilterSeriesBase):
                     and (name.lower() != series_name.lower())
                     and 'exact' not in series_config
                 ):
-                    logger.verbose(
+                    logger.log(
+                        'verbose',
                         'Auto enabling exact matching for series `{}` (reason: `{}`)',
                         series_name,
                         name,
@@ -569,8 +571,9 @@ class FilterSeries(FilterSeriesBase):
                             ep_id = f'S{latest.season}E01'
                         else:
                             ep_id = latest.identifier
-                        logger.verbose(
-                            f'Defaulting series `{series_name}` begin to start of current season `{ep_id}`'
+                        logger.log(
+                            'verbose',
+                            f'Defaulting series `{series_name}` begin to start of current season `{ep_id}`',
                         )
                     else:
                         if db_series.identified_by == 'ep':
@@ -578,8 +581,9 @@ class FilterSeries(FilterSeriesBase):
                         elif db_series.identified_by == 'sequence':
                             ep_id = '01'
                         if ep_id is not None:
-                            logger.verbose(
-                                f'Defaulting series `{series_name}` begin to best guess `{ep_id}`'
+                            logger.log(
+                                'verbose',
+                                f'Defaulting series `{series_name}` begin to best guess `{ep_id}`',
                             )
 
                     if ep_id is not None:
@@ -900,8 +904,11 @@ class FilterSeries(FilterSeriesBase):
             if reqs.allows(entry['quality']):
                 result.append(entry)
             else:
-                logger.verbose(
-                    'Ignored `{}`. Does not meet quality requirement `{}`.', entry['title'], reqs
+                logger.log(
+                    'verbose',
+                    'Ignored `{}`. Does not meet quality requirement `{}`.',
+                    entry['title'],
+                    reqs,
                 )
         if not result:
             logger.debug('no quality meets requirements')
@@ -930,11 +937,11 @@ class FilterSeries(FilterSeriesBase):
             if begin.identified_by == 'ep':
                 begin.season = 1
                 begin.identifier = 'S01E01'
-                logger.verbose('Series begin is unknown, defaulting to ep S01E01')
+                logger.log('verbose', 'Series begin is unknown, defaulting to ep S01E01')
             elif begin.identified_by == 'sequence':
                 begin.season = 0
                 begin.identifier = '1'
-                logger.verbose('Series begin is unknown, defaulting to sequence 1')
+                logger.log('verbose', 'Series begin is unknown, defaulting to sequence 1')
             else:
                 logger.debug('Unable to set default begin (identified_by is date, auto)')
 

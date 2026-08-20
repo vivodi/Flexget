@@ -168,7 +168,7 @@ class ImdbLookup:
 
         # no imdb url, but information required, try searching
         if not entry.get('imdb_url', eval_lazy=False) and search_allowed:
-            logger.verbose('Searching from imdb `{}`', entry['title'])
+            logger.log('verbose', 'Searching from imdb `{}`', entry['title'])
             search = ImdbSearch()
             search_name = entry.get('movie_name', entry['title'], eval_lazy=False)
             search_result = search.smart_match(search_name)
@@ -178,7 +178,7 @@ class ImdbLookup:
                 result = db.SearchResult(entry['title'], entry['imdb_url'])
                 session.add(result)
                 session.commit()
-                logger.verbose('Found {}', entry['imdb_url'])
+                logger.log('verbose', 'Found {}', entry['imdb_url'])
             else:
                 log_once(
                     'IMDB lookup failed for {}'.format(entry['title']),
@@ -204,7 +204,7 @@ class ImdbLookup:
         # Movie was not found in cache, or was expired
         if movie is not None:
             if movie.expired:
-                logger.verbose('Movie `{}` details expired, refreshing ...', movie.title)
+                logger.log('verbose', 'Movie `{}` details expired, refreshing ...', movie.title)
             # Remove the old movie, we'll store another one later.
             session.query(db.MovieLanguage).filter(db.MovieLanguage.movie_id == movie.id).delete()
             session.query(db.Movie).filter(db.Movie.url == entry['imdb_url']).delete()
@@ -212,9 +212,9 @@ class ImdbLookup:
 
         # search and store to cache
         if 'title' in entry:
-            logger.verbose('Parsing imdb for `{}`', entry['title'])
+            logger.log('verbose', 'Parsing imdb for `{}`', entry['title'])
         else:
-            logger.verbose('Parsing imdb for `{}`', entry['imdb_id'])
+            logger.log('verbose', 'Parsing imdb for `{}`', entry['imdb_id'])
         try:
             movie = self._parse_new_movie(entry['imdb_url'], session)
         except UnicodeDecodeError:

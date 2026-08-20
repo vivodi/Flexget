@@ -336,7 +336,7 @@ class RadarrSet(MutableSet):
                 tag = entry.render(tag).lower()
                 found = self._tags.get(tag)
                 if not found:
-                    logger.verbose('Adding missing tag {} to Radarr', tag)
+                    logger.log('verbose', 'Adding missing tag {} to Radarr', tag)
                     found = self.service.add_tag(tag)['id']
                     self._tags[tag] = found
                 tags_ids.append(found)
@@ -350,7 +350,7 @@ class RadarrSet(MutableSet):
         if matching_entry:
             movie_id = matching_entry['radarr_id']
             self.service.delete_movie(movie_id)
-            logger.verbose('Removed movie {} from Radarr', matching_entry['title'])
+            logger.log('verbose', 'Removed movie {} from Radarr', matching_entry['title'])
             # Clear the cache
             self._movie_entries = None
         else:
@@ -391,7 +391,7 @@ class RadarrSet(MutableSet):
                     monitored=self.config.get('monitored', False),
                     tags=self.get_tag_ids(entry),
                 )
-                logger.verbose('Added movie {} to Radarr list', result['title'])
+                logger.log('verbose', 'Added movie {} to Radarr list', result['title'])
             except RadarrMovieAlreadyExistsError:
                 logger.warning(
                     'Could not add movie {} because it already exists on Radarr', result['title']
@@ -402,7 +402,7 @@ class RadarrSet(MutableSet):
                 entry.fail(msg)
         else:
             msg = f'The lookup for entry {entry} did not return any results.Can not add the movie in Radarr.'
-            logger.verbose(msg)
+            logger.log('verbose', msg)
             entry.fail(msg)
 
     def _from_iterable(self, it):
@@ -435,7 +435,7 @@ class RadarrSet(MutableSet):
                 tag = tag.lower()
                 found = existing.get(tag)
                 if not found:
-                    logger.verbose('Adding missing tag {}} to Radarr', tag)
+                    logger.log('verbose', 'Adding missing tag {}} to Radarr', tag)
                     found = self.service.add_tag(tag)['id']
                 tags_ids.append(found)
             self._tags = tags_ids

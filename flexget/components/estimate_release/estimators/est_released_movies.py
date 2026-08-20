@@ -13,7 +13,7 @@ class EstimatesReleasedMovies:
     def estimate(self, entry):
         entity_data = {'data_exists': True, 'entity_date': None}
         if 'tmdb_released' in entry:
-            logger.verbose('Querying release estimation for {}', entry['title'])
+            logger.log('verbose', 'Querying release estimation for {}', entry['title'])
             entity_data['entity_date'] = entry['tmdb_released']
             return entity_data
         if 'movie_year' in entry and entry['movie_year'] is not None:

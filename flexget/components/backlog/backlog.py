@@ -102,7 +102,7 @@ class InputBacklog:
             logger.debug('Restoring {}', entry['title'])
             entries.append(entry)
         if entries:
-            logger.verbose('Added {} entries from backlog', len(entries))
+            logger.log('verbose', 'Added {} entries from backlog', len(entries))
 
         # purge expired
         purged = clear_entries(task=task.name, all=False, session=session)

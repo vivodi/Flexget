@@ -40,8 +40,8 @@ class ListRemove:
                         plugin_name,
                     )
                     continue
-                logger.verbose(
-                    'removing accepted entries from {} - {}', plugin_name, plugin_config
+                logger.log(
+                    'verbose', 'removing accepted entries from {} - {}', plugin_name, plugin_config
                 )
                 thelist -= task.accepted
 

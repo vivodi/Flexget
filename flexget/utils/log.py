@@ -58,7 +58,7 @@ def purge(manager, session: Session) -> None:
 
     result = session.query(LogMessage).filter(LogMessage.added < old).delete()
     if result:
-        logger.verbose('Purged {} entries from log_once table.', result)
+        logger.log('verbose', 'Purged {} entries from log_once table.', result)
 
 
 @with_session

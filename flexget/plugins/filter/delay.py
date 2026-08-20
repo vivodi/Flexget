@@ -105,7 +105,7 @@ class FilterDelay:
     def on_task_input(self, task, config):
         """Capture the current input then replaces it with entries that have passed the delay."""
         if task.entries:
-            logger.verbose('Delaying {} new entries for {}', len(task.entries), config)
+            logger.log('verbose', 'Delaying {} new entries for {}', len(task.entries), config)
             # Let details plugin know that it is ok if this task doesn't produce any entries
             task.no_entries_ok = True
         # First learn the current entries in the task to the database
@@ -145,7 +145,9 @@ class FilterDelay:
         passed_delay.delete()
 
         if delayed_entries:
-            logger.verbose('Restoring {} entries that have passed delay.', len(delayed_entries))
+            logger.log(
+                'verbose', 'Restoring {} entries that have passed delay.', len(delayed_entries)
+            )
         # Return our delayed entries
         return delayed_entries
 

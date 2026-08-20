@@ -118,7 +118,7 @@ def db_cleanup(manager, session):
     # Purge all status data for non existing tasks
     for status_task in session.query(StatusTask).all():
         if status_task.name not in manager.config['tasks']:
-            logger.verbose('Purging obsolete status data for task {}', status_task.name)
+            logger.log('verbose', 'Purging obsolete status data for task {}', status_task.name)
             session.delete(status_task)
 
     # Purge task executions older than 1 year
@@ -129,7 +129,7 @@ def db_cleanup(manager, session):
         .delete()
     )
     if result:
-        logger.verbose('Removed {} task executions from history older than 1 year', result)
+        logger.log('verbose', 'Removed {} task executions from history older than 1 year', result)
 
 
 @with_session

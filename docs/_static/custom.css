@@ -11,3 +11,17 @@ html[data-theme='dark'] .sd-card img[src*='.svg'] {
   /* Main index page overview images */
   filter: invert(0.82) brightness(0.8) contrast(1.2);
 }
+
+
+.bd-sidebar-primary .ethical-rtd,
+.ethical-sidebar,
+.ethical-footer,
+[data-ea-publisher],
+.ea-placement,
+#ethical-ad-placement {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}

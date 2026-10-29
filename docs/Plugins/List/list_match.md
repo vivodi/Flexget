@@ -1,0 +1,77 @@
+---
+title: list_match
+description: 
+published: true
+date: 2022-12-12T06:51:37.094Z
+tags: 
+editor: markdown
+dateCreated: 2022-09-18T05:24:47.367Z
+---
+
+# List Match
+
+> This is part of [managed list](/Plugins/List) plugin system.
+{.is-success}
+
+This is a filter plugin that uses a list to accept or reject generated entries based on other list content. For operating any input  see [crossmatch](/Plugins/crossmatch) plugin instead.
+
+## Syntax
+
+```text
+list_match:
+  from:
+    - <list_type>: <list_name>
+  action: [accept|reject]
+  remove_on_match: [yes|no]
+  single_match: [yes|no]
+```
+
+| Option | Default | Description |
+| --- | --- | --- |
+| action | accept | What action to take, possible values are `accept` and `reject` |
+| remove_on_match | yes | All accepted entries are deleted from list when task completes. To disable this, use the `no` option. |
+| single_match | yes | By default, `list_match` will accept the first entry it sees from the list, so even if there are multiple potential matches, only the first one will be used If you wish to match **all** entries and not just the first one, use the `no` option. |
+
+> Each list plugin matches differently, eg. [movie_list](/Plugins/List/movie_list) matches on metainfo identifiers (eg. imdb_id) while [entry_list](/Plugins/List/entry_list) matches solely on entry title. Consult the list plugin's wiki page for more details.
+{.is-info}
+
+## Examples
+
+### Download queued movies
+
+
+```yaml
+rss: http://example.com/rss
+proper_movies: yes
+seen_movies: loose
+list_match:
+  from:
+    - movie_list: movies
+quality: 720p+ bluray
+imdb_lookup: yes
+```
+
+This requires that [movie list](/Plugins/List/movie_list) is either managed by hand or synced automatically from other sources. Check [movie list](/Plugins/List/movie_list) page for more information about that.
+
+### Sync lists (untested)
+This example shows you how to sync a list from Trakt in FlexGet, if you remove an entry in Trakt, it will get removed from your my-watchlist in FlexGet as well. 
+
+```yaml
+tasks:
+  remove-from-list:
+    entry_list: tv-watchlist
+    list_match:
+      from:
+        - trakt_list:
+            account: xxx
+            list: watchlist
+           type: shows
+      action: reject 
+      remove_on_match: no
+    accept_all: yes
+    list_remove:
+      - entry_list: tv-watchlist
+```
+Notes:
+* `action: reject` -- will reject the entry if it's still in Trakt.
+* `remove_on_match: no` -- Don't remove matched entries from Trakt, since that would clear all shows in Trakt, that are on your my-watchlist

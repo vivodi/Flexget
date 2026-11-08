@@ -71,8 +71,14 @@ class TocTableDirective(Directive):
         # ────────────────────────────────
         # 2. Build toctree node (for sidebar navigation)
         # ────────────────────────────────
+        # To display filename without extension instead of doc title in toctree,
+        # pass the filename as the explicit title: (display_name, docname).
+        toctree_entries = [
+            (os.path.splitext(os.path.basename(d))[0], d) for d in docnames
+        ]
+
         toctree_node = addnodes.toctree()
-        toctree_node['entries'] = [(None, d) for d in docnames]
+        toctree_node['entries'] = toctree_entries
         toctree_node['maxdepth'] = self.options.get('maxdepth', 1)
         toctree_node['glob'] = False
         toctree_node['caption'] = self.options.get('caption')
@@ -108,16 +114,16 @@ class TocTableDirective(Directive):
                 )
                 continue
 
-            title_node = env.titles.get(docname)
-            title = title_node.astext() if title_node else os.path.basename(docname)
+            # Display filename without extension instead of document title
+            display_name = os.path.splitext(os.path.basename(docname))[0]
             link = app.builder.get_relative_uri(base_doc, docname)
 
             row = nodes.row()
 
-            # Column 1: Document title and link
+            # Column 1: Document filename and link
             entry1 = nodes.entry()
             para1 = nodes.paragraph()
-            ref = nodes.reference(text=title, refuri=link)
+            ref = nodes.reference(text=display_name, refuri=link)
             para1 += ref
             entry1 += para1
             row += entry1
@@ -134,7 +140,6 @@ class TocTableDirective(Directive):
         # 4. Output: return toctree and table nodes
         # ────────────────────────────────
         if 'hidden' in self.options:
-            # If :hidden: is set, only render the table in the body without adding to the sidebar toctree
             return [table]
         else:
             return [toctree_node, table]
@@ -142,4 +147,4 @@ class TocTableDirective(Directive):
 
 def setup(app):
     app.add_directive('toctable', TocTableDirective)
-    return {'version': '1.0', 'parallel_read_safe': True}
+    return {'version': '1.1', 'parallel_read_safe': True}

@@ -21,6 +21,7 @@ class TocTableDirective(Directive):
         :maxdepth: 1
 
         guide/intro : **Quickstart** guide with [official link](https://example.com) <br> Second line
+        Intro Alias <guide/intro> : Alias entry pointing to the same intro document
         Custom API Name <reference/api> : Core `API` reference
         ```
     """
@@ -111,10 +112,9 @@ class TocTableDirective(Directive):
         source_path = env.doc2path(base_doc)
 
         # ────────────────────────────────
-        # 1. Collect document list and descriptions
+        # 1. Collect document list and descriptions (without deduplicating by docname)
         # ────────────────────────────────
-        seen = set()
-        unique_items = []  # Format: [(display_name, docname, desc, line_lineno), ...]
+        items = []  # Format: [(display_name, docname, desc, line_lineno), ...]
 
         for idx, line in enumerate(self.content):
             line_str = line.strip()
@@ -133,24 +133,24 @@ class TocTableDirective(Directive):
                 )
                 continue
 
-            if docname not in seen:
-                seen.add(docname)
-                # Use custom title from <...> if provided, otherwise fallback to filename without extension
-                display_name = (
-                    custom_title
-                    if custom_title
-                    else os.path.splitext(os.path.basename(docname))[0]
-                )
-                unique_items.append((display_name, docname, desc, line_lineno))
+            # Use custom title from <...> if provided, otherwise fallback to filename without extension
+            display_name = (
+                custom_title
+                if custom_title
+                else os.path.splitext(os.path.basename(docname))[0]
+            )
+            items.append((display_name, docname, desc, line_lineno))
 
         # Sort items within this single directive by display_name (case-insensitive)
-        unique_items.sort(key=lambda x: x[0].lower())
-        docnames = [item[1] for item in unique_items]
+        items.sort(key=lambda x: x[0].lower())
+
+        # Keep includefiles unique for Sphinx's internal file tracker, while entries keep all aliases
+        includefiles = list(dict.fromkeys(item[1] for item in items))
 
         # ────────────────────────────────
         # 2. Build toctree node (for sidebar navigation)
         # ────────────────────────────────
-        toctree_entries = [(item[0], item[1]) for item in unique_items]
+        toctree_entries = [(item[0], item[1]) for item in items]
 
         toctree_node = addnodes.toctree()
         toctree_node['entries'] = toctree_entries
@@ -158,7 +158,7 @@ class TocTableDirective(Directive):
         toctree_node['glob'] = False
         toctree_node['caption'] = self.options.get('caption')
         toctree_node['hidden'] = True
-        toctree_node['includefiles'] = docnames
+        toctree_node['includefiles'] = includefiles
         toctree_node['numbered'] = False
         toctree_node['titlesonly'] = False
         toctree_node['is_toctable'] = True
@@ -182,7 +182,7 @@ class TocTableDirective(Directive):
         header += nodes.entry('', nodes.paragraph(text='Description'))
         thead += header
 
-        for display_name, docname, desc, line_lineno in unique_items:
+        for display_name, docname, desc, line_lineno in items:
             link = app.builder.get_relative_uri(base_doc, docname)
 
             row = nodes.row()
@@ -216,7 +216,8 @@ class TocTableDirective(Directive):
 def merge_and_sort_toctables(app, doctree):
     """
     Runs at priority 100 (before Sphinx's TocTreeCollector at priority 500).
-    Merges all `toctable` toctree nodes on the page into the first one and sorts alphabetically.
+    Merges all `toctable` toctree nodes on the page into the first one and sorts alphabetically,
+    preserving multiple aliases pointing to the same document.
     """
     toctable_nodes = [
         node for node in doctree.findall(addnodes.toctree)
@@ -225,20 +226,19 @@ def merge_and_sort_toctables(app, doctree):
 
     if len(toctable_nodes) > 1:
         primary_toc = toctable_nodes[0]
-        seen_docs = set()
         merged_entries = []
 
         for node in toctable_nodes:
             for title, docname in node['entries']:
-                if docname not in seen_docs:
-                    seen_docs.add(docname)
-                    merged_entries.append((title, docname))
+                merged_entries.append((title, docname))
 
         # Sort all entries across all toctables alphabetically by display title
         merged_entries.sort(key=lambda x: (x[0] or '').lower())
 
         primary_toc['entries'] = merged_entries
-        primary_toc['includefiles'] = [docname for _, docname in merged_entries]
+        primary_toc['includefiles'] = list(
+            dict.fromkeys(docname for _, docname in merged_entries)
+        )
 
         for node in toctable_nodes[1:]:
             node.parent.remove(node)
@@ -247,4 +247,4 @@ def merge_and_sort_toctables(app, doctree):
 def setup(app):
     app.add_directive('toctable', TocTableDirective)
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
-    return {'version': '2.1', 'parallel_read_safe': True}
+    return {'version': '2.2', 'parallel_read_safe': True}

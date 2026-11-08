@@ -11,13 +11,13 @@ class TocTableDirective(Directive):
     """
     Usage example:
 
-        .. toctable::
-           :caption: Quick Navigation
-           :maxdepth: 1
+        ```{toctable}
+        :caption: Quick Navigation
+        :maxdepth: 1
 
-           guide/intro : Quickstart guide, including installation and basic configuration
-           guide/advanced : Advanced features and custom extensions
-           reference/api : Core API reference manual
+        guide/intro : Quickstart guide
+        reference/api : Core API reference
+        ```
     """
     has_content = True
     required_arguments = 0
@@ -29,10 +29,6 @@ class TocTableDirective(Directive):
     }
 
     def _parse_line(self, line):
-        """
-        Parse a single line in the format: path/to/doc : Description text.
-        Defaults to "No description available" if no colon/description is provided.
-        """
         if ':' in line:
             doc_path, desc = line.split(':', 1)
             return doc_path.strip(), desc.strip()
@@ -47,7 +43,7 @@ class TocTableDirective(Directive):
         # 1. Collect document list and descriptions
         # ────────────────────────────────
         seen = set()
-        unique_items = []  # Format: [(docname, desc), ...]
+        unique_items = []  # Format: [(display_name, docname, desc), ...]
 
         for line in self.content:
             line_str = line.strip()
@@ -58,24 +54,28 @@ class TocTableDirective(Directive):
             if not doc_path:
                 continue
 
-            # Convert relative path to Sphinx internal docname
             docname, _ = env.relfn2path(doc_path, base_doc)
 
-            # Deduplicate while preserving order
+            if docname not in env.found_docs:
+                logger.warning(
+                    f"[toctable] Document not found: {docname}",
+                    location=(base_doc, self.lineno)
+                )
+                continue
+
             if docname not in seen:
                 seen.add(docname)
-                unique_items.append((docname, desc))
+                display_name = os.path.splitext(os.path.basename(docname))[0]
+                unique_items.append((display_name, docname, desc))
 
-        docnames = [item[0] for item in unique_items]
+        # Sort items within this single directive first
+        unique_items.sort(key=lambda x: x[0].lower())
+        docnames = [item[1] for item in unique_items]
 
         # ────────────────────────────────
         # 2. Build toctree node (for sidebar navigation)
         # ────────────────────────────────
-        # To display filename without extension instead of doc title in toctree,
-        # pass the filename as the explicit title: (display_name, docname).
-        toctree_entries = [
-            (os.path.splitext(os.path.basename(d))[0], d) for d in docnames
-        ]
+        toctree_entries = [(item[0], item[1]) for item in unique_items]
 
         toctree_node = addnodes.toctree()
         toctree_node['entries'] = toctree_entries
@@ -86,11 +86,13 @@ class TocTableDirective(Directive):
         toctree_node['includefiles'] = docnames
         toctree_node['numbered'] = False
         toctree_node['titlesonly'] = False
+        toctree_node['is_toctable'] = True
 
         # ────────────────────────────────
         # 3. Build table node
         # ────────────────────────────────
         table = nodes.table()
+        table['is_toctable_table'] = True
         tgroup = nodes.tgroup(cols=2)
         table += tgroup
         tgroup += nodes.colspec(colwidth=25)
@@ -100,27 +102,19 @@ class TocTableDirective(Directive):
         tgroup += thead
         tgroup += tbody
 
-        # Table header
         header = nodes.row()
-        header += nodes.entry('', nodes.paragraph(text='Keyword'))
+        header += nodes.entry('', nodes.paragraph(text='Document'))
         header += nodes.entry('', nodes.paragraph(text='Description'))
         thead += header
 
-        for docname, desc in unique_items:
-            if docname not in env.found_docs:
-                logger.warning(
-                    f"[toctable] Document not found: {docname}",
-                    location=(base_doc, self.lineno)
-                )
-                continue
-
-            # Display filename without extension instead of document title
-            display_name = os.path.splitext(os.path.basename(docname))[0]
+        for display_name, docname, desc in unique_items:
             link = app.builder.get_relative_uri(base_doc, docname)
 
             row = nodes.row()
+            # Store sort key on the row so multiple tables can be sorted together
+            row['sort_key'] = display_name.lower()
+            row['docname'] = docname
 
-            # Column 1: Document filename and link
             entry1 = nodes.entry()
             para1 = nodes.paragraph()
             ref = nodes.reference(text=display_name, refuri=link)
@@ -128,7 +122,6 @@ class TocTableDirective(Directive):
             entry1 += para1
             row += entry1
 
-            # Column 2: Inline description
             entry2 = nodes.entry()
             para2 = nodes.paragraph(text=desc)
             entry2 += para2
@@ -145,6 +138,41 @@ class TocTableDirective(Directive):
             return [toctree_node, table]
 
 
+def merge_and_sort_toctables(app, doctree):
+    """
+    Runs at priority 100 (before Sphinx's TocTreeCollector at priority 500).
+    1. Merges all `toctable` toctree nodes on the page into the first one and sorts alphabetically.
+    2. (Optional) If you keep tables separate under different headings, toctrees still merge cleanly.
+    """
+    # ── Part A: Merge and sort sidebar toctree nodes ──
+    toctable_nodes = [
+        node for node in doctree.findall(addnodes.toctree)
+        if node.get('is_toctable')
+    ]
+
+    if len(toctable_nodes) > 1:
+        primary_toc = toctable_nodes[0]
+        seen_docs = set()
+        merged_entries = []
+
+        for node in toctable_nodes:
+            for title, docname in node['entries']:
+                if docname not in seen_docs:
+                    seen_docs.add(docname)
+                    merged_entries.append((title, docname))
+
+        # Sort all entries across all toctables alphabetically
+        merged_entries.sort(key=lambda x: (x[0] or '').lower())
+
+        primary_toc['entries'] = merged_entries
+        primary_toc['includefiles'] = [docname for _, docname in merged_entries]
+
+        for node in toctable_nodes[1:]:
+            node.parent.remove(node)
+
+
 def setup(app):
     app.add_directive('toctable', TocTableDirective)
-    return {'version': '1.1', 'parallel_read_safe': True}
+    # CRITICAL: priority=100 ensures this runs BEFORE Sphinx's TocTreeCollector (priority=500)
+    app.connect('doctree-read', merge_and_sort_toctables, priority=100)
+    return {'version': '1.7', 'parallel_read_safe': True}

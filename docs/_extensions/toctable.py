@@ -3,12 +3,20 @@ from docutils import nodes
 from docutils.parsers.rst import Directive, directives
 from sphinx import addnodes
 
+
+# Define a custom placeholder node
+class toctable_node(nodes.General, nodes.Element):
+    pass
+
+
 class TocTableDirective(Directive):
     """
-        Directive to render a table of contents as a two-column summary table
-        (Document Title and Description) while registering entries into Sphinx's toctree.
+    Directive to render a table of contents as a two-column summary table
+    (Document Title and Description) while registering entries into Sphinx's toctree.
+    Collects target docnames and defers table rendering until all documents
+    are fully read and metadata is populated.
 
-        Usage Examples:
+    Usage Examples:
 
         1. reStructuredText (Target Document with Description):
            Add the `:tocdesc:` field at the very top of the referenced document.
@@ -39,10 +47,7 @@ class TocTableDirective(Directive):
                   reference/*
 
 
-        3. (NOT WORKING!! As noted in the code comments below, tocdesc in Markdown is actually
-           only read successfully during an incremental build where the invocation method is
-           changed.)
-           Markdown / MyST (Target Document with Description):
+        3. Markdown / MyST (Target Document with Description):
            Define `tocdesc` in the YAML front-matter at the beginning of the file.
 
            .. code-block:: markdown
@@ -70,7 +75,7 @@ class TocTableDirective(Directive):
                guide/*
                reference/*
                ```
-        """
+    """
     has_content = True
     required_arguments = 0
     optional_arguments = 0
@@ -83,9 +88,7 @@ class TocTableDirective(Directive):
 
     def run(self):
         env = self.state.document.settings.env
-        app = env.app
         base_doc = env.docname
-        srcdir = app.srcdir
 
         # ─────────────────────────────────────────────
         # 1. Collect document names (supports globbing)
@@ -113,7 +116,7 @@ class TocTableDirective(Directive):
         docnames = [d for d in docnames if not (d in seen or seen.add(d))]
 
         # ─────────────────────────────────────────────
-        # 2. Build the toctree node (registers in sidebar)
+        # 2. Build standard toctree node
         # ─────────────────────────────────────────────
         toctree_node = addnodes.toctree()
         toctree_node['entries'] = [(None, d) for d in docnames]
@@ -126,8 +129,29 @@ class TocTableDirective(Directive):
         toctree_node['titlesonly'] = False
 
         # ─────────────────────────────────────────────
-        # 3. Construct the table node
+        # 3. Create a placeholder node for deferred rendering
         # ─────────────────────────────────────────────
+        placeholder = toctable_node()
+        placeholder['docnames'] = docnames
+        placeholder['base_doc'] = base_doc
+
+        if 'hidden' in self.options:
+            return [placeholder]
+        else:
+            return [toctree_node, placeholder]
+
+
+def resolve_toctables(app, doctree, fromdocname):
+    """
+    Hooked to 'doctree-resolved' event.
+    Executes after ALL documents have been read, guaranteeing env.metadata
+    and env.titles are fully populated even on clean builds.
+    """
+    env = app.env
+
+    for node in doctree.traverse(toctable_node):
+        docnames = node.get('docnames', [])
+
         table = nodes.table()
         tgroup = nodes.tgroup(cols=2)
         table += tgroup
@@ -140,7 +164,7 @@ class TocTableDirective(Directive):
 
         # Table header
         header = nodes.row()
-        header += nodes.entry('', nodes.paragraph(text='Plugin'))
+        header += nodes.entry('', nodes.paragraph(text='Document'))
         header += nodes.entry('', nodes.paragraph(text='Description'))
         thead += header
 
@@ -151,18 +175,15 @@ class TocTableDirective(Directive):
 
             title_node = env.titles.get(docname)
             title = title_node.astext() if title_node else os.path.basename(docname)
-            # TODO: BUG: When `tocdesc` is applied to Markdown files, `env.metadata.get(docname)`
-            #  returns `None` during a clean build (no cache), and only contains values during
-            #  cached incremental builds. However, re-running the build directly fails to
-            #  re-trigger this code block. In fact, `tocdesc` appears correctly in the generated
-            #  output only after alternating the execution: running it once with `:glob:` and
-            #  `plugin.md`, followed by another run without `glob` using `plugin` (or the other
-            #  way around).
-            desc = env.metadata.get(docname, {}).get('tocdesc', '(No description available)')
-            print(f'docname: {env.metadata.get(docname)}0000')
-            link = app.builder.get_relative_uri(env.docname, docname)
+
+            # Now env.metadata is 100% guaranteed to be populated
+            raw_desc = env.metadata.get(docname, {}).get('tocdesc', '(No description available)')
+            desc = str(raw_desc)  # Ensure conversion in case YAML parses dates/numbers
+            link = app.builder.get_relative_uri(fromdocname, docname)
 
             row = nodes.row()
+
+            # Title column with link
             entry1 = nodes.entry()
             para1 = nodes.paragraph()
             ref = nodes.reference(text=title, refuri=link)
@@ -170,6 +191,7 @@ class TocTableDirective(Directive):
             entry1 += para1
             row += entry1
 
+            # Description column
             entry2 = nodes.entry()
             para2 = nodes.paragraph(text=desc)
             entry2 += para2
@@ -177,16 +199,13 @@ class TocTableDirective(Directive):
 
             tbody += row
 
-        # ─────────────────────────────────────────────
-        # 4. Output: Return toctree node and/or table
-        # ─────────────────────────────────────────────
-        if 'hidden' in self.options:
-            # If hidden, only render the table in document body without toctree registration
-            return [table]
-        else:
-            return [toctree_node, table]
+        # Replace placeholder node with the rendered table
+        node.replace_self(table)
 
 
 def setup(app):
+    app.add_node(toctable_node)
     app.add_directive('toctable', TocTableDirective)
-    return {'version': '0.1', 'parallel_read_safe': True}
+    # Register the hook so tables resolve after all docs are loaded
+    app.connect('doctree-resolved', resolve_toctables)
+    return {'version': '0.2', 'parallel_read_safe': True}

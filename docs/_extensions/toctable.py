@@ -8,6 +8,9 @@ from sphinx.util import logging
 
 logger = logging.getLogger(__name__)
 
+# Matches "Custom Title <doc_path>" syntax directly without relying on Sphinx internal imports
+EXPLICIT_TITLE_RE = re.compile(r'^(.+?)\s*(?<!\x00)<([^<]*?)>$')
+
 
 class TocTableDirective(Directive):
     """
@@ -18,7 +21,7 @@ class TocTableDirective(Directive):
         :maxdepth: 1
 
         guide/intro : **Quickstart** guide with [official link](https://example.com) <br> Second line
-        reference/api : Core `API` reference
+        Custom API Name <reference/api> : Core `API` reference
         ```
     """
     has_content = True
@@ -32,56 +35,74 @@ class TocTableDirective(Directive):
 
     def _parse_line(self, line, line_lineno):
         """
-        Parse a single line in the format: path/to/doc : Description text.
-        Raises a directive error if the colon or description is missing.
+        Parse a single line in one of the following formats:
+        1. path/to/doc : Description text
+        2. Custom Display Name <path/to/doc> : Description text
+
+        Returns:
+            (custom_title, doc_path, desc)
+            where custom_title is None if angle brackets are not used.
         """
         if ':' not in line:
             raise self.error(
                 f'[toctable] Missing description separator ":" in line: "{line}". '
-                f'Expected format: "docname : description" (at line {line_lineno}).'
+                f'Expected format: "docname : description" or "title <docname> : description" '
+                f'(at line {line_lineno}).'
             )
 
-        doc_path, desc = line.split(':', 1)
-        doc_path = doc_path.strip()
-        desc = desc.strip()
+        # Safely split by the first ':' after '>' if '<...>' is present,
+        # allowing colons inside custom titles if needed.
+        if '>' in line and '<' in line and line.find('<') < line.find('>') < line.find(':', line.find('>')):
+            sep_idx = line.find(':', line.find('>'))
+            left_part, desc = line[:sep_idx].strip(), line[sep_idx + 1:].strip()
+        else:
+            left_part, desc = line.split(':', 1)
+            left_part = left_part.strip()
+            desc = desc.strip()
 
-        if not doc_path:
+        if not left_part:
             raise self.error(
-                f'[toctable] Missing document path before ":" in line: "{line}" (at line {line_lineno}).'
+                f'[toctable] Missing document target before ":" in line: "{line}" (at line {line_lineno}).'
             )
 
         if not desc:
             raise self.error(
-                f'[toctable] Empty description for document "{doc_path}". '
+                f'[toctable] Empty description for target "{left_part}". '
                 f'Please provide a non-empty description after ":" (at line {line_lineno}).'
             )
 
-        return doc_path, desc
+        # Match "Custom Title <doc_path>"
+        match = EXPLICIT_TITLE_RE.match(left_part)
+        if match:
+            custom_title = match.group(1).strip()
+            doc_path = match.group(2).strip()
+            if not doc_path:
+                raise self.error(
+                    f'[toctable] Empty document path inside angle brackets "<>" in line: "{line}" '
+                    f'(at line {line_lineno}).'
+                )
+            return custom_title, doc_path, desc
+
+        return None, left_part, desc
 
     def _parse_desc_into_entry(self, entry_node, desc, line_lineno, source_path):
         """
         Parse Markdown/rST inline syntax ([link](), **bold**, `code`) and <br> tags
         into docutils nodes inside the table cell.
         """
-        # Split by <br>, <br/>, or <br /> (case-insensitive) to support line breaks
         parts = re.split(r'<br\s*/?>', desc, flags=re.IGNORECASE)
 
-        for idx, part in enumerate(parts):
+        for part in parts:
             part = part.strip()
             if not part:
                 continue
 
-            # Parse each segment using Sphinx/MyST's nested_parse so **bold** and []() work
             temp_container = nodes.Element()
             rst_lines = StringList([part], items=[(source_path, line_lineno)])
             self.state.nested_parse(rst_lines, self.content_offset, temp_container)
 
-            # Append parsed paragraphs/nodes into the table entry
             for child in temp_container.children:
                 entry_node += child
-
-            # If you want strictly <br> instead of separate <p> tags between lines,
-            # separate paragraphs inside a table cell already render on new lines in HTML.
 
     def run(self):
         env = self.state.document.settings.env
@@ -101,7 +122,7 @@ class TocTableDirective(Directive):
                 continue
 
             line_lineno = self.content_offset + idx + 1
-            doc_path, desc = self._parse_line(line_str, line_lineno)
+            custom_title, doc_path, desc = self._parse_line(line_str, line_lineno)
 
             docname, _ = env.relfn2path(doc_path, base_doc)
 
@@ -114,10 +135,15 @@ class TocTableDirective(Directive):
 
             if docname not in seen:
                 seen.add(docname)
-                display_name = os.path.splitext(os.path.basename(docname))[0]
+                # Use custom title from <...> if provided, otherwise fallback to filename without extension
+                display_name = (
+                    custom_title
+                    if custom_title
+                    else os.path.splitext(os.path.basename(docname))[0]
+                )
                 unique_items.append((display_name, docname, desc, line_lineno))
 
-        # Sort items within this single directive first
+        # Sort items within this single directive by display_name (case-insensitive)
         unique_items.sort(key=lambda x: x[0].lower())
         docnames = [item[1] for item in unique_items]
 
@@ -163,7 +189,7 @@ class TocTableDirective(Directive):
             row['sort_key'] = display_name.lower()
             row['docname'] = docname
 
-            # Column 1: Document filename and link
+            # Column 1: Display name (custom title or filename) and link
             entry1 = nodes.entry()
             para1 = nodes.paragraph()
             ref = nodes.reference(text=display_name, refuri=link)
@@ -208,7 +234,7 @@ def merge_and_sort_toctables(app, doctree):
                     seen_docs.add(docname)
                     merged_entries.append((title, docname))
 
-        # Sort all entries across all toctables alphabetically
+        # Sort all entries across all toctables alphabetically by display title
         merged_entries.sort(key=lambda x: (x[0] or '').lower())
 
         primary_toc['entries'] = merged_entries
@@ -221,4 +247,4 @@ def merge_and_sort_toctables(app, doctree):
 def setup(app):
     app.add_directive('toctable', TocTableDirective)
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
-    return {'version': '1.9', 'parallel_read_safe': True}
+    return {'version': '2.1', 'parallel_read_safe': True}

@@ -1,6 +1,8 @@
 import os
+import re
 from docutils import nodes
 from docutils.parsers.rst import Directive, directives
+from docutils.statemachine import StringList
 from sphinx import addnodes
 from sphinx.util import logging
 
@@ -15,8 +17,8 @@ class TocTableDirective(Directive):
         :caption: Quick Navigation
         :maxdepth: 1
 
-        guide/intro : Quickstart guide
-        reference/api : Core API reference
+        guide/intro : **Quickstart** guide with [official link](https://example.com) <br> Second line
+        reference/api : Core `API` reference
         ```
     """
     has_content = True
@@ -56,23 +58,48 @@ class TocTableDirective(Directive):
 
         return doc_path, desc
 
+    def _parse_desc_into_entry(self, entry_node, desc, line_lineno, source_path):
+        """
+        Parse Markdown/rST inline syntax ([link](), **bold**, `code`) and <br> tags
+        into docutils nodes inside the table cell.
+        """
+        # Split by <br>, <br/>, or <br /> (case-insensitive) to support line breaks
+        parts = re.split(r'<br\s*/?>', desc, flags=re.IGNORECASE)
+
+        for idx, part in enumerate(parts):
+            part = part.strip()
+            if not part:
+                continue
+
+            # Parse each segment using Sphinx/MyST's nested_parse so **bold** and []() work
+            temp_container = nodes.Element()
+            rst_lines = StringList([part], items=[(source_path, line_lineno)])
+            self.state.nested_parse(rst_lines, self.content_offset, temp_container)
+
+            # Append parsed paragraphs/nodes into the table entry
+            for child in temp_container.children:
+                entry_node += child
+
+            # If you want strictly <br> instead of separate <p> tags between lines,
+            # separate paragraphs inside a table cell already render on new lines in HTML.
+
     def run(self):
         env = self.state.document.settings.env
         app = env.app
         base_doc = env.docname
+        source_path = env.doc2path(base_doc)
 
         # ────────────────────────────────
         # 1. Collect document list and descriptions
         # ────────────────────────────────
         seen = set()
-        unique_items = []  # Format: [(display_name, docname, desc), ...]
+        unique_items = []  # Format: [(display_name, docname, desc, line_lineno), ...]
 
         for idx, line in enumerate(self.content):
             line_str = line.strip()
             if not line_str:
                 continue
 
-            # Calculate the exact line number in the source file for accurate error reporting
             line_lineno = self.content_offset + idx + 1
             doc_path, desc = self._parse_line(line_str, line_lineno)
 
@@ -88,7 +115,7 @@ class TocTableDirective(Directive):
             if docname not in seen:
                 seen.add(docname)
                 display_name = os.path.splitext(os.path.basename(docname))[0]
-                unique_items.append((display_name, docname, desc))
+                unique_items.append((display_name, docname, desc, line_lineno))
 
         # Sort items within this single directive first
         unique_items.sort(key=lambda x: x[0].lower())
@@ -129,13 +156,14 @@ class TocTableDirective(Directive):
         header += nodes.entry('', nodes.paragraph(text='Description'))
         thead += header
 
-        for display_name, docname, desc in unique_items:
+        for display_name, docname, desc, line_lineno in unique_items:
             link = app.builder.get_relative_uri(base_doc, docname)
 
             row = nodes.row()
             row['sort_key'] = display_name.lower()
             row['docname'] = docname
 
+            # Column 1: Document filename and link
             entry1 = nodes.entry()
             para1 = nodes.paragraph()
             ref = nodes.reference(text=display_name, refuri=link)
@@ -143,9 +171,9 @@ class TocTableDirective(Directive):
             entry1 += para1
             row += entry1
 
+            # Column 2: Rich-text parsed description
             entry2 = nodes.entry()
-            para2 = nodes.paragraph(text=desc)
-            entry2 += para2
+            self._parse_desc_into_entry(entry2, desc, line_lineno, source_path)
             row += entry2
 
             tbody += row
@@ -193,4 +221,4 @@ def merge_and_sort_toctables(app, doctree):
 def setup(app):
     app.add_directive('toctable', TocTableDirective)
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
-    return {'version': '1.8', 'parallel_read_safe': True}
+    return {'version': '1.9', 'parallel_read_safe': True}

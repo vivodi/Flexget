@@ -8,8 +8,10 @@ from sphinx.util import logging
 
 logger = logging.getLogger(__name__)
 
-# Matches "Custom Title <doc_path>" syntax directly without relying on Sphinx internal imports
-EXPLICIT_TITLE_RE = re.compile(r'^(.+?)\s*(?<!\x00)<([^<]*?)>$')
+# Matches either:
+# 1. "Custom Title <doc_path> : Description" -> groups: (custom_title, doc_path, None, desc)
+# 2. "doc_path : Description"                -> groups: (None, None, doc_path, desc)
+LINE_RE = re.compile(r'^(?:(.+?)\s*<([^<>]+)>|([^:<>]+?))\s*:\s*(.+)$')
 
 
 class TocTableDirective(Directive):
@@ -20,7 +22,7 @@ class TocTableDirective(Directive):
         :caption: Quick Navigation
         :maxdepth: 1
 
-        guide/intro : **Quickstart** guide with [official link](https://example.com) <br> Second line
+        guide/intro : **Quickstart** guide with [official link](https://example.com) <br> **Note:** Second line
         Intro Alias <guide/intro> : Alias entry pointing to the same intro document
         Custom API Name <reference/api> : Core `API` reference
         ```
@@ -51,40 +53,35 @@ class TocTableDirective(Directive):
                 f'(at line {line_lineno}).'
             )
 
-        # Safely split by the first ':' after '>' if '<...>' is present,
-        # allowing colons inside custom titles if needed.
-        if '>' in line and '<' in line and line.find('<') < line.find('>') < line.find(':', line.find('>')):
-            sep_idx = line.find(':', line.find('>'))
-            left_part, desc = line[:sep_idx].strip(), line[sep_idx + 1:].strip()
-        else:
-            left_part, desc = line.split(':', 1)
-            left_part = left_part.strip()
-            desc = desc.strip()
-
-        if not left_part:
+        match = LINE_RE.match(line)
+        if not match:
             raise self.error(
-                f'[toctable] Missing document target before ":" in line: "{line}" (at line {line_lineno}).'
+                f'[toctable] Invalid syntax or empty description in line: "{line}". '
+                f'Expected format: "docname : description" or "title <docname> : description" '
+                f'(at line {line_lineno}).'
+            )
+
+        custom_title_grp, bracket_path_grp, plain_path_grp, desc = match.groups()
+        desc = desc.strip()
+
+        if bracket_path_grp is not None:
+            custom_title = custom_title_grp.strip()
+            doc_path = bracket_path_grp.strip()
+        else:
+            custom_title = None
+            doc_path = plain_path_grp.strip()
+
+        if not doc_path:
+            raise self.error(
+                f'[toctable] Empty document path in line: "{line}" (at line {line_lineno}).'
             )
 
         if not desc:
             raise self.error(
-                f'[toctable] Empty description for target "{left_part}". '
-                f'Please provide a non-empty description after ":" (at line {line_lineno}).'
+                f'[toctable] Empty description for target "{doc_path}" (at line {line_lineno}).'
             )
 
-        # Match "Custom Title <doc_path>"
-        match = EXPLICIT_TITLE_RE.match(left_part)
-        if match:
-            custom_title = match.group(1).strip()
-            doc_path = match.group(2).strip()
-            if not doc_path:
-                raise self.error(
-                    f'[toctable] Empty document path inside angle brackets "<>" in line: "{line}" '
-                    f'(at line {line_lineno}).'
-                )
-            return custom_title, doc_path, desc
-
-        return None, left_part, desc
+        return custom_title, doc_path, desc
 
     def _parse_desc_into_entry(self, entry_node, desc, line_lineno, source_path):
         """
@@ -178,7 +175,7 @@ class TocTableDirective(Directive):
         tgroup += tbody
 
         header = nodes.row()
-        header += nodes.entry('', nodes.paragraph(text='Document'))
+        header += nodes.entry('', nodes.paragraph(text='Keyword'))
         header += nodes.entry('', nodes.paragraph(text='Description'))
         thead += header
 
@@ -247,4 +244,4 @@ def merge_and_sort_toctables(app, doctree):
 def setup(app):
     app.add_directive('toctable', TocTableDirective)
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
-    return {'version': '2.2', 'parallel_read_safe': True}
+    return {'version': '2.3', 'parallel_read_safe': True}

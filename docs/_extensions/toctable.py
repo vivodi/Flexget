@@ -28,11 +28,33 @@ class TocTableDirective(Directive):
         'hidden': directives.flag,
     }
 
-    def _parse_line(self, line):
-        if ':' in line:
-            doc_path, desc = line.split(':', 1)
-            return doc_path.strip(), desc.strip()
-        return line.strip(), 'No description available'
+    def _parse_line(self, line, line_lineno):
+        """
+        Parse a single line in the format: path/to/doc : Description text.
+        Raises a directive error if the colon or description is missing.
+        """
+        if ':' not in line:
+            raise self.error(
+                f'[toctable] Missing description separator ":" in line: "{line}". '
+                f'Expected format: "docname : description" (at line {line_lineno}).'
+            )
+
+        doc_path, desc = line.split(':', 1)
+        doc_path = doc_path.strip()
+        desc = desc.strip()
+
+        if not doc_path:
+            raise self.error(
+                f'[toctable] Missing document path before ":" in line: "{line}" (at line {line_lineno}).'
+            )
+
+        if not desc:
+            raise self.error(
+                f'[toctable] Empty description for document "{doc_path}". '
+                f'Please provide a non-empty description after ":" (at line {line_lineno}).'
+            )
+
+        return doc_path, desc
 
     def run(self):
         env = self.state.document.settings.env
@@ -45,21 +67,21 @@ class TocTableDirective(Directive):
         seen = set()
         unique_items = []  # Format: [(display_name, docname, desc), ...]
 
-        for line in self.content:
+        for idx, line in enumerate(self.content):
             line_str = line.strip()
             if not line_str:
                 continue
 
-            doc_path, desc = self._parse_line(line_str)
-            if not doc_path:
-                continue
+            # Calculate the exact line number in the source file for accurate error reporting
+            line_lineno = self.content_offset + idx + 1
+            doc_path, desc = self._parse_line(line_str, line_lineno)
 
             docname, _ = env.relfn2path(doc_path, base_doc)
 
             if docname not in env.found_docs:
                 logger.warning(
                     f"[toctable] Document not found: {docname}",
-                    location=(base_doc, self.lineno)
+                    location=(base_doc, line_lineno)
                 )
                 continue
 
@@ -111,7 +133,6 @@ class TocTableDirective(Directive):
             link = app.builder.get_relative_uri(base_doc, docname)
 
             row = nodes.row()
-            # Store sort key on the row so multiple tables can be sorted together
             row['sort_key'] = display_name.lower()
             row['docname'] = docname
 
@@ -141,10 +162,8 @@ class TocTableDirective(Directive):
 def merge_and_sort_toctables(app, doctree):
     """
     Runs at priority 100 (before Sphinx's TocTreeCollector at priority 500).
-    1. Merges all `toctable` toctree nodes on the page into the first one and sorts alphabetically.
-    2. (Optional) If you keep tables separate under different headings, toctrees still merge cleanly.
+    Merges all `toctable` toctree nodes on the page into the first one and sorts alphabetically.
     """
-    # ── Part A: Merge and sort sidebar toctree nodes ──
     toctable_nodes = [
         node for node in doctree.findall(addnodes.toctree)
         if node.get('is_toctable')
@@ -173,6 +192,5 @@ def merge_and_sort_toctables(app, doctree):
 
 def setup(app):
     app.add_directive('toctable', TocTableDirective)
-    # CRITICAL: priority=100 ensures this runs BEFORE Sphinx's TocTreeCollector (priority=500)
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
-    return {'version': '1.7', 'parallel_read_safe': True}
+    return {'version': '1.8', 'parallel_read_safe': True}

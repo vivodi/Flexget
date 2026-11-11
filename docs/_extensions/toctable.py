@@ -6,6 +6,7 @@ from docutils.statemachine import StringList
 from sphinx import addnodes
 from sphinx.transforms.post_transforms import SphinxPostTransform
 from sphinx.util import logging
+from sphinx.util.docutils import ReferenceRole
 from sphinx.util.nodes import make_refnode
 
 logger = logging.getLogger(__name__)
@@ -16,6 +17,27 @@ logger = logging.getLogger(__name__)
 LINE_RE = re.compile(r'^(?:(.+?)\s*<([^<>]+)>|([^:<>]+?))\s*:\s*(.+)$')
 
 REF_PREFIX = 'plugin:'
+
+
+class PluginRole(ReferenceRole):
+    """
+    Allows referencing a plugin via MyST `{plugin}`imdb_list`` or `{plugin}`Custom Text <imdb_list>``
+    (or rST `:plugin:`imdb_list``).
+    """
+    def run(self):
+        target = self.target.strip()
+        refnode = addnodes.pending_xref(
+            '',
+            refdomain='std',
+            reftype='plugin',
+            reftarget=f'{REF_PREFIX}{target}',
+            modname=None,
+            classname=None,
+            refexplicit=self.has_explicit_title,
+        )
+        self.set_source_info(refnode)
+        refnode += nodes.inline(self.rawtext, self.title)
+        return [refnode], []
 
 
 class TocTableDirective(Directive):
@@ -250,8 +272,6 @@ def merge_toctable_plugin_refs(app, env, docnames, other):
 class PluginReferenceTransform(SphinxPostTransform):
     """
     Handles Markdown links written as `[](plugin:imdb_list)` or `[Custom Text](plugin:imdb_list)`.
-    Because MyST treats `plugin:...` as an external URL scheme (`nodes.reference(refuri="plugin:...")`),
-    this post-transform converts those nodes into proper internal Sphinx document links.
     """
     default_priority = 5
 
@@ -279,8 +299,6 @@ class PluginReferenceTransform(SphinxPostTransform):
             node['refuri'] = new_uri
             node['internal'] = True
 
-            # If user wrote `[](plugin:imdb_list)`, MyST sets the text to `"plugin:imdb_list"` or empty.
-            # Replace it with the clean `default_title` (`"imdb_list"`).
             current_text = node.astext().strip()
             if not current_text or current_text.lower() == refuri.lower():
                 node.clear()
@@ -289,7 +307,7 @@ class PluginReferenceTransform(SphinxPostTransform):
 
 def resolve_toctable_missing_reference(app, env, node, contnode):
     """
-    Handles `{ref}`plugin:imdb_list`` or `:ref:`plugin:imdb_list`` if pending_xref is triggered.
+    Handles `{plugin}`imdb_list`` or `{ref}`plugin:imdb_list``.
     """
     target = node.get('reftarget', '')
     if not target.lower().startswith(REF_PREFIX):
@@ -299,6 +317,10 @@ def resolve_toctable_missing_reference(app, env, node, contnode):
     labels = getattr(env, 'toctable_plugin_refs', {})
     match = labels.get(plugin_name) or labels.get(plugin_name.lower())
     if not match:
+        logger.warning(
+            f'[toctable] Unknown plugin reference "{plugin_name}".',
+            location=node
+        )
         return None
 
     target_docname, default_title = match
@@ -321,8 +343,9 @@ def resolve_toctable_missing_reference(app, env, node, contnode):
 
 def setup(app):
     app.add_directive('toctable', TocTableDirective)
+    app.add_role('plugin', PluginRole())
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
     app.connect('env-merge-info', merge_toctable_plugin_refs)
     app.connect('missing-reference', resolve_toctable_missing_reference)
     app.add_post_transform(PluginReferenceTransform)
-    return {'version': '2.7', 'parallel_read_safe': True}
+    return {'version': '2.8', 'parallel_read_safe': True}

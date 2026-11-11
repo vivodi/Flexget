@@ -103,16 +103,21 @@ class TocTableDirective(Directive):
             for child in temp_container.children:
                 entry_node += child
 
-    def _register_ref_label(self, env, display_name, target_docname):
-        """
-        Store `display_name` in a fallback dictionary on `env` rather than polluting `std` domain labels directly.
-        This ensures relative file links in the current directory take priority over `toctable` global names.
-        """
+    def _register_ref_label(self, env, display_name, target_docname, line_lineno):
         if not hasattr(env, 'toctable_ref_labels'):
             env.toctable_ref_labels = {}
 
-        for key in (display_name, display_name.lower()):
-            env.toctable_ref_labels[key] = (target_docname, display_name)
+        key = display_name.lower()
+        existing = env.toctable_ref_labels.get(key)
+        if existing and existing[0] != target_docname:
+            logger.warning(
+                f'[toctable] Duplicate reference name "{display_name}": '
+                f'already points to "{existing[0]}", now overwritten by "{target_docname}".',
+                location=(env.docname, line_lineno)
+            )
+
+        for k in (display_name, key):
+            env.toctable_ref_labels[k] = (target_docname, display_name)
 
     def run(self):
         env = self.state.document.settings.env

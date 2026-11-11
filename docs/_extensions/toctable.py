@@ -5,6 +5,7 @@ from docutils.parsers.rst import Directive, directives
 from docutils.statemachine import StringList
 from sphinx import addnodes
 from sphinx.util import logging
+from sphinx.util.nodes import make_refnode
 
 logger = logging.getLogger(__name__)
 
@@ -104,22 +105,14 @@ class TocTableDirective(Directive):
 
     def _register_ref_label(self, env, display_name, target_docname):
         """
-        Register `display_name` as a global cross-reference label pointing to `target_docname`.
-        Both original case and lowercase keys are registered in the Standard Domain (`std`).
+        Store `display_name` in a fallback dictionary on `env` rather than polluting `std` domain labels directly.
+        This ensures relative file links in the current directory take priority over `toctable` global names.
         """
         if not hasattr(env, 'toctable_ref_labels'):
             env.toctable_ref_labels = {}
 
-        # Normalize label keys: support both exact match and lowercase match (standard Sphinx behavior)
         for key in (display_name, display_name.lower()):
             env.toctable_ref_labels[key] = (target_docname, display_name)
-
-        std_domain = env.get_domain('std')
-        for key in (display_name, display_name.lower()):
-            # Map label -> (docname, labelid) for `{ref}`<target>` with custom link text
-            std_domain.anonlabels[key] = (target_docname, '')
-            # Map label -> (docname, labelid, sectionname) for `{ref}`target` with auto link text
-            std_domain.labels[key] = (target_docname, '', display_name)
 
     def run(self):
         env = self.state.document.settings.env
@@ -157,7 +150,7 @@ class TocTableDirective(Directive):
             )
             items.append((display_name, docname, desc, line_lineno))
 
-            # Automatically register display_name as a cross-reference label for target docname
+            # Register display_name in our fallback lookup table
             self._register_ref_label(env, display_name, docname)
 
         # Sort items within this single directive by display_name (case-insensitive)
@@ -274,14 +267,50 @@ def merge_toctable_ref_labels(app, env, docnames, other):
 
     env.toctable_ref_labels.update(other.toctable_ref_labels)
 
-    std_domain = env.get_domain('std')
-    for key, (target_docname, display_name) in other.toctable_ref_labels.items():
-        std_domain.anonlabels[key] = (target_docname, '')
-        std_domain.labels[key] = (target_docname, '', display_name)
+
+def resolve_toctable_missing_reference(app, env, node, contnode):
+    """
+    Fallback resolver for unresolved references (`[text](name)`, `[](name)`, `{ref}`name``, `{doc}`name``).
+    Only triggered AFTER local relative file paths and explicit std labels failed to match.
+    """
+    target = node.get('reftarget')
+    if not target:
+        return None
+
+    fromdocname = node.get('refdoc', env.docname)
+
+    # 1. Always check if `target` exists as a relative document in the current directory FIRST
+    rel_docname, _ = env.relfn2path(target, fromdocname)
+    if rel_docname in env.found_docs:
+        target_docname = rel_docname
+        default_title = os.path.splitext(os.path.basename(rel_docname))[0]
+    else:
+        # 2. Otherwise, fallback to `toctable` registered labels
+        labels = getattr(env, 'toctable_ref_labels', {})
+        match = labels.get(target) or labels.get(target.lower())
+        if not match:
+            return None
+        target_docname, default_title = match
+
+    # Determine link text: if user wrote `[](imdb_list)` (no explicit text), use `default_title`
+    if node.get('refexplicit'):
+        inner_node = contnode
+    else:
+        inner_node = nodes.inline(default_title, default_title)
+
+    return make_refnode(
+        app.builder,
+        fromdocname,
+        target_docname,
+        '',
+        inner_node,
+        default_title,
+    )
 
 
 def setup(app):
     app.add_directive('toctable', TocTableDirective)
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
     app.connect('env-merge-info', merge_toctable_ref_labels)
-    return {'version': '2.4', 'parallel_read_safe': True}
+    app.connect('missing-reference', resolve_toctable_missing_reference)
+    return {'version': '2.5', 'parallel_read_safe': True}

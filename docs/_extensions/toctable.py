@@ -102,6 +102,25 @@ class TocTableDirective(Directive):
             for child in temp_container.children:
                 entry_node += child
 
+    def _register_ref_label(self, env, display_name, target_docname):
+        """
+        Register `display_name` as a global cross-reference label pointing to `target_docname`.
+        Both original case and lowercase keys are registered in the Standard Domain (`std`).
+        """
+        if not hasattr(env, 'toctable_ref_labels'):
+            env.toctable_ref_labels = {}
+
+        # Normalize label keys: support both exact match and lowercase match (standard Sphinx behavior)
+        for key in (display_name, display_name.lower()):
+            env.toctable_ref_labels[key] = (target_docname, display_name)
+
+        std_domain = env.get_domain('std')
+        for key in (display_name, display_name.lower()):
+            # Map label -> (docname, labelid) for `{ref}`<target>` with custom link text
+            std_domain.anonlabels[key] = (target_docname, '')
+            # Map label -> (docname, labelid, sectionname) for `{ref}`target` with auto link text
+            std_domain.labels[key] = (target_docname, '', display_name)
+
     def run(self):
         env = self.state.document.settings.env
         app = env.app
@@ -137,6 +156,9 @@ class TocTableDirective(Directive):
                 else os.path.splitext(os.path.basename(docname))[0]
             )
             items.append((display_name, docname, desc, line_lineno))
+
+            # Automatically register display_name as a cross-reference label for target docname
+            self._register_ref_label(env, display_name, docname)
 
         # Sort items within this single directive by display_name (case-insensitive)
         items.sort(key=lambda x: x[0].lower())
@@ -175,7 +197,7 @@ class TocTableDirective(Directive):
         tgroup += tbody
 
         header = nodes.row()
-        header += nodes.entry('', nodes.paragraph(text='Keyword'))
+        header += nodes.entry('', nodes.paragraph(text='Document'))
         header += nodes.entry('', nodes.paragraph(text='Description'))
         thead += header
 
@@ -241,7 +263,25 @@ def merge_and_sort_toctables(app, doctree):
             node.parent.remove(node)
 
 
+def merge_toctable_ref_labels(app, env, docnames, other):
+    """
+    Support Sphinx parallel builds (-j auto) by merging registered ref labels across workers.
+    """
+    if not hasattr(other, 'toctable_ref_labels'):
+        return
+    if not hasattr(env, 'toctable_ref_labels'):
+        env.toctable_ref_labels = {}
+
+    env.toctable_ref_labels.update(other.toctable_ref_labels)
+
+    std_domain = env.get_domain('std')
+    for key, (target_docname, display_name) in other.toctable_ref_labels.items():
+        std_domain.anonlabels[key] = (target_docname, '')
+        std_domain.labels[key] = (target_docname, '', display_name)
+
+
 def setup(app):
     app.add_directive('toctable', TocTableDirective)
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
-    return {'version': '2.3', 'parallel_read_safe': True}
+    app.connect('env-merge-info', merge_toctable_ref_labels)
+    return {'version': '2.4', 'parallel_read_safe': True}

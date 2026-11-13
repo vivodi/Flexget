@@ -133,7 +133,8 @@ class TocTableDirective(Directive):
         base_doc = env.docname
         source_path = env.doc2path(base_doc)
 
-        items = []  # Format: [(display_name, docname, desc, line_lineno), ...]
+        seen = set()
+        unique_items = []  # Format: [(display_name, docname, desc, line_lineno), ...]
 
         for idx, line in enumerate(self.content):
             line_str = line.strip()
@@ -152,21 +153,21 @@ class TocTableDirective(Directive):
                 )
                 continue
 
-            # Use custom title from <...> if provided; otherwise use parent folder name for `*/index`
-            # or filename without extension for everything else.
-            display_name = (
-                custom_title
-                if custom_title
-                else _get_default_display_name(docname)
-            )
-            items.append((display_name, docname, desc, line_lineno))
+            # Deduplicate by docname within the directive
+            if docname not in seen:
+                seen.add(docname)
+                display_name = (
+                    custom_title
+                    if custom_title
+                    else _get_default_display_name(docname)
+                )
+                unique_items.append((display_name, docname, desc, line_lineno))
+                self._register_plugin_ref(env, display_name, docname, line_lineno)
 
-            self._register_plugin_ref(env, display_name, docname, line_lineno)
+        unique_items.sort(key=lambda x: x[0].lower())
+        docnames = [item[1] for item in unique_items]
 
-        items.sort(key=lambda x: x[0].lower())
-        includefiles = list(dict.fromkeys(item[1] for item in items))
-
-        toctree_entries = [(item[0], item[1]) for item in items]
+        toctree_entries = [(item[0], item[1]) for item in unique_items]
 
         toctree_node = addnodes.toctree()
         toctree_node['entries'] = toctree_entries
@@ -174,7 +175,7 @@ class TocTableDirective(Directive):
         toctree_node['glob'] = False
         toctree_node['caption'] = self.options.get('caption')
         toctree_node['hidden'] = True
-        toctree_node['includefiles'] = includefiles
+        toctree_node['includefiles'] = docnames
         toctree_node['numbered'] = False
         toctree_node['titlesonly'] = False
         toctree_node['is_toctable'] = True
@@ -195,7 +196,7 @@ class TocTableDirective(Directive):
         header += nodes.entry('', nodes.paragraph(text='Description'))
         thead += header
 
-        for display_name, docname, desc, line_lineno in items:
+        for display_name, docname, desc, line_lineno in unique_items:
             link = app.builder.get_relative_uri(base_doc, docname)
 
             row = nodes.row()
@@ -229,18 +230,20 @@ def merge_and_sort_toctables(app, doctree):
 
     if len(toctable_nodes) > 1:
         primary_toc = toctable_nodes[0]
+        seen_docs = set()
         merged_entries = []
 
         for node in toctable_nodes:
             for title, docname in node['entries']:
-                merged_entries.append((title, docname))
+                # Deduplicate by docname across multiple toctables on the same page
+                if docname not in seen_docs:
+                    seen_docs.add(docname)
+                    merged_entries.append((title, docname))
 
         merged_entries.sort(key=lambda x: (x[0] or '').lower())
 
         primary_toc['entries'] = merged_entries
-        primary_toc['includefiles'] = list(
-            dict.fromkeys(docname for _, docname in merged_entries)
-        )
+        primary_toc['includefiles'] = [docname for _, docname in merged_entries]
 
         for node in toctable_nodes[1:]:
             node.parent.remove(node)
@@ -347,4 +350,4 @@ def setup(app):
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
     app.connect('env-merge-info', merge_toctable_plugin_refs)
     app.add_post_transform(PluginReferenceTransform)
-    return {'version': '3.1', 'parallel_read_safe': True}
+    return {'version': '3.2', 'parallel_read_safe': True}

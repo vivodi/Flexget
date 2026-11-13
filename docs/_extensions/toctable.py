@@ -10,11 +10,6 @@ from sphinx.util.nodes import make_refnode
 
 logger = logging.getLogger(__name__)
 
-# Matches either:
-# 1. "Custom Title <doc_path> : Description" -> groups: (custom_title, doc_path, None, desc)
-# 2. "doc_path : Description"                -> groups: (None, None, doc_path, desc)
-LINE_RE = re.compile(r'^(?:(.+?)\s*<([^<>]+)>|([^:<>]+?))\s*:\s*(.+)$')
-
 REF_PREFIX = 'plugin:'
 
 
@@ -43,7 +38,7 @@ class TocTableDirective(Directive):
 
         list/imdb_list : Use movies in your IMDb list...
         daemon/index : Daemon mode documentation (displays as "daemon")
-        Custom Name <rss> : Parse RSS-feed.
+        rss : Parse RSS-feed.
         ```
     """
     has_content = True
@@ -56,42 +51,32 @@ class TocTableDirective(Directive):
     }
 
     def _parse_line(self, line, line_lineno):
+        """
+        Parse a single line in the format: path/to/doc : Description text.
+        Raises a directive error if the colon or description is missing.
+        """
         if ':' not in line:
             raise self.error(
                 f'[toctable] Missing description separator ":" in line: "{line}". '
-                f'Expected format: "docname : description" or "title <docname> : description" '
-                f'(at line {line_lineno}).'
+                f'Expected format: "docname : description" (at line {line_lineno}).'
             )
 
-        match = LINE_RE.match(line)
-        if not match:
-            raise self.error(
-                f'[toctable] Invalid syntax or empty description in line: "{line}". '
-                f'Expected format: "docname : description" or "title <docname> : description" '
-                f'(at line {line_lineno}).'
-            )
-
-        custom_title_grp, bracket_path_grp, plain_path_grp, desc = match.groups()
+        doc_path, desc = line.split(':', 1)
+        doc_path = doc_path.strip()
         desc = desc.strip()
-
-        if bracket_path_grp is not None:
-            custom_title = custom_title_grp.strip()
-            doc_path = bracket_path_grp.strip()
-        else:
-            custom_title = None
-            doc_path = plain_path_grp.strip()
 
         if not doc_path:
             raise self.error(
-                f'[toctable] Empty document path in line: "{line}" (at line {line_lineno}).'
+                f'[toctable] Empty document path before ":" in line: "{line}" (at line {line_lineno}).'
             )
 
         if not desc:
             raise self.error(
-                f'[toctable] Empty description for target "{doc_path}" (at line {line_lineno}).'
+                f'[toctable] Empty description for target "{doc_path}". '
+                f'Please provide a non-empty description after ":" (at line {line_lineno}).'
             )
 
-        return custom_title, doc_path, desc
+        return doc_path, desc
 
     def _parse_desc_into_entry(self, entry_node, desc, line_lineno, source_path):
         parts = re.split(r'<br\s*/?>', desc, flags=re.IGNORECASE)
@@ -142,7 +127,7 @@ class TocTableDirective(Directive):
                 continue
 
             line_lineno = self.content_offset + idx + 1
-            custom_title, doc_path, desc = self._parse_line(line_str, line_lineno)
+            doc_path, desc = self._parse_line(line_str, line_lineno)
 
             docname, _ = env.relfn2path(doc_path, base_doc)
 
@@ -156,11 +141,7 @@ class TocTableDirective(Directive):
             # Deduplicate by docname within the directive
             if docname not in seen:
                 seen.add(docname)
-                display_name = (
-                    custom_title
-                    if custom_title
-                    else _get_default_display_name(docname)
-                )
+                display_name = _get_default_display_name(docname)
                 unique_items.append((display_name, docname, desc, line_lineno))
                 self._register_plugin_ref(env, display_name, docname, line_lineno)
 
@@ -261,7 +242,7 @@ def merge_toctable_plugin_refs(app, env, docnames, other):
 class PluginReferenceTransform(SphinxPostTransform):
     """
     Runs at priority 3 — strictly BEFORE MyST-Parser's `ResolveMystReferences` (priority 4).
-    Resolves `[](plugin:xxx)` and `[Custom Text](plugin:xxx)` into internal document links.
+    Resolves `<plugin:xxx>` and `[Custom Text](plugin:xxx)` into internal document links.
     """
     default_priority = 3
 
@@ -350,4 +331,4 @@ def setup(app):
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
     app.connect('env-merge-info', merge_toctable_plugin_refs)
     app.add_post_transform(PluginReferenceTransform)
-    return {'version': '3.2', 'parallel_read_safe': True}
+    return {'version': '3.3', 'parallel_read_safe': True}

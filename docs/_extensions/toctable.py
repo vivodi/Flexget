@@ -18,6 +18,21 @@ LINE_RE = re.compile(r'^(?:(.+?)\s*<([^<>]+)>|([^:<>]+?))\s*:\s*(.+)$')
 REF_PREFIX = 'plugin:'
 
 
+def _get_default_display_name(docname):
+    """
+    Return the default display name for a given Sphinx `docname`.
+    If the document is `*/index`, return the parent directory name `*`.
+    Otherwise, return the filename without extension.
+    """
+    norm_docname = docname.replace('\\', '/')
+    base_name = os.path.splitext(os.path.basename(norm_docname))[0]
+    if base_name == 'index':
+        parent_dir = os.path.basename(os.path.dirname(norm_docname))
+        if parent_dir:
+            return parent_dir
+    return base_name
+
+
 class TocTableDirective(Directive):
     """
     Usage example:
@@ -27,6 +42,7 @@ class TocTableDirective(Directive):
         :maxdepth: 1
 
         list/imdb_list : Use movies in your IMDb list...
+        daemon/index : Daemon mode documentation (displays as "daemon")
         Custom Name <rss> : Parse RSS-feed.
         ```
     """
@@ -136,10 +152,12 @@ class TocTableDirective(Directive):
                 )
                 continue
 
+            # Use custom title from <...> if provided; otherwise use parent folder name for `*/index`
+            # or filename without extension for everything else.
             display_name = (
                 custom_title
                 if custom_title
-                else os.path.splitext(os.path.basename(docname))[0]
+                else _get_default_display_name(docname)
             )
             items.append((display_name, docname, desc, line_lineno))
 
@@ -257,8 +275,9 @@ class PluginReferenceTransform(SphinxPostTransform):
         # Fallback for incremental builds when toctable pages were not re-parsed
         target_lower = plugin_name.lower()
         for doc in self.env.found_docs:
-            if os.path.splitext(os.path.basename(doc))[0].lower() == target_lower:
-                return doc, os.path.splitext(os.path.basename(doc))[0]
+            default_name = _get_default_display_name(doc)
+            if default_name.lower() == target_lower:
+                return doc, default_name
         return None
 
     def run(self, **kwargs):
@@ -328,4 +347,4 @@ def setup(app):
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
     app.connect('env-merge-info', merge_toctable_plugin_refs)
     app.add_post_transform(PluginReferenceTransform)
-    return {'version': '3.0', 'parallel_read_safe': True}
+    return {'version': '3.1', 'parallel_read_safe': True}

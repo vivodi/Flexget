@@ -91,6 +91,7 @@ test = [
   { include-group = "all" },
 ]
 docs = [
+  "linkify-it-py~=2.2",
   "myst-parser~=5.1",
   "pydata-sphinx-theme~=0.23.0",
   "sphinx~=9.1",

@@ -69,7 +69,7 @@ intersphinx_mapping = {
 
 # -- myst_parser options -----------------------------------------------------
 
-myst_enable_extensions = ['colon_fence']
+myst_enable_extensions = ['colon_fence', 'linkify']
 
 # -- sphinx_copybutton options -----------------------------------------------
 
@@ -103,16 +103,19 @@ html_theme_options = {
     'logo': {
         'text': 'FlexGet',
     },
-    'switcher': {
-        'json_url': 'https://flexget.readthedocs.io/en/latest/_static/switcher.json',
-        'version_match': os.environ.get('READTHEDOCS_VERSION'),
-    },
+    'navbar_align': 'left',
+    'header_links_before_dropdown': 6,
     'external_links': [
         {
-            'url': 'https://flexget.com',
-            'name': 'User Guide',
+            'url': 'https://github.com/Flexget/Flexget/discussions',
+            'name': 'Forum',
         },
+        {
+            'url': 'https://github.com/Flexget/Flexget/issues',
+            'name': 'Bug Reports',
+        }
     ],
+    'search_as_you_type': True,
     'icon_links': [
         {
             'name': 'GitHub',
@@ -130,12 +133,14 @@ html_theme_options = {
             'icon': 'fa-brands fa-docker',
         },
     ],
-    'navbar_end': ['version-switcher', 'theme-switcher', 'navbar-icon-links'],
     'back_to_top_button': False,
     'show_toc_level': 2,
     'use_edit_page_button': True,
     'footer_start': [],
     'footer_end': [],
+}
+html_sidebars = {
+    'changelog': [],
 }
 html_context = {
     'edit_page_url_template': '{{ custom_edit_url(file_name) }}',

@@ -9,7 +9,7 @@ dateCreated: 2022-09-18T04:55:48.858Z
 ---
 
 # Make download RSS
-This will produce rss-feed containing all matches with direct downloadable urls (resolved). This is useful if you wish to hook up FlexGet with a client that does not have a [watch directory](/WatchDirectory) support, or if you wish to perform downloading in a another computer. Only downside is that you need a HTTP server like Apache to host the RSS-feed.
+This will produce rss-feed containing all matches with direct downloadable urls (resolved). This is useful if you wish to hook up FlexGet with a client that does not have a [watch directory](/Cookbook/WatchDirectory) support, or if you wish to perform downloading in a another computer. Only downside is that you need a HTTP server like Apache to host the RSS-feed.
 
 ```
 templates:

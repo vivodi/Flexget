@@ -242,7 +242,8 @@ def merge_toctable_plugin_refs(app, env, docnames, other):
 class PluginReferenceTransform(SphinxPostTransform):
     """
     Runs at priority 3 — strictly BEFORE MyST-Parser's `ResolveMystReferences` (priority 4).
-    Resolves `<plugin:xxx>` and `[Custom Text](plugin:xxx)` into internal document links.
+    Resolves `[](plugin:xxx)` into inline-code links (`[`xxx`](...)`) and
+    `[Custom Text](plugin:xxx)` into custom-text links.
     """
     default_priority = 3
 
@@ -280,15 +281,16 @@ class PluginReferenceTransform(SphinxPostTransform):
                     f'[toctable] Unknown plugin reference "{target}".',
                     location=node
                 )
-                node.replace_self(nodes.inline(plugin_name, plugin_name))
+                node.replace_self(nodes.literal(plugin_name, plugin_name))
                 continue
 
             target_docname, default_title = match
 
-            if node.get('refexplicit'):
-                inner_node = node.children[0].deepcopy() if node.children else nodes.inline(default_title, default_title)
+            if node.get('refexplicit') and node.children:
+                inner_node = node.children[0].deepcopy()
             else:
-                inner_node = nodes.inline(default_title, default_title)
+                # Render implicit `[](plugin:xxx)` as inline code: `<code>xxx</code>`
+                inner_node = nodes.literal(default_title, default_title)
 
             refnode = make_refnode(
                 self.app.builder,
@@ -323,7 +325,7 @@ class PluginReferenceTransform(SphinxPostTransform):
             current_text = node.astext().strip()
             if not current_text or current_text.lower() == refuri.lower():
                 node.clear()
-                node += nodes.Text(default_title)
+                node += nodes.literal(default_title, default_title)
 
 
 def setup(app):
@@ -331,4 +333,4 @@ def setup(app):
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
     app.connect('env-merge-info', merge_toctable_plugin_refs)
     app.add_post_transform(PluginReferenceTransform)
-    return {'version': '3.3', 'parallel_read_safe': True}
+    return {'version': '3.4', 'parallel_read_safe': True}

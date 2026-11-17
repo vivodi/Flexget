@@ -4,6 +4,7 @@ from docutils import nodes
 from docutils.parsers.rst import Directive, directives
 from docutils.statemachine import StringList
 from sphinx import addnodes
+from sphinx.environment.adapters.toctree import TocTree
 from sphinx.transforms.post_transforms import SphinxPostTransform
 from sphinx.util import logging
 from sphinx.util.nodes import make_refnode
@@ -184,7 +185,7 @@ class TocTableDirective(Directive):
             row['sort_key'] = display_name.lower()
             row['docname'] = docname
 
-            # Column 1: Display name rendered as inline code (`<code>display_name</code>`) inside the link
+            # Column 1: Render display_name as inline code inside the link
             entry1 = nodes.entry()
             para1 = nodes.paragraph()
             ref = nodes.reference(refuri=link, internal=True)
@@ -207,6 +208,10 @@ class TocTableDirective(Directive):
 
 
 def merge_and_sort_toctables(app, doctree):
+    """
+    Runs at priority 100 (before Sphinx's TocTreeCollector at priority 500).
+    Merges all `toctable` toctree nodes on the page into the first one and sorts alphabetically.
+    """
     toctable_nodes = [
         node for node in doctree.findall(addnodes.toctree)
         if node.get('is_toctable')
@@ -234,12 +239,10 @@ def merge_and_sort_toctables(app, doctree):
 
 
 def merge_toctable_plugin_refs(app, env, docnames, other):
-    if not hasattr(other, 'toctable_plugin_refs'):
-        return
-    if not hasattr(env, 'toctable_plugin_refs'):
-        env.toctable_plugin_refs = {}
-
-    env.toctable_plugin_refs.update(other.toctable_plugin_refs)
+    if hasattr(other, 'toctable_plugin_refs'):
+        if not hasattr(env, 'toctable_plugin_refs'):
+            env.toctable_plugin_refs = {}
+        env.toctable_plugin_refs.update(other.toctable_plugin_refs)
 
 
 class PluginReferenceTransform(SphinxPostTransform):
@@ -331,9 +334,34 @@ class PluginReferenceTransform(SphinxPostTransform):
                 node += nodes.literal(default_title, default_title)
 
 
+# Patch Sphinx's `TocTree.resolve` so that any TOC entry generated from a `toctable`
+# renders its link text wrapped in `nodes.literal` (inline code) in the sidebar.
+_orig_toctree_resolve = TocTree.resolve
+
+
+def _patched_toctree_resolve(self, docname, builder, toctree, *args, **kwargs):
+    result = _orig_toctree_resolve(self, docname, builder, toctree, *args, **kwargs)
+    if result is not None and toctree.get('is_toctable'):
+        # Only wrap the top-level entries belonging to this `toctable` in `nodes.literal`
+        toctable_titles = {title for title, _ in toctree.get('entries', []) if title}
+        for ref in result.findall(nodes.reference):
+            if (
+                len(ref.children) == 1
+                and isinstance(ref.children[0], nodes.Text)
+                and ref.astext() in toctable_titles
+            ):
+                text = ref.astext()
+                ref.clear()
+                ref += nodes.literal(text, text)
+    return result
+
+
+TocTree.resolve = _patched_toctree_resolve
+
+
 def setup(app):
     app.add_directive('toctable', TocTableDirective)
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
     app.connect('env-merge-info', merge_toctable_plugin_refs)
     app.add_post_transform(PluginReferenceTransform)
-    return {'version': '3.5', 'parallel_read_safe': True}
+    return {'version': '3.6', 'parallel_read_safe': True}

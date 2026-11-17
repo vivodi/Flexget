@@ -184,13 +184,16 @@ class TocTableDirective(Directive):
             row['sort_key'] = display_name.lower()
             row['docname'] = docname
 
+            # Column 1: Display name rendered as inline code (`<code>display_name</code>`) inside the link
             entry1 = nodes.entry()
             para1 = nodes.paragraph()
-            ref = nodes.reference(text=display_name, refuri=link)
+            ref = nodes.reference(refuri=link, internal=True)
+            ref += nodes.literal(display_name, display_name)
             para1 += ref
             entry1 += para1
             row += entry1
 
+            # Column 2: Rich-text parsed description
             entry2 = nodes.entry()
             self._parse_desc_into_entry(entry2, desc, line_lineno, source_path)
             row += entry2
@@ -333,4 +336,4 @@ def setup(app):
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
     app.connect('env-merge-info', merge_toctable_plugin_refs)
     app.add_post_transform(PluginReferenceTransform)
-    return {'version': '3.4', 'parallel_read_safe': True}
+    return {'version': '3.5', 'parallel_read_safe': True}

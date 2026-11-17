@@ -29,7 +29,7 @@ Entry *may* have any of these fields, but is not *guaranteed* to have any of the
 | rss_pubdate | <plugin:rss> | Date the RSS item was published |
 | task | metainfo_task | Task name which this entry belongs to |
 | quality | metainfo_quality, <plugin:series> | Detected quality, ie. `720p` |
-| quality_req | <plugin:couchpotato> | A quality requirement string, can hold several qualities. Used by <plugin:movie_queue> |
+| quality_req | <plugin:couchpotato_list> | A quality requirement string, can hold several qualities. Used by `movie_queue` |
 | accessed | <plugin:filesystem> | Last accessed time for the local file. Stored as a datetime object. |
 | modified | <plugin:filesystem> | Last modified time for the local file. Stored as a datetime object. |
 | created | <plugin:filesystem> | Creation time for the local file (only on Windows). Stored as a datetime object. |
@@ -132,8 +132,8 @@ Entry *may* have any of these fields, but is not *guaranteed* to have any of the
 | trakt_episode | <plugin:trakt_lookup> | Episode Number |
 | trakt_ep_id | <plugin:trakt_lookup> | Episode id string 'S01E01' |
 | trakt_ep_tvdb_id | <plugin:trakt_lookup> | TVDB ID of episode |
-| trakt_watched | <plugin:trakt_watched_lookup> | Episode marked seen (true/false) |
-| trakt_list | <plugin:trakt_emit> | Names the originating list from which trakt_emit sourced this entry |
+| trakt_watched | <plugin:trakt_lookup> | Episode marked seen (true/false) |
+| trakt_list | <plugin:trakt_list> | Names the originating list from which trakt_emit sourced this entry |
 | tvmaze_series_weight | <plugin:tvmaze_lookup> | Series popularity |
 | tvmaze_series_update_date | <plugin:tvmaze_lookup> | When series was last updated |
 | tvmaze_series_webchannel | <plugin:tvmaze_lookup> | Series web channel (Netflix, Amazon, etc..) |

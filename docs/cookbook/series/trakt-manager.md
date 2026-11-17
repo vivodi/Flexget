@@ -78,9 +78,9 @@ Be sure to check the wiki pages for all the plugins used for more details:
 - <plugin:configure_series>
 - <plugin:trakt_list>
 - <plugin:discover>
-- <plugin:emit_series>
+- `emit_series`
 - <plugin:set_series_begin>
-- <plugin:trakt_add>
-- <plugin:trakt_remove>
+- `trakt_add`
+- `trakt_remove`
 - <plugin:template>
 - <plugin:scheduler>

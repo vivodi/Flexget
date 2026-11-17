@@ -1,5 +1,5 @@
 ## Generate my (unwatched) movies list with Imdb details
-Generates RSS with Imdb details, ordered by imdb score. Throw in <plugin:imdb_rated> and you get list of unwatched movies!
+Generates RSS with Imdb details, ordered by imdb score. Throw in `imdb_rated` plugin and you get list of unwatched movies!
 
 ```yaml
 templates:

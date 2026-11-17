@@ -66,7 +66,7 @@ Added support for Python 3.14.
 The `accessed`, `modified`, and `created` entry fields have been named to `atime`, `mtime`, and `ctime`. These fields may have different semantics on different OSs, so the friendly names were removed so as to not cause confusion.
 
 ### **3.15.0** - 2025-02-08
-#### <plugin:cfscraper>
+#### `cfscraper`
 The `cloudscraper` dependency was previously deprecated (and broken), so the `cfscraper` plugin has now been removed. If you still have it in your config, it will need to be removed.
 
 ### **3.14.0** - 2025-02-02
@@ -351,14 +351,14 @@ In addition, single mode will now ignore existing subtitles if the languages do 
 
 **The below information is kept for reference, but the notification system was changed again in 2.9.0!**
 - Notifier changes, following the feedback from 2.7.0:
-  - Created <plugin:notify_entries> and <plugin:notify_task> and deprecated `notify` plugin.
-  - Changed `notify_crash` to <plugin:notify_abort>.
+  - Created `notify_entries` and `notify_task` and deprecated `notify` plugin.
+  - Changed `notify_crash` to `notify_abort`.
   - Tweaked `file_templates`usage slightly.
   - Added [templates](/CLI/templates) CLI action to get a list of available file templates.
 
 ### **2.7.0** -- 2016.11.15
 **This information is kept for reference, but the notification system was changed again in 2.9.0!**
-- Major change to all notification plugins. Consult new <plugin:notifiers> page for name changes and schema changes
+- Major change to all notification plugins. Consult new `notifiers` page for name changes and schema changes
 - <plugin:email>:
   - plugin completely changed, removed cross task functionality (replaced by new <plugin:notify> functionality)
 - `whatcd`:
@@ -458,7 +458,7 @@ As an effort to provide more consistent configuration and better user experience
 * `emit_digest`:
   * changed to <plugin:from_digest>
 * `emit_uoccin`:
-  * changed to <plugin:from_uoccin>
+  * changed to `from_uoccin`
 * `dynamic_imdb`:
   * changed to <plugin:from_imdb>
 * `trakt_add`, `trakt_remove`:
@@ -552,9 +552,9 @@ They no longer require `password` and so this option should be deleted from your
 
 Affected Plugins:
   - <plugin:trakt_list>
-  - <plugin:trakt_emit>
-  - <plugin:trakt_add>
-  - <plugin:trakt_remove>
+  - `trakt_emit`
+  - `trakt_add`
+  - `trakt_remove`
   - <plugin:trakt_lookup>
 
 **trakt_collected_lookup / trakt_watched_lookup**

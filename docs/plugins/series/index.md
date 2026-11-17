@@ -81,7 +81,7 @@ These plugins are complementary to the series plugin.
 | Name | Description |
 | --- | --- |
 | <plugin:all_series> | Grab all series in the task|
-| <plugin:configure_series> | Automatically configures series by using another input, some examples: <plugin:thetvdb_favorites>, <plugin:trakt_list> and <plugin:filesystem>.<br> With this you don't need to maintain series configuration in the configuration file.  |
+| <plugin:configure_series> | Automatically configures series by using another input, some examples: <plugin:trakt_list> and <plugin:filesystem>.<br> With this you don't need to maintain series configuration in the configuration file.  |
 | <plugin:series_premiere> | Download all premieres| 
 | <plugin:next_series_episodes> | Emit next episodes for <plugin:discover> | 
 | <plugin:next_series_seasons> | Emit next seasons for <plugin:discover> | 

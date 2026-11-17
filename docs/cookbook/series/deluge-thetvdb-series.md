@@ -35,7 +35,7 @@ tasks:
 ```
 
 First we create a template called 'tv' that holds all the plugin information we need to grab our series. Inside the tv template here is what is happening:
- - The <plugin:configure_series> plugin automatically configures the <plugin:series> plugin to download all the shows provided by another input plugin. We are using <plugin:thetvdb_favorites> under the `from` key to input any shows you have marked as a favorite on thetvdb.com. Your account_id can be found on your account page at thetvdb.com You can specify all of the options of the series plugin under the `settings` key, this example shows the quality option.
+ - The <plugin:configure_series> plugin automatically configures the <plugin:series> plugin to download all the shows provided by another input plugin. We are using `thetvdb_favorites` plugin under the `from` key to input any shows you have marked as a favorite on thetvdb.com. Your account_id can be found on your account page at thetvdb.com You can specify all of the options of the series plugin under the `settings` key, this example shows the quality option.
  - The <plugin:exists_series> plugin will make sure we don't already have this episode in our tv library or currently downloading folder
  - We enable the <plugin:thetvdb_lookup> plugin to pull the name of the episode from thetvdb.com, we use this info below in `content_filename`
  - We use the <plugin:set> plugin to define templates for:

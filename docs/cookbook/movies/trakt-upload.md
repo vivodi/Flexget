@@ -40,4 +40,4 @@ tasks:
       type: movies
 ```
 
-Plugins used: <plugin:filesystem>, <plugin:accept_all>, <plugin:metainfo_series>, <plugin:imdb_lookup>, <plugin:template>, <plugin:trakt_acquired>
+Plugins used: <plugin:filesystem>, <plugin:accept_all>, <plugin:metainfo_series>, <plugin:imdb_lookup>, <plugin:template>, `trakt_acquired`

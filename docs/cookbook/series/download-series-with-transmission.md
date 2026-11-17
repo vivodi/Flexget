@@ -211,7 +211,7 @@ feeds:
       active: False
 ```
 
-Uses plugins: <plugin:template>, <plugin:email>, <plugin:transmission>, <plugin:adv_exec>, <plugin:exists_series>, <plugin:series>, <plugin:quality>, <plugin:html>, <plugin:rss>, <plugin:filesystem>, <plugin:manipulate>
+Uses plugins: <plugin:template>, <plugin:email>, <plugin:transmission>, `adv_exec`, <plugin:exists_series>, <plugin:series>, <plugin:quality>, <plugin:html>, <plugin:rss>, <plugin:filesystem>, <plugin:manipulate>
 
 [Back to The Cookbook/Series](/Cookbook/Series)
 

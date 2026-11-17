@@ -3,7 +3,7 @@ This plugin will reject any [entries](/Entry) that do not have the specified [fi
 
 **Example:**
 
-This example does the same thing as the <plugin:imdb_required> plugin. (As long as <plugin:imdb_lookup> is also enabled on the task.)
+This example does the same thing as the `imdb_required` plugin. (As long as <plugin:imdb_lookup> is also enabled on the task.)
 ```
 require_field: imdb_id
 ```

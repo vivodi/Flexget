@@ -87,7 +87,7 @@ to run every 30 minutes
 
  - <plugin:all_series>: The RSS url determines what shows to grab so we grab them all
  - <plugin:transmission>: Use the local Transmission service to download and use all defaults
- - <plugin:clean_transmission>: Remove torrents that are done downloading/seeding.  The **transmission_seed_limits** option must be set in order for this plugin to work
+ - `clean_transmission`: Remove torrents that are done downloading/seeding.  The **transmission_seed_limits** option must be set in order for this plugin to work
 
 ## sort-shows task
 The second task (**sort-shows**) is called when Transmission completes, set in the **script-torrent-done-filename** option.  This task will move and rename downloads and then tell a running Kodi instance to update its library.
@@ -108,5 +108,5 @@ content:
  - <plugin:regexp>: Ignore video samples
  - <plugin:series>: The series plugin is used to list all of the shows we want to go through.  Since we do not want anything rejected, we have to set the **parse_only** option.  To apply that option to every series we need to create a group and apply the setting to the group.  <plugin:all_series> with **parse_only** did not work for some reason.
  - <plugin:thetvdb_lookup>: Look up the file naming so that Kodi with scrape properly
- - <plugin:copy>: Use copy instead of move so that seeding will work.  <plugin:clean_transmission> will delete the original download
+ - <plugin:copy>: Use copy instead of move so that seeding will work.  `clean_transmission` plugin will delete the original download
  - <plugin:kodi_library>: Send a remote command to Kodi to update the video library

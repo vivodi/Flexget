@@ -6000,7 +6000,7 @@ strings
 ## 2.6.3 (2016-11-23)
 [all commits](https://github.com/Flexget/Flexget/compare/2.6.2...2.6.3)
 ### Added
-- <plugin:pending_approval> - Pending approval plugin, CLI & API
+- `pending_approval` - Pending approval plugin, CLI & API
 
 
 ## 2.6.2 (2016-11-22)

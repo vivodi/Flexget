@@ -9,11 +9,11 @@ sequence:
   - rss: http://example1.com
   - rss: http://example2.com
 ```
-Note: Using [inputs](/Plugins/inputs) plugin would be more appropriate use for this usecase.
+Note: Using <plugin:inputs> plugin would be more appropriate use for this usecase.
 
 ### Advanced Example
 
-Here we using the [configure_series](/Plugins/configure_series) plugin using two separate Trakt lists, and applying a different set of settings to each list. This could then be used with the [discover](/Plugins/discover) plugin in a task
+Here we using the <plugin:configure_series> plugin using two separate Trakt lists, and applying a different set of settings to each list. This could then be used with the <plugin:discover> plugin in a task
 
 ```yaml
     sequence:

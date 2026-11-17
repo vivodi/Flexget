@@ -14,7 +14,7 @@ Some options can have dynamically formatted values based on other [entry fields]
 
 #### Example:
 
-This example sets the `content_filename` using the information parsed by the [series](/Plugins/series) plugin. The [deluge](/Plugins/deluge) plugin uses the `content_filename` field to rename a file inside the torrent.
+This example sets the `content_filename` using the information parsed by the <plugin:series> plugin. The <plugin:deluge> plugin uses the `content_filename` field to rename a file inside the torrent.
 
 ```yaml
 set:
@@ -45,7 +45,7 @@ When using Jinja2 templates, you can use the following custom filters in additio
 |`pathdir`| Directory containing the given path.|
 |`pathext`|Extension of a path (including the '.').|
 |`pathname`|Base name of a path, without its extension.|
-|`pathscrub(os)`| Replace problematic characters in a path. If os parameter is omitted, the current os, or os defined by [pathscrub](/Plugins/pathscrub) plugin will be used.<br> **NOTE:** This should rarely be needed due to the builtin [pathscrub](/Plugins/pathscrub) plugin.
+|`pathscrub(os)`| Replace problematic characters in a path. If os parameter is omitted, the current os, or os defined by <plugin:pathscrub> plugin will be used.<br> **NOTE:** This should rarely be needed due to the builtin <plugin:pathscrub> plugin.
 |`re_replace(pattern, replacement)`| Do regexp substitution on the string.<br>**NOTE 1**: Case-sensitive. You can change this behaviour by starting your pattern with `(?i)`<br>- `'This MIGHT Match'|re_replace('might', 'WON’T')`<br>- `'This MIGHT Match'|re_replace('(?i)might', 'WILL')`<br>**NOTE 2:** Captured groups can be accessed in the replacement string by using backreferences:<br>- `\\1` when enclosed with apostrophes or `\\\\1` when enclosed with quotes<br>- `\g<1>` when enclosed with either apostrophes or quotes|
 |`re_search(pattern)`|Perform a search for given regexp pattern, return the matching portion of the text.
 |`strip_symbols`|Removes all special chars from a string, keeps accent words. The symbols are removed, only `()-_[].` and replaced by a `space`. Double `space` are also replaced by a single `space`

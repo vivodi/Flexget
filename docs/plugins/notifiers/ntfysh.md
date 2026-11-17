@@ -17,7 +17,7 @@ This plugin provides the ability to send flexget notifications via the cross-pla
 |password|text| Password if authentication is required
 
 #### Examples
-> Examples show a specifc scenario usage of the [notify](/Plugins/notify) plugin. See its wiki for a more detailed usage exaplantion.
+> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
 {.is-warning}
 
 ```yaml

@@ -29,7 +29,7 @@ This plugin provides the ability to send flexget notifications via the cross-pla
 
 ### Examples
 
-Examples show a specifc scenario usage of the [notify](/Plugins/notify) plugin. See its wiki for a more detailed usage exaplantion.
+Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
 
 #### Simple notification for each accepted entry
 The simplest Pushsafer plugin configuration requires only the private key (`private_key`). This will broadcast the notification to all registered devices.

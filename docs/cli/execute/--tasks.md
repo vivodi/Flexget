@@ -34,7 +34,7 @@ flexget execute --tasks "tv*"
 
 **Grouping tasks by poll frequency:**
 
-**NOTE** You can accomplish a similar effect with the [interval](/Plugins/interval) plugin, or using FlexGet's built-in scheduling in daemon mode. With this method you must be aware that two instances of FlexGet cannot run at the same time due to a lock file.
+**NOTE** You can accomplish a similar effect with the <plugin:interval> plugin, or using FlexGet's built-in scheduling in daemon mode. With this method you must be aware that two instances of FlexGet cannot run at the same time due to a lock file.
 
 Another very useful application of the pattern selection is to have cron schedules like this:
 ```

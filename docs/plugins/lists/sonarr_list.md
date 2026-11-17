@@ -4,7 +4,7 @@
 
 Creates an [Entry](/Entry) for each show in your [Sonarr](https://sonarr.tv/) show list (including ended ones by default).
 
-This plugin can be used with the [discover](/Plugins/discover) or [configure_series](/Plugins/configure_series) plugins to add those shows to the shows list.
+This plugin can be used with the <plugin:discover> or <plugin:configure_series> plugins to add those shows to the shows list.
 
 ## Plugin Settings
 Currently the following settings are required:

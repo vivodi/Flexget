@@ -12,7 +12,7 @@ This will find all your tv shows and movies that are no longer listed in the Del
 
 ##  old-deluge Tasks 
 
-  * Replace `<deluge config path>` with the path to your deluge config folder as explained in the plugin [from_deluge](/Plugins/from_deluge). 
+  * Replace `<deluge config path>` with the path to your deluge config folder as explained in the plugin <plugin:from_deluge>. 
 
   * Change the Deluge `label` accordingly. 
 
@@ -27,7 +27,7 @@ This will find all your tv shows and movies that are no longer listed in the Del
   * Under `extensions:` you can add other file extension types that if they have the same name will be copied along with the media file. 
 
   * This setup will move the file types `avi|mkv|mp4|m4v` change according to your needs.
-  * If the source folder size is under 10mb after copying it will be deleted - change `clean_source:` from [move](/Plugins/move) as wanted. - **Be careful**
+  * If the source folder size is under 10mb after copying it will be deleted - change `clean_source:` from <plugin:move> as wanted. - **Be careful**
   
 
 ### Copying takes time
@@ -147,22 +147,22 @@ tasks:
           - srt
 ```
 Uses plugins:
-  * [template](/Plugins/template) - was **not** used in order for easier understanding. Can be used to cut down on the amount of repeating lines.
-  * [priority](/Plugins/priority) - in order for the tasks to run in the  proper order.
-  * [disable](/Plugins/disable) - used so that every run will not take into consideration any previous runs of the task. Every Deluge pull will get all files listed.
-  * [list_clear](/Plugins/List/list_clear) 
-  * [from_deluge](/Plugins/from_deluge)
-  * [accept_all](/Plugins/accept_all)
-  * [list_add](/Plugins/List/list_add)
-  * [manipulate](/Plugins/manipulate)
-  * [seen](/Plugins/seen)
-  * [filesystem](/Plugins/filesystem)
-  * [metainfo_series](/Plugins/metainfo_series)
-  * [list_match](/Plugins/List/list_match)
-  * [require_field](/Plugins/require_field)
-  * [if](/Plugins/if)
-  * [move](/Plugins/move)
-  * [metainfo_movie](/Plugins/metainfo_movie)
-  * [age](/Plugins/age)
+  * <plugin:template> - was **not** used in order for easier understanding. Can be used to cut down on the amount of repeating lines.
+  * <plugin:priority> - in order for the tasks to run in the  proper order.
+  * <plugin:disable> - used so that every run will not take into consideration any previous runs of the task. Every Deluge pull will get all files listed.
+  * <plugin:list_clear> 
+  * <plugin:from_deluge>
+  * <plugin:accept_all>
+  * <plugin:list_add>
+  * <plugin:manipulate>
+  * <plugin:seen>
+  * <plugin:filesystem>
+  * <plugin:metainfo_series>
+  * <plugin:list_match>
+  * <plugin:require_field>
+  * <plugin:if>
+  * <plugin:move>
+  * <plugin:metainfo_movie>
+  * <plugin:age>
 
 [Back to The Cookbook](/Cookbook)

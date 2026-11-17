@@ -4,7 +4,7 @@
 
 This plugin creates an [Entry](/Entry) for each movie/series/season/episode from emby's, watched list, favorites, libraries or playlists
 
-This plugin is useful for example when used in a task with the [movie_list](/Plugins/List/movie_list) plugin to add movies from your trakt watchlist to your [movie_list](/Plugins/List/movie_list), or to control the series plugin using [configure_series](/Plugins/configure_series).  
+This plugin is useful for example when used in a task with the <plugin:movie_list> plugin to add movies from your trakt watchlist to your <plugin:movie_list>, or to control the series plugin using <plugin:configure_series>.  
 
 ## Plugin Settings
 Currently the following settings are supported:

@@ -1,5 +1,5 @@
 ## `trakt`
-View and manage [Trakt authentication](/guide/trakt.md/#trakt-authentication), for use with the [`trakt_list`](/Plugins/List/trakt_list) and [`trakt_lookup`](/Plugins/trakt_lookup) plugins.
+View and manage [Trakt authentication](/guide/trakt.md/#trakt-authentication), for use with the <plugin:trakt_list> and <plugin:trakt_lookup> plugins.
 
 ### Sub-commands
 | Sub-command | Option | Description |

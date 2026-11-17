@@ -1,6 +1,6 @@
 # Medusa
 This plugin creates an [Entry](/Entry) for each show in your [medusa](https://github.com/pymedusa/Medusa) show list (including ended ones).
-This plugin can be used with the [discover](/Plugins/discover) or [configure_series](/Plugins/configure_series) plugins to add those shows to the shows list.
+This plugin can be used with the <plugin:discover> or <plugin:configure_series> plugins to add those shows to the shows list.
 
 ## Plugin Settings
 Currently the following settings are required:
@@ -46,4 +46,4 @@ templates:
           password: PASSWORD
           only_monitored: yes
 ```
-Note that by using the [configure_series](/Plugins/configure_series) plugin on a schedule you basically sync the shows on your Medusa show list with Flexget shows list. Meaning that unless you have manually set up additional shows using the [series](/Plugins/series) plugin, removing a show from Medusa will remove it from Flexget's show list as well (which can be good or bad, depending on your usage).
+Note that by using the <plugin:configure_series> plugin on a schedule you basically sync the shows on your Medusa show list with Flexget shows list. Meaning that unless you have manually set up additional shows using the <plugin:series> plugin, removing a show from Medusa will remove it from Flexget's show list as well (which can be good or bad, depending on your usage).

@@ -11,7 +11,7 @@ set:
 
 ## Set as a sub-plugin
 
-Certain plugins enable set commands to be called for a specific subset of entries from a task. Currently [regexp](/Plugins/regexp) and [series](/Plugins/series) support this format. The use of set in these cases is best understandable through examples.
+Certain plugins enable set commands to be called for a specific subset of entries from a task. Currently <plugin:regexp> and <plugin:series> support this format. The use of set in these cases is best understandable through examples.
  To set the stop ratio option for Some Show:
 
 ```yaml
@@ -35,7 +35,7 @@ regexp:
 
 Calling set however does not do much unless another plugin uses the information you have set. The following plugins (and likely more than listed here) will use values you have set with this plugin.
 
-**[Deluge](/Plugins/deluge)**
+**<plugin:deluge>**
 
  * `path`
  * `movedone`
@@ -52,7 +52,7 @@ Calling set however does not do much unless another plugin uses the information 
  * `automanaged`
  * `content_filename`
 
-**[Transmission](/Plugins/transmission)**
+**<plugin:transmission>**
 
  * `path`
  * `content_filename`
@@ -62,7 +62,7 @@ Calling set however does not do much unless another plugin uses the information 
  * `maxdownspeed`
  * `ratio`
 
-**[Download](/Plugins/download)**
+**<plugin:download>**
 
  * `path`
  * `filename`

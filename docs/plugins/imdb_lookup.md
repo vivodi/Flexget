@@ -26,7 +26,7 @@ imdb_lookup will populate several entry fields that can be used in other plugins
 
 #### Example
 
-The most common use is to look up a movie title that can be used to format a pretty filename. This example uses `imdb_name` and `imdb_year` as parsed by imdb_lookup in the [set](/Plugins/set) plugin to set `content_filename` (which the [deluge](/Plugins/deluge) plugin uses to rename the main file within a torrent).
+The most common use is to look up a movie title that can be used to format a pretty filename. This example uses `imdb_name` and `imdb_year` as parsed by imdb_lookup in the <plugin:set> plugin to set `content_filename` (which the <plugin:deluge> plugin uses to rename the main file within a torrent).
 ```
 imdb_lookup: yes
 set:

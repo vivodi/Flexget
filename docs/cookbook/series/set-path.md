@@ -1,5 +1,5 @@
 # Set torrent client download path from series name
-When using a bittorrent client plugin as your output plugin, ([deluge](/Plugins/deluge) or [transmission](/Plugins/transmission),) you can [set](/Plugins/set) the `path` field of an entry to control where the client will save the content (the set plugin is also available as a per series option). This, combined with [jinja formatting](/Plugins/set#DynamicFormatting) allows all series to be easily downloaded to separate series and season folders. This recipe uses the transmission plugin, but that can easily be replaced with the deluge plugin.
+When using a bittorrent client plugin as your output plugin, (<plugin:deluge> or <plugin:transmission>,) you can <plugin:set> the `path` field of an entry to control where the client will save the content (the set plugin is also available as a per series option). This, combined with [jinja formatting](/Plugins/set#DynamicFormatting) allows all series to be easily downloaded to separate series and season folders. This recipe uses the transmission plugin, but that can easily be replaced with the deluge plugin.
 
 ```yaml
 tasks:
@@ -19,4 +19,4 @@ tasks:
     transmission: yes
 ```
 
-Uses plugins: [rss](/Plugins/rss), [series](/Plugins/series), [set](/Plugins/set), [transmission](/Plugins/transmission)
+Uses plugins: <plugin:rss>, <plugin:series>, <plugin:set>, <plugin:transmission>

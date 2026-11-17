@@ -18,7 +18,7 @@ execute/*
 | `--tail-reset <file\|task>` | reset [tail position](/Plugins/tail) for a file or an entire task|
 | `--discover-now` | Immediately try to discover everything, bypassing the `discover` option [`interval`](/Plugins/discover#interval) |
 | `-T NAME, --template <name>` | Execute tasks using given template |
-| `--now` | Run task(s) even if the [`interval` plugin](/Plugins/interval) would normally prevent it |
+| `--now` | Run task(s) even if the <plugin:interval> plugin would normally prevent it |
 | `-v, --verbose` | Verbose undecided entries |
 | `-s, --silent` | Don't verbose any actions (accept, reject, fail) |
 | `--dump-config` | Display the config of each task after template merging/config generation occurs |

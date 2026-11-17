@@ -14,14 +14,14 @@ This plugin provides the ability to send flexget notifications via the cross-pla
 | device| text| Device ID. Can also be a list. Can not select together with `group`|
 | device_name| text| Device name. Can also be a list. |
 |group|text|Sepcifed device group to send notification to. One of `all`, `android`, `chrome`, `windows10`, `phone`, `tablet` or `pc`. can not select together with `device`|`all`
-|url|URL|Notification URL | Gets default from [notify](/Plugins/Notifiers/notify) plugin
+|url|URL|Notification URL | Gets default from <plugin:notify> plugin
 |icon|URL|Notification icon
 |sms_number|text|Send an SMS to this nubmer using device (in addition to regular notification). Will use `message` as SMS body
 |priority|numeric|Sets notification priority. Can be between -2 and 2.
 
 
 #### Examples
-> Examples show a specifc scenario usage of the [notify](/Plugins/notify) plugin. See its wiki for a more detailed usage exaplantion.
+> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
 {.is-warning}
 
 ```yaml

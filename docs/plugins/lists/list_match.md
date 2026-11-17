@@ -3,7 +3,7 @@
 > This is part of [managed list](/Plugins/List) plugin system.
 {.is-success}
 
-This is a filter plugin that uses a list to accept or reject generated entries based on other list content. For operating any input  see [crossmatch](/Plugins/crossmatch) plugin instead.
+This is a filter plugin that uses a list to accept or reject generated entries based on other list content. For operating any input  see <plugin:crossmatch> plugin instead.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ list_match:
 | remove_on_match | yes | All accepted entries are deleted from list when task completes. To disable this, use the `no` option. |
 | single_match | yes | By default, `list_match` will accept the first entry it sees from the list, so even if there are multiple potential matches, only the first one will be used If you wish to match **all** entries and not just the first one, use the `no` option. |
 
-> Each list plugin matches differently, eg. [movie_list](/Plugins/List/movie_list) matches on metainfo identifiers (eg. imdb_id) while [entry_list](/Plugins/List/entry_list) matches solely on entry title. Consult the list plugin's wiki page for more details.
+> Each list plugin matches differently, eg. <plugin:movie_list> matches on metainfo identifiers (eg. imdb_id) while <plugin:entry_list> matches solely on entry title. Consult the list plugin's wiki page for more details.
 {.is-info}
 
 ## Examples

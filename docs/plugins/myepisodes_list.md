@@ -1,7 +1,7 @@
 # MyEpisodes list
 This plugin creates an [Entry](/Entry) for each show in your [myepisodes.com](http://www.myepisodes.com) show list.
 
-This plugin is useful for example when used to control the series plugin using [configure_series](/Plugins/configure_series).  
+This plugin is useful for example when used to control the series plugin using <plugin:configure_series>.  
 
 ## Plugin Settings
 Currently the following settings are supported:
@@ -26,7 +26,7 @@ myepisodes_list:
 ```
 
 ### Example: Autoconfigure series
-This example shows how the trakt_list plugin could be used with the [configure_series](/Plugins/configure_series) plugin in order to download all of the series you have included in a custom trakt list called 'following shows'.
+This example shows how the trakt_list plugin could be used with the <plugin:configure_series> plugin in order to download all of the series you have included in a custom trakt list called 'following shows'.
 
 ```
 configure_series:

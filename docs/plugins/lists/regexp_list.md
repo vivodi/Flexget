@@ -10,9 +10,9 @@ regexp_list: <NAME>
 ```
 
 ### Usage
-Maintain a list of regular expressions instead of writing them out in the config. Since it is a [list](/Plugins/List) plugin, you can use other list plugins to populate the regexp_list.
+Maintain a list of regular expressions instead of writing them out in the config. Since it is a <plugin:list> plugin, you can use other list plugins to populate the regexp_list.
 
-Below is an example that converts a list of series from a [trakt_list](/Plugins/List/trakt_list) to a list of regular expressions that can be used to match entries from RSS feeds. Useful if you don't care about series tracking.
+Below is an example that converts a list of series from a <plugin:trakt_list> to a list of regular expressions that can be used to match entries from RSS feeds. Useful if you don't care about series tracking.
 
 ```yaml
 tasks:

@@ -88,7 +88,7 @@ You need to setup a proper crontab entries and start rTorrent to make the magic 
 23 */2 * * * /path/to/flexget/flexget.py --cron
 ```
 
-This will cause FlexGet to be run every second hour 23 minutes past the hour (00:23, 02:23, 04:23, 06:23 and so on), to adjust this read the crontab manual. Also please try to understand the effects of your changes and study the [interval](/Plugins/interval) module before you make any changes.
+This will cause FlexGet to be run every second hour 23 minutes past the hour (00:23, 02:23, 04:23, 06:23 and so on), to adjust this read the crontab manual. Also please try to understand the effects of your changes and study the <plugin:interval> module before you make any changes.
 
 finally you need to start rTorrent:
 
@@ -105,7 +105,7 @@ screen -r rtorrent
 You are all done, your downloads should start and stop automatically. All that is left for you to do is to make sure that you don't run out of disk space. 
 
 ### Further improvements
-[torrent_scrub](/Plugins/torrent_scrub) removes resume information from downloads that prevent the torrent from properly starting in rTorrent.
+<plugin:torrent_scrub> removes resume information from downloads that prevent the torrent from properly starting in rTorrent.
 [Plugins/rtorrent_magnet](/Plugins/rtorrent_magnet) allows saving magnet links in rTorrent format.
 
 [Back to The Cookbook](/Cookbook)

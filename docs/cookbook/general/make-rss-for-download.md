@@ -19,7 +19,7 @@ feeds:
       - some series
 ```
 
-Uses plugins: [template](/Plugins/template), [make_rss](/Plugins/make_rss)
+Uses plugins: <plugin:template>, <plugin:make_rss>
 
 [Back to The Cookbook](/Cookbook)
 

@@ -35,4 +35,4 @@ fill-series-list:
   accept_all: yes
 ```
 
-Realistically you'd probably want to use [trakt_list](/Plugins/List/trakt_list) instead of this.
+Realistically you'd probably want to use <plugin:trakt_list> instead of this.

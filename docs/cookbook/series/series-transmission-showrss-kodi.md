@@ -85,9 +85,9 @@ to run every 30 minutes
 0,30 * * * * /usr/local/bin/flexget -l /var/log/flexget.log execute --tasks=download-showrss
 ```
 
- - [all_series](/Plugins/all_series): The RSS url determines what shows to grab so we grab them all
- - [transmission](/Plugins/transmission): Use the local Transmission service to download and use all defaults
- - [clean_transmission](/Plugins/clean_transmission): Remove torrents that are done downloading/seeding.  The **transmission_seed_limits** option must be set in order for this plugin to work
+ - <plugin:all_series>: The RSS url determines what shows to grab so we grab them all
+ - <plugin:transmission>: Use the local Transmission service to download and use all defaults
+ - <plugin:clean_transmission>: Remove torrents that are done downloading/seeding.  The **transmission_seed_limits** option must be set in order for this plugin to work
 
 ## sort-shows task
 The second task (**sort-shows**) is called when Transmission completes, set in the **script-torrent-done-filename** option.  This task will move and rename downloads and then tell a running Kodi instance to update its library.
@@ -102,11 +102,11 @@ content:
 /usr/local/bin/flexget -l /var/log/flexget.log execute --tasks sort-shows
 ```
 
- - [filesystem](/Plugins/filesystem): Go through the directory where Transmission downloads and find video files
- - [accept_all](/Plugins/accept_all): We don't want to reject anything that has been downloaded
- - [disable](/Plugins/disable): Disable the **seen** plugin since we may want to re-download a show manually
- - [regexp](/Plugins/regexp): Ignore video samples
- - [series](/Plugins/series): The series plugin is used to list all of the shows we want to go through.  Since we do not want anything rejected, we have to set the **parse_only** option.  To apply that option to every series we need to create a group and apply the setting to the group.  [all_series](/Plugins/all_series) with **parse_only** did not work for some reason.
- - [thetvdb_lookup](/Plugins/thetvdb_lookup): Look up the file naming so that Kodi with scrape properly
- - [copy](/Plugins/copy): Use copy instead of move so that seeding will work.  [clean_transmission](/Plugins/clean_transmission) will delete the original download
- - [kodi_library](/Plugins/kodi_library): Send a remote command to Kodi to update the video library
+ - <plugin:filesystem>: Go through the directory where Transmission downloads and find video files
+ - <plugin:accept_all>: We don't want to reject anything that has been downloaded
+ - <plugin:disable>: Disable the **seen** plugin since we may want to re-download a show manually
+ - <plugin:regexp>: Ignore video samples
+ - <plugin:series>: The series plugin is used to list all of the shows we want to go through.  Since we do not want anything rejected, we have to set the **parse_only** option.  To apply that option to every series we need to create a group and apply the setting to the group.  <plugin:all_series> with **parse_only** did not work for some reason.
+ - <plugin:thetvdb_lookup>: Look up the file naming so that Kodi with scrape properly
+ - <plugin:copy>: Use copy instead of move so that seeding will work.  <plugin:clean_transmission> will delete the original download
+ - <plugin:kodi_library>: Send a remote command to Kodi to update the video library

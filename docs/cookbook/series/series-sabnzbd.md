@@ -1,5 +1,5 @@
 # Set category from series name with sabnzbd
-When using [sabnzbd](/Plugins/sabnzbd) you can use series name as a category by utilizing [set](/Plugins/set) plugin. The category name will be exactly the one written in as a series name.
+When using <plugin:sabnzbd> you can use series name as a category by utilizing <plugin:set> plugin. The category name will be exactly the one written in as a series name.
 
 ```
 tasks:

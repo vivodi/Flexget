@@ -146,7 +146,7 @@ trakt_lookup:
 
 #### Set filename
 
-The most common uses we'll see are using it for [make_rss](/Plugins/make_rss) and making pretty filenames using [set](/Plugins/set) to set `content_filename` in the [deluge](/Plugins/deluge). The 'default' jinja filter is used to insert 'Unknown' if trakt_lookup failes to get an entry field.
+The most common uses we'll see are using it for <plugin:make_rss> and making pretty filenames using <plugin:set> to set `content_filename` in the <plugin:deluge>. The 'default' jinja filter is used to insert 'Unknown' if trakt_lookup failes to get an entry field.
 
 ```
 trakt_lookup: yes

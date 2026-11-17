@@ -4,7 +4,7 @@
 
 This plugin creates an [Entry](/Entry) for each movie/show in one of the available [trakt.tv](http://trakt.tv) lists.
 
-This plugin is useful for example when used in a task with the [movie_list](/Plugins/List/movie_list) plugin to add movies from your trakt watchlist to your [movie_list](/Plugins/List/movie_list), or to control the series plugin using [configure_series](/Plugins/configure_series).  
+This plugin is useful for example when used in a task with the <plugin:movie_list> plugin to add movies from your trakt watchlist to your <plugin:movie_list>, or to control the series plugin using <plugin:configure_series>.  
 
 
 >Trakt removes shows from watchlist if you watch them, so **do not** use watchlist as your primary series source, use a  [custom list](http://support.trakt.tv/knowledgebase/articles/154739-why-do-things-get-removed-from-my-watchlist-after-) instead!
@@ -29,7 +29,7 @@ Currently the following settings are supported:
 | **username** | This is the username at [trakt.tv](http://trakt.tv) which owns the list. If `account` is specified, this will default to the owner of said account. |
 | **account** | This is **required** if the profile is protected or to get private custom lists or manipulating lists eg. adding a movie to the list. It should be created via the `flexget trakt auth` CLI command. |
 | **strip_dates** | If set to `yes` the year will be removed from the end of titles that contain them. |
-| **list** |Name of a custom trakt list, or one of the built in ones: `watchlist`, `collection`, `watched`, `popular`, or `trending`. Consider using [limit](/Plugins/limit) plugin when using `popular` or `trending` |
+| **list** |Name of a custom trakt list, or one of the built in ones: `watchlist`, `collection`, `watched`, `popular`, or `trending`. Consider using <plugin:limit> plugin when using `popular` or `trending` |
 | **type** | Type of items to be listed, can be one of: `movies`, `shows`, or `episodes`|
 
 ## Config format
@@ -44,7 +44,7 @@ trakt_list:
 
 ## Examples
 ### Queue movies
-This example shows how you would use trakt_list plugin with [movie_list](/Plugins/List/movie_list), in order to add all the movies from your trakt watchlist to your [movie list](/Plugins/List/movie_list). This example should be in its own task, not combined with your movie downloading task.
+This example shows how you would use trakt_list plugin with <plugin:movie_list>, in order to add all the movies from your trakt watchlist to your [movie list](/Plugins/List/movie_list). This example should be in its own task, not combined with your movie downloading task.
 
 ```yaml
 trakt_list:
@@ -58,7 +58,7 @@ list_add:
 ```
 
 ### Autoconfigure series
-This example shows how the trakt_list plugin can be used with the [configure_series](/Plugins/configure_series) plugin in order to download all of the series you have included in a custom trakt list called 'following shows'.
+This example shows how the trakt_list plugin can be used with the <plugin:configure_series> plugin in order to download all of the series you have included in a custom trakt list called 'following shows'.
 
 ```yaml
 configure_series:

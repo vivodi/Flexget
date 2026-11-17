@@ -1,5 +1,5 @@
 # Manage series and multiple feeds easily with a template
-With [template](/Plugins/template) plugin you can avoid having to duplicate configuration in multiple tasks. This can be adapted for movies, comics etc. easily. See [template](/Plugins/template) documentation for more tips.
+With <plugin:template> plugin you can avoid having to duplicate configuration in multiple tasks. This can be adapted for movies, comics etc. easily. See <plugin:template> documentation for more tips.
 
 ```yaml
 templates:
@@ -20,6 +20,6 @@ tasks:
     template: tv
 ```  
 
-Uses plugins: [template](/Plugins/template), [rss](/Plugins/rss), [series](/Plugins/series), [exists_series](/Plugins/exists_series), [download](/Plugins/download)
+Uses plugins: <plugin:template>, <plugin:rss>, <plugin:series>, <plugin:exists_series>, <plugin:download>
 
 [Back to The Cookbook](/Cookbook)

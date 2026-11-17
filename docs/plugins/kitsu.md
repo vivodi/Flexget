@@ -21,7 +21,7 @@ This plugin produces an [entry](/Entry) for each movie or series in a public [Ki
 
 ### Autoconfigure series
 
-This example shows how the `kitsu` plugin could be used with the [configure_series](/Plugins/configure_series) plugin in order to download all of the anime you have added to your `current` and `planned` library.
+This example shows how the `kitsu` plugin could be used with the <plugin:configure_series> plugin in order to download all of the anime you have added to your `current` and `planned` library.
 
 ```yaml
 configure_series:

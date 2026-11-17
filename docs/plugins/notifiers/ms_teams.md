@@ -16,7 +16,7 @@ This plugin allows Flexget to send notifications to a [Microsoft Teams](https://
 
 
 ## Examples
-> Examples show a specifc scenario usage of the [notify](/Plugins/notify) plugin. See its wiki for a more detailed usage exaplantion.
+> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
 {.is-warning}
 
 This example sends a Slack notification and overrides the default username and icon settings.

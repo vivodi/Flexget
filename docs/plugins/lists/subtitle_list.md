@@ -18,8 +18,8 @@ The main purpose of this plugin is to keep track of local video files that are i
 
 **Notes:** 
 
- * This plugin should be used together with [subliminal](/Plugins/subliminal) plugin.
- * When outputting a directory from the list, it will attempt to search for video files with the specified recursion depth (default 1 ie. no recursion) and add them to the list. If it finds any video files it will delete the dir from the list. Thus it's your own responsibility to make sure that *all* or *none* of the files are present when a task with [list_match](/Plugins/List/list_match) is executed.
+ * This plugin should be used together with <plugin:subliminal> plugin.
+ * When outputting a directory from the list, it will attempt to search for video files with the specified recursion depth (default 1 ie. no recursion) and add them to the list. If it finds any video files it will delete the dir from the list. Thus it's your own responsibility to make sure that *all* or *none* of the files are present when a task with <plugin:list_match> is executed.
 
 ## Plugin Settings
 Currently the following settings are supported:
@@ -61,7 +61,7 @@ move_shows:
 ```
 
 ### Download subtitles
-This example shows how to use the files in a subtitle list along with [subliminal](/Plugins/subliminal) to download subtitles.
+This example shows how to use the files in a subtitle list along with <plugin:subliminal> to download subtitles.
 
 ```yaml
 get_subs:

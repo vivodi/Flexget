@@ -55,7 +55,7 @@ manipulate:
         format: '&'
 ```
 
-Currently these are fixed automatically by [urlfix](/Plugins/urlfix) plugin.
+Currently these are fixed automatically by <plugin:urlfix> plugin.
 
 ### Example 3
 You can do multiple manipulates in a row, and they will be executed in order. You can also do multiple manipulates on the same field.

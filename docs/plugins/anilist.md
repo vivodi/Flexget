@@ -1,6 +1,6 @@
 # AniList
 
-This plugin produces an [entry](/Entry) for each item on a user's [AniList](https://anilist.co) list. It can be used as a source for the [configure_series](/Plugins/configure_series) plugin.
+This plugin produces an [entry](/Entry) for each item on a user's [AniList](https://anilist.co) list. It can be used as a source for the <plugin:configure_series> plugin.
 
 **Notes:** 
 
@@ -50,7 +50,7 @@ list_add:
   - entry-list: anilist-entries
 ```
 ### Autoconfigure series
-This example shows use of `anilist` together with [configure_series](/Plugins/configure_series) to download episodes of anime the user is currently watching and is airing either now or in the future.
+This example shows use of `anilist` together with <plugin:configure_series> to download episodes of anime the user is currently watching and is airing either now or in the future.
 
 ```yaml
 configure_series:

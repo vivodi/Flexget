@@ -39,4 +39,4 @@ In order to get the daemon to start automatically on system boot, see the respec
 ### macOS / OSX - [Autorun](/InstallWizard/OSX/Autorun)
 
 ## Scheduling
-The [scheduler plugin](/Plugins/Daemon/scheduler) is responsible for executing your tasks periodically. By default it will run all tasks once an hour when FlexGet is running in daemon mode. Please see the [scheduler documentation](/Plugins/Daemon/scheduler) for more information on setting up schedules.
+The <plugin:scheduler> plugin is responsible for executing your tasks periodically. By default it will run all tasks once an hour when FlexGet is running in daemon mode. Please see the [scheduler documentation](/Plugins/Daemon/scheduler) for more information on setting up schedules.

@@ -2,9 +2,9 @@
 > This plugin is part of [search](/Plugins/Searches) plugin system
 {.is-success}
 
-The newznab plugins is used in conjunction with the [discover](/Plugins/discover) plugins.
+The newznab plugins is used in conjunction with the <plugin:discover> plugins.
 
-With the [next_series_episodes](/Plugins/next_series_episodes)
+With the <plugin:next_series_episodes>
 ```
 discover:
   what:
@@ -16,7 +16,7 @@ discover:
         category: <value>
 ```
 
-or the [movie_list](/Plugins/List/movie_list)
+or the <plugin:movie_list>
 
 ```
 discover:

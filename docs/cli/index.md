@@ -33,7 +33,7 @@ Clicking on the commands will take you to a page with more information about it.
 | Command | Description |
 | --- | ---|
 | [`archive`](/CLI/archive) | Search and manipulate the archive database|
-| [`backlog`](/CLI/backlog) | View or clear entries from the [`backlog`](/Plugins/backlog) plugin |
+| [`backlog`](/CLI/backlog) | View or clear entries from the <plugin:backlog> plugin |
 | [`check`](/CLI/check) | Validate [configuration file](/Configuration) and print errors |
 | [`daemon`](/CLI/daemon) | Run continuously, executing tasks according to [schedules](/Plugins/Daemon/scheduler) defined in config |
 | [`database`](/CLI/database) | Utilities to manage the FlexGet database |
@@ -43,7 +43,7 @@ Clicking on the commands will take you to a page with more information about it.
 | [`failed`](/CLI/failed) | List or clear remembered [failures](/Plugins/retry-failed) |
 | [`history`](/CLI/history) | View the history of entries that FlexGet has accepted |
 | [`inject`](/CLI/inject) | Inject an entry from the CLI into tasks |
-| [`irc`](/CLI/irc) | View and manage [IRC](/Plugins/Daemon/irc) connections |
+| [`irc`](/CLI/irc) | View and manage <plugin:irc> connections |
 | [`jinja-filters`](/CLI/Jinja-Filters)| View avaialble [Jinja](/Jinja) filters|
 | [`movie-list`](/CLI/movie-list) | View and manage [movie lists](/Plugins/List/movie_list) |
 | [`pending`](pending)| View and manage entries [pending approval](/Plugins/pending_approval)|
@@ -51,8 +51,8 @@ Clicking on the commands will take you to a page with more information about it.
 | [`plugins`](/CLI/plugins) | Print registered plugin summaries |
 | [`regexp-list`](/CLI/regexp-list) | View and manage [regexp lists](/Plugins/List/regexp_list) |
 | [`rejected`](/CLI/rejected) | List or clear [remembered rejections](/Plugins/remember_rejected) |
-| [`seen`](/CLI/seen) | View or forget entries remembered by the [`seen` plugin](/Plugins/seen) |
-| [`series`](/CLI/series) | View and manipulate the [`series` plugin](/Plugins/series) database | 
+| [`seen`](/CLI/seen) | View or forget entries remembered by the <plugin:seen> plugin |
+| [`series`](/CLI/series) | View and manipulate the <plugin:series> plugin database | 
 | [`service`](service)| Install a Windows service which runs the FlexGet daemon|
 | [`status`](/CLI/status) | View task health status |
 | [`templates`](templates)| View file templates to be used with [notifer](/Plugins/Notifiers) plugins|

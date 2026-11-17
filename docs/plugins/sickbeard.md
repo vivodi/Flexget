@@ -1,6 +1,6 @@
 # Sickbeard
 This plugin creates an [Entry](/Entry) for each show in your [sickbeard](http://sickbeard.com/) show list (including ended ones).
-This plugin can be used with the [discover](/Plugins/discover) or [configure_series](/Plugins/configure_series) plugins to add those shows to the shows list.
+This plugin can be used with the <plugin:discover> or <plugin:configure_series> plugins to add those shows to the shows list.
 
 ## Plugin Settings
 Currently the following settings are required:
@@ -49,4 +49,4 @@ configure_series:
       include_data: yes
 ```
 
-Note that by using the [configure_series](/Plugins/configure_series) plugin on a schedule you basically sync the shows on your Sickbeard show list with FlexGet shows list. Meaning that unless you have manually set up additional shows using the [series](/Plugins/series) plugin, removing a show from Sickbeard will remove it from FlexGet's show list as well (which can be good or bad, depending on your usage).
+Note that by using the <plugin:configure_series> plugin on a schedule you basically sync the shows on your Sickbeard show list with FlexGet shows list. Meaning that unless you have manually set up additional shows using the <plugin:series> plugin, removing a show from Sickbeard will remove it from FlexGet's show list as well (which can be good or bad, depending on your usage).

@@ -1,5 +1,5 @@
 # Tail
-Similar to the [text](/Plugins/text) plugin but remembers the file position and continues from it. This plugins does NOT work for log files that are rotated.
+Similar to the <plugin:text> plugin but remembers the file position and continues from it. This plugins does NOT work for log files that are rotated.
 
 **Example:**
 

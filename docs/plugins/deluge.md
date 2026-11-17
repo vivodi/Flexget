@@ -67,7 +67,7 @@ deluge:
 ```
 
 ### Advanced
-Some plugins allow [set](/Plugins/set) to be applied on matched entries.
+Some plugins allow <plugin:set> to be applied on matched entries.
 The deluge plugin will read any of the normal parameters from the entry fields, except for deluge daemon info (host, port, username, password).
 Here is an example using the series module:
 

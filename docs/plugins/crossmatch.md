@@ -28,7 +28,7 @@ crossmatch:
   action: reject
 ```
 
-You will also need to enable [imdb_lookup](/Plugins/imdb_lookup) on the task in order to get imdb_id populated. Granted, this is a lot more complicated than old imdb_rated used to be, but crossmatch allows all kinds of other clever uses as well.
+You will also need to enable <plugin:imdb_lookup> on the task in order to get imdb_id populated. Granted, this is a lot more complicated than old imdb_rated used to be, but crossmatch allows all kinds of other clever uses as well.
 
 ### Organize rated movies
 
@@ -88,7 +88,7 @@ tasks:
       to: /path/to/crap
 ```
 
-See [variables](/Plugins/variables) plugin.
+See <plugin:variables> plugin.
 
 ### Accept files any entries from a Filesystem list 
 The task will accept any entry containing an Artist's name (assumes /media/artists/ contains a folder for each Artist)

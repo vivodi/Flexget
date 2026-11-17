@@ -65,7 +65,7 @@ tasks:
       label: 'Bookmarks'
     template: book
 ```
-Uses plugins: [template](/Plugins/template), [priority](/Plugins/priority), [rss](/Plugins/rss), [deluge](/Plugins/deluge), [no_entries_ok](/Plugins/no_entries_ok), [set](/Plugins/set), [exists_series](/Plugins/exists_series), [tvmaze_lookup](/Plugins/tvmaze_lookup), [imdb_lookup](/Plugins/imdb_lookup), [accept_all](/Plugins/accept_all), [metainfo_series](/Plugins/metainfo_series), [require_field](/Plugins/require_field), [if](/Plugins/if), [metainfo_movie](/Plugins/metainfo_movie)
+Uses plugins: <plugin:template>, <plugin:priority>, <plugin:rss>, <plugin:deluge>, <plugin:no_entries_ok>, <plugin:set>, <plugin:exists_series>, <plugin:tvmaze_lookup>, <plugin:imdb_lookup>, <plugin:accept_all>, <plugin:metainfo_series>, <plugin:require_field>, <plugin:if>, <plugin:metainfo_movie>
 
 
 [Back to The Cookbook](/Cookbook)

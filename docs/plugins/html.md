@@ -56,7 +56,7 @@ html:
     - domain\.com
 ```
 
-This will create only entries from links which match any of given regexps. Do NOT use this for filtering content, just limit selecting to correct type of links and use real filtering plugins like [regexp](/Plugins/regexp) to do actual filtering.
+This will create only entries from links which match any of given regexps. Do NOT use this for filtering content, just limit selecting to correct type of links and use real filtering plugins like <plugin:regexp> to do actual filtering.
 
 ## Allow empty links
 

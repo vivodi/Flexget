@@ -33,7 +33,7 @@ discover:
 An overview of available [search plugins](/Searches) can be found [here](/Searches). For a list of installed search plugins use command `flexget plugins --interface search`.
 
 ### Reruns
-When using [next_series_episodes](/Plugins/next_series_episodes) as an input for `discover` it will attempt to retrieve new episodes until it fails to find more (up to 100 runs). The number of reruns can be limited with [max_reruns](/Plugins/max_reruns) plugin.
+When using <plugin:next_series_episodes> as an input for `discover` it will attempt to retrieve new episodes until it fails to find more (up to 100 runs). The number of reruns can be limited with <plugin:max_reruns> plugin.
 
 ## Examples
 
@@ -48,10 +48,10 @@ series:
   - name
 ```
 
-Requires [series](/Plugins/series) configuration or [configure_series](/Plugins/configure_series) in the task.
+Requires <plugin:series> configuration or <plugin:configure_series> in the task.
 
 ### Search movie list
-This example would produce results from the piratebay search engine based on the movies in the list `movies` (default name) in the [movie_list](/Plugins/List/movie_list) plugin. It will only search for movies that have a release date that is no more than 30 days in the future.
+This example would produce results from the piratebay search engine based on the movies in the list `movies` (default name) in the <plugin:movie_list> plugin. It will only search for movies that have a release date that is no more than 30 days in the future.
 
 ```yaml
 tasks:
@@ -87,5 +87,5 @@ discover:
     - any supported search plugin
 ```
 
-See [list_match](/Plugins/List/list_match) and [movie_list](/Plugins/List/movie_list) for further information.
+See <plugin:list_match> and <plugin:movie_list> for further information.
 

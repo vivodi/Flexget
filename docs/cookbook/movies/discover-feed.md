@@ -1,7 +1,7 @@
 # Dowload movies using movie_list and discover
 This recipe aims to allow adding of movies as simple as adding a movie to your trakt.tv watchlist.
 
-This recipe goes one step further and also uses the [discover plugin](/Plugins/discover) to dynamically search for the desired movies. The [torrent_alive plugin](/Plugins/torrent_alive) is used to reject results that do not have at least a minimum number of seeds, which usually improves the quality of the results.
+This recipe goes one step further and also uses the <plugin:discover> plugin to dynamically search for the desired movies. The <plugin:torrent_alive> plugin is used to reject results that do not have at least a minimum number of seeds, which usually improves the quality of the results.
 
 ```yaml
 tasks:
@@ -33,4 +33,4 @@ tasks:
         - movie_list: movies
     transmission: yes # You could use another output plugin instead of this (deluge, qbittorrent, download)
 ```
-Plugins used: [priority](/Plugins/priority), [transmission](/Plugins/transmission), [trakt_list](/Plugins/trakt_list),[trakt_lookup](/Plugins/trakt_lookup), [accept_all](/Plugins/accept_all), [movie_list](/Plugins/List/movie_list), [list_match](/Plugins/List/list_match), [seen](/Plugins/seen), [torrent_alive](/Plugins/torrent_alive), [discover](/Plugins/discover) using [search plugin](/Searches) [piratebay](/Searches/piratebay).
+Plugins used: <plugin:priority>, <plugin:transmission>, <plugin:trakt_list>,<plugin:trakt_lookup>, <plugin:accept_all>, <plugin:movie_list>, <plugin:list_match>, <plugin:seen>, <plugin:torrent_alive>, <plugin:discover> using [search plugin](/Searches) [piratebay](/Searches/piratebay).

@@ -11,14 +11,14 @@ Now defunct May 2018 - This plugin provides the ability to send flexget notifica
 | --- | ---| --- |---|
 | **api_key**| text| User's API key. **Required.**| 
 |application|text|Applicaiton name to display|`FlexGet`
-|url|URL|Notification URL | Gets default from [notify](/Plugins/Notifiers/notify) plugin
+|url|URL|Notification URL | Gets default from <plugin:notify> plugin
 |priority|numeric|Sets notification priority. Can be between -2 and 2.
 |html|yes/no|Parse message as HTML
 |developer_key|text|Optional developer key
 
 
 #### Examples
-> Examples show a specifc scenario usage of the [notify](/Plugins/notify) plugin. See its wiki for a more detailed usage exaplantion.
+> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
 {.is-warning}
 
 ```yaml

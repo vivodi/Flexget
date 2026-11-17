@@ -1,5 +1,5 @@
 # Quality timeframe for movies
-The [series](/Plugins/series) plugin has timeframe functionality which allows download to wait certain time for better quality to appear. There isn't this kind of plugin for movies, but it can be achieved with some clever use of [delay](/Plugins/delay) plugin.
+The <plugin:series> plugin has timeframe functionality which allows download to wait certain time for better quality to appear. There isn't this kind of plugin for movies, but it can be achieved with some clever use of <plugin:delay> plugin.
 
 **Example:**
 

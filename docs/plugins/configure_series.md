@@ -1,12 +1,12 @@
 # Configure series
-Generates [series](/Plugins/series) plugin configuration from titles produced by any input. Using this doesn't prevent configuring [series](/Plugins/series) plugin additionally. 
+Generates <plugin:series> plugin configuration from titles produced by any input. Using this doesn't prevent configuring <plugin:series> plugin additionally. 
 
 Commonly used with:
 
-* [trakt_list](/Plugins/List/trakt_list)
-* [thetvdb_list](/Plugins/List/thetvdb_list)
-* [filesystem](/Plugins/filesystem)
-* [my_anime_list](/Plugins/my_anime_list)
+* <plugin:trakt_list>
+* <plugin:thetvdb_list>
+* <plugin:filesystem>
+* <plugin:my_anime_list>
 
 ## Syntax
 ```yaml
@@ -21,7 +21,7 @@ configure_series:
 ### Settings
 You can use any of the [settings for the series plugin](/Plugins/series#Settings) within the 'settings' block in configure_series. This section is optional, but if included, the settings will be applied to every show configured.
 
-**NOTE:** If you need to set different options for individual series, you can do so using the [series](/Plugins/series) plugin alongside configure_series as shown in this [recipe.](/Cookbook/ForceStrictMatching)
+**NOTE:** If you need to set different options for individual series, you can do so using the <plugin:series> plugin alongside configure_series as shown in this [recipe.](/Cookbook/ForceStrictMatching)
 
 ### From
 In this section you must include one or more configured [input plugins](/Plugins#Input). The titles of the entries created by this plugin will be used as the names of the series that you desire.
@@ -63,7 +63,7 @@ configure_series:
 ```
 
 ### Cross-task settings
-You can store settings with [set](/Plugins/set) and `configure_series_<option>` to be reused on other tasks
+You can store settings with <plugin:set> and `configure_series_<option>` to be reused on other tasks
 ```yaml
 task1:
   trakt_list:

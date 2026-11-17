@@ -4,11 +4,11 @@
 
 Many website allow the generation of rss feeds based on a query. This plugin takes advantage of this can generate rss feeds that contain the result of a query.
 
-**NOTE:** This plugin can not be used on the task level and that it can only be used within [discover](/Plugins/discover) & [urlrewrite_search](/Plugins/urlrewrite_search) plugin.
+**NOTE:** This plugin can not be used on the task level and that it can only be used within <plugin:discover> & <plugin:urlrewrite_search> plugin.
 
 
 ## Config Format
-All valid [rss](/Plugins/rss) plugin config options are valid here, just place `{{search_term}}` into the url where the search term should go. This will be replaced with a percent encoded version of the serach term when searched. Jinja is used with this replacement, so you can also use [jinja](/Jinja) filters to manipulate the term.
+All valid <plugin:rss> plugin config options are valid here, just place `{{search_term}}` into the url where the search term should go. This will be replaced with a percent encoded version of the serach term when searched. Jinja is used with this replacement, so you can also use [jinja](/Jinja) filters to manipulate the term.
 
 ### Simple configuration
 
@@ -17,7 +17,7 @@ search_rss: http://url/q={{search_term}}
 ```
 
 ### Complex configuration
-Search_rss supports all the advanced options from [rss](/Plugins/rss)
+Search_rss supports all the advanced options from <plugin:rss>
 
 #### Example
 ```yaml
@@ -29,7 +29,7 @@ search_rss:
 ```
 
 ## Usage example
-This example shows search_rss used within the [discover](/Plugins/discover) plugin. This particular example makes use of isohunt.com and generates an rss feed with the content of a search for each movie in the queue and generates entries from that rss feed. 
+This example shows search_rss used within the <plugin:discover> plugin. This particular example makes use of isohunt.com and generates an rss feed with the content of a search for each movie in the queue and generates entries from that rss feed. 
 
 ```yaml
 discover:

@@ -4,7 +4,7 @@ These feeds will upload your collection to [trakt.tv](http://trakt.tv).
 Upload movie collection to [trakt.tv](http://trakt.tv).
 This is likely to generate errors and not work 100%. This is because of issues with other plugins. Most of my issues came from a unicode module not handling high order characters and the imdb plugin not matching all titles.
 
-I would recommend making this a separate configuration file which you manually run only once or when needed. You can set up tract_acquired updating to your normal configuration file. If you put these into your config that is ran by cron, specify [interval](/Plugins/interval) for update feeds. Something along once per day or week.
+I would recommend making this a separate configuration file which you manually run only once or when needed. You can set up tract_acquired updating to your normal configuration file. If you put these into your config that is ran by cron, specify <plugin:interval> for update feeds. Something along once per day or week.
 
 ```
 tasks:
@@ -40,4 +40,4 @@ tasks:
       type: movies
 ```
 
-Plugins used: [filesystem](/Plugins/filesystem), [accept_all](/Plugins/accept_all), [metainfo_series](/Plugins/metainfo_series), [imdb_lookup](/Plugins/imdb_lookup), [template](/Plugins/template), [trakt_acquired](/Plugins/trakt_acquired)
+Plugins used: <plugin:filesystem>, <plugin:accept_all>, <plugin:metainfo_series>, <plugin:imdb_lookup>, <plugin:template>, <plugin:trakt_acquired>

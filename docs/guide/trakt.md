@@ -2,14 +2,14 @@
 
 - For Trakt CLI tools, see [`trakt` CLI command](/CLI/trakt).
 
-- To see how to looking up metadata from Trakt, look at the [`trakt_lookup` plugin](/Plugins/trakt_lookup).
+- To see how to looking up metadata from Trakt, look at the <plugin:trakt_lookup> plugin.
 
-- For details on using Trakt with the various Managed List plugins, such as `list_remove` and `list_clear`, see the [`trakt_list` plugin](/Plugins/List/trakt_list).
+- For details on using Trakt with the various Managed List plugins, such as `list_remove` and `list_clear`, see the <plugin:trakt_list> plugin.
 
 - For information on authenticating FlexGet with Trakt to use the `account` option in plugins, see below.
 
 ## Trakt Authentication
-There are multiple Trakt plugins (such as [`trakt_list`](/Plugins/List/trakt_list), [`list_remove`](/Plugins/List/list_remove), [`trakt_lookup`](/Plugins/trakt_lookup), and [`list_clear`](/Plugins/List/list_clear)) that need to authenticate with your Trakt account if the profile or list is private, or if you are trying to edit lists. Any such plugin will have an `account` option.
+There are multiple Trakt plugins (such as <plugin:trakt_list>, <plugin:list_remove>, <plugin:trakt_lookup>, and <plugin:list_clear>) that need to authenticate with your Trakt account if the profile or list is private, or if you are trying to edit lists. Any such plugin will have an `account` option.
 
 The [`flexget trakt` CLI command](/CLI/trakt) can be used to store that authentication under a given account name. Once you have set authentication up with this tool, you can set the `account` option in the appropriate Trakt plugins to access private information or edit lists.
 

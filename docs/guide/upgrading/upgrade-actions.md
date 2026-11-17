@@ -6,7 +6,7 @@ Starting from version 2.0.0 we are using semantic versioning, in the form that a
 
 ### **3.22.0** - 2026-10-08
 
-#### [convert_magnet](/Plugins/convert_magnet)
+#### <plugin:convert_magnet>
 
 `force` config option is renamed to `fail_entry_on_error`.
 
@@ -17,7 +17,7 @@ Added support for Python 3.15.
 
 ### **3.20.0** - 2026-08-05
 
-#### [subliminal](/Plugins/subliminal)
+#### <plugin:subliminal>
 
 The `hearing_impaired` option has been replaced by `subtitle_categories`. `subtitle_categories` accepts strings as a comma-separated list of subtitle categories, from the three existing categories: `hi`, hearing impaired subtitle; `fo`, foreign only subtitle; `n`, narrative, standard subtitle. For instance `hi,n,fo` sorts the subtitles by hearing impaired first, then narrative and foreign only last. If a category is omitted, the corresponding subtitles will be skipped. For instance `hi` will select the best subtitle among hearing impaired only subtitles. An empty string (the default) with not sort or filter out the subtitles.
 
@@ -62,18 +62,18 @@ Added support for Python 3.14.
 
 
 ### **3.16.0** - 2025-05-18
-#### [filesystem](/Plugins/filesystem)
+#### <plugin:filesystem>
 The `accessed`, `modified`, and `created` entry fields have been named to `atime`, `mtime`, and `ctime`. These fields may have different semantics on different OSs, so the friendly names were removed so as to not cause confusion.
 
 ### **3.15.0** - 2025-02-08
-#### [cfscraper](/Plugins/cfscraper)
+#### <plugin:cfscraper>
 The `cloudscraper` dependency was previously deprecated (and broken), so the `cfscraper` plugin has now been removed. If you still have it in your config, it will need to be removed.
 
 ### **3.14.0** - 2025-02-02
 Previously the series plugin would default to a target of `720p hdtv+` if timeframe was specified without a target. It is now required that a target be explicitly set along with timeframe or it will be considered a configuration error.
 
 ### **3.13.0** - 2024-12-12
-#### [Telegram](/Plugins/Notifiers/telegram)
+#### <plugin:telegram>
 Telegram plugin now requires python-telegram-bot v21.9 or later. `pip install --upgrade python-telegram-bot`
 You can specify `chat_id` directly in the configuration file.
 `socks_proxy` option now uses standard `socks5://user:pass@host:port`.
@@ -83,13 +83,13 @@ You can specify `chat_id` directly in the configuration file.
 Python 3.8 has been EoL since June. Support for it has now been dropped. You'll need to install Flexget with Python 3.9+ in order to upgrade.
 
 ### **3.11.42** - 2024-08-04
-#### [Telegram](/Plugins/Notifiers/telegram)
+#### <plugin:telegram>
 The `parse_mode: markdown` setting was updated to use [MarkdownV2](https://core.telegram.org/bots/api#markdownv2-style).
 The [legacy parse mode](https://core.telegram.org/bots/api#markdown-style) was moved to `parse_mode: markdown_legacy`
 
 ### **3.11.13** - 2024-01-27
 
-The [transmission](/Plugins/transmission) (and [from_transmission](/Plugins/from_transmission)) plugins now require [transmission-rpc]() version 7.0.3 or greater. Run ```pip install --upgrade transmission-rpc``` from the environment where flexget is installed to upgrade.
+The <plugin:transmission> (and <plugin:from_transmission>) plugins now require [transmission-rpc]() version 7.0.3 or greater. Run ```pip install --upgrade transmission-rpc``` from the environment where flexget is installed to upgrade.
 
 ### **3.11.0** – 2023-12-25
 #### Better Timezone support
@@ -123,7 +123,7 @@ More info in [the PR](https://github.com/Flexget/Flexget/pull/3802)
 The [morethantv](/Searches/morethantv) plugin categories have been updated to match changes made at the site. They will need to be updated in your config to use the new categories.
 
 ### **3.6.0** – 2023-04-09
-The [transmission](/Plugins/transmission) (and [from_transmission](/Plugins/from_transmission)) plugins now require [transmission-rpc]() version 4.1.4 or greater. Run ```pip install --upgrade transmission-rpc``` from the environment where flexget is installed to upgrade.
+The <plugin:transmission> (and <plugin:from_transmission>) plugins now require [transmission-rpc]() version 4.1.4 or greater. Run ```pip install --upgrade transmission-rpc``` from the environment where flexget is installed to upgrade.
 
 ### **3.5.0** -- 2022-11-03
 Support for python 3.6 has been dropped. Install FlexGet using python 3.7 or newer to continue upgrading.
@@ -159,7 +159,7 @@ Python 2 support is dropped as Python 2 reaches EOL in Jan 1st 2020. The minimal
 
 ### **2.21.0** -- 2019.05.21
 
-Added new [limit](/Plugins/limit) plugin which replaces limit option from older plugins (ie. trakt_list). Some are still backwards compatible.
+Added new <plugin:limit> plugin which replaces limit option from older plugins (ie. trakt_list). Some are still backwards compatible.
 
 
 ### **2.20.0** -- 2019.02.11
@@ -168,12 +168,12 @@ The `clean_transmission` plugin has been deprecated. The transmission plugin has
 
 `clean_transmission` is still available to use at the moment, but some of its internals had to be tweaked. If you do not immediately replace this plugin, make sure to do a `--test` run to ensure it still causes the behavior you expect.
 
-#### [from_transmission](/Plugins/from_transmission)
+#### <plugin:from_transmission>
 The `onlycomplete` option default has been changed from `yes` to `no` in addition to being renamed `only_complete`. By default all entries loaded in transmission will be provided now.
 
 `from_transmission` also provides more information from transmission with entry fields prefixed with `transmission_`.
 
-#### [transmission](/Plugins/transmission)
+#### <plugin:transmission>
 All multi-word options have been changed to have an underscore for consistency and readability. In addition, the spelling of 'honour' has been changed to match the spelling in transmission.
 |old name|new name|
 |---|---|
@@ -184,14 +184,14 @@ All multi-word options have been changed to have an underscore for consistency a
 |bandwidthpriority|bandwidth_priority|
 |hono**u**rlimits|honor_limits<br/>* *note the spelling change*|
 
-#### [from_deluge](/Plugins/from_deluge)
+#### <plugin:from_deluge>
 The `keys` option has been removed. from_deluge now provides all fields from deluge with the `deluge_` prefix. Field names may vary slightly between deluge versions. Do a test run of your task to verify field names after the update:
 ```sh
 flexget --test execute --tasks my_from_deluge_task --dump
 ```
 This will show all available field names and values which you can use to update your config appropriately.
 
-#### [deluge](/Plugins/deluge)
+#### <plugin:deluge>
 All multi-word options have been changed to have an underscore for consistency and readability. `movedone` was changed to `move_completed_path` to align with deluge naming.
 |old name|new name|
 |---|---|
@@ -207,10 +207,10 @@ All multi-word options have been changed to have an underscore for consistency a
 
 ### **2.19.0** -- 2019.01.29
 
-Internal sorting of entries has been removed from both the [discover](/Plugins/discover) and [series](/Plugins/series) plugins.
+Internal sorting of entries has been removed from both the <plugin:discover> and <plugin:series> plugins.
 
 #### Series
-Formerly, the series plugin sorted by quality, and when multiple copies of an episode were available on a given run of a task, the highest quality would be chosen. Now that this internal sorting has been removed, the [sort_by](/Plugins/sort_by) plugin can be used in the task to prioritize based on quality, or other metrics. To emulate the old behavior the following can be added to the task:
+Formerly, the series plugin sorted by quality, and when multiple copies of an episode were available on a given run of a task, the highest quality would be chosen. Now that this internal sorting has been removed, the <plugin:sort_by> plugin can be used in the task to prioritize based on quality, or other metrics. To emulate the old behavior the following can be added to the task:
 ```yaml
 sort_by:
   field: quality
@@ -261,7 +261,7 @@ The following is a list of search plugins that have been removed due to site clo
 - Torrent411
 - Torrentshack
 #### Subliminal
-The [subliminal](/Plugins/subliminal) plugin has been changed to reject entries for which it cannot find all requested subtitle languages. Before this change, it would fail entries, but it was deemed counterintuitive.
+The <plugin:subliminal> plugin has been changed to reject entries for which it cannot find all requested subtitle languages. Before this change, it would fail entries, but it was deemed counterintuitive.
 
 In addition, single mode will now ignore existing subtitles if the languages do not match. This is the same behaviour as running subliminal manually via CLI.
 
@@ -273,31 +273,31 @@ In addition, single mode will now ignore existing subtitles if the languages do 
 ### **2.9.0** -- 2017.01.10
 #### Notifications:
 * [Notification system](/Plugins/Notifiers) has been changed once more. Hopefully we worked most of the kinks out of the new system with this one.
-- Backwards compatibility with old system has been taken out; it wasn't working quite properly anyway. You cannot use the [individual notifiers](/Plugins/Notifiers#notifiers) at task level anymore. You must use the [notify](/Plugins/notify) plugin, which is also where message content is now configured. 
+- Backwards compatibility with old system has been taken out; it wasn't working quite properly anyway. You cannot use the [individual notifiers](/Plugins/Notifiers#notifiers) at task level anymore. You must use the <plugin:notify> plugin, which is also where message content is now configured. 
 - `notify_task`, `notify_entries`, `notify_abort`:
-  - plugins removed and combined back into [`notify`](/Plugins/notify) plugin, with subkeys `task`, `entries`, and `abort` subkeys
+  - plugins removed and combined back into <plugin:notify> plugin, with subkeys `task`, `entries`, and `abort` subkeys
 - `to` option:
   - previously when specifying how a notification should be sent it went under the `to` key. This has been renamed to `via`.
 - `file_template`:
   - option has been renamed to `template`
 - `notify_osd`:
-  - notifier renamed to [`toast`](/Plugins/Notifiers/toast) (and preliminary Windows support added)
+  - notifier renamed to <plugin:toast> (and preliminary Windows support added)
 
-- If you use any of the following plugins, you will most likely have to update your config. See their individual wiki pages for the new config format, as well as the [`notify`](/Plugins/notify) plugin.
+- If you use any of the following plugins, you will most likely have to update your config. See their individual wiki pages for the new config format, as well as the <plugin:notify> plugin.
 
-  - [`email`](/Plugins/Notifiers/email)
-  - [`join`](/Plugins/Notifiers/join)
-  - [`toast`](/Plugins/Notifiers/toast) (previously `notify_osd`)
-  - [`notifymyandroid`](/Plugins/Notifiers/notifymyandroid)
-  - [`prowl`](/Plugins/Notifiers/prowl)
-  - [`pushalot`](/Plugins/Notifiers/pushalot)
-  - [`pushbullet`](/Plugins/Notifiers/pushbullet)
-  - [`pushover`](/Plugins/Notifiers/pushover)
-  - [`rapidpush`](/Plugins/Notifiers/rapidpush)
-  - [`slack`](/Plugins/Notifiers/slack)
-  - [`sms_ru`](/Plugins/Notifiers/sms_ru)
-  - [`telegram`](/Plugins/Notifiers/telegram)
-  - [`xmpp`](/Plugins/Notifiers/xmpp)
+  - <plugin:email>
+  - <plugin:join>
+  - <plugin:toast> (previously `notify_osd`)
+  - <plugin:notifymyandroid>
+  - <plugin:prowl>
+  - <plugin:pushalot>
+  - <plugin:pushbullet>
+  - <plugin:pushover>
+  - <plugin:rapidpush>
+  - <plugin:slack>
+  - <plugin:sms_ru>
+  - <plugin:telegram>
+  - <plugin:xmpp>
 
 - Examples of new notifier config:
 
@@ -342,7 +342,7 @@ In addition, single mode will now ignore existing subtitles if the languages do 
   replace: \{\? \1 \?\}
   ```
 
-#### [`if`](/Plugins/if):
+#### <plugin:if>:
 - changed to use [jinja expressions](http://jinja.pocoo.org/docs/2.9/templates/#expressions) rather than raw python ones. As the syntax is very similar, most if statements should continue to work correctly.
 - If notable changes end up being needed, feel free to come discuss in [chat](Chat) and/or update this space with instructions for others.
 
@@ -351,22 +351,22 @@ In addition, single mode will now ignore existing subtitles if the languages do 
 
 **The below information is kept for reference, but the notification system was changed again in 2.9.0!**
 - Notifier changes, following the feedback from 2.7.0:
-  - Created [notify_entries](/Plugins/Notifiers/notify_entries) and [notify_task](/Plugins/Notifiers/notify_task) and deprecated `notify` plugin.
-  - Changed `notify_crash` to [notify_abort](/Plugins/Notifiers/notify_abort).
+  - Created <plugin:notify_entries> and <plugin:notify_task> and deprecated `notify` plugin.
+  - Changed `notify_crash` to <plugin:notify_abort>.
   - Tweaked `file_templates`usage slightly.
   - Added [templates](/CLI/templates) CLI action to get a list of available file templates.
 
 ### **2.7.0** -- 2016.11.15
 **This information is kept for reference, but the notification system was changed again in 2.9.0!**
-- Major change to all notification plugins. Consult new [notifiers](/Plugins/Notifiers) page for name changes and schema changes
-- [`email`](/Plugins/Notifiers/email):
-  - plugin completely changed, removed cross task functionality (replaced by new [notify](/Plugins/Notifiers/notify) functionality)
+- Major change to all notification plugins. Consult new <plugin:notifiers> page for name changes and schema changes
+- <plugin:email>:
+  - plugin completely changed, removed cross task functionality (replaced by new <plugin:notify> functionality)
 - `whatcd`:
   - removed plugin
 
 ### **2.6.0** -- 2016.11.15
-- [`move`](/Plugins/move), [`copy`](/Plugins/copy): 
-  - Changed option `filename` to `rename` since it caused issues with [filesystem](/Plugins/filesystem) plugin.
+- <plugin:move>, <plugin:copy>: 
+  - Changed option `filename` to `rename` since it caused issues with <plugin:filesystem> plugin.
   - jinja2 replacement render issues will not abort task and not fallback to default.
 - [Daemon](/Daemon):
   - `flexget daemon reload` has been renamed to `flexget daemon reload-config` to avoid confusion.
@@ -378,7 +378,7 @@ In addition, single mode will now ignore existing subtitles if the languages do 
   - Due to changes in the IPC protocol, you will not be able to connect to a running daemon that is an earlier version than 2.5.0 using CLI commands. Remember to stop your daemon _before_ upgrading to ensure you can elegantly shut it down.
 
 ### **2.4.0** -- 2016.10.18
-* [`move`](/Plugins/move), [`delete`](/Plugins/delete), [`copy`](/Plugins/copy):
+* <plugin:move>, <plugin:delete>, <plugin:copy>:
   * `along` has been greatly simplified and includes similarly named files with specified extensions -- regex/glob no longer supported.
 * [Daemon](/Daemon)
   * automatically reloads config before task execution if it detects any changes.
@@ -408,13 +408,13 @@ In addition, single mode will now ignore existing subtitles if the languages do 
 
 ### **2.3.0** -- 2016.08.17 
 
-* [`discover`](/Plugins/discover):
+* <plugin:discover>:
   * `release_estimations` option now defaults to `strict` instead of `loose`, meaning anything with no release date or one that lies in the future will not be included in the search
-  * will now keep searching for new items until it fails to find any (maximum 100 runs). Can be set to the old behaviour using [max_reruns](/Plugins/max_reruns) plugin.
+  * will now keep searching for new items until it fails to find any (maximum 100 runs). Can be set to the old behaviour using <plugin:max_reruns> plugin.
 * `movie_queue`:
-  * removed along with all related plugins. Use [`movie_list`](/Plugins/List/movie_list) instead.
+  * removed along with all related plugins. Use <plugin:movie_list> instead.
 * `imdb_required`:
-  * Removed plugin. Switch to [imdb_lookup](/Plugins/imdb_lookup) and [require_field](/Plugins/require_field).
+  * Removed plugin. Switch to <plugin:imdb_lookup> and <plugin:require_field>.
 * [CLI](/CLI):
   * Changed practically all CLI plugins to output using a standardized table [dependency](https://github.com/Robpol86/terminaltables) for a more consistent (and pretty expeirence). Some of the content has been altered in the relevant plugins, and `--porcelain` works slightly different now. See relevant plugin Wiki for details.
 * [CLI `trakt`](/CLI/trakt):
@@ -425,17 +425,17 @@ In addition, single mode will now ignore existing subtitles if the languages do 
 
 ### **2.2.0** -- 2016.07.27 
 
-* [irc](/Plugins/Daemon/irc):
+* <plugin:irc>:
   * plugin uses outside dependency now. Install with `pip install irc_bot`
 * `thetvdb_add`, `thetvdb_remove`, `thetvdb_favorites`:
-  * plugins removed. Use [thetvdb_list](/Plugins/List/thetvdb_list) instead.
+  * plugins removed. Use <plugin:thetvdb_list> instead.
 * `kat`:
   * removed plugin
 * `uoccin`:
   * removed all plugins and moved them to [extras](https://github.com/Flexget/extras/) repo.
-* [`move`](/Plugins/move), [`copy`](/Plugins/copy), [`delete`](/Plugins/delete)
+* <plugin:move>, <plugin:copy>, <plugin:delete>
   * tweaked `along` setting in plugins. See their wiki entries for details.
-* [`download`](/Plugins/download), [`move`](/Plugins/move):
+* <plugin:download>, <plugin:move>:
   * removed the `output` attribute when using the  plugins. Use `location` instead.
 
 ### **2.1.0** -- 2016.06.23
@@ -444,25 +444,25 @@ In addition, single mode will now ignore existing subtitles if the languages do 
 As an effort to provide more consistent configuration and better user experience, several changes are presented with this version:
 
 * `list_accept`, `list_reject`, `list_queue`:
-  * removed plugins. Replaced with [list_match](/Plugins/List/list_match). See plugin page for detailed information on new syntax.
+  * removed plugins. Replaced with <plugin:list_match>. See plugin page for detailed information on new syntax.
 * `emit_series`:
-  * changed to [next_series_episodes](/Plugins/next_series_episodes)
+  * changed to <plugin:next_series_episodes>
 * `sonarr_emit`:
-  * changed to [next_sonarr_episodes](/Plugins/next_sonarr_episodes)
+  * changed to <plugin:next_sonarr_episodes>
 * `trakt_emit`:
-  * changed to [next_trakt_episodes](/Plugins/next_trakt_episodes)
+  * changed to <plugin:next_trakt_episodes>
 * `send_telegram`:
-  * changed to [telegram](/Plugins/telegram)
+  * changed to <plugin:telegram>
 * `path_select`:
-  * changed to [path_by_space](/Plugins/path_by_space)
+  * changed to <plugin:path_by_space>
 * `emit_digest`:
-  * changed to [from_digest](/Plugins/from_digest)
+  * changed to <plugin:from_digest>
 * `emit_uoccin`:
-  * changed to [from_uoccin](/Plugins/from_uoccin)
+  * changed to <plugin:from_uoccin>
 * `dynamic_imdb`:
-  * changed to [from_imdb](/Plugins/from_imdb)
+  * changed to <plugin:from_imdb>
 * `trakt_add`, `trakt_remove`:
-  * removed and replaced with [`list_add`](/Plugins/List/list_add), [`list_remove`](/Plugins/List/list_remove) and [`trakt_list`](/Plugins/List/trakt_list)
+  * removed and replaced with <plugin:list_add>, <plugin:list_remove> and <plugin:trakt_list>
 
 ### **2.0.0** -- 2016.04.24
 **Major Flexget Change**
@@ -517,7 +517,7 @@ The `ignore_estimations` option in the <plugin:discover> plugin was changed and 
 The `urlrewrite_redirect` plugin, which previously rewrite all accepted entries' urls to any url they redirected to has been disabled by default. If you need this behavior, you must add `redirect_url: yes` to your task.
 
 ### 1.2.452 -- 2016.02.11
-The `listdir` and `find` plugins (which have been deprecated for a while) have now been removed. Their functionality can be replicated with the [filesystem](/Plugins/filesystem) plugin. If you haven't already, you will need to make this change in your config.
+The `listdir` and `find` plugins (which have been deprecated for a while) have now been removed. Their functionality can be replicated with the <plugin:filesystem> plugin. If you haven't already, you will need to make this change in your config.
 
 Deluge 1.1 support has been removed from the deluge plugin.
 
@@ -551,15 +551,15 @@ The trakt plugins have been updated to use the newest API (v2). Authorization is
 They no longer require `password` and so this option should be deleted from your config. Instead it takes a new argument `account`. Specifying an `account` is required to access anything private/protected on trakt. You must specify either `account` or `username`. If `account` is specified without `username`, the owner of the account will be the assumed username.
 
 Affected Plugins:
-  - [trakt_list](/Plugins/trakt_list)
-  - [trakt_emit](/Plugins/trakt_emit)
-  - [trakt_add](/Plugins/trakt_add)
-  - [trakt_remove](/Plugins/trakt_remove)
-  - [trakt_lookup](/Plugins/trakt_lookup)
+  - <plugin:trakt_list>
+  - <plugin:trakt_emit>
+  - <plugin:trakt_add>
+  - <plugin:trakt_remove>
+  - <plugin:trakt_lookup>
 
 **trakt_collected_lookup / trakt_watched_lookup**
 
-These plugins have been merged with `trakt_lookup` and no longer exist. You'll need to specify the `account` option in [trakt_lookup](/Plugins/trakt_lookup) in order for the related fields to be looked up.
+These plugins have been merged with `trakt_lookup` and no longer exist. You'll need to specify the `account` option in <plugin:trakt_lookup> in order for the related fields to be looked up.
 
 **trakt_lookup**
 
@@ -570,13 +570,13 @@ Now supports movie lookups as well as episode and show lookups. It also takes tw
 ### 1.2.362 -- 2015.10.13 
 **find / listdir**
 
-The `find` and `listdir` plugins have been merged into one [filesystem](/Plugins/filesystem) plugin. You will need to replace both in your config with just `filesystem`.
+The `find` and `listdir` plugins have been merged into one <plugin:filesystem> plugin. You will need to replace both in your config with just `filesystem`.
 
 ### 1.2.359 -- 2015.10.09
 A json api has been added which requires a few new dependencies. If you are installed from a git checkout, you'll have to make sure your deps are up to date after pulling. `bin/pip install --upgrade -e .` from your checkout directory if you are using the virtualenv setup that bootstrap.py gives you.
 
 ### 1.2.261 -- 2015.01.12
-`disable_builtins` and `disable_plugin` plugins have been combined into the [disable](/Plugins/disable) plugin. You will need to replace both in your config with just `disable`. If you were using `disable_builtins: yes` form, this should be changed to `disable: builtins`
+`disable_builtins` and `disable_plugin` plugins have been combined into the <plugin:disable> plugin. You will need to replace both in your config with just `disable`. If you were using `disable_builtins: yes` form, this should be changed to `disable: builtins`
 
 ### 1.2.247 -- 2015.01.01
 **movie_queue / queue_movies**

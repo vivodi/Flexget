@@ -22,4 +22,4 @@ list_remove:
       type: movies
 ```
 
-Uses: [trakt_list](/Plugins/List/trakt_list), [accept_all](/Plugins/accept_all)
+Uses: <plugin:trakt_list>, <plugin:accept_all>

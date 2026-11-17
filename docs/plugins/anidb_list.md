@@ -1,6 +1,6 @@
 # AniDB List
 
-This plugin produces an [entry](/Entry) for each movie or series on a public [AniDB](http://www.anidb.net) wishlist. These entries can then be added to the [movie_list](/Plugins/List/movie_list), used to initiate a search with [discover](/discover), or passed to some other [output plugin](/Plugins#Outputs). Results are cached for two hours to avoid flooding the site.
+This plugin produces an [entry](/Entry) for each movie or series on a public [AniDB](http://www.anidb.net) wishlist. These entries can then be added to the <plugin:movie_list>, used to initiate a search with [discover](/discover), or passed to some other [output plugin](/Plugins#Outputs). Results are cached for two hours to avoid flooding the site.
 
 **Notes:** 
 
@@ -32,7 +32,7 @@ list_add:
 
 ### Autoconfigure series
 
-This example shows how the `anidb_list` plugin could be used with the [configure_series](/Plugins/configure_series) plugin in order to download all of the series you have included in your wishlist.
+This example shows how the `anidb_list` plugin could be used with the <plugin:configure_series> plugin in order to download all of the series you have included in your wishlist.
 
 ```yaml
 configure_series:

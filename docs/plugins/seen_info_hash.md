@@ -9,7 +9,7 @@ To only consider previously grabbed torrents within the current task you can con
 seen_info_hash: local
 ```
 ### Turning Off
-To turn off this plugin on a particular task, you can either use the [disable](/Plugins/disable) plugin, or configure it like this:
+To turn off this plugin on a particular task, you can either use the <plugin:disable> plugin, or configure it like this:
 ```
 seen_info_hash: no
 ```

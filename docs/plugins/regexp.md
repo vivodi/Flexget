@@ -67,7 +67,7 @@ regexp:
 By default, regexp plugin will only try to match in the title and description fields of the entry. If you would like to specify custom fields to search in, you can do so either per regexp, or for the whole plugin at once. You can either list a single field to search from, or a list of fields.
 
 ### Examples
-Reject drama from the tvdb_genre field which is filled by [thetvdb_lookup](/Plugins/thetvdb_lookup) plugin.
+Reject drama from the tvdb_genre field which is filled by <plugin:thetvdb_lookup> plugin.
 ```yaml
 regexp:
   reject:

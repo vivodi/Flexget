@@ -15,6 +15,6 @@ feeds:
     download: ~/heroes/
 ```
 
-Uses plugins: [interval](/Plugins/interval), [text](/Plugins/text), [download](/Plugins/download)
+Uses plugins: <plugin:interval>, <plugin:text>, <plugin:download>
 
 [Back to The Cookbook](/Cookbook)

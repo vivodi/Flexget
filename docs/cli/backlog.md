@@ -1,5 +1,5 @@
 ## `backlog`
-View or clear entries from the [`backlog` plugin](/Plugins/backlog).
+View or clear entries from the <plugin:backlog> plugin.
 ### Actions
 | Argument | Option | Description |
 | --- | --- | --- |

@@ -36,7 +36,7 @@ Methods other than `chat_id` require sending a message just before the first run
 Not all Telegram users have a username. In such cases you would have to use the `fullname` approach. Otherwise, it is much easier to use the `username` configuration.
 
 ## Configuration examples
-> Examples show a specifc scenario usage of the [notify](/Plugins/notify) plugin. See its wiki for a more detailed usage exaplantion.
+> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
 {.is-info}
 
 ```yaml

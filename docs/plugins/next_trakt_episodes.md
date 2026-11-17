@@ -7,7 +7,7 @@
 
 This plugin creates an [Entry](/Entry) for the next episode to watch or to collect for each show you have marked seen or collected in your [trakt.tv](http://trakt.tv) account.
 
-This plugin can be used in combination with several plugins, like [discover](/Plugins/discover) to search for new episodes to download, or [set_series_begin](/Plugins/set_series_begin) to reset the first episode for configured series, and so on.  
+This plugin can be used in combination with several plugins, like <plugin:discover> to search for new episodes to download, or <plugin:set_series_begin> to reset the first episode for configured series, and so on.  
 
 ## Plugin Settings
 Currently the following settings are supported:
@@ -25,7 +25,7 @@ Currently the following settings are supported:
 
 
 ### Example: set series begin
-This example shows how the next_trakt_episodes plugin could be used with the [set_series_begin](/Plugins/set_series_begin) plugin in order to set the first episode to download for the series in the my_tv_show list on Trakt. By default FlexGet will start from first episode it sees in the task. This is mainly useful if you set up discover.
+This example shows how the next_trakt_episodes plugin could be used with the <plugin:set_series_begin> plugin in order to set the first episode to download for the series in the my_tv_show list on Trakt. By default FlexGet will start from first episode it sees in the task. This is mainly useful if you set up discover.
 
 ```
 tasks:

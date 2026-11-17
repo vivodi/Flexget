@@ -1,5 +1,5 @@
 # Text
-Parse any text for entries using regular expression. This doesn't work well with HTML, please use [html](/Plugins/html) instead.
+Parse any text for entries using regular expression. This doesn't work well with HTML, please use <plugin:html> instead.
 
 ```
 text:

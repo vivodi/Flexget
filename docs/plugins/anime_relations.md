@@ -13,14 +13,14 @@ The plugin doesn't search for titles, only existing ID fields on the entry so at
 | Field | Source | Searchable | Unique |
 | --- | --- | --- | --- |
 | `anidb_id` | [AniDB](/Plugins/anidb_list) | ✔ | ✔ |
-| `al_id` | [AniList](/Plugins/anilist) | ✔ | ✔ |
+| `al_id` | <plugin:anilist> | ✔ | ✔ |
 | `mal_id` | [MyAnimeList](/Plugins/my_anime_list) | ✔ | ✔ |
 | `animecountdown_id` | [Anime Countdown](https://animecountdown.com) | ✔ | ✔ |
 | `ann_id` | [Anime News Network](https://www.animenewsnetwork.com) | ✔ | ✔ |
 | `animeplanet_id` | [Anime Planet](https://anime-planet.com) | ✔ | ✔ |
 | `anisearch_id` | [aniSearch](http://anisearch.com) | ✔ | ✔ |
 | `imdb_id` | [IMDB](/Plugins/imdb_lookup) | ✔ | ❌ |
-| `kitsu_id` | [Kitsu](/Plugins/kitsu) (Can be extracted from the plugin's `url` field) | ✔ | ✔ |
+| `kitsu_id` | <plugin:kitsu> (Can be extracted from the plugin's `url` field) | ✔ | ✔ |
 | `livechart_id` | [LiveChart](https://www.livechart.me) | ✔ | ✔ |
 | `simkl_id` | [SIMKL](https://simkl.com) | ✔ | ✔ |
 | `tmdb_id` | [TMDB](/Plugins/tmdb_lookup) | ✔ | ❌ |

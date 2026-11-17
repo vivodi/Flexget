@@ -9,7 +9,7 @@ series_premiere: yes
 ```
 
 ## Series Settings
-Behind the scenes, series_premieres just configures the [series](/Plugins/series) plugin with all the premieres it sees in the task.*** You can use any of the [settings](/Plugins/series#Settings) of the series plugin for series_premire.
+Behind the scenes, series_premieres just configures the <plugin:series> plugin with all the premieres it sees in the task.*** You can use any of the [settings](/Plugins/series#Settings) of the series plugin for series_premire.
 
 There are two options specific to series_premiere also available:
 
@@ -28,4 +28,4 @@ series_premiere:
   allow_teasers: no
 ```
 
-**NOTE:** This plugin only looks in the entry title and expects the title format to start with the series name followed by the episode info. Use the [manipulate](/Plugins/manipulate) plugin to modify the entry title to match this format, if necessary.
+**NOTE:** This plugin only looks in the entry title and expects the title format to start with the series name followed by the episode info. Use the <plugin:manipulate> plugin to modify the entry title to match this format, if necessary.

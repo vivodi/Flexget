@@ -1,6 +1,6 @@
 # MyAnimeList
 
-This plugin produces an [entry](/Entry) for each item on [MyAnimeList](https://myanimelist.net) list. It can be used as a source for the [configure_series](/Plugins/configure_series) plugin.
+This plugin produces an [entry](/Entry) for each item on [MyAnimeList](https://myanimelist.net) list. It can be used as a source for the <plugin:configure_series> plugin.
 
 **Notes:** 
 
@@ -17,7 +17,7 @@ This plugin produces an [entry](/Entry) for each item on [MyAnimeList](https://m
 
 ## Examples
 ### Autoconfigure series
-This example shows use of `my_anime_list` together with [configure_series](/Plugins/configure_series) to download all TV series user is planning to watch or currently watching, airing either now or in the future.
+This example shows use of `my_anime_list` together with <plugin:configure_series> to download all TV series user is planning to watch or currently watching, airing either now or in the future.
 
 ```yaml
 configure_series:

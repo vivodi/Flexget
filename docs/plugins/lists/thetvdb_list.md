@@ -3,7 +3,7 @@
 > This is part of [managed list](/Plugins/List) plugin system.
 {.is-success}
 
-This plugin is mainly used from the [configure_series](/Plugins/configure_series) plugin to automatically configure FlexGet to download all of your TVDB favorites. The plugin can work as input that returns entries for all the shows you have marked as favorites at [Member Favorites](https://www.thetvdb.com/member/favorites). If TheTVDB goes down, the last known list of favorites will be used until it comes back online. 
+This plugin is mainly used from the <plugin:configure_series> plugin to automatically configure FlexGet to download all of your TVDB favorites. The plugin can work as input that returns entries for all the shows you have marked as favorites at [Member Favorites](https://www.thetvdb.com/member/favorites). If TheTVDB goes down, the last known list of favorites will be used until it comes back online. 
 
 You can also add and remove shows from it, like any other managed list plugin.
 
@@ -31,7 +31,7 @@ thetvdb_list:
 
 ### Configure series plugin from thetvdb
 
-You can use any of the [settings](/Plugins/series#Settings) of the series plugin with the [configure_series](/Plugins/configure_series) plugin, as shown below.
+You can use any of the [settings](/Plugins/series#Settings) of the series plugin with the <plugin:configure_series> plugin, as shown below.
 
 ```yaml
 configure_series:
@@ -48,7 +48,7 @@ configure_series:
 
 ### Add to thetvdb from trakt
 
-You can add, remove or match according to your favorites list. Note that entries must contain `tvdb_id` to operate on the list, so adding a lookup plugin like [thetvdb_lookup](/Plugins/thetvdb_lookup) to the task may be required.
+You can add, remove or match according to your favorites list. Note that entries must contain `tvdb_id` to operate on the list, so adding a lookup plugin like <plugin:thetvdb_lookup> to the task may be required.
 
 This would import all series from trakt_list and add them to yout tvdb_list.
 

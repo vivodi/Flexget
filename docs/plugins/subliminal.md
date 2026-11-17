@@ -63,6 +63,6 @@ Omitting `providers` means all available providers will be used, which includes 
 
 ### Related
 
-- Consider making use of the [`variables` plugin](/Plugins/variables) to store the usernames and passwords outside of the main configuration file.
-- [periscope plugin](/Plugins/periscope)
-- Works well together with the [`filesystem` plugin](/Plugins/filesystem)
+- Consider making use of the <plugin:variables> plugin to store the usernames and passwords outside of the main configuration file.
+- <plugin:periscope> plugin
+- Works well together with the <plugin:filesystem> plugin

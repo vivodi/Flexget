@@ -25,4 +25,4 @@ Below is an example configuration that uses the html plugin as input and the exe
     - echo autoConfirm=TRUE >> "~/.flexget/folderwatch/{{title}}.crawljob"
     - echo autoStart=TRUE >> "~/.flexget/folderwatch/{{title}}.crawljob"
 ```
-In addition you will need to add a filtering plugin such as [list_match](/Plugins/List/list_match) or [series](/Plugins/series) to filter which content you actually want to download.
+In addition you will need to add a filtering plugin such as <plugin:list_match> or <plugin:series> to filter which content you actually want to download.

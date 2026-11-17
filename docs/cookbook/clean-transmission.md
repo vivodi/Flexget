@@ -32,10 +32,10 @@ The `--test` will ensure nothing is actually removed while you are testing, and 
 
 ## Plugins used:
 
-- [from_transmission](/Plugins/from_transmission) This creates an entry for each torrent currently loaded in transmission. It provides entry fields prefixed with `transmission_` with information about the loaded torrent.
-- [disable](/Plugins/disable) We disable seen plugins in this task since we want to consider every torrent loaded in transmission every time, no matter what has happened in other tasks or this task in the past.
-- [if](/Plugins/if) We use the if plugin to accept only the entries we want to remove from transmission.
-- [transmission](/Plugins/transmission) When the transmission plugin is used with the 'action' as remove, all accepted entries will be removed from transmission. The 'purge' action could be used instead to remove the torrent as well as the data from the drive.
+- <plugin:from_transmission> This creates an entry for each torrent currently loaded in transmission. It provides entry fields prefixed with `transmission_` with information about the loaded torrent.
+- <plugin:disable> We disable seen plugins in this task since we want to consider every torrent loaded in transmission every time, no matter what has happened in other tasks or this task in the past.
+- <plugin:if> We use the if plugin to accept only the entries we want to remove from transmission.
+- <plugin:transmission> When the transmission plugin is used with the 'action' as remove, all accepted entries will be removed from transmission. The 'purge' action could be used instead to remove the torrent as well as the data from the drive.
 
 ## Transitioning from clean_transmission
 Here is how you can emulate the old options for `clean_transmission` with this new system.

@@ -13,4 +13,4 @@ tasks:
     download: /path/to/torrents/
 ```
 
-Uses plugins:  [regexp](/Plugins/regexp),[download](/Plugins/download)
+Uses plugins:  <plugin:regexp>,<plugin:download>

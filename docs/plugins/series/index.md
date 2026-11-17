@@ -8,14 +8,14 @@ Intelligent filter for TV-series.
 ```
 
 ## Features
- * Episode history aware, no duplicate downloads - refer to [seen](/Plugins/seen) plugin page for more information
+ * Episode history aware, no duplicate downloads - refer to <plugin:seen> plugin page for more information
  * Plenty of [quality](quality) options
  * [Timeframe](timeframe), when used with sort_by plugin, selects the entry best matching the criteria in given timeframe
  * [Proper & Repack](propers) aware
  * Specials aware (grabs episodes with the series title and the word 'special')
- * Tries to ignore season packs (if not configured explicitly to get them), you can use [content_size](/Plugins/content_size) for extra insurance against them.
+ * Tries to ignore season packs (if not configured explicitly to get them), you can use <plugin:content_size> for extra insurance against them.
  * Supports double episodes. i.e. S01E01-E02
- * [Series searching support](/Cookbook/Series/Search) (via [discover](/Plugins/discover) and [next_series_episodes](/Plugins/next_series_episodes) plugins)
+ * [Series searching support](/Cookbook/Series/Search) (via <plugin:discover> and <plugin:next_series_episodes> plugins)
 
 **Simple configuration:**
 
@@ -33,7 +33,7 @@ So if we get same episode twice:
  * Some.Series.S2E10.720p.x264-FlexGet
  * Some.Series.S2E10.HR.x264-FooBar
 
-Only one of them is downloaded, with default configuration the first entry matching quality requirements is chosen. In this example we have no spesific requirements. To get the best quality within current execution you can sort qualities with [sort_by](/Plugins/sort_by) plugin.
+Only one of them is downloaded, with default configuration the first entry matching quality requirements is chosen. In this example we have no spesific requirements. To get the best quality within current execution you can sort qualities with <plugin:sort_by> plugin.
 
 ```
 sort_by:
@@ -67,7 +67,7 @@ The series plugin supports a number of settings to customize it's behavior. Thou
 | [propers](propers) | Configure how propers are handled. |
 | [qualities](qualities) | Download all listed qualities when they become available. |
 | [quality](quality) | Required quality. |
-| [set](set) | Use [set](/Plugins/set) plugin to set any fields for this series. |
+| [set](set) | Use <plugin:set> plugin to set any fields for this series. |
 | [special_ids](special_ids) | Defines other IDs which will cause entries to be flagged as specials. |
 | [specials](specials) | Turn off specials support for series. (on by default) |
 | [target](timeframe) | The target quality that should be downloaded without waiting for `timeframe` to complete. |
@@ -80,11 +80,11 @@ These plugins are complementary to the series plugin.
 
 | Name | Description |
 | --- | --- |
-| [all_series](/Plugins/all_series) | Grab all series in the task|
-| [configure_series](/Plugins/configure_series) | Automatically configures series by using another input, some examples: [thetvdb_favorites](/Plugins/thetvdb_favorites), [trakt_list](/Plugins/List/trakt_list) and [filesystem](/Plugins/filesystem).<br> With this you don't need to maintain series configuration in the configuration file.  |
-| [series_premiere](/Plugins/series_premiere) | Download all premieres| 
-| [next_series_episodes](/Plugins/next_series_episodes) | Emit next episodes for [discover](/Plugins/discover) | 
-| [next_series_seasons](/Plugins/next_series_seasons) | Emit next seasons for [discover](/Plugins/discover) | 
+| <plugin:all_series> | Grab all series in the task|
+| <plugin:configure_series> | Automatically configures series by using another input, some examples: <plugin:thetvdb_favorites>, <plugin:trakt_list> and <plugin:filesystem>.<br> With this you don't need to maintain series configuration in the configuration file.  |
+| <plugin:series_premiere> | Download all premieres| 
+| <plugin:next_series_episodes> | Emit next episodes for <plugin:discover> | 
+| <plugin:next_series_seasons> | Emit next seasons for <plugin:discover> | 
 
 
 ## Notes

@@ -15,4 +15,4 @@ tasks:
 
 Adding this template to series feeds will download all premieres except if their genres are documentary, talk show or game show. This works only if the series data is already in the thetvdb when premiere is seen, not entirely sure if this is the case.
 
-Uses plugins: [thetvdb_lookup](/Plugins/thetvdb_lookup), [require_field](/Plugins/require_field), [regepx](/Plugins/regexp),[series_premiere](/Plugins/series_premiere)
+Uses plugins: <plugin:thetvdb_lookup>, <plugin:require_field>, [regepx](/Plugins/regexp),<plugin:series_premiere>

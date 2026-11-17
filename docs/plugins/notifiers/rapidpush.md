@@ -18,7 +18,7 @@ You can now also use the channel feature, to send broadcast notifications to you
 |priority|numeric| Set message priority. Values between 0 and 6 are accepted.|
 
 #### Examples
-> Examples show a specifc scenario usage of the [notify](/Plugins/notify) plugin. See its wiki for a more detailed usage exaplantion.
+> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
 {.is-warning}
 
 ```yaml

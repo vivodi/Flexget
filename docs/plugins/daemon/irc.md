@@ -15,7 +15,7 @@ This plugin requires you to install [the `irc_bot` Python module](https://github
 $ pip install irc_bot
 ```
   
-* Run FlexGet in `daemon` mode. This means you may want to migrate your cron jobs to use the [scheduler plugin](/Plugins/Daemon/scheduler) instead.
+* Run FlexGet in `daemon` mode. This means you may want to migrate your cron jobs to use the <plugin:scheduler> plugin instead.
 
 ```console
 $ flexget daemon start --daemonize

@@ -8,7 +8,7 @@ pip install pyfilmweb==0.1.1.1
 
 This plugin creates an [entry](/Entry) for each item in an Filmweb watch list.
 
-This plugin is useful for example when used in a task with the [movie_list](/Plugins/List/movie_list) plugin  to add movies from your Filmweb watch list to your movie list.
+This plugin is useful for example when used in a task with the <plugin:movie_list> plugin  to add movies from your Filmweb watch list to your movie list.
 
 **Notes:**
 

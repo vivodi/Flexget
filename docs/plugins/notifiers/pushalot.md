@@ -12,7 +12,7 @@ This plugin provides the ability to send flexget notifications via the cross-pla
 | --- | ---| --- |---|
 | **api_key**| text| User's API key. Can also be a list. **Required**
 |device|text|Target a specific device. Can also be a list|
-|url|URL|Notification URL | Gets default from [notify](/Plugins/Notifiers/notify) plugin
+|url|URL|Notification URL | Gets default from <plugin:notify> plugin
 |url_title|text|Text to be displayed as URL title 
 |important|yes/no|Indicator whether the message should be visually marked as important within client app|`no`
 |silent|yes/no|If set to True will prevent sending toast notifications to connected devices, resulting in silent delivery|`no`
@@ -21,7 +21,7 @@ This plugin provides the ability to send flexget notifications via the cross-pla
 |timetolive|numeric|Time in minutes after which message automatically gets purged. Minimum is `0`, maxiumum is `43200`.
 
 #### Examples
-> Examples show a specifc scenario usage of the [notify](/Plugins/notify) plugin. See its wiki for a more detailed usage exaplantion.
+> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
 {.is-warning}
 
 ```yaml

@@ -9,7 +9,7 @@ FlexGet can be periodically executed from user crontab or via systemd. Another p
 
 ### Daemon Mode
 
-With FlexGet running in [daemon mode](/Daemon) you can use the [scheduler](/Plugins/Daemon/scheduler) plugin to define when your tasks should be run inside the configuration file.
+With FlexGet running in [daemon mode](/Daemon) you can use the <plugin:scheduler> plugin to define when your tasks should be run inside the configuration file.
 
 To start the daemon at system boot you could use following cronjob:
 

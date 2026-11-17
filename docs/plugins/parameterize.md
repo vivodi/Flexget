@@ -22,7 +22,7 @@ parameterize:
 ```
 
 ### Example
-This plugin can probably best be explained with an example. If you have a list of urls for rss feeds in a csv file, and want to use the [rss](/Plugins/rss) plugin to fetch all of those feeds, the parameterize plugin can accomplish that with the following.
+This plugin can probably best be explained with an example. If you have a list of urls for rss feeds in a csv file, and want to use the <plugin:rss> plugin to fetch all of those feeds, the parameterize plugin can accomplish that with the following.
 
 ```yaml
 parameterize:

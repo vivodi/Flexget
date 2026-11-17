@@ -2,12 +2,12 @@
 > This is part of [managed list](/Plugins/List) plugin system.
 {.is-success}
 
-> IMDb enforces captchas more often than not, which the plugin currently cannot handle. If login fails, please open an issue on [Github](https://www.github.com/Flexget/Flexget/issues). If you do not need to alter IMDb lists, you can use [imdb_watchlist](/Plugins/imdb_watchlist) instead.
+> IMDb enforces captchas more often than not, which the plugin currently cannot handle. If login fails, please open an issue on [Github](https://www.github.com/Flexget/Flexget/issues). If you do not need to alter IMDb lists, you can use <plugin:imdb_watchlist> instead.
 {.is-warning}
 
 Creates an [Entry](/Entry) for each item in an IMDb list.
 
-This plugin is useful for example when used in a task with the [movie_list](/Plugins/List/movie_list) plugin to add movies from your IMDb watchlist to your movie list, or to filter entries directly against the watchlist via [list_match](/Plugins/List/list_match) (see example below).
+This plugin is useful for example when used in a task with the <plugin:movie_list> plugin to add movies from your IMDb watchlist to your movie list, or to filter entries directly against the watchlist via <plugin:list_match> (see example below).
 
 **Notes:** 
 
@@ -41,7 +41,7 @@ imdb_list:
   list: watchlist
 ```
 
-**Set Cookie with [variables](/Plugins/variables):**
+**Set Cookie with <plugin:variables>:**
 
 variables.yaml:
 

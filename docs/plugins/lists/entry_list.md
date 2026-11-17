@@ -36,12 +36,12 @@ task:
           email: ...
 ```
 
-First task `get-movies` will add all accepted entries to an `entry_list` with the name `downloaded movies`. It then later be used as an input itself in a `email-report` task. Effectively this can replace the [digest](/Plugins/digest) plugin.
+First task `get-movies` will add all accepted entries to an `entry_list` with the name `downloaded movies`. It then later be used as an input itself in a `email-report` task. Effectively this can replace the <plugin:digest> plugin.
 
 
 ### Search in entry list:
 
-You can use `entry_list` as a [search](/Searches) plugin to use with [discover](/Plugins/discover):
+You can use `entry_list` as a [search](/Searches) plugin to use with <plugin:discover>:
 
 ```yaml
 tasks:

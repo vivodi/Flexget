@@ -1,7 +1,7 @@
 # EZTV
 Gets entries from the EZTV website
 
-It's highly recommended to pair this with the [`limit` plugin](/Plugins/limit) otherwise it can take a long time to make the 15 calls to fetch 1500 entries
+It's highly recommended to pair this with the <plugin:limit> plugin otherwise it can take a long time to make the 15 calls to fetch 1500 entries
 
 ## As an Input
 Will get the most recent entries from the website.
@@ -17,7 +17,7 @@ my-task:
 ```
 
 ## As a Search
-It also works with the [`discover` plugin](/Plugins/discover), however your entries **must have** the `imdb_id` field since it's the only search allowed.
+It also works with the <plugin:discover> plugin, however your entries **must have** the `imdb_id` field since it's the only search allowed.
 
 For example the simple form:
 

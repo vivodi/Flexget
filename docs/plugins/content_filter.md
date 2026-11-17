@@ -3,7 +3,7 @@ This allows filtering based on the filenames inside of torrents.
 > This plugin does not accept entries on its own, only rejects already accepted entries that do not pass your requirements. You'll need another [filter plugin](/Plugins#Filters) in the task to accept the entries you want.
 {.is-info}
 
-> `content_filter` doesn't work with magnet links, as it works by analyzing the file list present in the .torrent file. You can include the [magnets](/Plugins/magnets) plugin to reject any magnet entries.
+> `content_filter` doesn't work with magnet links, as it works by analyzing the file list present in the .torrent file. You can include the <plugin:magnets> plugin to reject any magnet entries.
 {.is-warning} 
  
  | Field | Default | Description |
@@ -52,7 +52,7 @@ content_filter:
 content_filter:
   require_mainfile: yes
 ```
-- Reject torrent if none of its files match any of the entries in a previously populated [`regexp_list`](/Plugins/List/regexp_list)
+- Reject torrent if none of its files match any of the entries in a previously populated <plugin:regexp_list>
 ```
 content_filter:
   regexp_mode: yes

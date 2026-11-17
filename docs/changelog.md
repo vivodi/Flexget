@@ -1304,7 +1304,7 @@ This changelog can be updated manually, but is also automatically updated based 
 ## 3.11.20 (2024-03-06)
 [all commits](https://github.com/Flexget/Flexget/compare/v3.11.19...v3.11.20)
 ### Changed
-- [EZTV](/Plugins/eztv): Support usage as a search and input plugin ([#3943](https://github.com/Flexget/Flexget/issues/3943))
+- <plugin:eztv>: Support usage as a search and input plugin ([#3943](https://github.com/Flexget/Flexget/issues/3943))
 
 ### Removed
 - RARBG - closed their portal
@@ -2451,7 +2451,7 @@ This changelog can be updated manually, but is also automatically updated based 
 - transmission: Restore compatibility with latest transmission-rpc release. fix [#3084](https://github.com/Flexget/Flexget/issues/3084)
 
 ### Changed
-- [`series_remove`](/Plugins/series_remove):
+- <plugin:series_remove>:
   - Episode identifier is now optional
   - Optional `forget` parameter to remove from entire database (including `seen` plugin)
   - [Documented](/Plugins/series_remove)
@@ -4924,7 +4924,7 @@ Many deluge/transmission option names were also tweaked. See [UpgradeActions](/U
 [all commits](https://github.com/Flexget/Flexget/compare/2.10.92...2.10.93)
 ### Added
 
-- Added [pending_list](/Plugins/List/pending_list) plugin
+- Added <plugin:pending_list> plugin
 
 ## 2.10.92 (2017-09-16)
 [all commits](https://github.com/Flexget/Flexget/compare/2.10.91...2.10.92)
@@ -6000,7 +6000,7 @@ strings
 ## 2.6.3 (2016-11-23)
 [all commits](https://github.com/Flexget/Flexget/compare/2.6.2...2.6.3)
 ### Added
-- [pending_approval](/Plugins/pending_approval) - Pending approval plugin, CLI & API
+- <plugin:pending_approval> - Pending approval plugin, CLI & API
 
 
 ## 2.6.2 (2016-11-22)
@@ -6022,8 +6022,8 @@ strings
 - imdb_watchlist - Readded new/old `imdb_watchlist`
 
 ### Changed
-- [move](/Plugins/move)/[copy](/Plugins/copy) plugins: 
-  - Changed option `filename` to `rename` since it caused issues with [filesystem](/Plugins/filesystem) plugin.
+- <plugin:move>/<plugin:copy> plugins: 
+  - Changed option `filename` to `rename` since it caused issues with <plugin:filesystem> plugin.
   - jinja2 replacement render issues will not abort task and not fallback to default.
 - Daemon:
   - `flexget daemon reload` has been renamed to `flexget daemon reload-config` to avoid confusion.
@@ -6642,7 +6642,7 @@ strings
 - CLI command `flexget trakt show` has been renamed to `flexget trakt list`
 - discover `release_estimations` now defaults to `strict` meaning anything with no release date or one that lies in the future will not be included in the search
 - discover will now keep searching for new episodes until it fails to find any (maximum 100 runs). Can be set to the old behaviour with `max_reruns` plugin.
-- [Aria2](/Plugins/aria2) is drastically simplified and many features are removed.
+- <plugin:aria2> is drastically simplified and many features are removed.
 
 ### Removed
 - Removed `movie_queue` and all related plugins.

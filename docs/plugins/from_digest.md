@@ -1,5 +1,5 @@
 # From Digest
-This plugin outputs entries which have been collected by the [digest](/Plugins/digest) plugin. See [that](/Plugins/digest) wiki page for more usage examples.
+This plugin outputs entries which have been collected by the <plugin:digest> plugin. See [that](/Plugins/digest) wiki page for more usage examples.
 
 
 ## Configuration

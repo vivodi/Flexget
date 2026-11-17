@@ -1,5 +1,5 @@
 ## `archive`
-Search and manipulate the [`archive` plugin](/Plugins/archive) database.
+Search and manipulate the <plugin:archive> plugin database.
 
 ### Sub-commands
 | Sub-command | Option | Description |

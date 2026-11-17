@@ -59,7 +59,7 @@ This line defining the task name (`test-task`) also ends with a colon, which mea
 
 The contents of an individual task are always [plugins](/Plugins). There are three main types of plugins we normally want in a task, an [input](/Plugins#inputs) (where do you want FlexGet to look for things?), a [filter](/Plugins#filter) (which of those things do you want?), and an [output](/Plugins#output) (what do you want FlexGet to do with those things?).
 
-Let's start by adding an input plugin to our task, `test-task`. In this case we will use the [rss](/Plugins/rss) plugin as our input. The indentation of rss is increased and means that it belongs to the `test-task`.
+Let's start by adding an input plugin to our task, `test-task`. In this case we will use the <plugin:rss> plugin as our input. The indentation of rss is increased and means that it belongs to the `test-task`.
 ```yaml
 tasks:
   test-task:
@@ -79,7 +79,7 @@ tasks:
 
 Our input plugin will create an entry for every item that comes into the RSS feed, but we still need to tell FlexGet which of those items we want.
 
-We do this with a [filter](/Plugins#filter) plugin. One of the most common is the [`series`](/Plugins/series) plugin, so we will configure that here. This plugin will belong to our `test-task` so we remain at the same indentation level, two more spaces than `test-task`.
+We do this with a [filter](/Plugins#filter) plugin. One of the most common is the <plugin:series> plugin, so we will configure that here. This plugin will belong to our `test-task` so we remain at the same indentation level, two more spaces than `test-task`.
 
 ```yaml
 tasks:
@@ -88,7 +88,7 @@ tasks:
     series:
 ```
 
-Now we must consult the [`series`](/Plugins/series) wiki page to determine how to configure the series plugin. There are two formats the series plugin configuration can take; we will stick with the simple one in this tutorial. (Eventually, you may want to switch to the [grouped format](/Plugins/series/per-group-settings).)
+Now we must consult the <plugin:series> wiki page to determine how to configure the series plugin. There are two formats the series plugin configuration can take; we will stick with the simple one in this tutorial. (Eventually, you may want to switch to the [grouped format](/Plugins/series/per-group-settings).)
 
 In the simple format, the series plugin just takes a list of the series you want. Since our last line ended with a colon, we go to the next line with two more spaces. Each item in our list will be at this same indentation level, and start with `- ` (dash followed by a space), as such:
 
@@ -124,7 +124,7 @@ tasks:
 ```
 Now that we have an input and a filter plugin, we need to tell FlexGet what we want to do with the entries that are accepted by our filter. We do this with an [output plugin](/Plugins#output).
 
-One common output plugin is the [`download`](/Plugins/download) plugin, which we could use to save our items to a {term}`watch directory` for a bittorrent or nzb client. (If you are using [`deluge`](/Plugins/deluge) or [`transmission`](/Plugins/transmission) you may want to consider using its dedicated output plugin instead.)
+One common output plugin is the <plugin:download> plugin, which we could use to save our items to a {term}`watch directory` for a bittorrent or nzb client. (If you are using <plugin:deluge> or <plugin:transmission> you may want to consider using its dedicated output plugin instead.)
 
 ```yaml
 tasks:
@@ -139,7 +139,7 @@ tasks:
 
 Note in the above example, this is the first time we have unindented (moved the text back towards the left side of the screen). Since `download` is a plugin of its own and it doesn't belong to `series`, but rather to our `test-task`, it's moved back to line up with `series` and `rss`.
 
-The [`download`](/Plugins/download) plugin also has a simple configuration option, in which we just define the path where we would like FlexGet to save our content.
+The <plugin:download> plugin also has a simple configuration option, in which we just define the path where we would like FlexGet to save our content.
 
 ```yaml
 tasks:
@@ -162,8 +162,8 @@ Remember to consult the [plugins](/Plugins) wiki page to choose your plugins, an
 
 ## Common misconceptions
  * Plugin order doesn't matter. You can list them in any order you like. The most logical order would be `inputs` > `filters` > `outputs`.
- * Task order doesn't matter. Tasks are executed in a seemingly random order. Use the  [`priority` plugin](/Plugins/priority) to prioritize tasks when necessary.
- * With very few exceptions, you cannot use plugins more than once in a single task. This limitation was chosen because it allows simpler syntax in the configuration file. Some plugins such as [`sequence` plugin](/Plugins/sequence) and [`inputs` plugin](/Plugins/inputs) can be used to overcome this when neccessary.
+ * Task order doesn't matter. Tasks are executed in a seemingly random order. Use the  <plugin:priority> plugin to prioritize tasks when necessary.
+ * With very few exceptions, you cannot use plugins more than once in a single task. This limitation was chosen because it allows simpler syntax in the configuration file. Some plugins such as <plugin:sequence> plugin and <plugin:inputs> plugin can be used to overcome this when neccessary.
 
 ## Tips
 ### Task Naming

@@ -2,7 +2,7 @@
 >This plugin has been reported as incompatible with [PlexHome](https://blog.plex.tv/2014/11/20/introducing-plex-home/)
 {.is-warning}
 
-Produces an entry for each show present in a  [Plex Media Server](http://www.plexapp.com) TV section. Can be used with [configure_series](/Plugins/configure_series) plugin or an output plugin.
+Produces an entry for each show present in a  [Plex Media Server](http://www.plexapp.com) TV section. Can be used with <plugin:configure_series> plugin or an output plugin.
 
 ## Configuration
 Available configuration parameters:

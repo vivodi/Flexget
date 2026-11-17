@@ -1,5 +1,5 @@
 # SFTP List
-Generate entries from SFTP to download with [sftp_download](/Plugins/sftp_download). This plugin requires the pysftp Python module and its dependencies.
+Generate entries from SFTP to download with <plugin:sftp_download>. This plugin requires the pysftp Python module and its dependencies.
 
 ## Prerequisites
 - The `sftp` extra provided by FlexGet is installed.

@@ -74,7 +74,7 @@ from_emby: Creates entries from emby's watched list, favorites, libraries or pla
 from_imdb: Produce entries based on an IMDB person, company or character  
 from_piratebay: Produce entries based on piratebay api.
 kitsu: Produce Entries based on your  [Kitsu.io](http://kitsu.io) libraries. 
-lists/imdb_list: Use movies in your IMDb list as an input (eg. watchlist, rating history). [Managed List](/Plugins/List).<br> **Note:** This plugin does not currently work, look into [`imdb_watchlist`](/Plugins/imdb_watchlist) 
+lists/imdb_list: Use movies in your IMDb list as an input (eg. watchlist, rating history). [Managed List](/Plugins/List).<br> **Note:** This plugin does not currently work, look into <plugin:imdb_watchlist> 
 filmweb_watchlist: Use your Filmweb watchlist as an input
 imdb_watchlist: Use you IMDB watchlist as an input
 letterboxd: Create entries for movies on any public [Letterboxd](http://letterboxd.com) list 
@@ -117,11 +117,11 @@ Input plugins that will generate entries based on preexisting data in FlexGet.
 ```{toctable}
 configure_series: Configures the series plugin with all the shows given by any input plugin (eg. filesystem, rss).  
 discover: Produce entries from search results. 
-from_digest: Outputs entries which have been collected by the [digest](/Plugins/digest) plugin. 
+from_digest: Outputs entries which have been collected by the <plugin:digest> plugin. 
 from_task: Runs another task and outputs accepted entries from that task. 
 mock: Generates simulated entries from predefined titles and fields to debug and test task pipelines without fetching external sources.
-next_series_episodes: Emits the next episode needed for each series configured in the series plugin. Useful for example with [discover](/Plugins/discover). 
-next_series_seasons: Emits the next season needed for each series configured in the series plugin. Useful for example with [discover](/Plugins/discover). 
+next_series_episodes: Emits the next episode needed for each series configured in the series plugin. Useful for example with <plugin:discover>. 
+next_series_seasons: Emits the next season needed for each series configured in the series plugin. Useful for example with <plugin:discover>. 
 inputs: Configure the same input plugin multiple times in one task. 
 lists/entry_list: Use or add entries to a custom made entry list. [Managed List](/Plugins/List) 
 lists/movie_list: Use or add entries to a custom made movie list. [Managed List](/Plugins/List) 
@@ -244,7 +244,7 @@ First, configure what notifications should be sent for a given task:
 notify: Configure what notifications should be sent for a given task.
 ```
 
-Then, choose one or more of the following notifier plugins in the `via` configuration option of the [notify](/Plugins/notify) plugin to deliver the messages:
+Then, choose one or more of the following notifier plugins in the `via` configuration option of the <plugin:notify> plugin to deliver the messages:
 
 ```{toctable}
 notifiers/bark: Send a [Bark](https://github.com/Finb/Bark/blob/master/README.en.md) notification 
@@ -296,7 +296,7 @@ decompress: Extract Zip and RAR files.
 delete: Delete local files. 
 download: Download passed entries into given path. 
 exec: Executes commands on entries. 
-ftp_download: Download entries retrieved from [ftp_list](/Plugins/ftp_list) 
+ftp_download: Download entries retrieved from <plugin:ftp_list> 
 move: Move local files. 
 sftp_download: Download files from an SFTP server 
 sftp_upload: Upload files to an SFTP server 
@@ -494,7 +494,7 @@ Want to create or convert an existing plugin to a managed list plugin? See [deve
 
 ## Search
 
-FlexGet provides framework for querying searches from supported sites. These cannot be used directly in a task, but can be used with the [urlrewrite_search](/Plugins/urlrewrite_search) & [discover](/Plugins/discover) plugins where they act like options for their parent plugins. This section lists these options and gives a brief description of their function.
+FlexGet provides framework for querying searches from supported sites. These cannot be used directly in a task, but can be used with the <plugin:urlrewrite_search> & <plugin:discover> plugins where they act like options for their parent plugins. This section lists these options and gives a brief description of their function.
 
 :::{warning}
 This list is very possibly out of date, it is maintained infrequently.

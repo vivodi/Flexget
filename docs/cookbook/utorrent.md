@@ -5,7 +5,7 @@
 </h1>
 
 
-  This recipe should not be needed now that there is a native [utorrent](/Plugins/utorrent) plugin.
+  This recipe should not be needed now that there is a native <plugin:utorrent> plugin.
 
 This is an example how to use uTorrent with flexget and take advantage of dynamic folders at Windows 7. This is not necessary the right and definitive way to configure uTorrent, but it's a working example. Guide assumes torrents are fetched via RSS and user wants to do RSS fetching periodically without need for manual downloading.
 

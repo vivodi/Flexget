@@ -1,5 +1,5 @@
 ## `series`
-View and manage the [`series` plugin](/Plugins/series) database.
+View and manage the <plugin:series> plugin database.
 
 ### Sub-commands
 | Sub-command                                                           | Option | Description/Example|
@@ -24,7 +24,7 @@ View and manage the [`series` plugin](/Plugins/series) database.
 | `begin`                                                               || Set the episode to start getting a series from (use `forget` to remove it) |
 || `<series name>`                                                       | Name of the series |
 || `<episode_id>`                                                        | Episode or season ID to start getting the series from (e.g. S02E01, 2013-12-11, or 9, depending on how the series is numbered, or S02 for season)|
-| `forget`                                                              || Removes episodes, seasons, or a whole series from the entire database (including [`seen`](/Plugins/seen) plugin) |
+| `forget`                                                              || Removes episodes, seasons, or a whole series from the entire database (including <plugin:seen> plugin) |
 || `<series name>`                                                       | Name of the series |
 || `<episode_id> [<episode_id> ...]`<br>`<season_id> [<season_id> ...]`  | Episode or season ID(s) to forget (optional)|
 | `remove`                                                              || Removes episodes, seasons, or a whole series from the series database only |

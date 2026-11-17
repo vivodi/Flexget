@@ -17,4 +17,4 @@ series:
  * [Group] Series
  * Series XviD-Group
 
-To disallow certain groups use [regexp](/Plugins/regexp) plugin to reject them.
+To disallow certain groups use <plugin:regexp> plugin to reject them.

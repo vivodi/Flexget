@@ -31,7 +31,7 @@ Tags are what you'd expect from defining a typical genre that you wish to get en
 Normally, you'd just want to use `all_tags: yes`
 
 ## Usage
-Say you want to perform a search on mtv using your [input](/Plugins) entries, and the entries are all TV shows. You can do that using the [discover](/Plugins/discover) plugin.
+Say you want to perform a search on mtv using your [input](/Plugins) entries, and the entries are all TV shows. You can do that using the <plugin:discover> plugin.
 
 ```
 discover:

@@ -2,7 +2,7 @@
 
 Adds series metainfo fields to entries.
 
-__```NOTE```__ This does not need to be used (and may cause problems) in a task if you are already using any of the series filtering plugins, ([series](/Plugins/series), [configure_series](/Plugins/configure_series), [all_series](/Plugins/all_series) or [series_premiere](/Plugins/series_premiere).) They already provide this information.
+__```NOTE```__ This does not need to be used (and may cause problems) in a task if you are already using any of the series filtering plugins, (<plugin:series>, <plugin:configure_series>, <plugin:all_series> or <plugin:series_premiere>.) They already provide this information.
 
 ### Syntax
 

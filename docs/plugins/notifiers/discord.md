@@ -14,7 +14,7 @@ This plugin is used to send notification to a discord server using the [webhook]
 |embeds|array|[embeded](https://discordapp.com/developers/docs/resources/channel#embed-object) content
 
 ## Examples
-> Examples show a specifc scenario usage of the [notify](/Plugins/notify) plugin. See its wiki for a more detailed usage exaplantion.
+> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
 {.is-warning}
 
 The following configuration send a webhook message to a discord server containing embeds object. Refer to [Embed object documentation](https://discordapp.com/developers/docs/resources/channel#embed-object) for more information on how to use them.

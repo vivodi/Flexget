@@ -18,7 +18,7 @@ rss:
   password: <password>
 ```
 
-Some feeds are private and require that you use some form of authentication, try [headers](/Plugins/headers) or  [cookies](/Plugins/cookies) plugins.
+Some feeds are private and require that you use some form of authentication, try <plugin:headers> or  <plugin:cookies> plugins.
 
 ### Read from a file
 You can also use local file instead of url.
@@ -36,7 +36,7 @@ There are more advanced options that can be used with the rss plugin if you need
 ### All Entries
 By default this plugin outputs each entry from the rss on every run. If you would like to improve the performance of a task using this plugin, you can set `all_entries: no` to have each entry only created on the first run it is seen.
 
-**Note:** Due to this behavior, the [only_new](/Plugins/only_new) plugin is not needed along with this input, and in fact should not be used, as it is less efficient.
+**Note:** Due to this behavior, the <plugin:only_new> plugin is not needed along with this input, and in fact should not be used, as it is less efficient.
 ```YAML
 rss:
   url: http://example.com

@@ -1,6 +1,6 @@
 ## FTP List
 
-Generate entries from a remote FTP server. Entries can be downloaded via [ftp_download](/Plugins/ftp_download) plugin or by passing it to other output plugins. See examples for details.
+Generate entries from a remote FTP server. Entries can be downloaded via <plugin:ftp_download> plugin or by passing it to other output plugins. See examples for details.
 
 ### Prerequisites
 - The `ftp` extra provided by FlexGet is installed.

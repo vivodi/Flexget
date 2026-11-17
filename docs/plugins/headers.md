@@ -3,7 +3,7 @@ Allows editing request headers. This will affect most of the plugins in a task (
 
 **Example: cookies**
 
-Check out [cookies](/Plugins/cookies) plugin as well.
+Check out <plugin:cookies> plugin as well.
 
 To use feeds that require login, setting cookie is usually required. You will need to extract the cookie for site and grab details from it (often uid, pass).
 

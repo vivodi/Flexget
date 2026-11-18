@@ -1,4 +1,4 @@
-> This plugin is part of [search](/Plugins/Searches) plugin system
+> This plugin is part of [search](/plugins/index.md#search) plugin system
 {.is-success}
 
 >As cpasbien switched to cloudflare, some tweaks are required

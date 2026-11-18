@@ -43,7 +43,7 @@ Will try to populate the following fields for its entries:
 
 ## Examples
 ### Add to list
-This example adds a user's `anilist` entries using all the default values to a custom [entry-list](/Plugins/List/entry_list) for further processing by other tasks.
+This example adds a user's `anilist` entries using all the default values to a custom [entry-list](plugin:entry_list) for further processing by other tasks.
 ```yaml
 anilist: <<username>>
 list_add:

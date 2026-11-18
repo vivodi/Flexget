@@ -1,5 +1,5 @@
 ## `rejected`
-List or clear [remembered rejections](/Plugins/remember_rejected).
+List or clear [remembered rejections](plugin:remember_rejected).
 
 ### Sub-commands
 | Sub-command | option | description |

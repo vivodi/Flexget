@@ -12,21 +12,21 @@ The plugin doesn't search for titles, only existing ID fields on the entry so at
 ### Populated fields
 | Field | Source | Searchable | Unique |
 | --- | --- | --- | --- |
-| `anidb_id` | [AniDB](/Plugins/anidb_list) | ✔ | ✔ |
+| `anidb_id` | [AniDB](plugin:anidb_list) | ✔ | ✔ |
 | `al_id` | <plugin:anilist> | ✔ | ✔ |
-| `mal_id` | [MyAnimeList](/Plugins/my_anime_list) | ✔ | ✔ |
+| `mal_id` | [MyAnimeList](plugin:my_anime_list) | ✔ | ✔ |
 | `animecountdown_id` | [Anime Countdown](https://animecountdown.com) | ✔ | ✔ |
 | `ann_id` | [Anime News Network](https://www.animenewsnetwork.com) | ✔ | ✔ |
 | `animeplanet_id` | [Anime Planet](https://anime-planet.com) | ✔ | ✔ |
 | `anisearch_id` | [aniSearch](http://anisearch.com) | ✔ | ✔ |
-| `imdb_id` | [IMDB](/Plugins/imdb_lookup) | ✔ | ❌ |
+| `imdb_id` | [IMDB](plugin:imdb_lookup) | ✔ | ❌ |
 | `kitsu_id` | <plugin:kitsu> (Can be extracted from the plugin's `url` field) | ✔ | ✔ |
 | `livechart_id` | [LiveChart](https://www.livechart.me) | ✔ | ✔ |
 | `simkl_id` | [SIMKL](https://simkl.com) | ✔ | ✔ |
-| `tmdb_id` | [TMDB](/Plugins/tmdb_lookup) | ✔ | ❌ |
+| `tmdb_id` | [TMDB](plugin:tmdb_lookup) | ✔ | ❌ |
 | `tmdb_offset` | Episode offset in relation to AniDB. <br> For cases where TMDB merges seasons/cours into a single season | ❌ | ❌ |
 | `tmdb_season` | TMDB season in relation to AniDB | ❌ | ❌ |
-| `tvdb_id` | [TVDB](/Plugins/thetvdb_lookup) | ✔ | ❌ |
+| `tvdb_id` | [TVDB](plugin:thetvdb_lookup) | ✔ | ❌ |
 | `tvdb_offset` | Episode offset in relation to AniDB. <br> For cases where TVDB merges seasons/cours into a single season | ❌ | ❌ |
 | `tvdb_season` | TVDB season in relation to AniDB | ❌ | ❌ |
 

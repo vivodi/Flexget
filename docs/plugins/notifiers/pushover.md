@@ -1,5 +1,5 @@
 # Pushover
-> Pushover is a part of the [notifier](/Plugins/Notifiers) plugin system.
+> Pushover is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
 {.is-success}
 
 

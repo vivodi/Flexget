@@ -1,5 +1,5 @@
 ## `entry-list`
-View and manage [entry lists](/Plugins/List/entry_list).
+View and manage [entry lists](plugin:entry_list).
 
 ### Sub-commands
 | Sub-command | Option | Description |

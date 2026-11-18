@@ -1,5 +1,5 @@
 # IPTorrents
-> This plugin is part of [search](/Plugins/Searches) plugin system.
+> This plugin is part of [search](/plugins/index.md#search) plugin system.
 {.is-success}
 
 This search plugin will get results from [http://iptorrents.com](http://iptorrents.com).

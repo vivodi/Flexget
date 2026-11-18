@@ -1,6 +1,6 @@
 # Email
 
-> Email is a part of the [notifier](/Plugins/Notifiers) plugin system.
+> Email is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
 {.is-success}
 
 The email plugin can be used to notify you of task results and/or failures. There are two built in templates, or you can make your own template using the Jinja2 templating language.

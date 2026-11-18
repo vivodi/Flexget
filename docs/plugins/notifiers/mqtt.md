@@ -1,5 +1,5 @@
 # mqtt
-> MQTT is a part of the [notifier](/Plugins/Notifiers) plugin system.
+> MQTT is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
 {.is-success}
 
 ## Configuration

@@ -28,7 +28,7 @@ The `hearing_impaired` option has been replaced by `subtitle_categories`. `subti
 Configuration option `website` was renamed to `url` to be inline with other plugins.
 
 ### **3.18.0** - 2025-08-27
-#### [Emby lookup](/Plugins/emby_lookup)
+#### [Emby lookup](plugin:emby_lookup)
 All series fields have been renamed:
 |old name|new name|
 |---|---|
@@ -272,8 +272,8 @@ In addition, single mode will now ignore existing subtitles if the languages do 
 
 ### **2.9.0** -- 2017.01.10
 #### Notifications:
-* [Notification system](/Plugins/Notifiers) has been changed once more. Hopefully we worked most of the kinks out of the new system with this one.
-- Backwards compatibility with old system has been taken out; it wasn't working quite properly anyway. You cannot use the [individual notifiers](/Plugins/Notifiers#notifiers) at task level anymore. You must use the <plugin:notify> plugin, which is also where message content is now configured. 
+* [Notification system](/plugins/index.md#notifier-services-output) has been changed once more. Hopefully we worked most of the kinks out of the new system with this one.
+- Backwards compatibility with old system has been taken out; it wasn't working quite properly anyway. You cannot use the individual notifiers at task level anymore. You must use the <plugin:notify> plugin, which is also where message content is now configured. 
 - `notify_task`, `notify_entries`, `notify_abort`:
   - plugins removed and combined back into <plugin:notify> plugin, with subkeys `task`, `entries`, and `abort` subkeys
 - `to` option:

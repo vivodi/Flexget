@@ -1,5 +1,5 @@
 # BTN
-> This plugin is part of [search](/Plugins/Searches) plugin system
+> This plugin is part of [search](/plugins/index.md#search) plugin system
 {.is-success}
 
 This search plugin will get series episode results from torrent site BTN. There is a limit of 150 api calls per hour, so make sure you do not schedule tasks using this to run too often.

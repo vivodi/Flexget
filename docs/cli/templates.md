@@ -1,5 +1,5 @@
 ## `templates`
-View file templates to be used with [notifer](/Plugins/Notifiers) plugins.
+View file templates to be used with [notifer](/plugins/index.md#notifier-services-output) plugins.
 
 ### Optional arguments
 |  Argument | Description |

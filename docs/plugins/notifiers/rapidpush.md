@@ -1,5 +1,5 @@
 # RapidPush
-> RapidPush is a part of the [notifier](/Plugins/Notifiers) plugin system.
+> RapidPush is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
 {.is-success}
 
 RapidPush is an easy-to-use push notification service for Android devices.  

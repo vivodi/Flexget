@@ -1,6 +1,6 @@
 # SMS RU
 
-> SMS RU can be is a part of the [notifier](/Plugins/Notifiers) plugin system.
+> SMS RU can be is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
 {.is-success}
 
 This plugin provides the ability to send flexget notifications via the cross-platform notification system called [SMS RU](http://sms.ru/).

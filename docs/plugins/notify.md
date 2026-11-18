@@ -1,5 +1,5 @@
 # Notify
-This plugin can be used to send messages about different events during task execution. These messages can be delivered by one (or more) of the [notification delivery plugins](/Plugins/Notifiers). There are 3 main categories of message this plugin can send:
+This plugin can be used to send messages about different events during task execution. These messages can be delivered by one (or more) of the [notification delivery plugins](/plugins/index.md#notifier-services-output). There are 3 main categories of message this plugin can send:
 
 - **Entries**
 
@@ -41,4 +41,4 @@ notify:
 
 **Note:** Any templates referenced in the configuration must be stored in a `templates` folder within your configuration directory.
 
-See [notification delivery plugins](/Plugins/Notifiers) for specific usage.
+See [notification delivery plugins](/plugins/index.md#notifier-services-output) for specific usage.

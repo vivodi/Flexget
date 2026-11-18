@@ -1,5 +1,5 @@
 # `pending-list`
-View and manage [pending lists](/Plugins/List/pending_list).
+View and manage [pending lists](plugin:pending_list).
 
 ## Sub-commands
 | Sub-command | Option | Description |

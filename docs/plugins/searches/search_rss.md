@@ -1,5 +1,5 @@
 # Search_rss
-> This plugin is part of [search](/Plugins/Searches) plugin system
+> This plugin is part of [search](/plugins/index.md#search) plugin system
 {.is-success}
 
 Many website allow the generation of rss feeds based on a query. This plugin takes advantage of this can generate rss feeds that contain the result of a query.

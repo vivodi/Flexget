@@ -1,6 +1,6 @@
 # Guide
 
-This guide is an overview and explains the important features; plugin details are found in [plugin reference](/plugins/index).
+This guide is an overview and explains the important features; plugin details are found in [plugin reference](plugin:index).
 
 ```{toctree}
 :caption: Getting started

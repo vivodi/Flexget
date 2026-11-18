@@ -1,5 +1,5 @@
 ## `movie-list`
-View and manage [movie lists](/Plugins/List/movie_list).
+View and manage [movie lists](plugin:movie_list).
 
 ### Sub-commands
 | Sub-command | Option | Description |

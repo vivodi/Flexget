@@ -1,6 +1,6 @@
 # aRGENTeaM
 
-> This plugin is part of [search](/Plugins/Searches) plugin system
+> This plugin is part of [search](/plugins/index.md#search) plugin system
 {.is-success}
 
 Retrieves results from [www.argenteam.net](http://www.argenteam.net/), latin american (Argentina) web.

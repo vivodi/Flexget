@@ -1,5 +1,5 @@
 # Discord
-> Discord is a part of the [notifier](/Plugins/Notifiers) plugin system.
+> Discord is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
 {.is-success}
 
 This plugin is used to send notification to a discord server using the [webhook](https://discordapp.com/developers/docs/resources/webhook#execute-webhook) functionnality.

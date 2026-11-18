@@ -1,5 +1,5 @@
 # Movie List
-> This is part of managed <plugin:list> plugin system.
+> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
 {.is-success}
 
 > To improve matching, make sure you have a lookup plugin enabled, eg. <plugin:imdb_lookup>.
@@ -25,10 +25,10 @@ movie_list:
 
 ### Matching
 When using `movie_list` with a filter like <plugin:list_match> for example, the identifiers take precedence in matching over title, meaning that if the movie has an identifier (eg. _imdb_id_) and an entry with that same identifier type and value is examined, that movie will be matched. Thus it's preferable to use a lookup plugin in the task, preferably, the same one(s) that was used to add movie to the list.
-If matching by identifiers fail, then title is [parsed](/Plugins/parsing) and proceeded to try to match by `movie_name` and `movie_year` fields.
+If matching by identifiers fail, then title is [parsed](plugin:parsing) and proceeded to try to match by `movie_name` and `movie_year` fields.
 
 ## Usage
-As a managed <plugin:list> plugin it follows the same list actions, an quick example how to add entries into the list.
+As a [managed list](/plugins/index.md#managed-list) plugin it follows the same list actions, an quick example how to add entries into the list.
 
 ```yaml
 # inputs

@@ -1,5 +1,5 @@
 # Prowl
-> Prowl is part of the [notifier](/Plugins/Notifiers) plugin system.
+> Prowl is part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
 {.is-success}
 
 Send messages to your iPhone using [Prowl](http://prowlapp.com).

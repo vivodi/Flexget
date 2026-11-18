@@ -43,7 +43,7 @@ For further help with YAML and indenting, see [configuration](/Configuration).
 Produce **[entries](/Entry)** from external source.  
 Most requests are cached so there is no penalty for using the same RSS URL multiple times in the configuration, for example.
 
-**Note:** If you are looking for torrent search plugins, refer to [Search Plugins](/Plugins/Searches).
+**Note:** If you are looking for torrent search plugins, refer to [Search Plugins](/plugins/index.md#search).
 
 ### Raw Input
 Input plugins that directly parse data from a source based on its type.
@@ -567,4 +567,4 @@ third-party-plugins
 
 Plugins can be installed by simply placing them in a `plugins` folder alongside your configuration file. (This would usually be `~/.flexget/plugins/`, however it may be different if your config is in a different [location](/guide/configuration/index#location).) It is also possible to package plugins in a separate Python package like [FlexGet extras](https://github.com/Flexget/extras).
 
-There is a list of [third-party and extra plugins](/Plugins/ThirdPartyExtras) available, which are plugins that are not common, actively maintained or are otherwise unsuitable for main distribution.
+There is a list of [third-party and extra plugins](third-party-plugins) available, which are plugins that are not common, actively maintained or are otherwise unsuitable for main distribution.

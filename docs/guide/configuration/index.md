@@ -37,11 +37,11 @@ The first path containing a config file will be used. Creating the `~/.flexget/`
 In YAML, indendation is crucially important. Most of your time will be spent with keys  that are indented at least two spaces. Following are the top-level keys. In other words, these are never indented.
 
 - `tasks`
-- `templates` (see [plugin](/Plugins/template))
-- `schedule` (see [plugin](/Plugins/Daemon/scheduler))
+- `templates` (see [plugin](plugin:template))
+- `schedule` (see [plugin](plugin:scheduler))
 - `web_server` (see [Web UI](/Web-UI))
-- `variables` (see [plugin](/Plugins/variables))
-- `irc` (see [plugin](/Plugins/Daemon/irc))
+- `variables` (see [plugin](plugin:variables))
+- `irc` (see [plugin](plugin:irc))
 
 Everything else in FlexGet is indented under one of the above keys. For example, your tasks are placed under `tasks`, and plugins are placed within those tasks.
 

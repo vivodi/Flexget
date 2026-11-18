@@ -2454,7 +2454,7 @@ This changelog can be updated manually, but is also automatically updated based 
 - <plugin:series_remove>:
   - Episode identifier is now optional
   - Optional `forget` parameter to remove from entire database (including `seen` plugin)
-  - [Documented](/Plugins/series_remove)
+  - [Documented](plugin:series_remove)
 
 
 ## 3.1.133 (2021-07-22)

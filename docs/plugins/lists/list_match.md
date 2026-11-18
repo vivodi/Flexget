@@ -41,7 +41,7 @@ quality: 720p+ bluray
 imdb_lookup: yes
 ```
 
-This requires that [movie list](/Plugins/List/movie_list) is either managed by hand or synced automatically from other sources. Check [movie list](/Plugins/List/movie_list) page for more information about that.
+This requires that [movie list](plugin:movie_list) is either managed by hand or synced automatically from other sources. Check [movie list](plugin:movie_list) page for more information about that.
 
 ### Sync lists (untested)
 This example shows you how to sync a list from Trakt in FlexGet, if you remove an entry in Trakt, it will get removed from your my-watchlist in FlexGet as well. 

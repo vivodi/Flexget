@@ -1,5 +1,5 @@
 # Telegram
-> Telegram is a part of the [notifier](/Plugins/Notifiers) plugin system.
+> Telegram is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
 {.is-success}
 
 Send a message to one or more Telegram users or groups upon accepting a download.

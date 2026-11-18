@@ -1,5 +1,5 @@
 ## `pending`
-View and manage entries [pending approval](/Plugins/pending_approval).
+View and manage entries [pending approval](plugin:pending_approval).
 
 ### Sub-commands
 | Sub-command | Option | Description |

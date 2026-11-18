@@ -1,5 +1,5 @@
 # Toast
-> Toast is a part of the [notifier](/Plugins/Notifiers) plugin system.
+> Toast is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
 {.is-success}
 
 **`Requirement:`**

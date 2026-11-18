@@ -1,5 +1,5 @@
 # Join
-> Join is a part of the [notifier](/Plugins/Notifiers) plugin system.
+> Join is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
 {.is-success}
 
 

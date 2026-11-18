@@ -1,5 +1,5 @@
 # Pushbullet
-> Pushbullet is a part of the [notifier](/Plugins/Notifiers) plugin system.
+> Pushbullet is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
 {.is-success}
 
 This plugin provides the ability to send flexget notifications via the cross-platform notification system called [Pushbullet](https://www.pushbullet.com/).

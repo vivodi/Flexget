@@ -1,5 +1,5 @@
 # Notify My Android
-> Notify My Android can be used as a part of [notifier](/Plugins/Notifiers) plugin system.
+> Notify My Android can be used as a part of [notifier](/plugins/index.md#notifier-services-output) plugin system.
 {.is-success}
 
 

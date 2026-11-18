@@ -1,5 +1,5 @@
 ## `regexp-list`
-View and manage [regexp lists](/Plugins/List/regexp_list).
+View and manage [regexp lists](plugin:regexp_list).
 
 ### Sub-commands
 | Sub-command | option | description |

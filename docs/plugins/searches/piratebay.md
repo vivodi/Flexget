@@ -1,6 +1,6 @@
 # Pirate Bay
 
-> This plugin is part of [search](/Plugins/Searches) plugin system
+> This plugin is part of [search](/plugins/index.md#search) plugin system
 {.is-success}
 
 This search plugin will get results from [https://thepiratebay.org](/https://thepiratebay.org) or a reverse proxy if specified.

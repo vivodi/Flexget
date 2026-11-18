@@ -44,7 +44,7 @@ trakt_list:
 
 ## Examples
 ### Queue movies
-This example shows how you would use trakt_list plugin with <plugin:movie_list>, in order to add all the movies from your trakt watchlist to your [movie list](/Plugins/List/movie_list). This example should be in its own task, not combined with your movie downloading task.
+This example shows how you would use trakt_list plugin with <plugin:movie_list>, in order to add all the movies from your trakt watchlist to your [movie list](plugin:movie_list). This example should be in its own task, not combined with your movie downloading task.
 
 ```yaml
 trakt_list:

@@ -35,27 +35,27 @@ Clicking on the commands will take you to a page with more information about it.
 | [`archive`](/CLI/archive) | Search and manipulate the archive database|
 | [`backlog`](/CLI/backlog) | View or clear entries from the <plugin:backlog> plugin |
 | [`check`](/CLI/check) | Validate [configuration file](/Configuration) and print errors |
-| [`daemon`](/CLI/daemon) | Run continuously, executing tasks according to [schedules](/Plugins/Daemon/scheduler) defined in config |
+| [`daemon`](/CLI/daemon) | Run continuously, executing tasks according to [schedules](plugin:scheduler) defined in config |
 | [`database`](/CLI/database) | Utilities to manage the FlexGet database |
 | [`doc`](/CLI/doc) | Display [plugin](/Plugins) documentation |
-| [`entry-list`](/CLI/entry-list) | View and manage [entry lists](/Plugins/List/entry_list) |
+| [`entry-list`](/CLI/entry-list) | View and manage [entry lists](plugin:entry_list) |
 | [`execute`](/CLI/execute) | Execute tasks now |
-| [`failed`](/CLI/failed) | List or clear remembered [failures](/Plugins/retry-failed) |
+| [`failed`](/CLI/failed) | List or clear remembered [failures](plugin:retry_failed) |
 | [`history`](/CLI/history) | View the history of entries that FlexGet has accepted |
 | [`inject`](/CLI/inject) | Inject an entry from the CLI into tasks |
 | [`irc`](/CLI/irc) | View and manage <plugin:irc> connections |
 | [`jinja-filters`](/CLI/Jinja-Filters)| View avaialble [Jinja](/Jinja) filters|
-| [`movie-list`](/CLI/movie-list) | View and manage [movie lists](/Plugins/List/movie_list) |
-| [`pending`](pending)| View and manage entries [pending approval](/Plugins/pending_approval)|
-| [`pending-list`](pending-list)| View and manage [pending lists](/Plugins/List/pending_list)|
+| [`movie-list`](/CLI/movie-list) | View and manage [movie lists](plugin:movie_list) |
+| [`pending`](pending)| View and manage entries [pending approval](plugin:pending_approval)|
+| [`pending-list`](pending-list)| View and manage [pending lists](plugin:pending_list)|
 | [`plugins`](/CLI/plugins) | Print registered plugin summaries |
-| [`regexp-list`](/CLI/regexp-list) | View and manage [regexp lists](/Plugins/List/regexp_list) |
-| [`rejected`](/CLI/rejected) | List or clear [remembered rejections](/Plugins/remember_rejected) |
+| [`regexp-list`](/CLI/regexp-list) | View and manage [regexp lists](plugin:regexp_list) |
+| [`rejected`](/CLI/rejected) | List or clear [remembered rejections](plugin:remember_rejected) |
 | [`seen`](/CLI/seen) | View or forget entries remembered by the <plugin:seen> plugin |
 | [`series`](/CLI/series) | View and manipulate the <plugin:series> plugin database | 
 | [`service`](service)| Install a Windows service which runs the FlexGet daemon|
 | [`status`](/CLI/status) | View task health status |
-| [`templates`](templates)| View file templates to be used with [notifer](/Plugins/Notifiers) plugins|
+| [`templates`](templates)| View file templates to be used with [notifer](/plugins/index.md#notifier-services-output) plugins|
 | [`trakt`](/CLI/trakt) | View and manage [Trakt authentication](/guide/trakt.md/#trakt-authentication) |
 | [`web`](/CLI/web) | Manage [web server](/Web-UI) settings |
 

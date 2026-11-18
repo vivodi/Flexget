@@ -1,5 +1,5 @@
 # Microsoft Teams
-> Microsoft Teams is a part of the [notifier](/Plugins/Notifiers) plugin system.
+> Microsoft Teams is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
 {.is-success}
 
 This plugin allows Flexget to send notifications to a [Microsoft Teams](https://products.office.com/en-us/microsoft-teams/group-chat-software) channel via the [Incoming Webhooks](https://msdn.microsoft.com/en-us/microsoft-teams/connectors) functionality.

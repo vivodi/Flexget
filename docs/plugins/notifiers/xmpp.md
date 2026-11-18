@@ -1,5 +1,5 @@
 # XMPP
-> XMPP is a part of the [notifier](/Plugins/Notifiers) plugin system.
+> XMPP is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
 {.is-success}
 
 This plugin sends messages via XMPP, has been tested on Windows 7/64 so far, sending messages to Google Hangouts recipients.

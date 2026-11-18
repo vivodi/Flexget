@@ -2,7 +2,7 @@
 
 ### Quick Start
 
- [Apple Trailers Plugin](/Plugins/apple_trailers)
+ [Apple Trailers Plugin](plugin:apple_trailers)
 
 ### Downloading Trailers By Genre
 

@@ -34,7 +34,7 @@ extensions = [
     '_extensions.gallery_directive',
     '_extensions.toctable'
 ]
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'drafts']
 suppress_warnings = [
     'config.cache',
     'ref.python',  # Can be removed after https://github.com/sphinx-doc/sphinx/issues/14223 is resolved
@@ -69,7 +69,12 @@ intersphinx_mapping = {
 
 # -- myst_parser options -----------------------------------------------------
 
-myst_enable_extensions = ['colon_fence']
+myst_heading_anchors = 2
+myst_enable_extensions = ['colon_fence', 'linkify', 'substitution']
+myst_colon_fence_exact_match = True
+myst_substitutions = {
+    'py_versions': '3.11, 3.12, 3.13, 3.14, 3.15',
+}
 
 # -- sphinx_copybutton options -----------------------------------------------
 
@@ -95,7 +100,6 @@ def _custom_edit_url(file_name: str) -> str:
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
 html_css_files = ['custom.css']
-html_js_files = [('custom-icons.js', {'defer': 'defer'})]
 html_favicon = '_static/logo.svg'
 html_logo = '_static/logo.svg'
 html_show_sourcelink = False
@@ -103,16 +107,19 @@ html_theme_options = {
     'logo': {
         'text': 'FlexGet',
     },
-    'switcher': {
-        'json_url': 'https://flexget.readthedocs.io/en/latest/_static/switcher.json',
-        'version_match': os.environ.get('READTHEDOCS_VERSION'),
-    },
+    'navbar_align': 'left',
+    'header_links_before_dropdown': 6,
     'external_links': [
         {
-            'url': 'https://flexget.com',
-            'name': 'User Guide',
+            'url': 'https://github.com/Flexget/Flexget/discussions',
+            'name': 'Forum',
         },
+        {
+            'url': 'https://github.com/Flexget/Flexget/issues',
+            'name': 'Bug Reports',
+        }
     ],
+    'search_as_you_type': True,
     'icon_links': [
         {
             'name': 'GitHub',
@@ -120,22 +127,20 @@ html_theme_options = {
             'icon': 'fa-brands fa-github',
         },
         {
-            'name': 'PyPI',
-            'url': 'https://pypi.org/project/flexget',
-            'icon': 'fa-custom fa-pypi',
-        },
-        {
-            'name': 'Docker',
-            'url': 'https://hub.docker.com/r/flexget/flexget',
-            'icon': 'fa-brands fa-docker',
+            'name': 'Discord',
+            'url': 'https://discord.gg/W6CQrJx',
+            'icon': 'fa-brands fa-discord',
         },
     ],
-    'navbar_end': ['version-switcher', 'theme-switcher', 'navbar-icon-links'],
     'back_to_top_button': False,
     'show_toc_level': 2,
     'use_edit_page_button': True,
     'footer_start': [],
     'footer_end': [],
+}
+html_sidebars = {
+    'changelog': [],
+    'glossary': [],
 }
 html_context = {
     'edit_page_url_template': '{{ custom_edit_url(file_name) }}',

@@ -43,7 +43,7 @@ It supports torrents, NZBs, podcasts, comics, TV shows, movies, RSS feeds, HTML,
 
       +++
 
-      .. button-ref:: contributor/index
+      .. button-ref:: dev/index
          :expand:
          :color: secondary
          :click-parent:
@@ -74,5 +74,11 @@ It supports torrents, NZBs, podcasts, comics, TV shows, movies, RSS feeds, HTML,
    :maxdepth: 2
    :hidden:
 
-   contributor/index
-   API Reference <api/flexget>
+   guide/index
+   plugins/index
+   CLI <cli/index>
+   cookbook/index
+   dev/index
+   API <api/flexget>
+   glossary
+   changelog

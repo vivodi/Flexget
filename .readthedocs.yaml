@@ -11,6 +11,7 @@ build:
       - sphinx-apidoc -ePT --remove-old -o docs/api flexget
 
 sphinx:
+  builder: dirhtml
   configuration: docs/conf.py
   fail_on_warning: true
 

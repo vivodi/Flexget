@@ -3,7 +3,7 @@ Log in to a site using a webform
 
 This plugin requires the mechanicalsoup library. To install it, run:
 
-```cmd
+```console
 $ pip install mechanicalsoup
 ```
 

@@ -79,7 +79,7 @@ AssertionError
 And you know your Netscape cookie file is properly formatted, but you just can't get it to work, try rewriting the cookie file with curl:
 
 ```console
-curl -b oldcookiefile.txt --cookie-jar newcookiefile.txt http://url
+$ curl -b oldcookiefile.txt --cookie-jar newcookiefile.txt http://url
 ```
 
 <br>

@@ -32,7 +32,7 @@ View and manage [movie lists](plugin:movie_list).
 ### Examples
 For detailed instruction about these CLI commands:
 
-```cmd
+```console
 $ flexget movie-list -h
 ```
 
@@ -41,19 +41,19 @@ If a list name isn't specified, the list name `movies` will be used by default. 
 :::
 
 #### Return all movie lists names
-```cmd
+```console
 $ flexget movie-list all
 ```
 
 #### List movies from movie lists
-```cmd
+```console
 $ flexget movie-list list <list_name>
 ```
 
 ### Add or update a movie on a movie list
 Using a title is required. You can also add additional identifiers in the following format:
 
-```cmd
+```console
 $ flexget movie-list add <list_name> <move_title> -i imdb_id=tt1234556 tmdb_id=1234
 ```
 
@@ -73,6 +73,6 @@ $ flexget movie-list del <list_name> <movie_title>
 ```
 
 #### Clearing an entire movie list
-```cmd
+```console
 $ flexget movie-list purge <list_name>
 ```

@@ -2,8 +2,8 @@
 
 This plugin requires the rarfile Python module and unrar command line utility to extract RAR archives. To install the Python module run:
 
-```cmd
-pip install flexget[rarfile]
+```console
+$ pip install flexget[rarfile]
 ```
 
 Extracts files from Zip or RAR archives. By default this plugin will extract to the same directory as the source archive, preserving directory structure from the archive.

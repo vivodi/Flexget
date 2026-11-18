@@ -39,11 +39,11 @@ To execute all tasks that have certain template you can use `--template NAME` or
 
 **Examples:**
 
-```cmd
+```console
 $ flexget exec --template movies
 ```
 
-```cmd
+```console
 $ flexget exec -T tv
 ```
 

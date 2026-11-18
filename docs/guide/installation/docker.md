@@ -27,7 +27,7 @@ If you need other pip or alpine packages, you can create a custom script to run 
 ### Usage
 
 #### docker cli
-```console
+```bash
 docker run -d \
   --name flexget \
   -v /host/config:/config \        # required
@@ -58,7 +58,7 @@ services:
 ```
 In the same directory as the `compose.yaml` file, run:
 ```console
-docker compose up
+$ docker compose up
 ```
 
 Replace `volumes:` host paths (eg. `/host/config`) with the host directory path you would like to use for the config and download folders. Add additional as needed.
@@ -92,7 +92,7 @@ Make sure it's executeable: `chmod +x entrypoint.sh`
 With docker cli, add `--entrypoint` argument:
 
 ```console
-docker run ... -v /host/config:/config --entrypoint /config/entrypoint.sh ...
+$ docker run ... -v /host/config:/config --entrypoint /config/entrypoint.sh ...
 ```
 
 With docker compose, add `entrypoint`:
@@ -118,12 +118,12 @@ RUN   set -x; \
 ```
 Build the image:
 ```console
-docker build -t <flexget image tag here>
+$ docker build -t <flexget image tag here>
 
 ```
 To upgrade your image to the latest FlexGet version make sure you add the --pull argument to your build command:
 ```console
-docker build --pull -t <flexget image tag here>
+$ docker build --pull -t <flexget image tag here>
 
 ```
 
@@ -147,12 +147,12 @@ If you want to build your own, the Synology installation has a docker option wit
 
 You can set up bash alias (.bashrc) to execute with non standard configuration location:
 
-```console
+```bash
 alias flexget='flexget -c /volume1/config.yml'
 ```
 
 Then commands like this will simply work
 
 ```console
-flexget check
+$ flexget check
 ```

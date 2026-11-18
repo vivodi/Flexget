@@ -2,8 +2,8 @@
 
 Check if your configuration file is still valid, there may have been some changes to the configuration format.
 
-```cmd
-flexget check
+```console
+$ flexget check
 ```
 
 If your configuration doesn't pass check, have a look at [upgrade actions](/UpgradeActions) to see if there are any actions you must take. 

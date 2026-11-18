@@ -122,7 +122,7 @@ You may encounter problems on Windows machines with escaping and backgrounding. 
 
 ```yaml
 exec:
-  for_accepted: "d:\Program Files\Aria\aria2c.exe" --log=aria.log <snip> "{{url}}"
+  for_accepted: 'D:\Program Files\Aria\aria2c.exe' --log=aria.log <snip> "{{url}}"
 ```
 
 * If you experience problems backgrounding your task, try using the "start" command.  In the above example, setting "allow_background: yes" and appending the & still wouldn't background the process.  This type of syntax should work:

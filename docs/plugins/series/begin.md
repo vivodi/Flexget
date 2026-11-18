@@ -13,7 +13,7 @@ The begin option can be set on series that are use 'ep', 'sequence', or 'date' `
 ## Setting from CLI
 To set `begin` for a show from the [CLI](/cli/series), use the `series begin` command:
 ```console
-flexget series begin "Name of Series" S02E01
+$ flexget series begin "Name of Series" S02E01
 ```
 
 
@@ -53,4 +53,4 @@ If a `begin` episode is set, it will be listed at the bottom of the resulting ta
 
 To remove the begin episode, use the [CLI](/cli/series) command `series forget` with the episode ID set as begin:
 ```console
-flexget series forget "My Show" S04E01
+$ flexget series forget "My Show" S04E01

@@ -4,7 +4,7 @@ Manages torrents within the [Transmission](https://transmissionbt.com) bittorren
 ## Requisites
 Install the `transmission` extra provided by FlexGet.
 ```console
-pip install flexget[transmission]
+$ pip install flexget[transmission]
 ```
 
 ## Usage

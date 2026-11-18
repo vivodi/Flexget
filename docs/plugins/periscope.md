@@ -9,8 +9,8 @@ This plugin requires the `periscope` library.
 :::
 
 To install it, run:
-```cmd
-pip install periscope
+```console
+$ pip install periscope
 ```
 
 Download subtitles for entries referred to existing video files.

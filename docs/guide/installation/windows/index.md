@@ -18,8 +18,8 @@ Otherwise, install a compatible version of 3.x (see supported versions list abov
 The Python installer should put the Python interpreter into your [PATH](http://en.wikipedia.org/wiki/Environment_variable#System_path_variables) environment variable. You can easily test this.
 
 Run this program as an adminstrator: `Start Menu` &rarr; `Accessories` &rarr; `Command Prompt`. At the command prompt, copy and paste this command and press Enter:
-```console
-python -V
+```doscon
+C:\>python -V
 ```
 
 If anything happens other than displaying the version of Python that is installed, Python is not in your PATH.
@@ -29,7 +29,7 @@ If you used the installer from python.org, there should be an item on the Start 
 You should also add the `scripts` subdirectory of your Python folder to your PATH.
 
 The directories will look something like a set of these, depending on your version of Windows and how Python was installed. It may also be different. The important thing is that you're adding the *full directory names* for Python and the scripts folder to your PATH, not just the literal phrases `Python35` and `Scripts`.
-```console
+```text
 C:\Python35
 C:\Python35\Scripts
 
@@ -45,8 +45,8 @@ Typically, Python comes with pip pre-installed. If not, you will need to install
 #### Upgrade
 Ensure `pip` is on a supported version. If not, open a command prompt and run this command:
 
-```console
-python -m pip install -U pip setuptools
+```doscon
+C:\>python -m pip install -U pip setuptools
 ```
 
 This will upgrade `pip` and `setuptools` to the latest versions.
@@ -64,8 +64,8 @@ need to use the full path for commands
 Run this program as an administrator: `Start Menu` &rarr; `Accessories` &rarr; `Command Prompt`.
 
 Type this command in the command prompt:
-```cmd
-pip install flexget
+```doscon
+C:\>pip install flexget
 ```
 
 This will install FlexGet and all of the additional components it requires.
@@ -73,8 +73,8 @@ This will install FlexGet and all of the additional components it requires.
 ### Verify installation
 Run this command in the command prompt:
 
-```cmd
-flexget -V
+```console
+C:\>flexget -V
 ```
 This should output the installed version.
 

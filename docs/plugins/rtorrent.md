@@ -125,15 +125,15 @@ tasks:
 ```yaml
 tasks:
   update-rtorrent-custom-status:
-  	from_rtorrent:
-    	uri: scgi://localhost:5000
+    from_rtorrent:
+      uri: scgi://localhost:5000
       custom_fields:
-      	- my_custom_status
+        - my_custom_status
     if:
-    	- "my_custom_status == 'download-completed'": accept
+      - "my_custom_status == 'download-completed'": accept
     rtorrent:
       action: update
-    	uri: scgi://localhost:5000
+      uri: scgi://localhost:5000
       custom_fields:
-      	my_custom_status: 'ready-to-move'
+        my_custom_status: 'ready-to-move'
 ```

@@ -14,13 +14,13 @@ urlrewrite:
 
 This would rewrite URL
 
-```txt
+```text
 http://imaginary.org/tor/1234/test.torrent
 ```
 
 to:
 
-```txt
+```text
 http://imaginary.org/download/1234/test.torrent
 ```
 
@@ -29,12 +29,12 @@ Few regexp characters absolutely need to be escaped with `\` (in context of urls
 
 **Example**
 
-```txt
+```text
 http://example.com/?id=1234
 ```
 
 should be
 
-```txt
+```text
 http://example.com/\?id=(?P<id>\d+)
 ```

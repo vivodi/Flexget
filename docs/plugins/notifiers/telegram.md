@@ -10,7 +10,7 @@ Send a message to one or more Telegram users or groups upon accepting a download
 
 - Install the `telegram` extra provided by FlexGet.
   ```console
-  pip install flexget[telegram]
+  $ pip install flexget[telegram]
   ```
 - Create a bot & obtain a token for it (see https://core.telegram.org/bots#6-botfather).
 - For private messages (as opposed to group chats), initiate a dialogue with the bot and press `START` within the Telegram application.

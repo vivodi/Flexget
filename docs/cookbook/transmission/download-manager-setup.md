@@ -197,8 +197,7 @@ nano downer
 then copy and paste the following text into nano:
 
 **note:** replace "djnitehawk", "FROM-SEEDBOX", "vps.mydomain.com", "A_STRONG_PASSWORD_FOR_YOUR_WEB_SERVER" with your information.
-```/bin/bash
-
+```bash
 clear
 
 SRC_DIR="/home/djnitehawk/Ready"

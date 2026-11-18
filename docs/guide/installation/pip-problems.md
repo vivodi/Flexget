@@ -1,20 +1,20 @@
 # Problems with using pip
 Make sure your `pip` command uses python version that is compatible with FlexGet. 
 
-```cmd
-pip --version
+```console
+$ pip --version
 ```
 
 If this crashes you will need to reinstall pip. Try to remove pip from operating system package manager if possible. You could also run `which pip` and delete the script. Open fresh shell and verify that `python -V` reports 3.7 or newer. Continue with [pip install](https://pip.pypa.io/en/latest/installing.html).
 
-```cmd
-pip install --upgrade pip
+```console
+$ pip install --upgrade pip
 ```
 
 Special note for Arch Linux users. Yours is different.
 
-```cmd
-pip2 install --upgrade pip
+```console
+$ pip2 install --upgrade pip
 ```
 
 ## Pip package issues
@@ -52,21 +52,21 @@ This is most likely because operating system has changed from using python 2.7 t
 ## Command not found
 If for some reason the flexget executable is not in place even after installing with pip you may get error like.
 
-```cmd
+```console
 $ flexget -v
 -bash: flexget: command not found
 ```
 
 It might be resolvable by running
 
-```cmd
-pip install --upgrade --force-reinstall flexget
+```console
+$ pip install --upgrade --force-reinstall flexget
 ```
 
 Setup tools may need to be updated as well, might need to run this command before the previous one.
 
-```cmd
-curl https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py | sudo python
+```console
+$ curl https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py | sudo python
 ```
 
 ## Distribute package
@@ -89,7 +89,7 @@ Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-jV
 
 This is caused by leftover python package distribute. Remove it with command
 
-```cmd
+```console
 $ sudo pip uninstall distribute
 ```
 
@@ -98,32 +98,32 @@ For some reason the pip leaves files hanging from older version sometimes. If yo
 
 Upgrade pip with
 
-```cmd
-pip install --upgrade pip
+```console
+$ pip install --upgrade pip
 ```
 
 We need to know where FlexGet installation is in the filesystem, as this differs per operating system easiest way is to run following command.
 
-```cmd
-python -c 'import flexget; print flexget.__file__'
+```console
+$ python -c 'import flexget; print flexget.__file__'
 ```
 
 Which will print something along
 
-```cmd
+```text
 /usr/lib/python2.7/site-packages/flexget/
 ```
 
 Next uninstall FlexGet
 
-```cmd
-pip uninstall flexget
+```console
+$ pip uninstall flexget
 ```
 
 If you still have the printed directory left, delete it. This should get rid of any extra files hanging around. Next step, reinstall FlexGet.
 
-```cmd
-pip install flexget
+```console
+$ pip install flexget
 ```
 
 ## ImportError: cannot import name IncompleteRead
@@ -134,6 +134,6 @@ This is caused by a bug in Ubuntu's pip package. You'll need to uninstall pip wi
 
 Removing traces of old FlexGet from your python site-packages, eg.
 
-```cmd
-rm /usr/local/lib/python2.6/site-packages/FlexGet-*
+```console
+$ rm /usr/local/lib/python2.6/site-packages/FlexGet-*
 ```

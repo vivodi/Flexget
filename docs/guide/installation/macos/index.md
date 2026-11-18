@@ -22,7 +22,7 @@ $ nano ~/.bash_profile
 
 Add this at the bottom by using your arrow keys to navigate and pasting it on a new line.
 ```console
-export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+$ export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 ```
 
 Press Control+X which will prompt you to save (press Y then Enter) and exit.

@@ -154,7 +154,7 @@ Please note that FGUSER needs to be defined for the daemon to start. It can be s
 
 Then, create the /etc/init.d/flexget file :
 
-```/bin/bash
+```bash
 #!/bin/bash
 
 ### BEGIN INIT INFO
@@ -339,7 +339,7 @@ service flexget status
 ### Upstart script (Ubuntu =<16.04)
 
 `sudo nano /etc/init/flexget.conf`
-```/bin/bash
+```bash
 # Flexget daemon autostart                                                                                                                                                      
 
 description "Flexget daemon"

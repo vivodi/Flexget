@@ -43,5 +43,5 @@ notify:
     via:
       - bark:
           server: https://******
-          device_key: ******
+          device_key: '******'
 ```

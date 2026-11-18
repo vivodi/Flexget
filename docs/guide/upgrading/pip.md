@@ -9,7 +9,7 @@ Detailed changes can be found from [ChangeLog](/ChangeLog).
 Start by checking what version you currently have with command:
 
 ```console
-flexget -V
+$ flexget -V
 ```
 
 Write your current version down somewhere.
@@ -28,14 +28,14 @@ Please make sure to upgrade setuptools.
 Note: On some environments, pip might be available under name pip3 to differentiate it from Python 2. Check [Problems with pip](/PipProblems) page if issues arise.
 :::
 
-```cmd
-pip install --upgrade setuptools
+```console
+$ pip install --upgrade setuptools
 ```
 
 Upgrade FlexGet
 
-```cmd
-pip install --upgrade flexget
+```console
+$ pip install --upgrade flexget
 ```
 
 ```{include} _includes/verify.md

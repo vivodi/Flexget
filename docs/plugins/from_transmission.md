@@ -7,8 +7,8 @@ Newer versions of FlexGet require `transmission-rpc` 4.1.4 or greater.
 :::
 
 To install it, run:
-```cmd
-pip install transmission-rpc
+```console
+$ pip install transmission-rpc
 ```
 
 You may be required to upgrade transmission-rpc after upgrading transmission, for that just add `--upgrade` to the previous command.

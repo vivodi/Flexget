@@ -10,7 +10,7 @@ Nearly all lists in the FlexGet [CLI](/CLI) support the following arguments for 
 ### Examples
 ```console
 #use the porcelain table style
-flexget series list --porcelain
+$ flexget series list --porcelain
 #output
 Name                          | Latest | Age       | Downloaded                  | Identified By
  Foo Series                   | -      | -         | -                           | ep
@@ -18,7 +18,7 @@ Name                          | Latest | Age       | Downloaded                 
  ...
 
 #use the plain table style
-flexget series list --table-type plain
+$ flexget series list --table-type plain
 #output
 +-------------------------------+--------+-----------+-----------------------------+---------------+
 | Name                          | Latest | Age       | Downloaded                  | Identified By |
@@ -29,7 +29,7 @@ flexget series list --table-type plain
 +-------------------------------+--------+-----------+-----------------------------+---------------+
 
 #use the github table style
-flexget series list --table-type github
+$ flexget series list --table-type github
 #output
 | Name                          | Latest | Age       | Downloaded                  | Identified By |
 |-------------------------------|--------|-----------|-----------------------------|---------------|
@@ -38,7 +38,7 @@ flexget series list --table-type github
   ...
 
 #use the single table style
-flexget series list --table-type single
+$ flexget series list --table-type single
 #output
 lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqwqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqk
 x Name                          x Latest x Age       x Downloaded                  x Identified By x

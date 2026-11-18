@@ -219,7 +219,7 @@ Uses plugins: <plugin:template>, <plugin:email>, <plugin:transmission>, `adv_exe
 
 ## referenced helper script(s) in config.yml
 **manage_exists_series.sh**:
-```/bin/sh
+```bash
 
 EXISTS_SERIES="/Users/flexget/.flexget/exists_series"
 VOLUMES=(

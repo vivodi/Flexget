@@ -49,7 +49,7 @@ Regenerate token: `flexget web gentoken`
 To use the API, the user must be authenticated via a site cookie or attach the Token to each request.  
 
 To authenticate via cookies you need to submit a POST request to the `/auth/login/` endpoint as such:
-```HTTP
+```bash
 curl -X POST --header "Content-Type: application/json" --header "Accept: application/json" -d "{
   \"password\": \"password\",
   \"username\": \"username\"

@@ -16,7 +16,7 @@ Without URL a random url will be generated. All other inputs are disabled.
 **Example use:**
         
 ```console
-flexget execute --inject "Some.Series.S02E12.Imaginary" --tasks my-series --learn
+$ flexget execute --inject "Some.Series.S02E12.Imaginary" --tasks my-series --learn
 ```
         
 This would inject imaginary series into a single task and learn it as a downloaded,
@@ -25,7 +25,7 @@ assuming task accepts the injected entry.
 **Example use 2:**
         
 ```console
-flexget execute --tasks some.task --inject "Some.Title" "Some.direct.url" accept force
+$ flexget execute --tasks some.task --inject "Some.Title" "Some.direct.url" accept force
 ```
         
 This would inject imaginary title with direct link to file into a single task, accept it and force it trough even if some filter tries to reject it.
@@ -36,5 +36,5 @@ You can also set arbitrary [entry fields](/Entry) when injecting. This is done i
 **Example:**
 
 ```console
-flexget execute --tasks some.task --inject "Some Title" "Some.direct.url" imdb_id=tt33333
+$ flexget execute --tasks some.task --inject "Some Title" "Some.direct.url" imdb_id=tt33333
 ```

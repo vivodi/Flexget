@@ -98,7 +98,7 @@ torrent-done.sh
 ```
 
 content:
-```/bin/bash
+```bash
 /usr/local/bin/flexget -l /var/log/flexget.log execute --tasks sort-shows
 ```
 

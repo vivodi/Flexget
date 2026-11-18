@@ -12,7 +12,7 @@ FlexGet is usually invoked as a [Daemon](/Daemon) or via [cron](/InstallWizard/P
 ## Usage
 FlexGet is invoked from the command line like so:
 ```console
-flexget <argument> <command> <command-arguments>
+$ flexget <argument> <command> <command-arguments>
 ```
 For example, the FlexGet configuration file can be checked against configuration errors by calling `flexget check`. This particularly useful command should be ran whenever you make changes or after [upgrading](/Upgrade).
 

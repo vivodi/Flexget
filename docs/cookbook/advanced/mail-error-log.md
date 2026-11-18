@@ -7,7 +7,7 @@ Prerequisites:
  - bsd-mailx for the -E option to not send mail if there is no content, GNU mailutils doesn't have a comparable option
 
 Save the following as ~/bin/flexget_logwatch:
-```/bin/sh
+```bash
 /usr/sbin/logtail -f$HOME/flexget/flexget.log |
 grep -v INFO |
 grep -v VERBOSE |

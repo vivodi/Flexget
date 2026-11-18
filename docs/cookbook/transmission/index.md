@@ -117,7 +117,7 @@ then copy and paste the following text into nano:
 
 **note:** replace "djnitehawk" with your username
 
-``` /bin/bash
+```bash
 mkdir /home/djnitehawk/Downloads
 echo "dont delete this dir" > /home/djnitehawk/Downloads/.lock
 mkdir /home/djnitehawk/Downloads/MOVIES
@@ -278,7 +278,7 @@ then copy and paste the following text into nano:
 - `MY_EMAIL@EMAIL_DOMAIN.COM`
 - `MY_BOXCAR_API_KEY`
 
-``` /bin/bash
+```bash
 #!/bin/bash
 
 OLD_IFS="$IFS"
@@ -527,7 +527,7 @@ then copy and paste the following text into nano:
 **note:** replace "djnitehawk", "MY_EMAIL@EMAIL_DOMAIN.COM", "MY_BOXCAR_API_KEY" with your information.  
 **note:** also check if the path of the flexget binary (/usr/local/bin/flexget) is the same as the output from the "which flexget" command you ran earlier. if not, change it in the script below after pasting it into nano.
 
-```/bin/bash
+```bash
 
 EMAIL="MY_EMAIL@EMAIL_DOMAIN.COM"
 BOX_KEY="MY_BOXCAR_API_KEY"

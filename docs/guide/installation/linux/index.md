@@ -8,7 +8,7 @@ Supported versions of Python: {{ py_versions }}
 You can check your installed version of Python with this command:
 
 ```console
-python -V
+$ python -V
 ```
 
 It's also worth trying `python3` and/or hitting tab for autocomplete in case you already have python 3 installed, which is often the case.
@@ -16,7 +16,7 @@ It's also worth trying `python3` and/or hitting tab for autocomplete in case you
 Example of installation in a Debian-based system:
 
 ```console
-sudo apt-get install python3.8
+$ sudo apt-get install python3.8
 ```
 
 ## Create virtualenv
@@ -28,13 +28,13 @@ Python virtualenvs provide isolated python runtime. It does not mess with your o
 Python3 generally ships with virtualenv. Simply run:
 
 ```console
-python3 -m venv ~/flexget/
+$ python3 -m venv ~/flexget/
 ```
 
 If this does not work (eg. on ubuntu) you may need to install virtualenv package with:
 
 ```console
-sudo apt install python3-venv
+$ sudo apt install python3-venv
 ```
 
 ## Upgrade virtualenv tools
@@ -42,13 +42,13 @@ sudo apt install python3-venv
 Virtualenv is very likely created with old versions of some necessary tools and this can fail the installation or FlexGet may seem broken after installation. Please upgrade them with:
 
 ```console
-~/flexget/bin/pip install --upgrade pip setuptools
+$ ~/flexget/bin/pip install --upgrade pip setuptools
 ```
 
 ## Install FlexGet in the `virtualenv`
 
 ```console
-~/flexget/bin/pip install flexget
+$ ~/flexget/bin/pip install flexget
 ```
 
 This will install FlexGet and all of it's dependencies.
@@ -58,7 +58,7 @@ This will install FlexGet and all of it's dependencies.
 The `virtualenv` can be activated with this command:
 
 ```console
-source ~/flexget/bin/activate
+$ source ~/flexget/bin/activate
 ```
 
 After activation, the command `flexget` will work from anywhere. Note that activation does not persist over to new shell sessions.
@@ -66,7 +66,7 @@ After activation, the command `flexget` will work from anywhere. Note that activ
 Alternatively you can use following command without activating `virtualenv`.
 
 ```console
-~/flexget/bin/flexget [options]
+$ ~/flexget/bin/flexget [options]
 ```
 
 You will need to use this form if you use crontab to schedule FlexGet executions.
@@ -76,7 +76,7 @@ You will need to use this form if you use crontab to schedule FlexGet executions
 Not generally recommended. Global install for all users can be achieved with the following command. This requires `pip` to be available for root.
 
 ```console
-sudo pip install flexget
+$ sudo pip install flexget
 ```
 
 This usually works fine, but in some cases you may run into issues if multiple Python packages request different versions of libraries. `virtualenv` does not suffer from this issue and is the recommended method for new users.

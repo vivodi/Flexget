@@ -96,10 +96,10 @@ regexp:
         [path]: <custom path>
         [from]: <entry field> # applies to this pattern
         [set]:
-            <entry field>: <value>
-  [rest]: <operation>
-  [from]:
-  	- <entry fields> # applies to all patterns
+          <entry field>: <value>
+    [rest]: <operation>
+    [from]: # global from option
+      - <entry fields> # applies to all patterns
 ```
 ^[\ ]^ ^=^ ^optional^ ^|^ ^<>^ ^=^ ^value^
 

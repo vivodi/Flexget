@@ -61,7 +61,7 @@ notify:
           priority: 2
           confirm: 10
           answer: 1
-					answeroptions: yes|no|maybe
+          answeroptions: yes|no|maybe
           answerforce: 1
 ```
 
@@ -88,7 +88,7 @@ notify:
           priority: 2
           url: '{{trakt_series_trakt_url|d(imdb_url)}}'
           url_title: Link
-					retry: 60
+          retry: 60
           expire: 600
 ```
 #### Example with HTML tags

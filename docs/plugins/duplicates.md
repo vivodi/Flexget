@@ -4,7 +4,7 @@ Take action on entries with duplicate field values.
 
 **Syntax:**
 
-```code
+```yaml
 duplicates:
   field: <field name>
   action: [accept|reject]

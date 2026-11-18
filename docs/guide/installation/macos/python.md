@@ -16,7 +16,7 @@ $ brew install python
 
 Once Python is installed, you can test it by running this command:
 ```console
-python -V
+$ python -V
 ```
 It should output either v3.7.5 or higher. If it's a lower version, you probably didn't update your `PATH` correctly and it's still using the system-installed version.
 

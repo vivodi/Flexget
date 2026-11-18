@@ -225,7 +225,7 @@ schedules:
 ### Test execution
 This command executes all tasks, but doesn't write anything to the disk. Additionally, some network functionality is disabled during testing. See the [CLI `--test`](/CLI#flexget-level-arguments) argument for more details.
 
-```cmd
+```console
 $ flexget --test execute
 ```
 

@@ -62,7 +62,7 @@ deluge: yes
 deluge:
   path: /media/diska/downloads/
   move_completed_path: /media/diska/tv/
-  label: `{{trakt_series_network}}`
+  label: '{{trakt_series_network}}'
   queue_to_top: yes
 ```
 
@@ -114,8 +114,8 @@ series:
   settings:
     groupa:
       set:
-        content_filename: "\{{series_name}} - \{{series_id}} - \{{quality}}"
-        move_completed_path: /home/user/TV/\{{series_name}}/Season \{{series_season}}/
+        content_filename: "{{series_name}} - {{series_id}} - {{quality}}"
+        move_completed_path: /home/user/TV/{{series_name}}/Season {{series_season}}/
   groupa:
     - Show Name
 deluge: yes

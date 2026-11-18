@@ -9,8 +9,8 @@ This is part of [managed list](/plugins/index.md#managed-list) plugin system.
 This plugin requires the <a href="http://subliminal.readthedocs.io/">subliminal</a> Python library, version 2.0 or newer. To install it, run the following command:
 <br/><br/>
 
-```cmd
-pip install subliminal>=2.0
+```console
+$ pip install subliminal>=2.0
 ```
 </div>
 

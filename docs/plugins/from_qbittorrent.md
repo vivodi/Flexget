@@ -6,8 +6,8 @@ This plugin requires the `qbittorrent-api` library.
 :::
 
 To install it, run:
-```cmd
-pip install qbittorrent-api
+```console
+$ pip install qbittorrent-api
 ```
 
 ## Options

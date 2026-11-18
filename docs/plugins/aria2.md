@@ -7,8 +7,8 @@ Passes URIs in entries to the [Aria2 downloader](http://aria2.sourceforge.net). 
 
 Start can be simple as
 
-```cmd
-aria2c --enable-rpc --rpc-listen-all
+```console
+$ aria2c --enable-rpc --rpc-listen-all
 ```
 
 Which is also very insecure. See Aria2 documentation for improving on that.

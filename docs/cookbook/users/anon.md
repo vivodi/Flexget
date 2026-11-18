@@ -131,7 +131,7 @@ in deluge, activate the "execute" plugin. Add a rule to execute this script each
 
 #############################################################################
 
-```/usr/bin/php
+```php
 <?php
 
 

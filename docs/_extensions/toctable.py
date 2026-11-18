@@ -96,7 +96,7 @@ class TocTableDirective(Directive):
 
     def _register_plugin_ref(self, env, display_name, target_docname, line_lineno):
         """
-        Register `display_name` in `env.toctable_plugin_refs` for `[](plugin:<name>)` links.
+        Register `display_name` in `env.toctable_plugin_refs` for `plugin:<name>` links.
         """
         if not hasattr(env, 'toctable_plugin_refs'):
             env.toctable_plugin_refs = {}
@@ -248,12 +248,16 @@ def merge_toctable_plugin_refs(app, env, docnames, other):
 class PluginReferenceTransform(SphinxPostTransform):
     """
     Runs at priority 3 — strictly BEFORE MyST-Parser's `ResolveMystReferences` (priority 4).
-    Resolves `[](plugin:xxx)` into inline-code links (`[`xxx`](...)`) and
-    `[Custom Text](plugin:xxx)` into custom-text links.
+    Resolves `[](plugin:xxx)`, `<plugin:xxx>`, `[](plugin:xxx/subpage)`, and
+    `[](plugin:xxx#anchor)` into inline-code links (or custom-text links when explicit).
     """
     default_priority = 3
 
-    def _lookup_plugin(self, plugin_name):
+    def _lookup_base_plugin(self, plugin_name):
+        """
+        Look up a single registered plugin name (without subpage or `#anchor`).
+        Returns `(target_docname, default_title)` or `None`.
+        """
         labels = getattr(self.env, 'toctable_plugin_refs', {})
         match = (
             labels.get(plugin_name)
@@ -271,6 +275,71 @@ class PluginReferenceTransform(SphinxPostTransform):
                 return doc, default_name
         return None
 
+    def _resolve_plugin_spec(self, raw_spec):
+        """
+        Parse `<plugin_name>[/<subpage>][#<anchor>]` and resolve to:
+        `(target_docname, default_title, anchor)` or `None` if not found.
+        """
+        if '#' in raw_spec:
+            path_part, anchor = raw_spec.split('#', 1)
+            path_part = path_part.strip()
+            anchor = anchor.strip()
+        else:
+            path_part = raw_spec.strip()
+            anchor = ''
+
+        if not path_part:
+            return None
+
+        # Case 1: Simple plugin name without subpage (e.g., `imdb_list` or `imdb_list#example`)
+        if '/' not in path_part:
+            base_match = self._lookup_base_plugin(path_part)
+            if not base_match:
+                return None
+            target_docname, default_title = base_match
+            return target_docname, default_title, anchor
+
+        # Case 2: Plugin with subpage (e.g., `daemon/subpage` or `imdb_list/subpage#example`)
+        base_plugin, subpage = path_part.split('/', 1)
+        base_plugin = base_plugin.strip()
+        subpage = subpage.strip().strip('/')
+
+        base_match = self._lookup_base_plugin(base_plugin)
+        candidates = []
+
+        if base_match:
+            base_docname, _ = base_match
+            norm_base = base_docname.replace('\\', '/')
+            base_dir = os.path.dirname(norm_base)
+
+            if os.path.basename(norm_base) == 'index':
+                # e.g., base is `plugins/daemon/index` -> subpage is `plugins/daemon/<subpage>`
+                candidates.append(f'{base_dir}/{subpage}' if base_dir else subpage)
+                candidates.append(f'{base_dir}/{subpage}/index' if base_dir else f'{subpage}/index')
+            else:
+                # e.g., base is `plugins/list/imdb_list` -> check `plugins/list/imdb_list/<subpage>`
+                # and sibling `plugins/list/<subpage>`
+                candidates.append(f'{norm_base}/{subpage}')
+                candidates.append(f'{norm_base}/{subpage}/index')
+                if base_dir:
+                    candidates.append(f'{base_dir}/{subpage}')
+
+        # Also check if any document in `found_docs` ends with `/<path_part>` directly
+        candidates.append(path_part)
+
+        found_docs_lower = {doc.lower(): doc for doc in self.env.found_docs}
+        for cand in candidates:
+            cand_norm = cand.strip('/').lower()
+            if cand_norm in found_docs_lower:
+                resolved_doc = found_docs_lower[cand_norm]
+                return resolved_doc, path_part, anchor
+
+        for doc_lower, doc_real in found_docs_lower.items():
+            if doc_lower.endswith('/' + path_part.lower()):
+                return doc_real, path_part, anchor
+
+        return None
+
     def run(self, **kwargs):
         fromdocname = self.env.docname
 
@@ -280,17 +349,17 @@ class PluginReferenceTransform(SphinxPostTransform):
             if not target.lower().startswith(REF_PREFIX):
                 continue
 
-            plugin_name = target[len(REF_PREFIX):].strip()
-            match = self._lookup_plugin(plugin_name)
-            if not match:
+            raw_spec = target[len(REF_PREFIX):].strip()
+            resolved = self._resolve_plugin_spec(raw_spec)
+            if not resolved:
                 logger.warning(
                     f'[toctable] Unknown plugin reference "{target}".',
                     location=node
                 )
-                node.replace_self(nodes.literal(plugin_name, plugin_name))
+                node.replace_self(nodes.literal(raw_spec, raw_spec))
                 continue
 
-            target_docname, default_title = match
+            target_docname, default_title, anchor = resolved
 
             if node.get('refexplicit') and node.children:
                 inner_node = node.children[0].deepcopy()
@@ -302,29 +371,32 @@ class PluginReferenceTransform(SphinxPostTransform):
                 self.app.builder,
                 fromdocname,
                 target_docname,
-                '',
+                anchor,
                 inner_node,
                 default_title,
             )
             node.replace_self(refnode)
 
-        # 2. Intercept direct `nodes.reference` in case `plugin:` is parsed as a raw URL scheme
+        # 2. Intercept direct `nodes.reference` generated by `<plugin:xxx>` autolinks or URL schemes
         for node in list(self.document.findall(nodes.reference)):
             refuri = node.get('refuri', '')
             if not refuri.lower().startswith(REF_PREFIX):
                 continue
 
-            plugin_name = refuri[len(REF_PREFIX):].strip()
-            match = self._lookup_plugin(plugin_name)
-            if not match:
+            raw_spec = refuri[len(REF_PREFIX):].strip()
+            resolved = self._resolve_plugin_spec(raw_spec)
+            if not resolved:
                 logger.warning(
                     f'[toctable] Unknown plugin reference "{refuri}".',
                     location=node
                 )
                 continue
 
-            target_docname, default_title = match
+            target_docname, default_title, anchor = resolved
             new_uri = self.app.builder.get_relative_uri(fromdocname, target_docname)
+            if anchor:
+                new_uri = f'{new_uri}#{anchor}'
+
             node['refuri'] = new_uri
             node['internal'] = True
 
@@ -342,7 +414,6 @@ _orig_toctree_resolve = TocTree.resolve
 def _patched_toctree_resolve(self, docname, builder, toctree, *args, **kwargs):
     result = _orig_toctree_resolve(self, docname, builder, toctree, *args, **kwargs)
     if result is not None and toctree.get('is_toctable'):
-        # Only wrap the top-level entries belonging to this `toctable` in `nodes.literal`
         toctable_titles = {title for title, _ in toctree.get('entries', []) if title}
         for ref in result.findall(nodes.reference):
             if (
@@ -364,4 +435,4 @@ def setup(app):
     app.connect('doctree-read', merge_and_sort_toctables, priority=100)
     app.connect('env-merge-info', merge_toctable_plugin_refs)
     app.add_post_transform(PluginReferenceTransform)
-    return {'version': '3.6', 'parallel_read_safe': True}
+    return {'version': '3.7', 'parallel_read_safe': True}

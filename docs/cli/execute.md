@@ -15,7 +15,7 @@ execute/*
 | `--learn` | Matches are not downloaded but will be skipped in the future |
 | `--no-cache` | Disable caches; works only in plugins that have explicit support |
 | `--stop-waiting <name>` | Stop [timeframe](/Plugins/series/timeframe) for a given series |
-| `--tail-reset <file\|task>` | reset [tail position](/Plugins/tail) for a file or an entire task|
+| `--tail-reset <file\|task>` | reset <plugin:tail> position for a file or an entire task|
 | `--discover-now` | Immediately try to discover everything, bypassing the `discover` option [`interval`](/Plugins/discover#interval) |
 | `-T NAME, --template <name>` | Execute tasks using given template |
 | `--now` | Run task(s) even if the <plugin:interval> plugin would normally prevent it |

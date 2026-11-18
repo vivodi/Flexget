@@ -8,4 +8,4 @@ add_trackers:
   - udp://tracker2.com/announce
 ```
 
-TIP: You can use [global preset](/Plugins/preset) in configuration to make this enabled on all feeds.
+TIP: You can use global <plugin:template> in configuration to make this enabled on all feeds.

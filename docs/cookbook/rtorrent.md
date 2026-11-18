@@ -106,6 +106,6 @@ You are all done, your downloads should start and stop automatically. All that i
 
 ### Further improvements
 <plugin:torrent_scrub> removes resume information from downloads that prevent the torrent from properly starting in rTorrent.
-[Plugins/rtorrent_magnet](/Plugins/rtorrent_magnet) allows saving magnet links in rTorrent format.
+Plugins/<plugin:rtorrent_magnet> allows saving magnet links in rTorrent format.
 
 [Back to The Cookbook](/Cookbook)

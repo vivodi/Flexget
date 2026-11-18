@@ -19,6 +19,6 @@ tasks:
     archive: yes
 ```
 
-Uses [Plugins/manipulate](/Plugins/manipulate), [Plugins/html](/Plugins/html)
+Uses Plugins/<plugin:manipulate>, Plugins/<plugin:html>
 
 [Back to The Cookbook](/Cookbook)

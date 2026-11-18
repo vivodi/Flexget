@@ -8,4 +8,4 @@ remove_trackers:
 ```
 
 This will remove all trackers that contain text moviex in their url.  
-TIP: You can use [global preset](/Plugins/preset) in configuration to make this enabled on all tasks.
+TIP: You can use global <plugin:template> in configuration to make this enabled on all tasks.

@@ -1,5 +1,5 @@
 # List Clear
-> This is part of [managed list](/Plugins/List) plugin system.
+> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
 {.is-success}
 
 This is a list plugin that clears the contents of the given lists.

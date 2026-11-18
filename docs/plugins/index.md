@@ -74,7 +74,7 @@ from_emby: Creates entries from emby's watched list, favorites, libraries or pla
 from_imdb: Produce entries based on an IMDB person, company or character  
 from_piratebay: Produce entries based on piratebay api.
 kitsu: Produce Entries based on your  [Kitsu.io](http://kitsu.io) libraries. 
-lists/imdb_list: Use movies in your IMDb list as an input (eg. watchlist, rating history). [Managed List](/Plugins/List).<br> **Note:** This plugin does not currently work, look into <plugin:imdb_watchlist> 
+lists/imdb_list: Use movies in your IMDb list as an input (eg. watchlist, rating history). [Managed list](/plugins/index.md#managed-list).<br> **Note:** This plugin does not currently work, look into <plugin:imdb_watchlist> 
 filmweb_watchlist: Use your Filmweb watchlist as an input
 imdb_watchlist: Use you IMDB watchlist as an input
 letterboxd: Create entries for movies on any public [Letterboxd](http://letterboxd.com) list 
@@ -84,9 +84,9 @@ npo_watchlist: Create entries for the shows and episodes in your npo.nl account 
 pogcal: Produce entries for shows marked on your [pogdesign calendar](http://www.pogdesign.co.uk/cat/). 
 rottentomatoes_list: Use movies from [Rotten Tomatoes](http://www.rottentomatoes.com) lists. 
 sceper: Parse [http://sceper.ws](http://sceper.ws). 
-lists/thetvdb_list: Produce an entry for all shows you have marked as favorites at http://thetvdb.com. [Managed List](/Plugins/List)
+lists/thetvdb_list: Produce an entry for all shows you have marked as favorites at http://thetvdb.com. [Managed list](/plugins/index.md#managed-list)
 next_trakt_episodes: Create entries for the latest or the next episode to watch or collect by your trakt.tv activity. 
-lists/trakt_list: Create entries from one of your trakt.tv lists. [Managed List](/Plugins/List) 
+lists/trakt_list: Create entries from one of your trakt.tv lists. [Managed list](/plugins/index.md#managed-list) 
 twitterfeed: Create entries from a twitter account. 
 lostfilm: Create entries from lostfilm.tv 
 ```
@@ -95,7 +95,7 @@ lostfilm: Create entries from lostfilm.tv
 Input plugins designed to retrieve data from 3rd party software, such as Sonarr, couchpotato, deluge & etc.
 
 ```{toctable}
-lists/couchpotato_list: Produce entries from couchpotato wanted movies list. [Managed List](/Plugins/List) 
+lists/couchpotato_list: Produce entries from couchpotato wanted movies list. [Managed list](/plugins/index.md#managed-list) 
 from_deluge: Use torrents loaded in a Deluge daemon as input. 
 from_rtorrent: Use torrents loaded in a rTorrent as input. 
 from_telegram: Use telegram messages as input.
@@ -103,10 +103,10 @@ from_transmission: Use torrents loaded in Transmission as input.
 from_qbittorrent: Use torrents loaded in QBittorrent as input. 
 lists/ombi_list: Add or remove entries from ombi. 
 plex: Produce entries for shows present in a [Plex Media Server](http://www.plexapp.com) section. 
-lists/plex_watchlist: Plex watchlist [Managed List](/Plugins/List) 
-lists/radarr_list: Produce entries from or to radarr_list. [Managed List](/Plugins/List) 
+lists/plex_watchlist: Plex watchlist [Managed list](/plugins/index.md#managed-list) 
+lists/radarr_list: Produce entries from or to radarr_list. [Managed list](/plugins/index.md#managed-list)
 sickbeard: Produce entries from Sickbeard's show list 
-lists/sonarr_list: Produce entries from Sonarr's show list. [Managed List](/Plugins/List) 
+lists/sonarr_list: Produce entries from Sonarr's show list. [Managed list](/plugins/index.md#managed-list)
 next_sonarr_episodes: Produce entries for missing episodes from Sonarr 
 medusa: Produce entries from Medusa's show list 
 ```
@@ -123,10 +123,10 @@ mock: Generates simulated entries from predefined titles and fields to debug and
 next_series_episodes: Emits the next episode needed for each series configured in the series plugin. Useful for example with <plugin:discover>. 
 next_series_seasons: Emits the next season needed for each series configured in the series plugin. Useful for example with <plugin:discover>. 
 inputs: Configure the same input plugin multiple times in one task. 
-lists/entry_list: Use or add entries to a custom made entry list. [Managed List](/Plugins/List) 
-lists/movie_list: Use or add entries to a custom made movie list. [Managed List](/Plugins/List) 
-lists/subtitle_list: Use or add entries to a custom made subtitle list. [Managed List](/Plugins/List) 
-lists/pending_list: Manually approve entries. [Managed List](/Plugins/List) 
+lists/entry_list: Use or add entries to a custom made entry list. [Managed list](/plugins/index.md#managed-list)
+lists/movie_list: Use or add entries to a custom made movie list. [Managed list](/plugins/index.md#managed-list)
+lists/subtitle_list: Use or add entries to a custom made subtitle list. [Managed list](/plugins/index.md#managed-list)
+lists/pending_list: Manually approve entries. [Managed list](/plugins/index.md#managed-list)
 ```
 
 ## Filter

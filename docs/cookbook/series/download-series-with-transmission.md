@@ -74,7 +74,7 @@ templates:
 
 **config.yml** - feeds section:
 
-Thanks to user gazpachoking and his patch in r1367 we can now use [Plugin/set](/Plugins/set) to set the path for each entry in feed manage-series and manage-series-remote.
+Thanks to user gazpachoking and his patch in r1367 we can now use Plugin/<plugin:set> to set the path for each entry in feed manage-series and manage-series-remote.
 
 ```
 feeds:

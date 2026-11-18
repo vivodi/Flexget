@@ -1,5 +1,5 @@
 ## `irc`
-View and manage [IRC connections](/Plugins/Daemon/irc).
+View and manage <plugin:irc> connections.
 
 ### Actions
 | action | option | description |

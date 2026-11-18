@@ -532,7 +532,7 @@ The search plugin is called henceforth `t411` instead of `torrent411`. Credentia
 
 **t411 replace torrent411 urlrewritter for as input plugin**
 
-You can no longer use the plugin `html` or `rss` for scraping the Torrent411 website. Instead, use the [t411 input plugin](/Plugins/t411).
+You can no longer use the plugin `html` or `rss` for scraping the Torrent411 website. Instead, use the `t411` input plugin.
 
 ### 1.2.410 -- 2015.12.16 
 Due to a complete refactor of <plugin:pushover> plugin, the field `urltitle` need to be changed to `url_title` in config. Users that do not use that field in their Pushover plugin config do not need to change anything, and all should work well.

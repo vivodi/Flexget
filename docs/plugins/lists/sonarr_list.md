@@ -1,5 +1,5 @@
 # Sonarr List
-> This is part of [managed list](/Plugins/List) plugin system.
+> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
 {.is-success}
 
 Creates an [Entry](/Entry) for each show in your [Sonarr](https://sonarr.tv/) show list (including ended ones by default).

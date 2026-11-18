@@ -1,5 +1,5 @@
 # List Remove
-> This is part of [managed list](/Plugins/List) plugin system.
+> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
 {.is-success}
 
 List plugins can have entries removed from them by using the `list_remove` plugin.

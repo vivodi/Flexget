@@ -1,6 +1,6 @@
 # List Match
 
-> This is part of [managed list](/Plugins/List) plugin system.
+> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
 {.is-success}
 
 This is a filter plugin that uses a list to accept or reject generated entries based on other list content. For operating any input  see <plugin:crossmatch> plugin instead.

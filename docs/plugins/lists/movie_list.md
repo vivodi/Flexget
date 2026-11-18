@@ -1,5 +1,5 @@
 # Movie List
-> This is part of [managed list](/Plugins/List) plugin system.
+> This is part of managed <plugin:list> plugin system.
 {.is-success}
 
 > To improve matching, make sure you have a lookup plugin enabled, eg. <plugin:imdb_lookup>.
@@ -28,7 +28,7 @@ When using `movie_list` with a filter like <plugin:list_match> for example, the 
 If matching by identifiers fail, then title is [parsed](/Plugins/parsing) and proceeded to try to match by `movie_name` and `movie_year` fields.
 
 ## Usage
-As a [managed list](/Plugins/List) plugin it follows the same list actions, an quick example how to add entries into the list.
+As a managed <plugin:list> plugin it follows the same list actions, an quick example how to add entries into the list.
 
 ```yaml
 # inputs

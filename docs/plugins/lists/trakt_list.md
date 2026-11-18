@@ -1,5 +1,5 @@
 # Trakt list
-> This is part of [managed list](/Plugins/List) plugin system.
+> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
 {.is-success}
 
 This plugin creates an [Entry](/Entry) for each movie/show in one of the available [trakt.tv](http://trakt.tv) lists.
@@ -88,4 +88,4 @@ list_add:
       type: movies
 ```
 
-For more information about list action go to the [managed list](/Plugins/List) page.
+For more information about list action go to the [managed list](/plugins/index.md#managed-list) page.

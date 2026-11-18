@@ -1,8 +1,8 @@
 # Couchpotato List
-> This is part of [managed list](/Plugins/List) plugin system.
+> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
 {.is-success}
 
-Creates an [Entry](/Entry) for each movie in your [couchpotato](https://couchpota.to/) wanted list. This plugin can be used with the [movie_list ](/Plugins/List/movie_list) plugin to add those movies to the list.
+Creates an [Entry](/Entry) for each movie in your [couchpotato](https://couchpota.to/) wanted list. This plugin can be used with the <plugin:movie_list>  plugin to add those movies to the list.
 
 ## Plugin Settings
 Currently the following settings are required:

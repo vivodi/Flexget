@@ -132,7 +132,7 @@ The provided Dockerfiles use the `VOLUME` directive to create points at which we
 
 * It lets us keep config files on the host, which makes them much easier to edit.
 * It lets data created by the containers outlive them. For the purposes of this guide, we want to store our finished torrents in a Shared Folder. We also want our torrent data and metadata to persist even if we have to delete or replace the Transmission container for some reason (e.g. updates).
-* It's a simple way to let two different containers share access to a single directory. FlexGet can download .torrent files directly into Transmission's {term}`watch directory`.
+* It's a simple way to let two different containers share access to a single directory. FlexGet can download .torrent files directly into Transmission's watch directory.
 
 The `docker run` commands you need to launch each container are below. Note that once you've launched a container, `docker stop` and `docker start` are used to control its state.
 
@@ -147,7 +147,7 @@ mkdir -p \
   /volume1/docker/transmission/watch
 ```
 
-The `docker run` command below maps Transmission's config, incomplete, and {term}`watch directories <watch directory>` into locations under `/volume1/docker/transmission` on the host. It also maps the downloads directory to a Shared Folder cat `/volume1/Media/Downloads`.
+The `docker run` command below maps Transmission's config, incomplete, and watch directories into locations under `/volume1/docker/transmission` on the host. It also maps the downloads directory to a Shared Folder cat `/volume1/Media/Downloads`.
 
 Note that you'll need to set the correct in-container locations for each of these directories in Transmission's [`settings.json`](https://github.com/transmission/transmission/wiki/Editing-Configuration-Files) file at `/volume1/docker/transmission/config/transmission-daemon/settings.json`. This file gets created automatically the first time the container starts, so you can just start it once to generate a default config.
 
@@ -218,7 +218,7 @@ docker run -d \
   flexget:3.1.62
 ```
 
-With these volume settings, FlexGet will download .torrent files directly into Transmission's {term}`watch directory`.
+With these volume settings, FlexGet will download .torrent files directly into Transmission's watch directory.
 
 Your config file lives at `/volume1/docker/flexget/config.yml`. It's not necessary to stop/start the whole container when you make changes – instead, use the following command:
 

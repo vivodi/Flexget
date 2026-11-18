@@ -4,7 +4,7 @@ This is a complete example for hooking up rTorrent with FlexGet for automatic do
 For this example, we use the following setup:
  * Base directory (all other directories reside here): /srv/torrent
  * Finished downloads: downloaded
- * Torrent {term}`watch directory`: torrents
+ * Torrent watch directory: torrents
  * Incomplete torrents: incomplete
  * Session data: session
 

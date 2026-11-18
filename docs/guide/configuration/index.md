@@ -125,7 +125,7 @@ tasks:
 ```
 Now that we have an input and a filter plugin, we need to tell FlexGet what we want to do with the entries that are accepted by our filter. We do this with an [output plugin](/plugins/index.md#output).
 
-One common output plugin is the <plugin:download> plugin, which we could use to save our items to a {term}`watch directory` for a bittorrent or nzb client. (If you are using <plugin:deluge> or <plugin:transmission> you may want to consider using its dedicated output plugin instead.)
+One common output plugin is the <plugin:download> plugin, which we could use to save our items to a watch directory for a bittorrent or nzb client. (If you are using <plugin:deluge> or <plugin:transmission> you may want to consider using its dedicated output plugin instead.)
 
 ```yaml
 tasks:

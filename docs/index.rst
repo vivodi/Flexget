@@ -80,5 +80,4 @@ It supports torrents, NZBs, podcasts, comics, TV shows, movies, RSS feeds, HTML,
    cookbook/index
    dev/index
    API <api/flexget>
-   glossary
    changelog

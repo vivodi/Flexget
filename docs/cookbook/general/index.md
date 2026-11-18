@@ -7,7 +7,7 @@
 ```
 
  * [](make-rss-for-download):
- Useful for clients that do not support {term}`watch directories <watch directory>` or if downloading is meant to happen in somewhere else than where FlexGet is running.
+ Useful for clients that do not support watch directories or if downloading is meant to happen in somewhere else than where FlexGet is running.
  * [](heroes-comics):
  Uses advanced text parsing.
  * [](mysql-input):

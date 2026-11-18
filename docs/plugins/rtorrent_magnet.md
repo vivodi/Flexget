@@ -2,7 +2,7 @@
 This plugin will scan accepted items that haven't been downloaded for magnet URI's. if a magnet URI is detected, this plugin will process an rtorrent compatible magnet torrent file to the configured output directory.
 
 ### Example
-Save magnet link to rTorrent {term}`watch directory` as a file.
+Save magnet link to rTorrent watch directory as a file.
 
 ```
 rtorrent_magnet: ~/torrents/

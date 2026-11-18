@@ -12,7 +12,7 @@ all_series: yes
 ```
 
 ## Settings
-Behind the scenes, `all_series` just configures the <plugin:series> plugin with all the series it sees in the task. You can use any of the [settings](/Plugins/series#Settings) of the series plugin for all_series.
+Behind the scenes, `all_series` just configures the <plugin:series> plugin with all the series it sees in the task. You can use any of the [settings](plugin:series#settings) of the series plugin for all_series.
 
 ### Example
 

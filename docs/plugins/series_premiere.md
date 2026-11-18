@@ -9,7 +9,7 @@ series_premiere: yes
 ```
 
 ## Series Settings
-Behind the scenes, series_premieres just configures the <plugin:series> plugin with all the premieres it sees in the task.*** You can use any of the [settings](/Plugins/series#Settings) of the series plugin for series_premire.
+Behind the scenes, series_premieres just configures the <plugin:series> plugin with all the premieres it sees in the task.*** You can use any of the [settings](plugin:series#settings) of the series plugin for series_premire.
 
 There are two options specific to series_premiere also available:
 

@@ -1,7 +1,7 @@
 # Next Series Episodes
 Creates an [Entry](/Entry) for the next episode needed in each series you have configured in the <plugin:series> plugin (intended to be used with the <plugin:discover> plugin). You must have one of either <plugin:series> or <plugin:configure_series>  configured in the same task for this to work. 
 
-If FlexGet has not seen the series for some time and is locked to specific episode numbering scheme, or if the series is not explicitly configured to some format via [`begin`](/Plugins/series/begin) or [`identified_by`](/Plugins/series/identified_by), `next_series_episodes` can not guess which episode to emit.
+If FlexGet has not seen the series for some time and is locked to specific episode numbering scheme, or if the series is not explicitly configured to some format via [`begin`](plugin:series/begin) or [`identified_by`](plugin:series/identified_by), `next_series_episodes` can not guess which episode to emit.
 
 ### Quality upgrades?
 Once one quality has been successfully downloaded that episode is never created again. This means that ``discover`` with ``next_series_episodes`` does not currently work with quality upgrades.
@@ -14,7 +14,7 @@ If you would like to start every show automatically without setting the begin ep
 next_series_episodes:
   from_start: yes
 ```
-**NOTE**: This requires the <plugin:series> option [`identified_by`](/Plugins/series/identified_by) to be present and set to `ep`.
+**NOTE**: This requires the <plugin:series> option [`identified_by`](plugin:series/identified_by) to be present and set to `ep`.
 
 ### Backfill
 

@@ -31,7 +31,7 @@ thetvdb_list:
 
 ### Configure series plugin from thetvdb
 
-You can use any of the [settings](/Plugins/series#Settings) of the series plugin with the <plugin:configure_series> plugin, as shown below.
+You can use any of the [settings](plugin:series#settings) of the series plugin with the <plugin:configure_series> plugin, as shown below.
 
 ```yaml
 configure_series:

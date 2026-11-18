@@ -1,5 +1,5 @@
 ## `plugins`
-Print summaries for registered [plugins](/Plugins).
+Print summaries for registered [plugins](/plugins/index).
 
 ### Optional arguments
 | Argument | Description |

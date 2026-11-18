@@ -3,7 +3,7 @@
 | **Name** | **Description** |
 | --- | --- |
 | quality | Accept only qualities that match this quality requirement. No other quality will be accepted. |
-| [qualities](/Plugins/series/qualities) | Accept all given qualities, multiple downloads |
+| [qualities](qualities) | Accept all given qualities, multiple downloads |
 
 Values should all be specified as a valid [quality requirement](/Qualities#Requirements) string.
 
@@ -33,4 +33,4 @@ series:
     - name of series 4
 ```
 
-See [groups](/Plugins/series/per-group-settings) for more information.
+See [groups](plugin:series/per-group-settings) for more information.

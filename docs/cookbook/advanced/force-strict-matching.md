@@ -10,7 +10,7 @@ Say a user follows a series named Seriesname, this series is broadcasted in nati
 By default FlexGet will consider both of these series the same, if 'Seriesname' is the title provided by configure_series.
 
 ## The Workaround
-To solve this we can manually specify [exact](/Plugins/series/exact) mode for this series using the regular <plugin:series> plugin.
+To solve this we can manually specify [exact](plugin:series/exact) mode for this series using the regular <plugin:series> plugin.
 
 ```
 # Use configure_series as normal, and also include the series plugin like this:

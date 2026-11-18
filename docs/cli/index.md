@@ -37,7 +37,7 @@ Clicking on the commands will take you to a page with more information about it.
 | [`check`](/CLI/check) | Validate [configuration file](/Configuration) and print errors |
 | [`daemon`](/CLI/daemon) | Run continuously, executing tasks according to [schedules](plugin:scheduler) defined in config |
 | [`database`](/CLI/database) | Utilities to manage the FlexGet database |
-| [`doc`](/CLI/doc) | Display [plugin](/Plugins) documentation |
+| [`doc`](/CLI/doc) | Display [plugin](/plugins/index) documentation |
 | [`entry-list`](/CLI/entry-list) | View and manage [entry lists](plugin:entry_list) |
 | [`execute`](/CLI/execute) | Execute tasks now |
 | [`failed`](/CLI/failed) | List or clear remembered [failures](plugin:retry_failed) |

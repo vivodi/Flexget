@@ -105,11 +105,11 @@ Who decided to write everything in comments in a code block? You can't even put 
 Here are some things that would have been linked above, had that happened.
 
 ### Input Template
-Other input plugins can be found [here](/Plugins#Inputs). You can add to, remove or replace any of the ones in the `movie releases to consider` template of this recipe with others.
+Other input plugins can be found [here](/plugins/index.md#input). You can add to, remove or replace any of the ones in the `movie releases to consider` template of this recipe with others.
 Remember that you want input plugins that produce actual download links for movies in here.
 
 ### Output Template
-Other output plugins are [here](/Plugins#Output). This recipe is assuming you are dealing with torrents, make the appropriate adjustments to both input and output plugins if not.
+Other output plugins are [here](/plugins/index.md#output). This recipe is assuming you are dealing with torrents, make the appropriate adjustments to both input and output plugins if not.
 
 ### Movie Lists
 We used a list plugin to represent 2 lists in this recipe. In our this case, it was the `movie_list` plugin, where we defined 2 named lists, that we used in multiple contexts. You can switch out `movie_list` for any of the list plugins [here](/plugins/index.md#managed-list), (pick one that supports movies though,) just remember to change all instances of the 'getlist' or 'upgradelist' list at the same time.

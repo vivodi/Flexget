@@ -57,7 +57,7 @@ tasks:
 ```
 This line defining the task name (`test-task`) also ends with a colon, which means we will be defining what belongs in this task on the following lines with another indent (two more spaces.)
 
-The contents of an individual task are always [plugins](/Plugins). There are three main types of plugins we normally want in a task, an [input](/Plugins#inputs) (where do you want FlexGet to look for things?), a [filter](/Plugins#filter) (which of those things do you want?), and an [output](/Plugins#output) (what do you want FlexGet to do with those things?).
+The contents of an individual task are always [plugins](/plugins/index). There are three main types of plugins we normally want in a task, an [input](/plugins/index.md#input) (where do you want FlexGet to look for things?), a [filter](/plugins/index.md#filter) (which of those things do you want?), and an [output](/plugins/index.md#output) (what do you want FlexGet to do with those things?).
 
 Let's start by adding an input plugin to our task, `test-task`. In this case we will use the <plugin:rss> plugin as our input. The indentation of rss is increased and means that it belongs to the `test-task`.
 ```yaml
@@ -67,7 +67,7 @@ tasks:
 ```
 We aren't finished yet; this line ends with a colon, which means we need to provide the next section, which would be the options for the rss plugin.
 
-When configuring any plugin, visit that plugin's [wiki page](/Plugins) to find out what format the options for that plugin should be in. The most simple configuration format for the rss plugin allows us to just define the url for the rss feed. If the plugin has more complex configuration, follow the indentation shown in the plugin documentation.
+When configuring any plugin, visit that plugin's [wiki page](/plugins/index) to find out what format the options for that plugin should be in. The most simple configuration format for the rss plugin allows us to just define the url for the rss feed. If the plugin has more complex configuration, follow the indentation shown in the plugin documentation.
 
 **NOTE**: If you copy and paste examples from the documentation, you must increase the indentation so it is within your task.
 
@@ -79,7 +79,7 @@ tasks:
 
 Our input plugin will create an entry for every item that comes into the RSS feed, but we still need to tell FlexGet which of those items we want.
 
-We do this with a [filter](/Plugins#filter) plugin. One of the most common is the <plugin:series> plugin, so we will configure that here. This plugin will belong to our `test-task` so we remain at the same indentation level, two more spaces than `test-task`.
+We do this with a [filter](/plugins/index.md#filter) plugin. One of the most common is the <plugin:series> plugin, so we will configure that here. This plugin will belong to our `test-task` so we remain at the same indentation level, two more spaces than `test-task`.
 
 ```yaml
 tasks:
@@ -88,7 +88,7 @@ tasks:
     series:
 ```
 
-Now we must consult the <plugin:series> wiki page to determine how to configure the series plugin. There are two formats the series plugin configuration can take; we will stick with the simple one in this tutorial. (Eventually, you may want to switch to the [grouped format](/Plugins/series/per-group-settings).)
+Now we must consult the <plugin:series> wiki page to determine how to configure the series plugin. There are two formats the series plugin configuration can take; we will stick with the simple one in this tutorial. (Eventually, you may want to switch to the [grouped format](plugin:series/per-group-settings).)
 
 In the simple format, the series plugin just takes a list of the series you want. Since our last line ended with a colon, we go to the next line with two more spaces. Each item in our list will be at this same indentation level, and start with `- ` (dash followed by a space), as such:
 
@@ -111,7 +111,7 @@ tasks:
 ```
 Since we are defining options for this show, we ended the line with a colon. This normally means we define the options on the next line with two more spaces.
 
-There is a slight exception when defining options for a list item, in that we have to go two spaces from the start of the word on the previous line, for a total of four spaces. Here we will define the [`quality`](/Plugins/series/quality) option of the series plugin to only allow 720p copies of this show to be downloaded.
+There is a slight exception when defining options for a list item, in that we have to go two spaces from the start of the word on the previous line, for a total of four spaces. Here we will define the [`quality`](plugin:series/quality) option of the series plugin to only allow 720p copies of this show to be downloaded.
 
 ```yaml
 tasks:
@@ -122,7 +122,7 @@ tasks:
       - Another Good Show:
           quality: 720p
 ```
-Now that we have an input and a filter plugin, we need to tell FlexGet what we want to do with the entries that are accepted by our filter. We do this with an [output plugin](/Plugins#output).
+Now that we have an input and a filter plugin, we need to tell FlexGet what we want to do with the entries that are accepted by our filter. We do this with an [output plugin](/plugins/index.md#output).
 
 One common output plugin is the <plugin:download> plugin, which we could use to save our items to a {term}`watch directory` for a bittorrent or nzb client. (If you are using <plugin:deluge> or <plugin:transmission> you may want to consider using its dedicated output plugin instead.)
 
@@ -153,7 +153,7 @@ tasks:
 ```
 Congratulations! You now have a fully functioning config file. You can continue to add more tasks to your config file to complete different jobs, or customize this one further.
 
-Remember to consult the [plugins](/Plugins) wiki page to choose your plugins, and read the individual page for each plugin to figure out how to configure that specific plugin.
+Remember to consult the [plugins](/plugins/index) wiki page to choose your plugins, and read the individual page for each plugin to figure out how to configure that specific plugin.
 
 **Now just sit back, and let FlexGet do the work for you!**
 
@@ -234,5 +234,5 @@ Note that it may report warnings, but these are not errors and can usually safel
 
 ## References
  * See [how to manage series](/Cookbook/Series/Template) in the Cookbook for how to refine this example into real world usage (with multiple tasks).
- * Continue into [plugins](/Plugins) to learn about all of the available plugins you may use in the configuration file.
+ * Continue into [plugins](/plugins/index) to learn about all of the available plugins you may use in the configuration file.
  * There are several [environment variables](environment_variables) which can be used to set the default behavior of certain FlexGet functions.

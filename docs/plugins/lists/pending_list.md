@@ -3,7 +3,7 @@
 {.is-success}
 
 Stores a copy of any entry that was added to it, and can be used in a variety of ways. Will only emit the entry after it has been approved via [CLI](/CLI/pending-list)/[API](/API). Very useful in creating a broad scoped task where you can cherry pick entries.  
-See [managed_list](/Plugins/List/) how to use lists in general. 
+See [managed list](/plugins/index.md#managed-list) how to use lists in general. 
 
 ### Configuration
 

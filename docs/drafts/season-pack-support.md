@@ -1,4 +1,4 @@
-# [Done!](/Plugins/series/season_packs)
+# [Done!](plugin:series/season_packs)
 
 # Season Packs
 ## Reasoning 

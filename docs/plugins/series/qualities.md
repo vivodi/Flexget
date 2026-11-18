@@ -11,7 +11,7 @@ series:
 ```
 
 ## Use with upgrade
-The same rules apply when this is combined with the [upgrade](/Plugins/series/upgrade) option, however, no releases will be downloaded which are considered a lower quality than one which has already been grabbed, even if it qualifies for another requirement in your qualities list.
+The same rules apply when this is combined with the [upgrade](upgrade) option, however, no releases will be downloaded which are considered a lower quality than one which has already been grabbed, even if it qualifies for another requirement in your qualities list.
 
 ## Use with timeframe
-`qualities` can be used with the [timeframe](/Plugins/series/timeframe) option, instead of defining a `target`. Any of the qualities you define here will be accepted immediately. If none of the qualities you list here are available within the timeframe, another release will be accepted. Your defined qualities will continue to be looked for even after the timeframe has expired and a backup release has been grabbed.
+`qualities` can be used with the [timeframe](timeframe) option, instead of defining a `target`. Any of the qualities you define here will be accepted immediately. If none of the qualities you list here are available within the timeframe, another release will be accepted. Your defined qualities will continue to be looked for even after the timeframe has expired and a backup release has been grabbed.

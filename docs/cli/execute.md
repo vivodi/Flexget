@@ -14,9 +14,9 @@ execute/*
 | [`--tasks <task> [<task> ...]`](execute/--tasks)| Run only specified task(s), optionally using glob patterns ("tv-*"); matching is case-insensitive |
 | `--learn` | Matches are not downloaded but will be skipped in the future |
 | `--no-cache` | Disable caches; works only in plugins that have explicit support |
-| `--stop-waiting <name>` | Stop [timeframe](/Plugins/series/timeframe) for a given series |
+| `--stop-waiting <name>` | Stop [timeframe](plugin:series/timeframe) for a given series |
 | `--tail-reset <file\|task>` | reset <plugin:tail> position for a file or an entire task|
-| `--discover-now` | Immediately try to discover everything, bypassing the `discover` option [`interval`](/Plugins/discover#interval) |
+| `--discover-now` | Immediately try to discover everything, bypassing the `discover` option [`interval`](plugin:discover#interval) |
 | `-T NAME, --template <name>` | Execute tasks using given template |
 | `--now` | Run task(s) even if the <plugin:interval> plugin would normally prevent it |
 | `-v, --verbose` | Verbose undecided entries |

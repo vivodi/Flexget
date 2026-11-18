@@ -7,7 +7,7 @@ series:
       [setting]: [value]
 ```
 
-For example, with [quality](/Plugins/series/quality) settings:
+For example, with [quality](quality) settings:
 
 ```
 series:

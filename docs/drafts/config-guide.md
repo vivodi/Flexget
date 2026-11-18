@@ -8,26 +8,26 @@ The line ends in a colon, which means we will be defining this section on the li
 feeds:
   test feed:
 ```
-This line also ends with a colon, which means we will be defining what belongs in this feed on the following lines, with another indent (2 more spaces.) The contents of an individual feed are always [plugins](/Plugins). There are three main types of plugins we normally want in a feed, an [input](/Plugins#inputs) (where do you want FlexGet to look for things?), a [filter](/Plugins#filter) (which of those things do you want?) and an [output](/Plugins#output) (what do you want FlexGet to do with those things?). Let's start by adding an input plugin to our feed, `test feed`. In this case we will use the <plugin:rss> plugin as our input.
+This line also ends with a colon, which means we will be defining what belongs in this feed on the following lines, with another indent (2 more spaces.) The contents of an individual feed are always [plugins](/plugins/index). There are three main types of plugins we normally want in a feed, an [input](/plugins/index.md#input) (where do you want FlexGet to look for things?), a [filter](/plugins/index.md#filter) (which of those things do you want?) and an [output](/plugins/index.md#output) (what do you want FlexGet to do with those things?). Let's start by adding an input plugin to our feed, `test feed`. In this case we will use the <plugin:rss> plugin as our input.
 ```
 feeds:
   test feed:
     rss:
 ```
-We aren't finished yet, this line ends with a colon, which means we need to provide the next section, which would be the options for the rss plugin. When configuring any plugin, visit that plugin's [wiki page](/Plugins) to find out what format the options for that plugin should be in. The most simple configuration format for the rss plugin allows us to just define the url for the rss feed.
+We aren't finished yet, this line ends with a colon, which means we need to provide the next section, which would be the options for the rss plugin. When configuring any plugin, visit that plugin's [wiki page](/plugins/index) to find out what format the options for that plugin should be in. The most simple configuration format for the rss plugin allows us to just define the url for the rss feed.
 ```
 feeds:
   test feed:
     rss: http://mysite.com/myfeed.rss
 ```
-Our input plugin will create an entry for every item that comes into the rss feed, but we still need to tell FlexGet which of those items we want. We do this with a [filter](/Plugins#filter) plugin. One of the most common is the <plugin:series> plugin, so we will configure that here. This plugin will belong to our `test feed` so we remain at the same indentation level, 2 more spaces than `test feed`.
+Our input plugin will create an entry for every item that comes into the rss feed, but we still need to tell FlexGet which of those items we want. We do this with a [filter](/plugins/index.md#filter) plugin. One of the most common is the <plugin:series> plugin, so we will configure that here. This plugin will belong to our `test feed` so we remain at the same indentation level, 2 more spaces than `test feed`.
 ```
 feeds:
   test feed:
     rss: http://mysite.com/myfeed.rss
     series:
 ```
-Now we must consult the <plugin:series> wiki page to determine how to configure the series plugin. There are two formats the series plugin configuration can take, we will stick with the simple one in this tutorial. (eventually you may want to switch to the [grouped format](/Plugins/series/per-group-settings)) In the simple format, the series plugin just takes a list of the series you want. Since our last line ended with a colon, we go to the next line with 2 more spaces. Each item in our list will be at this same indentation level, and start with '- ' so:
+Now we must consult the <plugin:series> wiki page to determine how to configure the series plugin. There are two formats the series plugin configuration can take, we will stick with the simple one in this tutorial. (eventually you may want to switch to the [grouped format](plugin:series/per-group-settings)) In the simple format, the series plugin just takes a list of the series you want. Since our last line ended with a colon, we go to the next line with 2 more spaces. Each item in our list will be at this same indentation level, and start with '- ' so:
 ```
 feeds:
   test feed:
@@ -54,7 +54,7 @@ feeds:
       - Another Good Show:
           quality: 720p
 ```
-Now that we have an input and a filter plugin, we need to tell FlexGet what we want to do with the entries that are accepted by our filter. We do this with an [output plugin](/Plugins#output). One common output plugin is the <plugin:download> plugin, which we could use to save our items to a watch directory from a bittorrent or nzb client. (if you are using <plugin:deluge> or <plugin:transmission> you may want to consider using its dedicated output plugin instead)
+Now that we have an input and a filter plugin, we need to tell FlexGet what we want to do with the entries that are accepted by our filter. We do this with an [output plugin](/plugins/index.md#output). One common output plugin is the <plugin:download> plugin, which we could use to save our items to a watch directory from a bittorrent or nzb client. (if you are using <plugin:deluge> or <plugin:transmission> you may want to consider using its dedicated output plugin instead)
 ```
 feeds:
   test feed:
@@ -76,6 +76,6 @@ feeds:
           quality: 720p
     download: /home/me/watchdir/
 ```
-Congratulations, we now have a fully functioning config file. You can continue to add more feeds to your config file to complete different tasks, or customize this one further. Remember to consult the [plugins](/Plugins) wiki page to choose your plugins, and read the individual page for each plugin to figure out how to configure that specific plugin.
+Congratulations, we now have a fully functioning config file. You can continue to add more feeds to your config file to complete different tasks, or customize this one further. Remember to consult the [plugins](/plugins/index) wiki page to choose your plugins, and read the individual page for each plugin to figure out how to configure that specific plugin.
 
 **Now just sit back, and let FlexGet do the work for you! **

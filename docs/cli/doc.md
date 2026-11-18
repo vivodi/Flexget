@@ -1,5 +1,5 @@
 ## `doc`
-Displays plugin documentation. It may not be complete or available for all plugins. Refer to the [wiki](/Plugins) for more detailed information.
+Displays plugin documentation. It may not be complete or available for all plugins. Refer to the [wiki](/plugins/index) for more detailed information.
 
 ### Positional arguments
 | Argument | Description |

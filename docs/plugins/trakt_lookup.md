@@ -1,7 +1,7 @@
 # Trakt Lookup
 
 This plugin returns series information from Trakt.tv. The name of the series usually has to be VERY close to what's shown on Trakt.  
-If you are having problems returning the correct information for a show, please add the `tvdb_id` to the series using the [set](/Plugins/series/set) plugin.  
+If you are having problems returning the correct information for a show, please add the `tvdb_id` to the series using the [set](plugin:series/set) plugin.  
 
 <div class="alert alert-info" role="alert">
 

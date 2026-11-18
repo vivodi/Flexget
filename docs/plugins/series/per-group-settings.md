@@ -11,7 +11,7 @@ series:
     - second series
 ```
 
-An example, setting [propers](/Plugins/series/propers) for *group 1*:
+An example, setting [propers](propers) for *group 1*:
 
 ```
 series:

@@ -13,4 +13,4 @@ tasks:
 
 This will accept everything from the defined feed. 
 
-**NOTE:** You will need an [output plugin](/Plugins#Outputs) configured to actually do something with accepted entries (eg. download).
+**NOTE:** You will need an [output plugin](/plugins/index.md#output) configured to actually do something with accepted entries (eg. download).

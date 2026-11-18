@@ -7,7 +7,7 @@ The standard name matching works quite well, but in some cases you may need to s
    * If you have titles with confusing crap in them, use <plugin:manipulate> plugin to clean them!
  * `name_regexp` is useful for series which are written in more than one way
  * If specifying name_regexp(s) make sure that these match **only to the given series NAME.**
- * If specifying ep_regexp or id_regexp you will most likely want to lock that series into that format with [identified_by](/Plugins/series/identified_by) option.
+ * If specifying ep_regexp or id_regexp you will most likely want to lock that series into that format with [identified_by](identified_by) option.
  * Pay attention to the *indentation* here
 
 **Example:**
@@ -51,7 +51,7 @@ id_regexp:
   - (\d+).(\d+).(\d\d\d\d)
 ```
 
-`date_regexp` and `sequence_regexp` can also be defined for series [identified by](/Plugins/series/identified_by) those respective numbering schemes.
+`date_regexp` and `sequence_regexp` can also be defined for series [identified by](identified_by) those respective numbering schemes.
 
 User defined regexps takes priority over the built-in expressions, but do not disable them.
 

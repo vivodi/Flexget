@@ -17,4 +17,4 @@ Series plugin will also auto enable exact matching if it detects that there are 
 
 **Forget...**  
 In case you have situation where FlexGet is downloading episodes from another series with similar name, turn on the `exact` manually. You may also need to reset the series status with `series forget NAME` in case wrong episodes have been downloaded and it confuses *episode advancement*.
-Forgetting single episode is also possible by `series forget "NAME" sxxexx`, where xx is season number and episode number. In case you want to add some already watched episode have a look at [series begin](/Plugins/series/begin).
+Forgetting single episode is also possible by `series forget "NAME" sxxexx`, where xx is season number and episode number. In case you want to add some already watched episode have a look at [series begin](begin).

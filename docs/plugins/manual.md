@@ -1,5 +1,5 @@
 # Manual
-Any tasks that have this plugin enabled will not be run unless they are explicitly called with the [--task](/Plugins/--task) plugin.
+Any tasks that have this plugin enabled will not be run unless they are explicitly called with the [--task](/cli/execute.md#arguments) plugin.
 
 **Example:**
 ```

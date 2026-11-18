@@ -19,12 +19,12 @@ configure_series:
 ```
 
 ### Settings
-You can use any of the [settings for the series plugin](/Plugins/series#Settings) within the 'settings' block in configure_series. This section is optional, but if included, the settings will be applied to every show configured.
+You can use any of the [settings for the series plugin](plugin:series#settings) within the 'settings' block in configure_series. This section is optional, but if included, the settings will be applied to every show configured.
 
 **NOTE:** If you need to set different options for individual series, you can do so using the <plugin:series> plugin alongside configure_series as shown in this [recipe.](/Cookbook/ForceStrictMatching)
 
 ### From
-In this section you must include one or more configured [input plugins](/Plugins#Input). The titles of the entries created by this plugin will be used as the names of the series that you desire.
+In this section you must include one or more configured [input plugins](/plugins/index.md#input). The titles of the entries created by this plugin will be used as the names of the series that you desire.
 
 ## Examples 
 ### Filesystem

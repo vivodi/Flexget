@@ -2,7 +2,7 @@
 
 This will find all your tv shows and movies that are no longer listed in the Deluge torrent client and that were downloaded over a certain amount of days ago and will move the files and their subtitle files to a different folder (Any mounted drive or local cloud folder). 
 
-  * This setup uses **Deluge torrent downloader**, you can change the collecting task `old-deluge` according to your [input plugins](/Plugins#input) requirements. 
+  * This setup uses **Deluge torrent downloader**, you can change the collecting task `old-deluge` according to your [input plugins](/plugins/index.md#input) requirements. 
 
   * Each type (Movies or TV shows) need 2 tasks in order to work: 
 

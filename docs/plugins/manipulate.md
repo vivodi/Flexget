@@ -19,7 +19,7 @@ manipulate:
 
 Valid values for phase are: metainfo and filter, metainfo is the default behavior.
 
-To see what results your configuration has, use [--dump](/Plugins/--dump) plugin to display all entries after execution.
+To see what results your configuration has, use [--dump](/cli/execute.md#arguments) option to display all entries after execution.
 
 When using extract functionality manipulate will join all returned groups together with separator. The default separator is single space.
 

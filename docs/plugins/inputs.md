@@ -1,5 +1,5 @@
 # Inputs
-This plugin allows you to configure the same [input plugin](/Plugins#Inputs) multiple times in one task.
+This plugin allows you to configure the same [input plugin](/plugins/index.md#input) multiple times in one task.
 
 **Notes:**
 - If entries with duplicate titles or urls are found, only the first one seen will be added to the task.

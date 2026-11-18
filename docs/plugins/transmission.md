@@ -62,7 +62,7 @@ transmission:
 | main_file_ratio | Decimal | Sets the threshold value for main_file_only. Expects a number between 0 and 1 (ie 0.85 to change to 85%). 90% by default. |
 | magnetization_timeout | Number | When the timeout is set greater than 0 and a magnet URI is added, the task will wait up to the timeout (seconds) for the torrent to magnetize before continuing (Default: 0) |
 | include_subs | [Yes\|No] | If yes, in addition to the main file, files with subtitle extensions will be downloaded (.srt, .sub, .idx, .ass, .ssa) |
-| content_filename | Text | This can be used to rename the main file inside the torrent. [see here](/Plugins/transmission#ContentRenaming) |
+| content_filename | Text | This can be used to rename the main file inside the torrent. [see here](#content-renaming) |
 | rename_like_files | [Yes\|No] | If enabled, file patterns matching the main file will be renamed according to 'content_filename' |
 | include_files | Pattern [Single\|List] | Will include file patterns if they have been excluded by 'main_file_only'. For patterns [see here](/content_filter) |
 | skip_files | Pattern [Single\|List] | Will 'skip' file patterns if main_file_only is not enabled OR the main_file_only requirement isn't met in the torrent. For patterns [see here](plugin:content_filter) |
@@ -133,7 +133,7 @@ templates:
       content_filename: "{{ tvdb_series_name }} - {{ tvdb_season }}x{{ tvdb_episode|pad(2) }} - {{ tvdb_ep_name|default('Missing title') }}"
 ```
 
-This config uses [jinja2](/Plugins/set#Jinja2Templating) notation to rename the file using information from the series parser.
+This config uses [jinja2](/guide/jinja) notation to rename the file using information from the series parser.
 
 **NOTE:** In order to perform content renaming on a magnet URI, you must set **magnetization_timeout** to a value greater than 0 so that flexget has a chance to magnetize the torrent and retrieve the file list before performing any file list processing during the content renaming phase. If you use any feeds that supply magnet URIs and you wish to perform content renaming, it is strongly recommended to set **magnetization_timeout** to a reasonable wait period, such as **30** (seconds). Magnetization time varies based on swarm activity and network speed, but is typically completed in under 10 seconds.
 

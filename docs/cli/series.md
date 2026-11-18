@@ -33,7 +33,7 @@ View and manage the <plugin:series> plugin database.
 | `add`                                   |||
 || `<series name>`                                                       | Name of the series |
 || `<episode_id> [<episode_id> ...]`<br>`<season_id> [<season_id> ...]`  | Episode or season ID(s)  to add|
-|| `--quality <quality_string>`[&darr;](#environment-variables)                  | [Quality](/Plugins/quality#qualities) string that is attached to each entity added|
+|| `--quality <quality_string>`[&darr;](#environment-variables)                  | [Quality](plugin:quality#qualities) string that is attached to each entity added|
 
 ### Environment Variables
 Environment variables set option defaults for the subcommand noted, and are overridden by the corresponding flag(s) listed.
@@ -50,7 +50,7 @@ Environment variables set option defaults for the subcommand noted, and are over
 | | `FLEXGET_SERIES_LIST_SORTBY_FIELD` | `name`, `age` | Sort option for series. | `--sort-by` |
 | | `FLEXGET_SERIES_LIST_SORTBY_ORDER` | `desc` | Reverses the sort order. | `--descending`<br>`--ascending` |
 | `add`[&uarr;](#sub-commands) |||||
-| | `FLEXGET_SERIES_ADD_QUALITY` | [quality](/Plugins/quality#qualities) string | The quality that is attached to each entity added | `--quality <quality_string>` |
+| | `FLEXGET_SERIES_ADD_QUALITY` | [quality](plugin:quality#qualities) string | The quality that is attached to each entity added | `--quality <quality_string>` |
 
 
 ### Examples

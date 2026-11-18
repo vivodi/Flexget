@@ -1,6 +1,6 @@
 # Content Filter
 This allows filtering based on the filenames inside of torrents.
-> This plugin does not accept entries on its own, only rejects already accepted entries that do not pass your requirements. You'll need another [filter plugin](/Plugins#Filters) in the task to accept the entries you want.
+> This plugin does not accept entries on its own, only rejects already accepted entries that do not pass your requirements. You'll need another [filter plugin](/plugins/index.md#filter) in the task to accept the entries you want.
 {.is-info}
 
 > `content_filter` doesn't work with magnet links, as it works by analyzing the file list present in the .torrent file. You can include the <plugin:magnets> plugin to reject any magnet entries.

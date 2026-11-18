@@ -22,6 +22,8 @@ Code modifications
   - Open the ``.github/workflows/test.yml`` file.
   - In the ``matrix.python-version`` section, remove the oldest Python version and add the new latest supported version.
 
+- Update `py_versions` in conf.py
+
 Codebase verification
 =====================
 
@@ -50,4 +52,4 @@ Post-merge actions
 
 - Update wiki:
 
-  - After the pull request with these changes has been merged, update the :doc:`upgrade action </guide/upgrading/upgrade-actions>` on the FlexGet wiki.
+  - After the pull request with these changes has been merged, update the :doc:`upgrade action </guide/upgrading/upgrade-actions>`.

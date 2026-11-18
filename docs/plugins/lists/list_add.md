@@ -1,6 +1,7 @@
 ## List Add
-> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
-{.is-success}
+:::{tip}
+This is part of [managed list](/plugins/index.md#managed-list) plugin system.
+:::
 
 List plugins can have entries added to them by using the `list_add` plugin:
 ```

@@ -1,6 +1,7 @@
 # TheTVDB Lookup
-> This plugin will cease to work at some point, as thetvdb is shutting down their free api. It could be reworked to use their v4 api if anybody is willing, but the v4 api requires a subscription fee.
-{.is-warning}
+:::{warning}
+This plugin will cease to work at some point, as thetvdb is shutting down their free api. It could be reworked to use their v4 api if anybody is willing, but the v4 api requires a subscription fee.
+:::
 
 
 Uses `series_name` (or `tvdb_id`) to perform lookup.

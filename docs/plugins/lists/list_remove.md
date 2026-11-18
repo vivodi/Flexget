@@ -1,6 +1,7 @@
 # List Remove
-> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
-{.is-success}
+:::{tip}
+This is part of [managed list](/plugins/index.md#managed-list) plugin system.
+:::
 
 List plugins can have entries removed from them by using the `list_remove` plugin.
 

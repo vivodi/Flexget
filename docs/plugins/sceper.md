@@ -1,7 +1,8 @@
 # Sceper
 
-> sceper.ws is returning 404, plugin should be removed
-{.is-danger}
+:::{danger}
+sceper.ws is returning 404, plugin should be removed
+:::
 
 Uses sceper.ws category url as input.
 

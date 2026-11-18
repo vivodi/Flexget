@@ -1,7 +1,8 @@
 # Alpharatio
 
-> This plugin is part of [search](/plugins/index.md#search) plugin system
-{.is-success}
+:::{tip}
+This plugin is part of [search](/plugins/index.md#search) plugin system
+:::
 
 Search plugin for the private tracker AlphaRatio.
 

@@ -1,6 +1,7 @@
 # Microsoft Teams
-> Microsoft Teams is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+Microsoft Teams is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 This plugin allows Flexget to send notifications to a [Microsoft Teams](https://products.office.com/en-us/microsoft-teams/group-chat-software) channel via the [Incoming Webhooks](https://msdn.microsoft.com/en-us/microsoft-teams/connectors) functionality.
 
@@ -16,8 +17,9 @@ This plugin allows Flexget to send notifications to a [Microsoft Teams](https://
 
 
 ## Examples
-> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
-{.is-warning}
+:::{warning}
+Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
+:::
 
 This example sends a Slack notification and overrides the default username and icon settings.
 

@@ -105,8 +105,9 @@ transmission:
   password: mypassword
 ```
 
->**NOTE:** with **addpaused** option the plugin will pause the torrent after a 5 secs wait, to allow metadata download and content renaming on magnet URIs.
-{.is-info}
+:::{note}
+**NOTE:** with **addpaused** option the plugin will pause the torrent after a 5 secs wait, to allow metadata download and content renaming on magnet URIs.
+:::
 
 ### Content Renaming
 The transmission plugin also supports another advanced feature: content file renaming. This will allow you to change the filename of the main file inside the torrent in transmission. It will only rename a file if it finds that 1 file in the torrent is larger than 90% of the total torrent content. Here is an example configuration:

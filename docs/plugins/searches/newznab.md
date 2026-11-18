@@ -1,6 +1,7 @@
 # Newznab plugin
-> This plugin is part of [search](/plugins/index.md#search) plugin system
-{.is-success}
+:::{tip}
+This plugin is part of [search](/plugins/index.md#search) plugin system
+:::
 
 The newznab plugins is used in conjunction with the <plugin:discover> plugins.
 

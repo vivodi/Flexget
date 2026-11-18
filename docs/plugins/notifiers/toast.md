@@ -1,6 +1,7 @@
 # Toast
-> Toast is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+Toast is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 **`Requirement:`**
 Either:
@@ -16,8 +17,9 @@ Either:
 
 
 **Examples:**
-> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
-{.is-warning}
+:::{warning}
+Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
+:::
 
 **Basic:**
 ```yaml

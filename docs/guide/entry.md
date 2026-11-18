@@ -17,8 +17,9 @@ These are mandatory fields. You don't necessarily need to deal with anything mor
 ### Known fields
 Entry *may* have any of these fields, but is not *guaranteed* to have any of them. It may have other fields as well depending on configuration. 
 
->Use `--dump` option to see your task content as this list is not complete or always up-to-date.
-{.is-warning}
+:::{warning}
+Use `--dump` option to see your task content as this list is not complete or always up-to-date.
+:::
 
 
 | **Name** | **Created by** | **Description** |

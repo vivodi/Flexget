@@ -1,7 +1,8 @@
 # Divxatope
 
-> This plugin is part of [search](/plugins/index.md#search) plugin system
-{.is-success}
+:::{tip}
+This plugin is part of [search](/plugins/index.md#search) plugin system
+:::
 
 Search plugin which gives results from [divxatope.com](http://divxatope.com/), spanish web.
 

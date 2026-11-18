@@ -1,6 +1,7 @@
 # Telegram
-> Telegram is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+Telegram is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 Send a message to one or more Telegram users or groups upon accepting a download.
 
@@ -36,8 +37,9 @@ Methods other than `chat_id` require sending a message just before the first run
 Not all Telegram users have a username. In such cases you would have to use the `fullname` approach. Otherwise, it is much easier to use the `username` configuration.
 
 ## Configuration examples
-> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
-{.is-info}
+:::{note}
+Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
+:::
 
 ```yaml
 my-task:

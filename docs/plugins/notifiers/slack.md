@@ -1,6 +1,7 @@
 # Slack
-> Slack can is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+Slack can is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 This plugin allows Flexget to send notifications to a [Slack](https://www.slack.com/) channel or username via the [Incoming Webhooks](https://api.slack.com/incoming-webhooks) functionality.
 

@@ -1,7 +1,8 @@
 # Upgrading git checkout
 
->Detailed changes can be found from [ChangeLog](/ChangeLog).
-{.is-info}
+:::{note}
+Detailed changes can be found from [ChangeLog](/ChangeLog).
+:::
 
 ## Check current version
 

@@ -1,6 +1,7 @@
 # Torrentleech
-> This plugin is part of [search](/plugins/index.md#search) plugin system
-{.is-success}
+:::{tip}
+This plugin is part of [search](/plugins/index.md#search) plugin system
+:::
 
 This search plugin will get results from [http://torrentleech.org](/http://torrentleech.org)
 

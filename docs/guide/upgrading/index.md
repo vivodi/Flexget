@@ -1,7 +1,8 @@
 # Upgrading
 
-> Before upgrading, check if your config or anything else needs updated on the [upgrade actions](upgrade-actions) page.
-{.is-warning}
+:::{warning}
+Before upgrading, check if your config or anything else needs updated on the [upgrade actions](upgrade-actions) page.
+:::
 
 ```{toctree}
 :hidden:

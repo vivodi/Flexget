@@ -1,7 +1,8 @@
 # Upgrading PIP installation
 
->Detailed changes can be found from [ChangeLog](/ChangeLog).
-{.is-info}
+:::{note}
+Detailed changes can be found from [ChangeLog](/ChangeLog).
+:::
 
 ## Check current version
 
@@ -23,8 +24,9 @@ If you are using cron and have short cron interval, comment FlexGet out from the
 There has been alot of errors arising from setuptools package being out of date and failing an upgrade.
 Please make sure to upgrade setuptools.
 
-> Note: On some environments, pip might be available under name pip3 to differentiate it from Python 2. Check [Problems with pip](/PipProblems) page if issues arise.
-{.is-info}
+:::{note}
+Note: On some environments, pip might be available under name pip3 to differentiate it from Python 2. Check [Problems with pip](/PipProblems) page if issues arise.
+:::
 
 ```cmd
 pip install --upgrade setuptools

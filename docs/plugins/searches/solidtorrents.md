@@ -1,6 +1,7 @@
 # Solid Torrents
-> This plugin is part of [search](/plugins/index.md#search) plugin system
-{.is-success}
+:::{tip}
+This plugin is part of [search](/plugins/index.md#search) plugin system
+:::
 
 This search plugin will get results from [https://solidtorrents.net](/https://solidtorrents.net) or a reverse proxy if specified.
 

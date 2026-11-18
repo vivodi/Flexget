@@ -1,9 +1,10 @@
 # From Transmission
 This plugin creates an entry for each item you have loaded in transmission.
 
-> This plugin requires the `transmission-rpc` library. 
-> Newer versions of FlexGet require `transmission-rpc` 4.1.4 or greater.
-{.is-warning}
+:::{warning}
+This plugin requires the `transmission-rpc` library. 
+Newer versions of FlexGet require `transmission-rpc` 4.1.4 or greater.
+:::
 
 To install it, run:
 ```cmd

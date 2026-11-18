@@ -1,6 +1,7 @@
 # Matrix
-> Join is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+Join is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 ## Overview
 Sends messages via Matrix protocol.  Uses a simple **Access Token** authentication to send messages to a **room**.  Using an Access Token allows for encrypted messages to be used, unlike bots which only work on unencrypted rooms.

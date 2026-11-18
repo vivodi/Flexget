@@ -1,10 +1,12 @@
 # Periscope
 
->Project abandoned? Last release was 2011
-{.is-danger}
+:::{danger}
+Project abandoned? Last release was 2011
+:::
 
->This plugin requires the `periscope` library. 
-{.is-warning}
+:::{warning}
+This plugin requires the `periscope` library. 
+:::
 
 To install it, run:
 ```cmd

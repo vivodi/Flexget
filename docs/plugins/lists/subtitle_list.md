@@ -1,6 +1,7 @@
 # Subtitle list
-> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
-{.is-success}
+:::{tip}
+This is part of [managed list](/plugins/index.md#managed-list) plugin system.
+:::
 
 <div class="alert alert-info" role="alert">
   <span class="glyphicon glyphicon glyphicon-download-alt"></span>

@@ -1,9 +1,11 @@
 # DESCARGAS2020
-> This plugin is part of [search](/plugins/index.md#search) plugin system
-{.is-success}
+:::{tip}
+This plugin is part of [search](/plugins/index.md#search) plugin system
+:::
 
->*This plugin is deprecated, descargas2020 moved domain to https://dontorrent.org/*
-{.is-danger}
+:::{danger}
+*This plugin is deprecated, descargas2020 moved domain to https://dontorrent.org/*
+:::
 
 Search plugin which gives results from [descargas2020.com](http://descargas2020.com/), spanish web. 
 

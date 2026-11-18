@@ -1,6 +1,7 @@
 # Gazelle-based sites
-> This plugin is part of [search](/plugins/index.md#search) plugin system
-{.is-success}
+:::{tip}
+This plugin is part of [search](/plugins/index.md#search) plugin system
+:::
 
 This family of search plugins will search for torrents on most Gazelle-based websites.
 

@@ -36,8 +36,9 @@ For detailed instruction about these CLI commands:
 $ flexget movie-list -h
 ```
 
->If a list name isn't specified, the list name `movies` will be used by default. This is true for all actions.
-{.is-info}
+:::{note}
+If a list name isn't specified, the list name `movies` will be used by default. This is true for all actions.
+:::
 
 #### Return all movie lists names
 ```cmd

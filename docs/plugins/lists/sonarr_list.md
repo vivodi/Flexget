@@ -1,6 +1,7 @@
 # Sonarr List
-> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
-{.is-success}
+:::{tip}
+This is part of [managed list](/plugins/index.md#managed-list) plugin system.
+:::
 
 Creates an [Entry](/Entry) for each show in your [Sonarr](https://sonarr.tv/) show list (including ended ones by default).
 

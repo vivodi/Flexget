@@ -1,6 +1,7 @@
 # Pushsafer
-> Pushsafer is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+Pushsafer is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 
 

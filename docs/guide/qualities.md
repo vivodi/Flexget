@@ -78,8 +78,9 @@ hdtv
 "<=720p"
 ```
 
-> **NOTE:** Requirement strings that begin with a symbol need to be quoted, as in the above examples.
-{.is-info}
+:::{note}
+**NOTE:** Requirement strings that begin with a symbol need to be quoted, as in the above examples.
+:::
 
 ### Common Requirements
 There has been some confusion as to how to use this new system to specify some common release types, here are some examples.

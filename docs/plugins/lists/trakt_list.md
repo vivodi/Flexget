@@ -1,17 +1,20 @@
 # Trakt list
-> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
-{.is-success}
+:::{tip}
+This is part of [managed list](/plugins/index.md#managed-list) plugin system.
+:::
 
 This plugin creates an [Entry](/Entry) for each movie/show in one of the available [trakt.tv](http://trakt.tv) lists.
 
 This plugin is useful for example when used in a task with the <plugin:movie_list> plugin to add movies from your trakt watchlist to your <plugin:movie_list>, or to control the series plugin using <plugin:configure_series>.  
 
 
->Trakt removes shows from watchlist if you watch them, so **do not** use watchlist as your primary series source, use a  [custom list](http://support.trakt.tv/knowledgebase/articles/154739-why-do-things-get-removed-from-my-watchlist-after-) instead!
-{.is-warning}
+:::{warning}
+Trakt removes shows from watchlist if you watch them, so **do not** use watchlist as your primary series source, use a  [custom list](http://support.trakt.tv/knowledgebase/articles/154739-why-do-things-get-removed-from-my-watchlist-after-) instead!
+:::
 
->Please see [Trakt Authentication](/guide/trakt.md/#trakt-authentication) for how to authorize FlexGet to access your Trakt.tv account.
-{.is-info}
+:::{note}
+Please see [Trakt Authentication](/guide/trakt.md/#trakt-authentication) for how to authorize FlexGet to access your Trakt.tv account.
+:::
 
 **Notes:** 
 

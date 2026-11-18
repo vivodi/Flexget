@@ -16,8 +16,9 @@ The following is a comprehensive guide on how to setup an ubuntu seedbox/vps wit
 * Download manager does not touch the original torrent content so that you can seed for as long as you like.
 * Download manager uses secure SSL connections to the seedbox for protecting privacy.
 
-> **You can access the full tutorial by [clicking here](https://djnitehawk.com/flexget.htm)**
-{.is-info}
+:::{note}
+**You can access the full tutorial by [clicking here](https://djnitehawk.com/flexget.htm)**
+:::
 
 ### PDF Download
 You can download a PDF version of the tutorial from the following google drive link:

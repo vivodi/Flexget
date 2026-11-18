@@ -1,6 +1,7 @@
 # Aria2
->**Requirements:** Aria2 running and in daemon mode, with XML-RPC enabled 
-{.is-info}
+:::{note}
+**Requirements:** Aria2 running and in daemon mode, with XML-RPC enabled 
+:::
 
 Passes URIs in entries to the [Aria2 downloader](http://aria2.sourceforge.net). Supports HTTP, HTTPS, FTP, Torrent, Magnet.
 

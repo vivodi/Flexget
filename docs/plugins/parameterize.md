@@ -1,7 +1,8 @@
 # Parameterize
 
-> This is a very advanced plugin. If you don't understand it, you probably don't need it, or want to be bothered trying to get it working. Proceed with caution.
-{.is-danger}
+:::{danger}
+This is a very advanced plugin. If you don't understand it, you probably don't need it, or want to be bothered trying to get it working. Proceed with caution.
+:::
 
 This allows the config for an input plugin to be parameterized using another input plugin.
 

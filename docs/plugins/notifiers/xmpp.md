@@ -1,6 +1,7 @@
 # XMPP
-> XMPP is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+XMPP is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 This plugin sends messages via XMPP, has been tested on Windows 7/64 so far, sending messages to Google Hangouts recipients.
 
@@ -16,8 +17,9 @@ The `sleekxmpp` library is required to be installed. Install it with: `pip insta
 |**password**|text|Sender's password. **Required**
 |**recipients**|email|Recipients JID. Can also be a list. **Required**
 
-> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
-{.is-warning}
+:::{warning}
+Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
+:::
 
 ```yaml
 notify:

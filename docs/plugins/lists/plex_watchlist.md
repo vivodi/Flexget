@@ -1,7 +1,8 @@
 # Plex watchlist
 
-> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
-{.is-success}
+:::{tip}
+This is part of [managed list](/plugins/index.md#managed-list) plugin system.
+:::
 
 Allows management of the [Plex watchlist](https://support.plex.tv/articles/universal-watchlist/).
 

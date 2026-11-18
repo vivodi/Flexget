@@ -1,6 +1,7 @@
 # Radarr list
-> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
-{.is-success}
+:::{tip}
+This is part of [managed list](/plugins/index.md#managed-list) plugin system.
+:::
 
 Integrate with Radarr.
 

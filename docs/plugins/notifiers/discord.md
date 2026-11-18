@@ -1,6 +1,7 @@
 # Discord
-> Discord is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+Discord is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 This plugin is used to send notification to a discord server using the [webhook](https://discordapp.com/developers/docs/resources/webhook#execute-webhook) functionnality.
 
@@ -14,8 +15,9 @@ This plugin is used to send notification to a discord server using the [webhook]
 |embeds|array|[embeded](https://discordapp.com/developers/docs/resources/channel#embed-object) content
 
 ## Examples
-> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
-{.is-warning}
+:::{warning}
+Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
+:::
 
 The following configuration send a webhook message to a discord server containing embeds object. Refer to [Embed object documentation](https://discordapp.com/developers/docs/resources/channel#embed-object) for more information on how to use them.
 ```yaml

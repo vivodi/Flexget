@@ -1,7 +1,8 @@
 # AwesomeHD
 
-> This plugin is part of [search](/plugins/index.md#search) plugin system
-{.is-success}
+:::{tip}
+This plugin is part of [search](/plugins/index.md#search) plugin system
+:::
 
 This search plugin will get tv seasons (they do not allow single episodes) and movie results from AwesomeHD. While their API provides a `type` parameter in the response, it seems to always be `Movie`, even for tv shows.
 

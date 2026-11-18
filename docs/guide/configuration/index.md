@@ -14,8 +14,9 @@ In order to use FlexGet you'll need to create a configuration file.
 FlexGet uses [YAML](http://en.wikipedia.org/wiki/Yaml) markup in the configuration file. YAML is a way of defining sets of keys (such as plugin names or options) and values (such as series names or path to download files).
 
 
-> Following are some common mistakes; read at least these notes!
-> {.is-warning}
+:::{warning}
+Following are some common mistakes; read at least these notes!
+:::
 
  * Indentation level: always use (multiples of) **two spaces** and **never** use the `tab` key!
  * Plugin indentation: Plugin names are supposed to be indented at the same level (`rss`, `series`, `download`, etc). (Some plugins may allow other plugins inside of them, in which case the sub-plugins should be indented by additional spaces.)
@@ -157,8 +158,9 @@ Remember to consult the [plugins](/plugins/index) wiki page to choose your plugi
 
 **Now just sit back, and let FlexGet do the work for you!**
 
-> Check out [this page](/StillConfusedYaml) if you are still confused about YAML syntax.
-{.is-info}
+:::{note}
+Check out [this page](/StillConfusedYaml) if you are still confused about YAML syntax.
+:::
 
 ## Common misconceptions
  * Plugin order doesn't matter. You can list them in any order you like. The most logical order would be `inputs` > `filters` > `outputs`.

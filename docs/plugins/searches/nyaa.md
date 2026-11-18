@@ -1,6 +1,7 @@
 # Nyaa
-> This plugin is part of [search](/plugins/index.md#search) plugin system
-{.is-success}
+:::{tip}
+This plugin is part of [search](/plugins/index.md#search) plugin system
+:::
 
 Search plugin which gives results from [nyaa.si](http://nyaa.si/)
 ### Config

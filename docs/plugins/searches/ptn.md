@@ -1,6 +1,7 @@
 # PtN
-> This plugin is part of [search](/plugins/index.md#search) plugin system
-{.is-success}
+:::{tip}
+This plugin is part of [search](/plugins/index.md#search) plugin system
+:::
 
 This plugin searches the private bittorent site PtN. You'll need to enter your username, password, as well as your login key, which can be found on your profile page.
 

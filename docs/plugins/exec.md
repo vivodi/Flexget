@@ -1,6 +1,7 @@
 # Exec
-> Note that executing values directly from 3rd party (example rss feed) potentially opens up path for remote code execution. Escaping has been improved to mitigate that.
-{.is-danger}
+:::{danger}
+Note that executing values directly from 3rd party (example rss feed) potentially opens up path for remote code execution. Escaping has been improved to mitigate that.
+:::
 
 
 Executes commands on [entries](/Entry).

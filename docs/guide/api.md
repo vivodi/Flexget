@@ -97,5 +97,6 @@ In addition, the response contains the following headers:
 
 ## Additional notes
 
->Some endpoint operation operate on you config file. Those that do will CHANGE YAML LAYOUT AND REMOVE ALL COMMENTS. Do not operate via the API if those things are of value to you (functionality will remain intact).
-{.is-danger}
+:::{danger}
+Some endpoint operation operate on you config file. Those that do will CHANGE YAML LAYOUT AND REMOVE ALL COMMENTS. Do not operate via the API if those things are of value to you (functionality will remain intact).
+:::

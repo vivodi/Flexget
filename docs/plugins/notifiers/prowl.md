@@ -1,6 +1,7 @@
 # Prowl
-> Prowl is part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+Prowl is part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 Send messages to your iPhone using [Prowl](http://prowlapp.com).
 ## Configuration
@@ -16,8 +17,9 @@ Send messages to your iPhone using [Prowl](http://prowlapp.com).
 ### Example
 Get your unique API key [here](/https://prowlapp.com/api_settings.php)
 
-> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
-{.is-warning}
+:::{warning}
+Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
+:::
 
 ```yaml
 notify:

@@ -1,8 +1,9 @@
 # From QBittorrent
 This plugin creates an entry for each item you have loaded in qbittorrent.
 
-> This plugin requires the `qbittorrent-api` library. 
-{.is-warning}
+:::{warning}
+This plugin requires the `qbittorrent-api` library. 
+:::
 
 To install it, run:
 ```cmd

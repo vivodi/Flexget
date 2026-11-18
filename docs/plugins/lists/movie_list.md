@@ -1,9 +1,11 @@
 # Movie List
-> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
-{.is-success}
+:::{tip}
+This is part of [managed list](/plugins/index.md#managed-list) plugin system.
+:::
 
-> To improve matching, make sure you have a lookup plugin enabled, eg. <plugin:imdb_lookup>.
-{.is-info}
+:::{note}
+To improve matching, make sure you have a lookup plugin enabled, eg. <plugin:imdb_lookup>.
+:::
 
 Any entry containing field(s) `imdb_id`, `trakt_movie_id` or `tmdb_id` can be added to movie list for later matching. This allows user to maintain one or more movie queues.
 

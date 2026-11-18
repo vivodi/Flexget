@@ -1,6 +1,7 @@
 # Gotify
-> Gotify is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+Gotify is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 This plugin provides the ability to send flexget notifications via the self-hosted Gotify notification server (https://gotify.net).
 

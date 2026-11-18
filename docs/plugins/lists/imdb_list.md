@@ -1,9 +1,11 @@
 # IMDb list
-> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
-{.is-success}
+:::{tip}
+This is part of [managed list](/plugins/index.md#managed-list) plugin system.
+:::
 
-> IMDb enforces captchas more often than not, which the plugin currently cannot handle. If login fails, please open an issue on [Github](https://www.github.com/Flexget/Flexget/issues). If you do not need to alter IMDb lists, you can use <plugin:imdb_watchlist> instead.
-{.is-warning}
+:::{warning}
+IMDb enforces captchas more often than not, which the plugin currently cannot handle. If login fails, please open an issue on [Github](https://www.github.com/Flexget/Flexget/issues). If you do not need to alter IMDb lists, you can use <plugin:imdb_watchlist> instead.
+:::
 
 Creates an [Entry](/Entry) for each item in an IMDb list.
 

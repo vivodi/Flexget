@@ -1,6 +1,7 @@
 # Notify My Android
-> Notify My Android can be used as a part of [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+Notify My Android can be used as a part of [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 
 Now defunct May 2018 - This plugin provides the ability to send flexget notifications via the  notification system called [Notify My Android](http://www.notifymyandroid.com/).
@@ -18,8 +19,9 @@ Now defunct May 2018 - This plugin provides the ability to send flexget notifica
 
 
 #### Examples
-> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
-{.is-warning}
+:::{warning}
+Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
+:::
 
 ```yaml
 notify:

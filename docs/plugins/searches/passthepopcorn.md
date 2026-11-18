@@ -1,6 +1,7 @@
 # PassThePopcorn
-> This plugin is part of [search](/plugins/index.md#search) plugin system
-{.is-success}
+:::{tip}
+This plugin is part of [search](/plugins/index.md#search) plugin system
+:::
 
 This search plugin will get movie results from PassThePopcorn.
 
@@ -9,8 +10,9 @@ This search plugin will get movie results from PassThePopcorn.
 
 The option `grouping` affects how `order_by` and `order_desc` influences search results. With it on, it sorts results by release group, without it, it sorts by individual torrents uploaded.
 
-> WARNING: The plugin sets a resonable rate limit for requests to the site, if you have domain_delay: defined in your task be careful you don't set a shorter rate or you could get auto banned from the site. ALWAYS check the wiki and forum on the site for the current rules on API / script access. 
-{.is-warning}
+:::{warning}
+WARNING: The plugin sets a resonable rate limit for requests to the site, if you have domain_delay: defined in your task be careful you don't set a shorter rate or you could get auto banned from the site. ALWAYS check the wiki and forum on the site for the current rules on API / script access. 
+:::
 
 
 NOTE: `freeleech: no` removes all freeleech results.

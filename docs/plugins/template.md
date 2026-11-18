@@ -114,8 +114,9 @@ Simple values cannot never be merged. So for example multiple `rss: <url>` or `i
 
 # Global template
 
-> New users should avoid using global templates as it is way too easy to shoot yourself in the foot if you're not careful.
-{.is-danger}
+:::{danger}
+New users should avoid using global templates as it is way too easy to shoot yourself in the foot if you're not careful.
+:::
 
 Allow specifying plugins for every task without being explicitly told so. 
 

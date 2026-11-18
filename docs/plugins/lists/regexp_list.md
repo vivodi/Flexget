@@ -1,6 +1,7 @@
 # Regexp List
-> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
-{.is-success}
+:::{tip}
+This is part of [managed list](/plugins/index.md#managed-list) plugin system.
+:::
 
 It is a list of strings that represent regular expressions to be used for matching entries. The matching is case insensitive and only match single lines (no newline matching etc).
 

@@ -1,6 +1,7 @@
 # Pushbullet
-> Pushbullet is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+Pushbullet is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 This plugin provides the ability to send flexget notifications via the cross-platform notification system called [Pushbullet](https://www.pushbullet.com/).
 
@@ -14,8 +15,9 @@ This plugin provides the ability to send flexget notifications via the cross-pla
 |channel|text|Target channel. Can also be a list. 
 |url|URL|Notification URL | 
 
-> Only one of `email`, `device` or `channel` can be used per config
-{.is-info}
+:::{note}
+Only one of `email`, `device` or `channel` can be used per config
+:::
 
 ### Examples
 

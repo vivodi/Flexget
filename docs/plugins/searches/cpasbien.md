@@ -1,10 +1,12 @@
-> This plugin is part of [search](/plugins/index.md#search) plugin system
-{.is-success}
+:::{tip}
+This plugin is part of [search](/plugins/index.md#search) plugin system
+:::
 
->As cpasbien switched to cloudflare, some tweaks are required
+:::{danger}
+As cpasbien switched to cloudflare, some tweaks are required
 You have to have https://github.com/Anorov/cloudflare-scrape and all it's dependency to make it work.
 Additionally, the file cfscrape.py must be put in the folder : /var/lib/flexget
-{.is-danger}
+:::
 
 # CPASBIEN Search plugin
 This search plugin will get results from [http://www.cpasbien.pw/](/http://www.cpasbien.pw/)

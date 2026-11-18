@@ -1,6 +1,7 @@
 # Pushover
-> Pushover is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+Pushover is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 
 

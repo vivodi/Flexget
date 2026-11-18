@@ -1,6 +1,7 @@
 # Bark
-> Bark is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+Bark is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 This plugin allows Flexget to send notifications to a [Bark](https://github.com/Finb/bark-server) client via the bark [API_V2](https://github.com/Finb/bark-server/blob/master/docs/API_V2.md).
 
@@ -23,8 +24,9 @@ This plugin allows Flexget to send notifications to a [Bark](https://github.com/
 
 
 ## Examples
-> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
-{.is-warning}
+:::{warning}
+Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
+:::
 
 This example sends a notification by the default settings.
 

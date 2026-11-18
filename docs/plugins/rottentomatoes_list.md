@@ -1,6 +1,7 @@
 # Rotten Tomatoes List
-> API registration seems to be broken, making this plugin defunct
-{.is-danger}
+:::{danger}
+API registration seems to be broken, making this plugin defunct
+:::
 
 Emits an entry for each movie in a [Rotten Tomatoes](http://www.rottentomatoes.com) list.
 

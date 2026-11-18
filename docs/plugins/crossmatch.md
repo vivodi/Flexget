@@ -55,8 +55,9 @@ move:
 
 ### Organize movies you rated badly
 
-> DOES NOT WORK CORRECTLY DUE PLUGIN ORDER
-{.is-danger}
+:::{danger}
+DOES NOT WORK CORRECTLY DUE PLUGIN ORDER
+:::
 
 ```yaml
 tasks:

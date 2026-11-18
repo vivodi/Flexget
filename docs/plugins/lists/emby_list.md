@@ -1,6 +1,7 @@
 # Emby list
-> This is part of [managed list](/plugins/index.md#managed-list) plugin system.
-{.is-success}
+:::{tip}
+This is part of [managed list](/plugins/index.md#managed-list) plugin system.
+:::
 
 This plugin creates an [Entry](/Entry) for each movie/series/season/episode from emby's, watched list, favorites, libraries or playlists
 

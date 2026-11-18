@@ -1,6 +1,7 @@
 # Kodi library
-> **Requirements:** JSON-RPC must be enabled. See http://kodi.wiki/view/JSON-RPC_API#Enabling_JSON-RPC on how to enable it.
-{.is-info}
+:::{note}
+**Requirements:** JSON-RPC must be enabled. See http://kodi.wiki/view/JSON-RPC_API#Enabling_JSON-RPC on how to enable it.
+:::
 
 Simple plugin to send clean or scan requests to a remote or local Kodi server. 
 ## Plugin Settings

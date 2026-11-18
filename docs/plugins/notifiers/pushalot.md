@@ -1,6 +1,7 @@
 # Pushalot
-> Pushalot is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
-{.is-success}
+:::{tip}
+Pushalot is a part of the [notifier](/plugins/index.md#notifier-services-output) plugin system.
+:::
 
 
 
@@ -21,8 +22,9 @@ This plugin provides the ability to send flexget notifications via the cross-pla
 |timetolive|numeric|Time in minutes after which message automatically gets purged. Minimum is `0`, maxiumum is `43200`.
 
 #### Examples
-> Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
-{.is-warning}
+:::{warning}
+Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
+:::
 
 ```yaml
 notify:

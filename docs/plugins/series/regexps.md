@@ -1,4 +1,4 @@
-## Advanced matching with regexps
+# Advanced matching with regexps
 The standard name matching works quite well, but in some cases you may need to specify regexp(s) manually. Usually the `name_regexp` when series is written in multiple different ways.
 
 **Notes:**

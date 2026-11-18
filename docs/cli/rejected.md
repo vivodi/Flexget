@@ -1,7 +1,7 @@
-## `rejected`
+# `rejected`
 List or clear [remembered rejections](plugin:remember_rejected).
 
-### Sub-commands
+## Sub-commands
 | Sub-command | option | description |
 | --- | ---| --- |
 | `list` || List all entries that have been rejected |
@@ -10,7 +10,7 @@ List or clear [remembered rejections](plugin:remember_rejected).
 || [`--porcelain`](/cli/misc/table-styles) | Make the output parseable. Similar to using `--table-type porcelain` |
 | `clear` || Clear all rejected entries from the database so they can be retried |
 
-### Examples
+## Examples
 ```console
 #lists all rejected entries
 $ flexget rejected list

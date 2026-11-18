@@ -14,13 +14,13 @@ This option can be used if you want to accept season packs in addition to (or in
 
 There are several modes of usage for this option. 
 
-#### Basic usage:
+### Basic usage:
 ```yaml
 season_packs: yes
 ```
 This will enable accepting season packs for any series that did not download ANY episodes for that particular season.  
 
-#### Example:
+### Example:
 ```yaml
 tasks:
   series_task:
@@ -47,26 +47,26 @@ tasks:
 ```
 The number `0` after season packs refers to the number of episodes each season is allowed to previously download before accepting a season pack. 
 
-#### Manually specifying threshold:
+### Manually specifying threshold:
 In case you want to manipulate the number of allowed episodes when accepting a season pack, you can specify it like so:
 ```yaml
 season_packs: 10
 ```
 This will allow downloading up to to 10 episodes per season (in any order) and also accepting a season pack of the same season.
 
-#### Ignoring episode threshold:
+### Ignoring episode threshold:
 In case you do not care about setting an episode threshold, and would like to always accept a season pack regardless of how many episdoes were already downloaded for that particular series, use the following option:
 ```yaml
 season_packs: always
 ```
 
-#### Accepting only season packs:
+### Accepting only season packs:
 In case you want to accept **only** season pack for a series, use the following option:
 ```yaml
 season_packs: only
 ```
 
-### Advanced usage
+## Advanced usage
 You can fine tune both of the previous options of the config even further like this:
 ```yaml
 season_packs:

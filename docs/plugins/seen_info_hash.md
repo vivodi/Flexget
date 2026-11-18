@@ -3,12 +3,12 @@ In the rare event where same torrent is downloaded with different title and url 
 
 This plugin is [Builtin](/Builtin) and needs no configuration, however you can override some default behavior by configuring it explicitly.
 
-### Local Mode
+## Local Mode
 To only consider previously grabbed torrents within the current task you can configure like this:
 ```
 seen_info_hash: local
 ```
-### Turning Off
+## Turning Off
 To turn off this plugin on a particular task, you can either use the <plugin:disable> plugin, or configure it like this:
 ```
 seen_info_hash: no

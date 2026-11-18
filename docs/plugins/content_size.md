@@ -3,7 +3,7 @@ Allow specifying minimum and maximum sizes for contents such as torrents and nzb
 
 **Note:** content_size doesn't work with magnet links, as it works by analyzing the the .torrent file. You can include the <plugin:magnets> plugin to reject any magnet entries.
 
-### Example:
+## Example:
 ```
 content_size:
   min: 12 MiB

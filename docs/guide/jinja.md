@@ -13,7 +13,7 @@ Some options can have dynamically formatted values based on other [entry fields]
 - You can use [jinja filters](http://jinja.pocoo.org/docs/templates/#builtin-filters) to do formatting on fields from the entry.
 - If a referenced field is not available, the target field will be set to an empty string. If you would like to change this, you can use the jinja 'default' filter.
 
-#### Example:
+## Example:
 
 This example sets the `content_filename` using the information parsed by the <plugin:series> plugin. The <plugin:deluge> plugin uses the `content_filename` field to rename a file inside the torrent.
 
@@ -24,7 +24,7 @@ set:
 
 This will result in filenames like: The.Show.S02E03.HDTV.avi and Other.Show.S02E04.720P-proper.mkv
 
-### Jinja2 Filters
+## Jinja2 Filters
 **Note**: To get up-to-date information about all available Jinja filters, use the following CLI command:
 ```console
 $ flexget jinja-filters
@@ -54,7 +54,7 @@ When using Jinja2 templates, you can use the following custom filters in additio
 |`to_date`|Formats date
 
 
-#### Example:
+### Example:
 
 ```yaml
 set:
@@ -63,7 +63,7 @@ set:
   # Create a simple title
   id_name: '{{title|asciify|strip_symbols}}'
 ```
-### Jinja2 Tests
+## Jinja2 Tests
 When using Jinja2 tests, you can use the following custom tests in addition to the [built-in tests](http://jinja.pocoo.org/docs/dev/templates/#list-of-builtin-tests).
 
 |Name|Description|
@@ -71,7 +71,7 @@ When using Jinja2 tests, you can use the following custom tests in addition to t
 |`is fs_file`|Check whether object is existing file (or symlink) in filesystem.|
 |`is fs_dir`|Check whether object is existing directory (or symlink) in filesystem.|
 |`is fs_link`|Check whether object is existing symlink in filesystem.|
-#### Example:
+### Example:
 
 ```YAML
 if:

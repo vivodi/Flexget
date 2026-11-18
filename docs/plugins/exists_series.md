@@ -1,13 +1,13 @@
 # Existing series
 This plugin will reject all entries that represent an episode of a series that is already on disk.
 
-### Example
+## Example
 
 ```yaml
 exists_series: /storage/series/
 ```
 
-### Example
+## Example
 
 ```yaml
 exists_series: 

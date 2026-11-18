@@ -7,7 +7,7 @@ CLI `flexget failed` provides tools to `list` and `clear` failed entries.
 
 This plugin is a [builtin](/Builtin) and does not need to be explicitly placed in your task unless you would like to override the defaults. 
 
-### Example
+## Example
 
 ```yaml
 retry_failed:

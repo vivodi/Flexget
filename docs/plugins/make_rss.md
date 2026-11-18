@@ -2,14 +2,14 @@
 
 Write RSS containing succeeded (downloaded) entries.
 
-#### Example
+## Example
 ```yaml
 make_rss: ~/public_html/flexget.rss
 ```
 
 You may write into same file in multiple tasks.
 
-#### Example
+## Example
 ```yaml
 my-task-A:
   make_rss: ~/public_html/series.rss
@@ -24,12 +24,12 @@ my-task-B:
 With this example file `series.rss` would contain succeeded
 entries from both tasks.
 
-### Number of days / items
+## Number of days / items
         
 By default output contains items from last 7 days. You can specify
 different perioid, number of items or both. Value -1 means unlimited.
         
-#### Example
+### Example
         
 ```
 make_rss:
@@ -40,7 +40,7 @@ make_rss:
           
 Generate RSS that will containg last two days and no more than 10 items.
         
-#### Example
+### Example
 ```
 make_rss:
   file: ~/public_html/series.rss
@@ -50,11 +50,11 @@ make_rss:
           
 Generate RSS that will contain last 50 items, regardless of dates.
         
-### RSS link
+## RSS link
         
 You can specify what [field](/Entry) from entry is used as a link in generated rss feed.
         
-#### Example
+### Example
 ```
 make_rss:
   file: ~/public_html/series.rss
@@ -68,10 +68,10 @@ even without explicitly adding it into the list.
         
 Default list: imdb_url, input_url, url
 
-### Encoding
+## Encoding
 Since some clients do not support RSS properly (ahem, uTorrent). 
 
-#### Example
+### Example
 ```yaml
 make_rss:
   file: ~/public_html/series.rss

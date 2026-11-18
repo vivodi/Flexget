@@ -21,7 +21,7 @@ This plugin provides the ability to send flexget notifications via the cross-pla
 |priority|numeric|Sets notification priority. Can be between -2 and 2.
 
 
-#### Examples
+### Examples
 :::{warning}
 Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
 :::
@@ -35,7 +35,7 @@ notify:
 ```
 
 
-#### Advanced Example
+### Advanced Example
 ```yaml
 notify:
   entries:

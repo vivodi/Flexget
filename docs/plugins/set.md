@@ -2,7 +2,7 @@
 
 Stores info in an [entry](/Entry). Can also do dynamic formatting per entry.
 
-#### Example
+## Example
 
 ```yaml
 set:

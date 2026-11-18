@@ -2,7 +2,7 @@
 
 Accepts all entries in the task. Remember that accepted entries can still be rejected by other plugins.
 
-### Example
+## Example
 
 ```yaml
 tasks:

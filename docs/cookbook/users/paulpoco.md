@@ -318,6 +318,6 @@ series:
   - "The Librarians (US)"
 ```
 
-### Attachments
+## Attachments
 * [My config.yml file (1.2.231)](configs/paulpoco/config.yml)
 * [My series.yml file (1.2.231)](configs/paulpoco/series.yml)

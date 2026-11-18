@@ -18,7 +18,7 @@ You can now also use the channel feature, to send broadcast notifications to you
 |channel|text|Target channel
 |priority|numeric| Set message priority. Values between 0 and 6 are accepted.|
 
-#### Examples
+## Examples
 :::{warning}
 Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
 :::
@@ -33,7 +33,7 @@ notify:
           api_key: API_KEY
 ```
 
-#### Example with multiple API-Key
+### Example with multiple API-Key
 ```yaml
 notify:
   entries:

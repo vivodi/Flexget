@@ -1,7 +1,7 @@
-## `trakt`
+# `trakt`
 View and manage [Trakt authentication](/guide/trakt.md/#trakt-authentication), for use with the <plugin:trakt_list> and <plugin:trakt_lookup> plugins.
 
-### Sub-commands
+## Sub-commands
 | Sub-command | Option | Description |
 | --- | --- | --- |
 | `auth` || Authorize Flexget to access your Trakt.tv account. This argument generates an `access_token` which grants Flexget access to your Trakt.tv account. An `access_token` is valid for 3 months after which Flexget will automatically generate a new `access_token`. It can be manually refreshed using the `refresh` argument below.|
@@ -20,7 +20,7 @@ View and manage [Trakt authentication](/guide/trakt.md/#trakt-authentication), f
 || *positional:* ||
 || `<account>`| Identifier (as originally specified with the `auth` command above)|
 
-### Examples
+## Examples
 ```console
 #refreshes the access token associated with the "my_foo_account"
 $ flexget trakt refresh my_foo_account

@@ -1,6 +1,6 @@
 # nzbget
 
-### Example
+## Example
 
 ```yaml
 nzbget:
@@ -8,7 +8,7 @@ nzbget:
   category: movies
 ```
 
-### All possible parameters
+## All possible parameters
 
 ```yaml
 nzbget:

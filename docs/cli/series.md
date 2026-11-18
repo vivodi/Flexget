@@ -1,7 +1,7 @@
-## `series`
+# `series`
 View and manage the <plugin:series> plugin database.
 
-### Sub-commands
+## Sub-commands
 | Sub-command                                                           | Option | Description/Example|
 |-----------------------------------------------------------------------| --- | --- |
 | `list`         || List a summary of the different series being tracked |
@@ -35,7 +35,7 @@ View and manage the <plugin:series> plugin database.
 || `<episode_id> [<episode_id> ...]`<br>`<season_id> [<season_id> ...]`  | Episode or season ID(s)  to add|
 || `--quality <quality_string>`[&darr;](#environment-variables)                  | [Quality](plugin:quality#qualities) string that is attached to each entity added|
 
-### Environment Variables
+## Environment Variables
 Environment variables set option defaults for the subcommand noted, and are overridden by the corresponding flag(s) listed.
 | Subcommand | Variable | Possible Values | Description | Corresponding Argument(s) |
 | --- | --- | --- | --- | --- |
@@ -53,7 +53,7 @@ Environment variables set option defaults for the subcommand noted, and are over
 | | `FLEXGET_SERIES_ADD_QUALITY` | [quality](plugin:quality#qualities) string | The quality that is attached to each entity added | `--quality <quality_string>` |
 
 
-### Examples
+## Examples
 ```console
 #lists a summary of the different series being tracked
 $ flexget series list

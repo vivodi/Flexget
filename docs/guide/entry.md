@@ -4,7 +4,7 @@ It contains all the information necessary for [plugins](/plugins/index) to perfo
 
 For example, the <plugin:regexp> plugin checks whether the given regular expression matches the entry's **title** or **url** and acts accordingly.
 
-### Example of an entry
+## Example of an entry
 
 These are mandatory fields. You don't necessarily need to deal with anything more complicated for simple use cases.
 
@@ -14,7 +14,7 @@ These are mandatory fields. You don't necessarily need to deal with anything mor
 | title | Linux Mint 17.3 cinnamon |
 | url | http://torrents.linuxmint.com/torrents/linuxmint-17.3-cinnamon-64bit.iso.torrent |
 
-### Known fields
+## Known fields
 Entry *may* have any of these fields, but is not *guaranteed* to have any of them. It may have other fields as well depending on configuration. 
 
 :::{warning}

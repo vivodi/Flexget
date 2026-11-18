@@ -6,7 +6,7 @@ abort_if_exists:
   regexp: <regexp>
   field: <field name>
 ```
-### Example
+## Example
 
 Abort the task if [lftp](https://lftp.yar.ru/) is currently transferring data. 
 

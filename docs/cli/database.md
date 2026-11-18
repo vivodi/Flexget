@@ -1,7 +1,7 @@
-## `database`
+# `database`
 Utilities to manage the FlexGet database.
 
-### Sub-commands
+## Sub-commands
 | Sub-command | Option | Description |
 | --- | --- | --- |
 | `cleanup` || Cause all plugins to clean unnecessary data from the database |
@@ -11,7 +11,7 @@ Utilities to manage the FlexGet database.
 | `reset-plugin` || Reset the database for a specific plugin |
 || `<plugin name>` | Name of the plugin to reset |
 
-### Examples
+## Examples
 ```console
 # cleanup unnecessary data from the database
 $ flexget database cleanup

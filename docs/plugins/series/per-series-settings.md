@@ -1,4 +1,4 @@
-## Per series settings
+# Per series settings
 When specifying a setting for a series, you must add a colon to the end of the series name, and add 4 more spaces before the setting name:
 
 ```

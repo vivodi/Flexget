@@ -1,10 +1,10 @@
-## `seen`
+# `seen`
 View or forget entries remembered by the <plugin:seen> plugin.
 
-### Notes
+## Notes
 The [`execute` option](/CLI/execute) `--learn` (optionally combined with `--tasks`) can be used to mark all entries that would be accepted as seen.
 
-### Sub-commands
+## Sub-commands
 | Sub-command | option | description |
 | --- | --- | --- |
 | `forget` || Forget entry or entire task from seen plugin database |
@@ -20,7 +20,7 @@ The [`execute` option](/CLI/execute) `--learn` (optionally combined with `--task
 
 All sub-commands support the `--task` option, which can be specified to only act on certain tasks. It can contain wildcards, or be specified more than once to select multiple tasks.
 
-### Examples
+## Examples
 ```console
 #Adds the title "The Foo Movie" to the seen database
 $ flexget seen add "The Foo Movie"

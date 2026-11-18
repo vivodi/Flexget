@@ -1,7 +1,7 @@
 # Include
 Allows including configuration from another file into a task.
 
-### Example
+## Example
 
 **config.yml**
 

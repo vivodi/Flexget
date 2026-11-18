@@ -5,12 +5,12 @@ This is part of [managed list](/plugins/index.md#managed-list) plugin system.
 
 It is a list of strings that represent regular expressions to be used for matching entries. The matching is case insensitive and only match single lines (no newline matching etc).
 
-### Config
+## Config
 ```yaml
 regexp_list: <NAME>
 ```
 
-### Usage
+## Usage
 Maintain a list of regular expressions instead of writing them out in the config. Since it is a [managed list](/plugins/index.md#managed-list) plugin, you can use other list plugins to populate the regexp_list.
 
 Below is an example that converts a list of series from a <plugin:trakt_list> to a list of regular expressions that can be used to match entries from RSS feeds. Useful if you don't care about series tracking.
@@ -47,5 +47,5 @@ tasks:
     download: /some/download/path
 ```
 
-### CLI
+## CLI
 You can also [interact with regexp_list](/CLI/regexp-list) via command line.

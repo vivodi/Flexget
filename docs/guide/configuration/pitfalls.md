@@ -1,5 +1,5 @@
 # Common pitfalls and answers
-### `mapping values are not allowed here, line x column y`
+## `mapping values are not allowed here, line x column y`
 **Possible cause**: You have `:` somewhere where it's not allowed.
 
 If a series has `:` in the name, you must put the name in quotes.
@@ -36,7 +36,7 @@ series:
 ```
 <br >
 
-### `ValueError: unsupported format character '"' (0x22) at ....`
+## `ValueError: unsupported format character '"' (0x22) at ....`
 In case you are using an RSS input, try forcing it into ASCII.
 
 ```yaml
@@ -47,14 +47,14 @@ rss:
 
 <br>
 
-### `RSS Feed ... is not valid XML`
+## `RSS Feed ... is not valid XML`
 **Possible cause**: You're not receiving an RSS feed for some reason (i.e. you must be logged in, missing cookies, etc.).
 
 **Possible cause**: The feed server sends is made by monkeys and isn't outputting well-formed XML. You can use [this service](http://validator.w3.org/feed/) to check if the feed is broken.
 
 <br>
 
-### `cron job did not run` 
+## `cron job did not run` 
 **Possible cause**: Check that you have a working mail system so you receive errors occur during crontab execution.
 * Add the following to the top of the crontab (crontab -e) that runs flexget so you receive cron errors to the right email address.
   * ` MAILTO="youremail@address.com" `
@@ -63,7 +63,7 @@ rss:
 
 <br>
 
-### `cookielib bug`
+## `cookielib bug`
 If you get an error like this: 
 
 ```
@@ -84,7 +84,7 @@ $ curl -b oldcookiefile.txt --cookie-jar newcookiefile.txt http://url
 
 <br>
 
-### `Distribution Not Found`
+## `Distribution Not Found`
 ```
 Traceback (most recent call last):
   File "/usr/local/bin/flexget", line 5, in <module>

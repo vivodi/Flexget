@@ -4,7 +4,7 @@ This plugin returns bluray information about movies and tv seasons from blu-ray.
 
 This lookup plugin is not very reliable, it's mainly used for the bluray movie estimator used by [discover](discover).
 
-#### Syntax
+## Syntax
 
 ```yaml
 bluray_lookup: yes

@@ -1,4 +1,4 @@
-## Override path
+# Override path
 Specify a custom path for a series. Note that this does **not** download it, your feed must have output plugin (eg. <plugin:download>, <plugin:deluge>)
 
 **Example:**

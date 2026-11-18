@@ -6,7 +6,7 @@ The benefit to this plugin over regular search plugins that utilize API/scraping
 
 You can always get the current status of the IRC plugin, as well as restart and stop it, via the [command line](/CLI/irc).
 
-### Prerequisites
+## Prerequisites
 * **Install `irc_bot`**.
 
 This plugin requires you to install [the `irc_bot` Python module](https://github.com/cvium/irc_bot) separately. To install, run:
@@ -24,7 +24,7 @@ $ flexget daemon start --daemonize
 * Have an autodl-tracker file relevant to your intended tracker. Either the name (case insensitive) or downloaded from [here](https://github.com/autodl-community/autodl-trackers).
 * rsskey or other needed credentials located in the tracker file and in the guide section of your tracker's website. (hint: look for autodl guides)
 
-### Daemon plugin
+## Daemon plugin
 
 Note that this is a daemon plugin. Unlike most plugins, it is not placed under the tasks section of the config, but rather is a [top-level key](/Configuration#top-level-keys). Example:
 
@@ -41,7 +41,7 @@ templates:
 ```
 
 
-### Tips
+## Tips
 
 * Read your tracker's wiki/FAQ very carefully. Using this plugin and getting banned for not following rules is your own fault.
 * The tasks you use for IRC should have `manual: yes` in them to avoid the scheduler automatically executing them.
@@ -52,7 +52,7 @@ templates:
 * It is _technically_ possible to run this without a tracker file, but then you'd lose the `irc_` prefixed fields. If the message is more than an URL, be prepared to use the manipulate plugin.
 * Visit our [Gitter](https://gitter.im/Flexget/Flexget) if you have questions/issues.
 
-### Settings
+## Settings
 |  Option  |  Description  | Example |
 | --- | --- | --- |
 | **tracker_file** |  *(required & preferred, unless **server** & **channels** are specified)* Path to the tracker file for your tracker  |  'MyFunTracker.tracker'  |
@@ -71,7 +71,7 @@ templates:
 | **task_delay** |  The amount of time in seconds to delay task execution. Useful for when announcements are too early (unregistered torrent error).  |  30 |
 
 
-### task vs task_re
+## task vs task_re
 The `task_re` option allows you to specify where to send certain entries eg. send TV announcements to a TV task and movie announcements to a movie task. Any entry field created from the IRC announcement can be used for filtering. The most commonly used is `irc_category`, but you are free to filter on uploader, size or whatever else information is available.
 
 When executing a task using the `task_re` option with multiple patterns defined, the task will only be executed if all of the patterns are a match (an AND condition).  If you have multiple patterns that should execute a task when ANY of them are a match (an OR condition), you can use the same task name with different patterns.
@@ -82,7 +82,7 @@ The categories are different for each tracker (and may not even called `irc_cate
 
 
 
-### Example config
+## Example config
 ```yaml
 irc:
   irc_cool_tracker:

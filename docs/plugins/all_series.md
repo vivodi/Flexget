@@ -3,7 +3,7 @@ Automatically configures the <plugin:series> plugin for all series that appear i
 
 Plugin expects the title format to start with the series name followed by the episode numbering. Use the <plugin:manipulate> plugin to modify the entry title to match this format, if necessary. Since it's very hard to guess series names you're much more likely to get significantly more robust matching (and thus downloading) with configuring <plugin:series> plugin with **explicit** series names. You can also mix and match all different configuration methods.
 
-### Example
+## Example
 
 Turns on the plugin for a task.
 

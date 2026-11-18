@@ -1,7 +1,7 @@
-## Metainfo Movie
+# Metainfo Movie
 Allows parsing the received title by selected movie parser, and populating entry fields with relevant movie attributes.
 
-### Syntax
+## Syntax
 ```
 metainfo_movie: yes
 ```

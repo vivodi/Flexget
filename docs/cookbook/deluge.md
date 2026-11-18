@@ -20,7 +20,7 @@ The following is a comprehensive guide on how to setup an ubuntu seedbox/vps wit
 **You can access the full tutorial by [clicking here](https://djnitehawk.com/flexget.htm)**
 :::
 
-### PDF Download
+## PDF Download
 You can download a PDF version of the tutorial from the following google drive link:
 
 ```

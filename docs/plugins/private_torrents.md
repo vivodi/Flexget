@@ -7,14 +7,14 @@ Uses private flag in torrent file to determine what to do with private torrents.
 private_torrents: yes|no
 ```
 
-### Example
+## Example 1
 ```
 private_torrents: no
 ```
 
 This would reject all torrent entries with private flag.
 
-### Example
+## Example 2
 ```
 private_torrents: yes
 ```

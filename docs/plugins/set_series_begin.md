@@ -1,7 +1,7 @@
 # Set series begin
 This plugin sets the episode to start getting a series from, for each accepted entry with fields `series_name` (show title) and `series_id` (episode id, eg. S01E03).
 
-### Example
+## Example
 
 Set series begin values from trakt:
 

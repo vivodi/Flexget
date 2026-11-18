@@ -1,14 +1,14 @@
 # Sort By
 Sorts task entries in order by a specified field. Useful for generating RSS in particular order. By default the sort will be in ascending (lowest first) order.
 
-### Plugin Options
+## Plugin Options
 | Option| Description |
 | --- | --- |
 | field | The field by which to sort the entries. Default: _title_. **Required** if you are utilizing either of the other two options. |
 | reverse | If set to `yes`, the sort will be in descending order. |
 | ignore_articles | If set to `yes`, ignores 'a', 'an', and 'the' when sorting. Alternatively, this can be set to a regular expression of articles to be ignored (useful if you primarily use a different language). `yes` is equivelant to using the regex `^(the|a|an)\s`. |
 
-### Example
+## Example
 These entries will be used for the following examples.
 ```text
 His Entry
@@ -16,7 +16,7 @@ The Cats Entry
 My Entry
 ```
 
-#### Basic Usage
+### Basic Usage
 Config:
 ```yaml
 sort_by: title
@@ -28,7 +28,7 @@ My Entry
 The Cats Entry
 ```
 
-#### Reverse Order of Results
+### Reverse Order of Results
 Config:
 ```yaml
 sort_by:
@@ -42,7 +42,7 @@ My Entry
 His Entry
 ```
 
-#### Ignoring articles
+### Ignoring articles
 Config:
 ```yaml
 sort_by:
@@ -56,7 +56,7 @@ His Entry
 My Entry
 ```
 
-#### Ignoring articles with custom regex
+### Ignoring articles with custom regex
 Config:
 ```yaml
 sort_by:
@@ -71,7 +71,7 @@ His Entry
 The Cats Entry
 ```
 
-#### Using jinja expressions
+### Using jinja expressions
 The field specification is a jinja expression for more advanced sorting.
 e.g.
 ```yaml

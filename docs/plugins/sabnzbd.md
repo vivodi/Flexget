@@ -1,5 +1,5 @@
 # SABnzbd
-### Example
+## Example
 ```
 sabnzbd:
   key: 123456
@@ -7,7 +7,7 @@ sabnzbd:
   category: movies
 ```
 
-### All possible parameters
+## All possible parameters
 ```
 sabnzbd:
   key: ...

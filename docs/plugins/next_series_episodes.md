@@ -3,10 +3,10 @@ Creates an [Entry](/Entry) for the next episode needed in each series you have c
 
 If FlexGet has not seen the series for some time and is locked to specific episode numbering scheme, or if the series is not explicitly configured to some format via [`begin`](plugin:series/begin) or [`identified_by`](plugin:series/identified_by), `next_series_episodes` can not guess which episode to emit.
 
-### Quality upgrades?
+## Quality upgrades?
 Once one quality has been successfully downloaded that episode is never created again. This means that ``discover`` with ``next_series_episodes`` does not currently work with quality upgrades.
 
-### New series
+## New series
 
 If you would like to start every show automatically without setting the begin episode, you can configure ``next_series_episodes`` like this:
 
@@ -16,7 +16,7 @@ next_series_episodes:
 ```
 **NOTE**: This requires the <plugin:series> option [`identified_by`](plugin:series/identified_by) to be present and set to `ep`.
 
-### Backfill
+## Backfill
 
 If you want flexget to attempt to retrieve any episodes you're missing from any season, you can configure `next_series_episodes` like this:
 
@@ -25,9 +25,9 @@ next_series_episodes:
   backfill: yes
 ```
 
-### Examples
+## Examples
 
-#### Manually specify begin in configuration
+### Manually specify begin in configuration
 
 ```yaml
 discover:
@@ -42,7 +42,7 @@ series:
       begin: S03E01
 ```
 
-#### Group configuration with backfill
+### Group configuration with backfill
 
 ```yaml
 discover:

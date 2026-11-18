@@ -1,7 +1,7 @@
 # Cookies
 Loads cookies from a file. Supports Firefox3, mozilla, and lwp cookie files.  This can be used for sites/services that require cookies for authentication, captcha challenges, or any other stateful/session functionality that uses cookies.
 
-### Example
+## Example
 ```
 cookies: ~/.flexget/cookies.sqlite
 ```

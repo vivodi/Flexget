@@ -1,4 +1,4 @@
-## Download series with transmission (advanced)
+# Download series with transmission (advanced)
 
 
 **config.yml** - template section:

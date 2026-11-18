@@ -1,7 +1,7 @@
-## `history`
+# `history`
 View the history of entries that FlexGet has accepted.
 
-### Optional arguments
+## Optional arguments
 | Argument | Description |
 | --- | --- |
 | `--limit <num>` | Limit to `<num>` results |
@@ -11,7 +11,7 @@ View the history of entries that FlexGet has accepted.
 | [`--table-type {plain,porcelain,github,single,double}`](/cli/misc/table-styles) | Select output table style |
 | [`--porcelain`](/cli/misc/table-styles) | Make the output parseable. Similar to using `--table-type porcelain` |
 
-### Examples
+## Examples
 ```console
 #displays the accepted history in porcelain table format
 $ flexget history --porcelain

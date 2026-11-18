@@ -1,4 +1,4 @@
-## Propers
+# Propers
 Default behavior is to download propers always.
 
 To disable propers completely:

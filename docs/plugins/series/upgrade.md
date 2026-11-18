@@ -3,7 +3,7 @@ Upgrade mode causes the series plugin to continue accepting the better quality o
 
 It can optionally be used alongside the [qualities](qualities) option or [quality](quality) options to restrict which qualities will be upgraded to. Please refer to previously mentioned options for additional information.
 
-### Example
+## Example
 ```yaml
 series:
   - name of the series:
@@ -14,7 +14,7 @@ series:
         - bluray 1080p
 ```
 
-### Example
+## Example
 
 ```yaml
 series:

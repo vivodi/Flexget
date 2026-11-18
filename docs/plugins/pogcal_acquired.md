@@ -6,7 +6,7 @@ This plugin marks the checkbox for accepted episodes on the [pogdesign TV calend
 - The release numbering must match up with the numbering on pogdesign for it to work. (Date and sequence type shows will not work.)
 - The show name normalization probably needs some improvement to match the names on the tv calendar. Feel free to [report an issue](https://github.com/Flexget/Flexget/issues) for shows that are not working.
 
-### Configuration
+## Configuration
 This plugin takes just two options, your username and password at the pogdesign calendar.
 ```
 pogcal_acquired:

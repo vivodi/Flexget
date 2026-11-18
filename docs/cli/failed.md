@@ -1,7 +1,7 @@
-## `failed`
+# `failed`
 list or clear remembered failures
 
-### Sub-commands
+## Sub-commands
 | Sub-command | Option| Description |
 | --- | ---| --- |
 | `list` || List all the entries that have had failures |
@@ -10,7 +10,7 @@ list or clear remembered failures
 || [`--porcelain`](/cli/misc/table-styles) | Make the output parseable. Similar to using `--table-type porcelain` |
 | `clear` || Clear all failures from database so they can be retried |
 
-### Examples
+## Examples
 ```console
 #lists all the entries with failures
 $ flexget failed list

@@ -1,6 +1,6 @@
 # Move
 
-### Syntax:
+## Syntax:
 
 |Option|Description|
 |---|---|
@@ -14,9 +14,9 @@
 
 **NOTE** : It is important to note that the files are moved as single files and no checks are made if multiple files match the same name. The files already present in the directory (even if moved during the same pass) are overwritten.
 
-### Examples
+## Examples
 
-#### Organize series
+### Organize series
 
 ```yaml
 tasks:
@@ -36,4 +36,3 @@ tasks:
         subdirs:
           - Subs
 ```
-

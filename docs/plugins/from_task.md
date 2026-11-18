@@ -9,7 +9,7 @@ When another task is run via this plugin, the <plugin:seen> plugin will be disab
 
 It may be useful to configure the <plugin:manual> plugin on any task you only want to be run by `from_task`. This will prevent that task from being run on its own.
 
-### Example
+## Example
 
 ```yaml
 tasks:

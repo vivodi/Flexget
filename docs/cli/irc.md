@@ -1,7 +1,7 @@
-## `irc`
+# `irc`
 View and manage <plugin:irc> connections.
 
-### Actions
+## Actions
 | action | option | description |
 | --- | --- | --- |
 | `status` || Shows status for a specific IRC connection |
@@ -15,7 +15,7 @@ View and manage <plugin:irc> connections.
 || `<irc_connection>` | Title of the IRC connection |
 
 
-### Examples
+## Examples
 ```console
 #shows the status for a specific irc connection
 $ flexget irc status

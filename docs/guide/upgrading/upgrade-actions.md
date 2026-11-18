@@ -4,31 +4,31 @@ This page contains information about configuration file format changes, as well 
 
 Starting from version 2.0.0 we are using semantic versioning, in the form that any increase in the second digit means that configuration is not necessarily backwards compatible and may need to be updated. Therefore this page is generally only updated after each 2.x.0 release.
 
-### **3.22.0** - 2026-10-08
+## **3.22.0** - 2026-10-08
 
-#### <plugin:convert_magnet>
+### <plugin:convert_magnet>
 
 `force` config option is renamed to `fail_entry_on_error`.
 
-### **3.21.0** - 2026-09-17
+## **3.21.0** - 2026-09-17
 
 Dropped support for Python 3.10.
 Added support for Python 3.15.
 
-### **3.20.0** - 2026-08-05
+## **3.20.0** - 2026-08-05
 
-#### <plugin:subliminal>
+### <plugin:subliminal>
 
 The `hearing_impaired` option has been replaced by `subtitle_categories`. `subtitle_categories` accepts strings as a comma-separated list of subtitle categories, from the three existing categories: `hi`, hearing impaired subtitle; `fo`, foreign only subtitle; `n`, narrative, standard subtitle. For instance `hi,n,fo` sorts the subtitles by hearing impaired first, then narrative and foreign only last. If a category is omitted, the corresponding subtitles will be skipped. For instance `hi` will select the best subtitle among hearing impaired only subtitles. An empty string (the default) with not sort or filter out the subtitles.
 
-### **3.19.0** - 2026-03-05
+## **3.19.0** - 2026-03-05
 
-#### [Torznab](/Searches/torznab)
+### [Torznab](/Searches/torznab)
 
 Configuration option `website` was renamed to `url` to be inline with other plugins.
 
-### **3.18.0** - 2025-08-27
-#### [Emby lookup](plugin:emby_lookup)
+## **3.18.0** - 2025-08-27
+### [Emby lookup](plugin:emby_lookup)
 All series fields have been renamed:
 |old name|new name|
 |---|---|
@@ -41,7 +41,7 @@ All series fields have been renamed:
 |emby_serie_tvdb_id|emby_series_tvdb_id|
 |emby_serie_overview|emby_series_overview|
 |emby_serie_page|emby_series_page|
-#### Removed sites no longer available
+### Removed sites no longer available
 - animeindex
 - archetorrent
 - deadfrog
@@ -56,43 +56,43 @@ All series fields have been renamed:
 - ptn
 - rmz
 
-### **3.17.0** - 2025-07-24
+## **3.17.0** - 2025-07-24
 Dropped support for Python 3.9.
 Added support for Python 3.14.
 
 
-### **3.16.0** - 2025-05-18
-#### <plugin:filesystem>
+## **3.16.0** - 2025-05-18
+### <plugin:filesystem>
 The `accessed`, `modified`, and `created` entry fields have been named to `atime`, `mtime`, and `ctime`. These fields may have different semantics on different OSs, so the friendly names were removed so as to not cause confusion.
 
-### **3.15.0** - 2025-02-08
-#### `cfscraper`
+## **3.15.0** - 2025-02-08
+### `cfscraper`
 The `cloudscraper` dependency was previously deprecated (and broken), so the `cfscraper` plugin has now been removed. If you still have it in your config, it will need to be removed.
 
-### **3.14.0** - 2025-02-02
+## **3.14.0** - 2025-02-02
 Previously the series plugin would default to a target of `720p hdtv+` if timeframe was specified without a target. It is now required that a target be explicitly set along with timeframe or it will be considered a configuration error.
 
-### **3.13.0** - 2024-12-12
-#### <plugin:telegram>
+## **3.13.0** - 2024-12-12
+### <plugin:telegram>
 Telegram plugin now requires python-telegram-bot v21.9 or later. `pip install --upgrade python-telegram-bot`
 You can specify `chat_id` directly in the configuration file.
 `socks_proxy` option now uses standard `socks5://user:pass@host:port`.
 
-### **3.12.0** – 2024-12-03
-#### Python 3.8 Dropped
+## **3.12.0** – 2024-12-03
+### Python 3.8 Dropped
 Python 3.8 has been EoL since June. Support for it has now been dropped. You'll need to install Flexget with Python 3.9+ in order to upgrade.
 
-### **3.11.42** - 2024-08-04
-#### <plugin:telegram>
+## **3.11.42** - 2024-08-04
+### <plugin:telegram>
 The `parse_mode: markdown` setting was updated to use [MarkdownV2](https://core.telegram.org/bots/api#markdownv2-style).
 The [legacy parse mode](https://core.telegram.org/bots/api#markdown-style) was moved to `parse_mode: markdown_legacy`
 
-### **3.11.13** - 2024-01-27
+## **3.11.13** - 2024-01-27
 
 The <plugin:transmission> (and <plugin:from_transmission>) plugins now require [transmission-rpc]() version 7.0.3 or greater. Run ```pip install --upgrade transmission-rpc``` from the environment where flexget is installed to upgrade.
 
-### **3.11.0** – 2023-12-25
-#### Better Timezone support
+## **3.11.0** – 2023-12-25
+### Better Timezone support
 The entry fields and template system have been upgraded to use timezone aware datetimes. We have done our best to make this transparent in most cases, but if you are doing date comparison with the `if` plugin, or `age` plugin, you may need to check everything is working how you intended. Most plugins have been upgraded to provide entry fields with datetimes in the proper timezone, but if there are any without a timezone, when compared with a time including a timezone, it will be assumed to be in the same timezone. Some other changes and notes to be aware of:
 - All dates and datetimes in entry fields are now [pendulum](https://pendulum.eustace.io/) instances. This gives many convienince methods you can now use in your templates. (e.g. `transmission_date_done < somedate.subtract(days=10)`, `Something was released {{rss_pubdate.diff_for_humans()}}`)
 - ~~Dates in entry fields are now converted to datetimes at midnight. This makes it easier to compare any two dates/datetimes in a template. If you need to get back to the raw date, you can use `.date()`~~ This behavior was reverted in 3.11.2. You can however compare a date to a datetime still, and at this point the date will be considered to be at midnight of the day.
@@ -102,36 +102,36 @@ The entry fields and template system have been upgraded to use timezone aware da
 Help reporting any bugs, or upgrading any plugins still using naive times would be much appreciated. More details in [the PR](https://github.com/Flexget/Flexget/pull/3758)
 
 
-### **3.10.0** – 2023-11-19
-#### Python 3.7 Dropped
+## **3.10.0** – 2023-11-19
+### Python 3.7 Dropped
 Python 3.7 has been EoL since June. Support for it has now been dropped. You'll need to install Flexget with Python 3.8+ in order to upgrade.
-#### passthepopcorn login
+### passthepopcorn login
 The [passthepopcorn](/Searches/passthepopcorn) plugin has been fixed, but configs need to be updated to use the `apiuser` and `apikey` configuration rather than `username` and `password`.
 
-### **3.9.0** – 2023-08-17
-##### Series Tracking
+## **3.9.0** – 2023-08-17
+### Series Tracking
 The `tracking` option for series has been removed, and will need to be removed from your config if you specified it. It often created more problems than it solved. There have been improvements to automatically set a reasonable begin episode for series if one was not already set, but you should set it manually to be completele sure nothing from the past will be needlessly downloaded.
-##### Seen CLI
+### Seen CLI
 The seen plugin CLI has been altered to make the `--tasks` parameter more consistent. The argument has now been renamed to `--task`, and if you'd like to operate on more than one task at a time, you can use wildcards in the argument, or specify `--task` more than once.
 
-### **3.8.0** – 2023-07-30
+## **3.8.0** – 2023-07-30
 All measurements of file size have been standardized to use bytes as the unit. This should be transparent for most users. Your config will need to be updated if you were using the `content_size` entry field with the `if` plugin, in a jinja template, or in a custom plugin, you will need to adjust since it is now measured in bytes rather than mebibytes.
 In addition, if you were using a plugin that takes a filesize in the config, you must now be more explicit with the size, e.g. `1 GiB`, rather than `1G`
 More info in [the PR](https://github.com/Flexget/Flexget/pull/3802)
 
-### **3.7.0** – 2023-05-09
+## **3.7.0** – 2023-05-09
 The [morethantv](/Searches/morethantv) plugin categories have been updated to match changes made at the site. They will need to be updated in your config to use the new categories.
 
-### **3.6.0** – 2023-04-09
+## **3.6.0** – 2023-04-09
 The <plugin:transmission> (and <plugin:from_transmission>) plugins now require [transmission-rpc]() version 4.1.4 or greater. Run ```pip install --upgrade transmission-rpc``` from the environment where flexget is installed to upgrade.
 
-### **3.5.0** -- 2022-11-03
+## **3.5.0** -- 2022-11-03
 Support for python 3.6 has been dropped. Install FlexGet using python 3.7 or newer to continue upgrading.
 
-### **3.4.0** -- 2022-10-25
+## **3.4.0** -- 2022-10-25
 The official docker image is changing the default config bindmount from `/root/.flexget` to `/config` to allow running a container as a non-root user. Please change your `-v` path or `volumes` in `docker-compose.yml` if using docker compose.
 
-### **3.3.0** -- 2022-02-14
+## **3.3.0** -- 2022-02-14
 `from_transmission` was setting entry fields with timezone aware datetimes depending on what version was installed. If you were using any `if` statements comparing to these dates with `now.astimezone()` you must now remove the `.astimezone()`
 
 ```yaml
@@ -142,38 +142,38 @@ if:
   - transmission_date_added > now - timedelta(hours=3): accept 
 ```
 
-### **3.1.154** -- 2021-11-23
+## **3.1.154** -- 2021-11-23
 `imdb_list` plugin has been changed to use cookies to avoid issues with captcha. See updatad [wiki here](plugin:imdb_list#cookies) _Sorry, we missed this breaking change in the version system, we bumped to version 3.2 to retroactively document this breaking change._
 
-### **3.1.92**  -- 2020-12-26
+## **3.1.92**  -- 2020-12-26
 Transmission plugin now uses transmission-rpc. `pip install transmission-rpc`
 
 
-### **3.0.19**  -- 2019-12-20
+## **3.0.19**  -- 2019-12-20
 
 IRC plugin now requires irc-bot 1.0.35 or later. `pip install --ugprade irc-bot`
 
-### **3.0.0** -- 2019.11.08
+## **3.0.0** -- 2019.11.08
 
 Python 2 support is dropped as Python 2 reaches EOL in Jan 1st 2020. The minimal python version is now Python 3.6. We highly recommend upgrading your python if you're still using Python 2. Note that if you're already running Flexget on python 3.6 and higher, there should be no breaking changes in this version.
 
-### **2.21.0** -- 2019.05.21
+## **2.21.0** -- 2019.05.21
 
 Added new <plugin:limit> plugin which replaces limit option from older plugins (ie. trakt_list). Some are still backwards compatible.
 
 
-### **2.20.0** -- 2019.02.11
-#### clean_transmission
+## **2.20.0** -- 2019.02.11
+### clean_transmission
 The `clean_transmission` plugin has been deprecated. The transmission plugin has gained the ability to remove torrents, which should be used in place of `clean_transmission`. A recipe detailing how to do this can be found [here](/Cookbook/TorrentCleanup). (The deluge plugin has gained the same ability now too.)
 
 `clean_transmission` is still available to use at the moment, but some of its internals had to be tweaked. If you do not immediately replace this plugin, make sure to do a `--test` run to ensure it still causes the behavior you expect.
 
-#### <plugin:from_transmission>
+### <plugin:from_transmission>
 The `onlycomplete` option default has been changed from `yes` to `no` in addition to being renamed `only_complete`. By default all entries loaded in transmission will be provided now.
 
 `from_transmission` also provides more information from transmission with entry fields prefixed with `transmission_`.
 
-#### <plugin:transmission>
+### <plugin:transmission>
 All multi-word options have been changed to have an underscore for consistency and readability. In addition, the spelling of 'honour' has been changed to match the spelling in transmission.
 |old name|new name|
 |---|---|
@@ -184,14 +184,14 @@ All multi-word options have been changed to have an underscore for consistency a
 |bandwidthpriority|bandwidth_priority|
 |hono**u**rlimits|honor_limits<br/>* *note the spelling change*|
 
-#### <plugin:from_deluge>
+### <plugin:from_deluge>
 The `keys` option has been removed. from_deluge now provides all fields from deluge with the `deluge_` prefix. Field names may vary slightly between deluge versions. Do a test run of your task to verify field names after the update:
 ```sh
 flexget --test execute --tasks my_from_deluge_task --dump
 ```
 This will show all available field names and values which you can use to update your config appropriately.
 
-#### <plugin:deluge>
+### <plugin:deluge>
 All multi-word options have been changed to have an underscore for consistency and readability. `movedone` was changed to `move_completed_path` to align with deluge naming.
 |old name|new name|
 |---|---|
@@ -205,11 +205,11 @@ All multi-word options have been changed to have an underscore for consistency a
 |removeatratio|remove_at_ratio|
 |addpaused|add_paused|
 
-### **2.19.0** -- 2019.01.29
+## **2.19.0** -- 2019.01.29
 
 Internal sorting of entries has been removed from both the <plugin:discover> and <plugin:series> plugins.
 
-#### Series
+### Series
 Formerly, the series plugin sorted by quality, and when multiple copies of an episode were available on a given run of a task, the highest quality would be chosen. Now that this internal sorting has been removed, the <plugin:sort_by> plugin can be used in the task to prioritize based on quality, or other metrics. To emulate the old behavior the following can be added to the task:
 ```yaml
 sort_by:
@@ -217,7 +217,7 @@ sort_by:
   reverse: yes
 ```
 
-#### Discover
+### Discover
 The discover plugin used to sort all results based upon torrent availability (for search plugins on torrent sites) before adding them to the task. Entries are now released in whatever order the search plugin returns. Torrent search plugins now populate the `torrent_availability` field which can be used if you wish emulate the old behavior.
 ```yaml
 sort_by:
@@ -225,33 +225,33 @@ sort_by:
   reverse: yes
 ```
 
-### **2.18.0** -- 2019.01.05
+## **2.18.0** -- 2019.01.05
 
 If you are using Python 3.7, and you have escape sequences in your regex replacements in `manipulate` plugin, they will need to be double escaped now.
 
-### **2.17.0** -- 2018.10.17
+## **2.17.0** -- 2018.10.17
 
 The `deluge` plugin has been changed to use the [deluge-client](https://pypi.org/project/deluge-client/) library. You will need to `pip install deluge-client` if you are using this plugin.
 
-### **2.16.0** -- 2018.10.12
+## **2.16.0** -- 2018.10.12
 
 The `variables` plugin has been changed to allow arbitrary sections of config to be substituted. This means it can be used in config sections which require numbers, or even bigger config sections such as a list or dictionary. If you were relying on variable replacement always producing a string, and get config errors after the upgrade, you may need to add extra quotes to the replacement with this version. e.g. `some_setting: "'{? a_variable ?}'"`
 
 The `form` plugin has been changed to use mechanicalsoup rather than mechanize. If you are using this plugin, you'll have to `pip install mechanicalsoup`. It is now python 3 compatible and respects the `headers` plugin.
 
-### **2.14.0** -- 2018.06.24
+## **2.14.0** -- 2018.06.24
 - Configuration structure for the `irc_daemon` plugins `task_re` option has been modified to treat tasks with more than one pattern defined as an AND condition rather than OR.  This requires modification of existing configurations to the new structure.  More information with an example is available in the updated [`irc_daemon` plugin documentation](plugin:irc).
 - [`fuzer` search plugin](plugin:fuzer) was changed to accomodate site's usage of recaptcha.
 
-### **2.13.0** -- 2018.03.01
+## **2.13.0** -- 2018.03.01
 Parsing has been greatly simplified. The old interface was difficult to maintain. This also means that the Guessit parser now supports ver. 2.1.4+. Due to the simplification, a lot of the specialized fields such as `is_3d` are no longer available. If you feel that a particular value is missing, open an issue on our [Github](https://www.github.com/Flexget/Flexget/issues).
 
 If you do not make use of Guessit-specific fields, **no** changes to your config are required.
 
 **NOTE**: There are currently a few bugs in Guessit that we have no control over. So if you're parsing anime, it may be better to use the internal parser for now. See [issue #533](https://github.com/guessit-io/guessit/issues/533) and [issue #532](https://github.com/guessit-io/guessit/issues/532).
 
-### **2.12.0** -- 2018.01.26
-#### Removed plugins
+## **2.12.0** -- 2018.01.26
+### Removed plugins
 The following is a list of search plugins that have been removed due to site closures. Any site claiming to be a direct successor/re-opening cannot be trusted.
 
 - Extratorrent
@@ -260,18 +260,18 @@ The following is a list of search plugins that have been removed due to site clo
 - T411
 - Torrent411
 - Torrentshack
-#### Subliminal
+### Subliminal
 The <plugin:subliminal> plugin has been changed to reject entries for which it cannot find all requested subtitle languages. Before this change, it would fail entries, but it was deemed counterintuitive.
 
 In addition, single mode will now ignore existing subtitles if the languages do not match. This is the same behaviour as running subliminal manually via CLI.
 
-### **2.10.0** -- 2017.02.17
+## **2.10.0** -- 2017.02.17
 - Web-UI/API:
   - Changed default UI path to be `hostname:port/` instead of `hostname:port/ui`
   -  Added ability to set `base_url` for web server
 
-### **2.9.0** -- 2017.01.10
-#### Notifications:
+## **2.9.0** -- 2017.01.10
+### Notifications:
 * [Notification system](/plugins/index.md#notifier-services-output) has been changed once more. Hopefully we worked most of the kinks out of the new system with this one.
 - Backwards compatibility with old system has been taken out; it wasn't working quite properly anyway. You cannot use the individual notifiers at task level anymore. You must use the <plugin:notify> plugin, which is also where message content is now configured. 
 - `notify_task`, `notify_entries`, `notify_abort`:
@@ -321,7 +321,7 @@ In addition, single mode will now ignore existing subtitles if the languages do 
             opts: here
   ```
 
-#### `secrets`:
+### `secrets`:
 - renamed to [`variables`](Plugins/variables) to reflect the more general usage pattern it has gotten.
 - The formatting for replacing variables has also been changed so as to not conflict with other jinja in the config file. Example change needed:
   ```yaml
@@ -342,11 +342,11 @@ In addition, single mode will now ignore existing subtitles if the languages do 
   replace: \{\? \1 \?\}
   ```
 
-#### <plugin:if>:
+### <plugin:if>:
 - changed to use [jinja expressions](http://jinja.pocoo.org/docs/2.9/templates/#expressions) rather than raw python ones. As the syntax is very similar, most if statements should continue to work correctly.
 - If notable changes end up being needed, feel free to come discuss in [chat](Chat) and/or update this space with instructions for others.
 
-### **2.8.0** -- 2016.12.07
+## **2.8.0** -- 2016.12.07
 - Support for string replacement has been removed. [Jinja2](/Jinja) is the only supported method now.
 
 **The below information is kept for reference, but the notification system was changed again in 2.9.0!**
@@ -356,7 +356,7 @@ In addition, single mode will now ignore existing subtitles if the languages do 
   - Tweaked `file_templates`usage slightly.
   - Added [templates](/CLI/templates) CLI action to get a list of available file templates.
 
-### **2.7.0** -- 2016.11.15
+## **2.7.0** -- 2016.11.15
 **This information is kept for reference, but the notification system was changed again in 2.9.0!**
 - Major change to all notification plugins. Consult new `notifiers` page for name changes and schema changes
 - <plugin:email>:
@@ -364,7 +364,7 @@ In addition, single mode will now ignore existing subtitles if the languages do 
 - `whatcd`:
   - removed plugin
 
-### **2.6.0** -- 2016.11.15
+## **2.6.0** -- 2016.11.15
 - <plugin:move>, <plugin:copy>: 
   - Changed option `filename` to `rename` since it caused issues with <plugin:filesystem> plugin.
   - jinja2 replacement render issues will not abort task and not fallback to default.
@@ -373,11 +373,11 @@ In addition, single mode will now ignore existing subtitles if the languages do 
   - `flexget daemon enable-autoreload` and `flexget daemon disable-autoreload` have been removed as their use was limited and ill-conceived.
 
 
-### **2.5.0** -- 2016.10.21
+## **2.5.0** -- 2016.10.21
 - [Daemon](/Daemon)/[CLI](/CLI):
   - Due to changes in the IPC protocol, you will not be able to connect to a running daemon that is an earlier version than 2.5.0 using CLI commands. Remember to stop your daemon _before_ upgrading to ensure you can elegantly shut it down.
 
-### **2.4.0** -- 2016.10.18
+## **2.4.0** -- 2016.10.18
 * <plugin:move>, <plugin:delete>, <plugin:copy>:
   * `along` has been greatly simplified and includes similarly named files with specified extensions -- regex/glob no longer supported.
 * [Daemon](/Daemon)
@@ -406,7 +406,7 @@ In addition, single mode will now ignore existing subtitles if the languages do 
     API is now always enabled when running the web server, UI is optional (enabled by default).  
     See [Web-UI](/guide/web-ui/index) and [API](/guide/api) pages for more detail.
 
-### **2.3.0** -- 2016.08.17 
+## **2.3.0** -- 2016.08.17 
 
 * <plugin:discover>:
   * `release_estimations` option now defaults to `strict` instead of `loose`, meaning anything with no release date or one that lies in the future will not be included in the search
@@ -423,7 +423,7 @@ In addition, single mode will now ignore existing subtitles if the languages do 
   * Removed plugins
 
 
-### **2.2.0** -- 2016.07.27 
+## **2.2.0** -- 2016.07.27 
 
 * <plugin:irc>:
   * plugin uses outside dependency now. Install with `pip install irc_bot`
@@ -438,7 +438,7 @@ In addition, single mode will now ignore existing subtitles if the languages do 
 * <plugin:download>, <plugin:move>:
   * removed the `output` attribute when using the  plugins. Use `location` instead.
 
-### **2.1.0** -- 2016.06.23
+## **2.1.0** -- 2016.06.23
 **Several breaking changes**
 
 As an effort to provide more consistent configuration and better user experience, several changes are presented with this version:
@@ -464,7 +464,7 @@ As an effort to provide more consistent configuration and better user experience
 * `trakt_add`, `trakt_remove`:
   * removed and replaced with <plugin:list_add>, <plugin:list_remove> and <plugin:trakt_list>
 
-### **2.0.0** -- 2016.04.24
+## **2.0.0** -- 2016.04.24
 **Major Flexget Change**
 
 Version 2.0.0 of FlexGet introduces Python 3.x support. This was a huge refactor and has been tested to the best of our abilities. With such a huge change like this we expect there to be some bugs, especially with third party plugins. 
@@ -473,7 +473,7 @@ For more information on py2/3 code visit [Developers](/dev/index).
 
 Please log bugs in [GitHub](/https://github.com/Flexget/Flexget/issues).
 
-### 1.2.505 -- 2016.04.07
+## 1.2.505 -- 2016.04.07
 **Series CLI Changes:**
 
 * Series CLI - `series forget` now also fires a `forget` event which for now removes all the relevant downloaded release from `seen` plugin as well. This is relevant both for entire series and when using identifer.
@@ -488,15 +488,15 @@ A new convention of plugins that allows usage as input, filter and output. See [
 * `couchpotato` changed its name to `couchpotato_list`.
 * `sonarr` changed its name to `sonarr_list`.
 
-### 1.2.502 -- 2016.04.04 
+## 1.2.502 -- 2016.04.04 
 TVDB API has changed, now requires account_id (userkey) rather then user password.
 
 TVDB plugins 'password' field has been changed to 'account_id'. To get your account_id visit http://thetvdb.com/?tab=userinfo
 
-### 1.2.496 -- 2016.03.28
+## 1.2.496 -- 2016.03.28
 Plugin rlslog has been removed and is no longer supported
 
-### 1.2.484 -- 2016.03.16
+## 1.2.484 -- 2016.03.16
 All TVDB plugins have been upgraded to use the new TVDB API [api-beta.thetvdb.com/swagger#/](/api-beta.thetvdb.com/swagger#/)
 
 Due to the change in API the `account_id` can no longer be used within tvdb plugins, it now requires `username` and `password` within your config.
@@ -507,24 +507,24 @@ Field `tvdb_banner_url` changed to `tvdb_banner`
 Field `tvdb_poster_url` changed to `tvdb_posters` which is a list of the top 5 posters.
 
 
-### 1.2.471 -- 2016.03.05
+## 1.2.471 -- 2016.03.05
 Python 2.6 is no longer being supported by FlexGet. Support for python 2.6 itself ended October 2013, and it is no longer receiving even security updates. You should upgrade to python 2.7 if you have not done so already.
 
-### 1.2.464 -- 2016.02.29
+## 1.2.464 -- 2016.02.29
 The `ignore_estimations` option in the <plugin:discover> plugin was changed and now it should be used as `release_estimations`. See plugin page for further information. If you did not use that option, no action is needed.
 
-### 1.2.455 -- 2016.02.18
+## 1.2.455 -- 2016.02.18
 The `urlrewrite_redirect` plugin, which previously rewrite all accepted entries' urls to any url they redirected to has been disabled by default. If you need this behavior, you must add `redirect_url: yes` to your task.
 
-### 1.2.452 -- 2016.02.11
+## 1.2.452 -- 2016.02.11
 The `listdir` and `find` plugins (which have been deprecated for a while) have now been removed. Their functionality can be replicated with the <plugin:filesystem> plugin. If you haven't already, you will need to make this change in your config.
 
 Deluge 1.1 support has been removed from the deluge plugin.
 
-### 1.2.446 -- 2016.02.02
+## 1.2.446 -- 2016.02.02
 The markdown option in the <plugin:telegram> plugin was changed from `use_markdown` to `parse_mode` and it now accept either `markdown` or `html`. Update your configurations accordingly. [Telegram API page for more details](https://core.telegram.org/bots/api#formatting-options). Also, the minimal required version of `python-telegram-bot` is `3.2.0`. Upgrade using `pip install python-telegram-bot --upgrade`.
 
-### ?? -- 2015.12.29
+## ?? -- 2015.12.29
 
 **t411 replace torrent411 for discovering**
 
@@ -534,14 +534,14 @@ The search plugin is called henceforth `t411` instead of `torrent411`. Credentia
 
 You can no longer use the plugin `html` or `rss` for scraping the Torrent411 website. Instead, use the `t411` input plugin.
 
-### 1.2.410 -- 2015.12.16 
+## 1.2.410 -- 2015.12.16 
 Due to a complete refactor of <plugin:pushover> plugin, the field `urltitle` need to be changed to `url_title` in config. Users that do not use that field in their Pushover plugin config do not need to change anything, and all should work well.
 
-### 1.2.389 --2015.11.15 
+## 1.2.389 --2015.11.15 
 TVRage seems to be down, so in its place we have implemented [TVMaze](http://www.tvmaze.com), which requires a few new dependencies.
 If you are installed from a git checkout, you'll have to make sure your deps are up to date after pulling. Run `bin/pip install --upgrade -e .` from your checkout directory if you are using the virtualenv setup that bootstrap.py gives you.
 
-### 1.2.385 -- 2015.11.11
+## 1.2.385 -- 2015.11.11
 **trakt 2.0 api update**
 
 The trakt plugins have been updated to use the newest API (v2). Authorization is now handled by tokens. You can generate a pin for Flexget by visiting https://trakt.tv/pin/346. Use this pin to generate an access token by issuing the cli command `flexget trakt auth <account> <pin>`, where `<account>` is a local identifier that the access token is assigned to. We recommend that you use your Trakt username.
@@ -567,18 +567,18 @@ Now supports movie lookups as well as episode and show lookups. It also takes tw
 
 `trakt_lookup: yes` will enable the basic trakt lookup in your tasks.
 
-### 1.2.362 -- 2015.10.13 
+## 1.2.362 -- 2015.10.13 
 **find / listdir**
 
 The `find` and `listdir` plugins have been merged into one <plugin:filesystem> plugin. You will need to replace both in your config with just `filesystem`.
 
-### 1.2.359 -- 2015.10.09
+## 1.2.359 -- 2015.10.09
 A json api has been added which requires a few new dependencies. If you are installed from a git checkout, you'll have to make sure your deps are up to date after pulling. `bin/pip install --upgrade -e .` from your checkout directory if you are using the virtualenv setup that bootstrap.py gives you.
 
-### 1.2.261 -- 2015.01.12
+## 1.2.261 -- 2015.01.12
 `disable_builtins` and `disable_plugin` plugins have been combined into the <plugin:disable> plugin. You will need to replace both in your config with just `disable`. If you were using `disable_builtins: yes` form, this should be changed to `disable: builtins`
 
-### 1.2.247 -- 2015.01.01
+## 1.2.247 -- 2015.01.01
 **movie_queue / queue_movies**
 
 The `movie_queue` plugin has been enhanced to include the ability to add & remove movies removing the need for the `queue_movies` plugin. You will need to replace `movie_queue: yes` with `movie_queue: accept` to add any accepted items in the movie queue. Also, `queue_movies: yes` is replaced by `movie_queue: add`, which adds items to the movie queue.

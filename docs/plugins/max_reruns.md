@@ -2,7 +2,7 @@
 
 Simple plugin that limits the number of reruns a specific task is allowed to perform consecutively. Useful for limiting the number of reruns [discover](discover) performs.
 
-### Example
+## Example
 
 ```YAML
   download-task:

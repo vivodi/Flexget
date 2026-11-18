@@ -9,7 +9,7 @@ There are actually two parsers:
 
 If you have IMDB/TMBD lookup failures and some movie or series that "slip through the net", you should really consider using `guessit` instead of `internal` parser.
 
-### Example
+## Example
 To enable `guessit` for movie and series parsing:
 
 ```

@@ -1,8 +1,8 @@
-## Complete user configurations
+# Complete user configurations
 
 ```{toctree}
 :glob:
-:max-depth: 1
+:maxdepth: 1
 
 *
 ```

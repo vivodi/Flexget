@@ -9,7 +9,7 @@ Results are cached so this doesn't cause unnecessary load to [imdb](http://www.i
  * To reject non imdb compatible entries, use <plugin:require_field> plugin on the 'imdb_id' field.
  * This plugin doesn't keep any track of accepted movies, if you want to prevent same movie being accepted multiple times use <plugin:seen_movies> plugin alongside.
 
-### Example
+## Example
 ```
 imdb:
   min_score: 6.2
@@ -18,7 +18,7 @@ imdb:
     - horror
 ```
 
-### Full configuration
+## Full configuration
 ```
 Note: All parameters are optional. Some are mutually exclusive.
 

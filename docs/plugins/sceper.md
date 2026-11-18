@@ -8,7 +8,7 @@ Uses sceper.ws category url as input.
 
 **`NOTE:`** This plugin relies on urlrewriters to rewrite to a valid download link. Certain urlrewriters may need to be disabled on the task if they do not produce the download links, most notably `urlrewrite_redirect`.
 
-#### Example:
+## Example:
 
 ```yaml
 tasks:

@@ -6,7 +6,7 @@ If FlexGet has not seen the series for some time and is locked to specific episo
 
 Note that searching for season packs can produce episode results, depending on the search site. If you only want to accept season packs, set `season_packs: only` in your series configuration. For more information see the `series` [season_packs](plugin:series/season_packs) option.
 
-### Quality upgrades
+## Quality upgrades
 Once one quality has been successfully downloaded that season is never created again. This means that <plugin:discover> with `next_series_seasons` does not currently work with quality upgrades.
 
 ## Plugin Settings

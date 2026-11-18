@@ -20,7 +20,7 @@ This plugin will abort a task if free space on a given drive is getting low.
 
 **c:** Only use this option if the remote server that is being accessed has shared disk space with other users. When using this option, make sure that the 'path' option is set to your remote 'home' directory.
 
-### Examples:
+## Examples:
 
 **Basic example**:
 

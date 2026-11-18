@@ -1,13 +1,13 @@
-## `jinja-filters`
+# `jinja-filters`
 View available [Jinja](/Jinja) filters and their descriptions.
 
-### Optional arguments
+## Optional arguments
 | Argument | Description |
 | --- | --- |
 | `--name <name>` | Filter by jinja filter name |
 
 
-### Examples
+## Examples
 ```console
 # Displays all filters
 $ flexget jinja-filters

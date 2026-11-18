@@ -7,7 +7,7 @@ This plugin requires the mechanicalsoup library. To install it, run:
 $ pip install mechanicalsoup
 ```
 
-### Example
+## Example
 ```yaml
 form:
   url: http://example.com/login.php
@@ -15,7 +15,7 @@ form:
   password: <password>
 ```
 
-### Example 2
+## Example 2
 The login module just performs the login, you need to use other plugins to process content from the site:
 
 ```yaml

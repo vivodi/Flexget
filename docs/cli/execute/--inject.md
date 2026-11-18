@@ -30,7 +30,7 @@ $ flexget execute --tasks some.task --inject "Some.Title" "Some.direct.url" acce
         
 This would inject imaginary title with direct link to file into a single task, accept it and force it trough even if some filter tries to reject it.
 
-### Setting Entry Fields
+## Setting Entry Fields
 You can also set arbitrary [entry fields](/Entry) when injecting. This is done in entryfield=value format. These can be listed at any point after the url.
 
 **Example:**

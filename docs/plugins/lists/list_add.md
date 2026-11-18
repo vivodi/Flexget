@@ -1,4 +1,4 @@
-## List Add
+# List Add
 :::{tip}
 This is part of [managed list](/plugins/index.md#managed-list) plugin system.
 :::

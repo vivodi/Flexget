@@ -1,10 +1,10 @@
 # Disable
 This plugin can be used to disable a plugin which you have included via the <plugin:template> or <plugin:include> plugin, as well as to disable [builtin](/Builtin) plugins.
 
-### Configuration
+## Configuration
 This plugin should be configured with either the name of the plugin you wish to disable, or a list of plugins you wish to disable. You can also use the special term `builtins` to disable all builtin plugins.
 
-### Example (disabling plugins from a template)
+## Example (disabling plugins from a template)
 ```
 movies:
   download: ~/torrents/movies/
@@ -24,7 +24,7 @@ tasks:
 
 Task nzbs uses all other configuration from template movies but removes the download plugin and instead uses <plugin:sabnzbd>.
 
-### Example (disabling builtin plugins)
+## Example (disabling builtin plugins)
 Disables all builtins:
 
 ```

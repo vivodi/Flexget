@@ -1,14 +1,14 @@
-## FTP List
+# FTP List
 
 Generate entries from a remote FTP server. Entries can be downloaded via <plugin:ftp_download> plugin or by passing it to other output plugins. See examples for details.
 
-### Prerequisites
+## Prerequisites
 - The `ftp` extra provided by FlexGet is installed.
   ```
   pip install flexget[ftp]
   ```
 
-### Plugin Settings
+## Plugin Settings
 
 Currently the following settings are required:
 
@@ -31,7 +31,7 @@ The following settings are optional:
 | **recursion** | boolean |  Choose if to recursively retrieve object from selected dirs. Default is false  |
 | **recursion_depth** | boolean |  Relative level to retrieve, relevant only if `recursion` is true, set to infinity by default.  |
 
-#### Examples:
+### Examples:
 
 This is a complete task
 

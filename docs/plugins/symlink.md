@@ -1,6 +1,6 @@
 # Symlink
 
-### Syntax:
+## Syntax:
 
 |  Option  |  Values  |  Description  |
 | --- | --- | --- |

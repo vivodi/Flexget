@@ -9,7 +9,7 @@ The plugin doesn't search for titles, only existing ID fields on the entry so at
   - When falling back to `tvdb_id` or `tmdb_id` it will try to use season information to narrow results down.
 
 
-### Populated fields
+## Populated fields
 | Field | Source | Searchable | Unique |
 | --- | --- | --- | --- |
 | `anidb_id` | [AniDB](plugin:anidb_list) | ✔ | ✔ |

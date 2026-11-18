@@ -1,7 +1,7 @@
 # twitterfeed
 Creates [entries](/Entry) from a twitter account by looking at urls in tweets. 
 
-### Example
+## Example
 ```text
 twitterfeed:
   account: <account>

@@ -11,7 +11,7 @@ Results are cached so this doesn't cause unnecessary load to [Rotten Tomatoes](h
  * The `require_certified_fresh` option will reject torrents even if they are accepted by other plugins.
  * You should [[http://developer.rottentomatoes.com/|create]] and use your own API key instead of the default, as Rotten Tomatoes limits the number of concurrent users per key. You can change the API key using <plugin:rottentomatoes_lookup>
 
-### Example
+## Example
 ```
 rottentomatoes_lookup: rh8chjzp8vu6gnpwj88736uv # API key
 rottentomatoes:
@@ -21,7 +21,7 @@ rottentomatoes:
     - PG-13
 ```
 
-### Full configuration
+## Full configuration
 ```
 Note: All parameters are optional. Some are mutually exclusive.
 

@@ -1,4 +1,4 @@
-## ftp_download
+# ftp_download
 Downloads content from a ftp and saves it into a local path. Path is retrieved from an entry plugin. The Entry URL must contain the FTP username and password
 
 **`NOTE:`** The `ftp_tmp_path` option will probably be changed to just `path` for consistency with other plugins. #2443

@@ -1,4 +1,4 @@
-## Exact mode
+# Exact mode
 Enable strict name matching. Useful for differentiating between series whose names start similarly.
 
 **Example**

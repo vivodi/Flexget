@@ -2,7 +2,7 @@
 
 Flexget offers a JSON API, that is the basis of its [Web-UI](/Web-UI) and can also be used independently of it. 
 
-### Enabling the API
+## Enabling the API
 To enable the API add the following to your config.yml:
 ```yaml
 web_server: yes
@@ -24,10 +24,10 @@ Then run Flexget in daemon mode:
 flexget daemon start
 ```
 
-### Using the API
+## Using the API
 The API uses SwaggerUI documentation which can be accessed via the configured host and IP. For example: `http://localhost:5050/api/`.  
 
-### Authentication
+## Authentication
 Set a password and start flexget in daemon mode to start the web server.
 
 ```text
@@ -55,14 +55,14 @@ curl -X POST --header "Content-Type: application/json" --header "Accept: applica
   \"username\": \"username\"
 }" "http://localhost:5050/api/auth/login/?remember=true"
 ```
-### API Versions
+## API Versions
 The API version is returned via the `API-Version` header in all request.  
 At this time there is only 1 API version provided, but that is subject to change it the future
 
-### ETags
+## ETags
 All of the API `GET` methods provide `etag` headers for cache control. 
 
-### Pagination
+## Pagination
 Some endpoints provide server side pagination. Those endpoints are:
 - `/series/`
 - `/series/<ID>/episodes/`

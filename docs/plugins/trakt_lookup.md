@@ -8,7 +8,7 @@ If you are having problems returning the correct information for a show, please 
 Please see [Trakt Authentication](/guide/trakt.md/#trakt-authentication) for how to authorize Flexget to access your private Trakt.tv account.</div>
 
 
-#### Syntax
+## Syntax
 
 ```yaml
 trakt_lookup: yes
@@ -62,7 +62,7 @@ trakt_lookup:
 | trakt_trailer |  Trailer if available |
 ----
 
-#### Episode Metainfo
+## Episode Metainfo
 
 | Trakt_lookup Field  |  Description  |
 | --- | --- |
@@ -137,14 +137,14 @@ trakt_lookup:
 | trakt_translations.tagline |  Translated tagline  |
 | trakt_translations.title |  Translated title  |
 
-#### Notes:
+## Notes:
 
 * [Trakt on Images](http://docs.trakt.apiary.io/#introduction/images)
 * [More information](http://docs.trakt.apiary.io/#introduction/standard-media-objects)
 
 ## Examples
 
-#### Set filename
+### Set filename
 
 The most common uses we'll see are using it for <plugin:make_rss> and making pretty filenames using <plugin:set> to set `content_filename` in the <plugin:deluge>. The 'default' jinja filter is used to insert 'Unknown' if trakt_lookup failes to get an entry field.
 
@@ -154,7 +154,7 @@ set:
   content_filename: "{{series_name}} - {{series_id}} - {{trakt_ep_name|default('Unknown')}}"
 ```
 
-#### Reject entries that have been marked as watched
+### Reject entries that have been marked as watched
 
 ```
 some_task:

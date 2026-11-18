@@ -1,7 +1,7 @@
 # Path Selector
 This plugin can be used to select a path based the disk usage.
 
-### Configuration
+## Configuration
 
 | **Option** | **Description** |
 | --- | --- |
@@ -25,7 +25,7 @@ Supported size format:
 | Gigabytes | G, GiB, GB | 10GiB  |
 | Terabytes | T, TiB, TB | 1TiB  |
 
-### Example (select path with most free space by percentage)
+## Example (select path with most free space by percentage)
 This example will find the path with the most free space by percent and any other paths that are within 2% difference. If it finds multiple paths then it will randomly select one.
 
 If drive1 has 50%, drive2 has 52% and drive3 has 10% free then the plugin will randomly select drive1 or drive2.
@@ -42,7 +42,7 @@ tasks:
         - /drive3/downloads/TV
 ```
 
-### Example (select path with most free space by size)
+## Example (select path with most free space by size)
 This example will find the path with the most free space by size and any other paths that are within 5GiB difference. If it finds multiple paths then it will randomly select one.
 
 If drive1 has 50GiB, drive2 has 20GiB and drive3 has 54GiB free then the plugin will randomly select drive1 or drive3.

@@ -9,7 +9,7 @@
 Note that `aborted` is not included in `always`. Tasks will only run on `aborted` if specified.
 :::
 
-#### Example
+## Example
 
 ```yaml
 run_task:

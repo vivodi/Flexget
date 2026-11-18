@@ -13,7 +13,7 @@ All plugins may do following actions (sometimes referred as operation) to [entry
 |Undecided|Entry is not marked to any category _(default)_|
 
 
-### Represented as a schematic
+## Represented as a schematic
 ![](images/filter-operations-1.png)
 ![](images/filter-operations-2.png)
 

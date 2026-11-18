@@ -17,7 +17,7 @@ This plugin provides the ability to send flexget notifications via the cross-pla
 |username|text| Username if authentication is required
 |password|text| Password if authentication is required
 
-#### Examples
+### Examples
 :::{warning}
 Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
 :::
@@ -30,7 +30,7 @@ notify:
           topic: "topic"
 ```
 
-#### Advanced Example
+### Advanced Example
 ```yaml
 notify:
   entries:
@@ -45,7 +45,7 @@ notify:
           password: "ntfy_password"
 ```
 
-#### Access Token
+### Access Token
 Access tokens can also be used in place of passwords for authentication.
 Leave username blank and use the token as the password.
 

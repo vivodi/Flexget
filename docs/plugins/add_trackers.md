@@ -1,7 +1,7 @@
 # Add Trackers
 Adds the listed trackers to any torrents grabbed by the feed. Also works on magnet urls.
 
-### Example
+## Example
 ```
 add_trackers:
   - http://tracker1.com/announce

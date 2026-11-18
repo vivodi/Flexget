@@ -1,4 +1,4 @@
-## Identified by
+# Identified by
 Specify how episode number is detected.
 
 **Example:**
@@ -13,7 +13,7 @@ Possible values: `ep`, `sequence`, `date`, `id`, `auto`
 
 Default value is `auto` which uses episode history to detect what to use. In absence of reliable history all formats are accepted.
 
-### What is "ep"
+## What is "ep"
 Series which are identified by season, episode. 
 
 **Examples:**
@@ -21,7 +21,7 @@ Series which are identified by season, episode.
  * S01E02
  * 01x02
 
-### What is "sequence"
+## What is "sequence"
 Any series that are numbered in increasing order.
 
 **Examples:**
@@ -30,7 +30,7 @@ Any series that are numbered in increasing order.
  * 23
  * 157
 
-### What is "date"
+## What is "date"
 Series that are identified by air date.
 
 **Examples:**
@@ -46,7 +46,7 @@ identified_by: date
 date_yearfirst: yes
 ```
 
-### What is "id"
+## What is "id"
 Series that are identified by anything unique. There are not many built in regexps for this mode, it is mostly useful when your series do not fit into another mode, and you define your own `id_regexps`
 
 **Examples:**
@@ -56,5 +56,5 @@ Series that are identified by anything unique. There are not many built in regex
 
 Since id is free format, it doesn't support [tracking](tracking).
 
-### Custom matching
+## Custom matching
 FlexGet identifies almost everything by default, but sometimes it may be necessary to customize matching. This can be achieved via [ep_regexp and id_regexp](regexps).

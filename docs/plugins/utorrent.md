@@ -6,7 +6,7 @@ This plugin passes entry URLs directly to uTorrent to be added. Supports dynamic
 - This plugin can currently only pass the URL to uTorrent, which means that any custom authentication plugins (cookies, headers, etc.) will not apply. A pull request to fix this would be welcomed. :-)
 - Path must be added to your allowed download folders
 
-### Example
+## Example
 
 ```yaml
 utorrent:

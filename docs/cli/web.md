@@ -1,7 +1,7 @@
-## `web`
+# `web`
 Manage web server settings
 
-### Positional arguments
+## Positional arguments
 | Argument | Option | Description |
 | --- | --- | --- |
 | `passwd` || change password for web server |
@@ -9,7 +9,7 @@ Manage web server settings
 | `gentoken` || Generate a new api token |
 | `showtoken` || Show api token |
 
-### Examples
+## Examples
 ```console
 #shows the FlexGet web server API token
 $ flexget web showtoken

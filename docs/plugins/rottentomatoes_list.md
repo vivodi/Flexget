@@ -5,7 +5,7 @@ API registration seems to be broken, making this plugin defunct
 
 Emits an entry for each movie in a [Rotten Tomatoes](http://www.rottentomatoes.com) list.
 
-### Configuration
+## Configuration
 ```
 rottentomatoes_list:
   api_key: rh8chjzp8vu6gnpwj88736uv

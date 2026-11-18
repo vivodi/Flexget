@@ -1,7 +1,7 @@
-## `entry-list`
+# `entry-list`
 View and manage [entry lists](plugin:entry_list).
 
-### Sub-commands
+## Sub-commands
 | Sub-command | Option | Description |
 | --- | --- | --- |
 | `all` || Shows all existing entry lists |
@@ -33,27 +33,27 @@ View and manage [entry lists](plugin:entry_list).
 || *positional:* ||
 || `<list_name>` | Name of the list to remove |
 
-### Examples
+## Examples
 Note for all examples:
 - The default `<list_name>` is `entries` for all CLI `entry-list` sub-commands.
 - When prompted for an `<entry>`, it can be the entry ID displayed in `entry-list list <list_name>` or the exact title of the entry.
 
-#### Return all entry lists names
+### Return all entry lists names
 ```console
 $ flexget entry-list all
 ```
 
-#### List all entries from an entry list
+### List all entries from an entry list
 ```console
 $ flexget entry-list list <list_name>
 ```
 
-#### Show details about a specific entry
+### Show details about a specific entry
 ```console
 $ flexget entry-list show <list_name> <entry>
 ```
 
-#### Add or update an entry on an entry list
+### Add or update an entry on an entry list
 Using a title and original URL is require. You can also add additional identifiers in the following format:
 
 ```console
@@ -64,12 +64,12 @@ If the given entry list does not exist it will be created.
 
 If the entry with the title exists on that list, its _entire_ list of attributes will be replaced by the given list of attributes (or removed altogether if such a list was not given). 
 
-#### Removing an entry from an entry list
+### Removing an entry from an entry list
 ```console
 $ flexget entry-list del <list_name> <entry>
 ```
 
-#### Clearing an entire entry list
+### Clearing an entire entry list
 ```console
 $ flexget entry-list purge <list_name>
 ```

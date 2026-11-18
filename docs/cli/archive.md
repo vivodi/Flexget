@@ -1,7 +1,7 @@
-## `archive`
+# `archive`
 Search and manipulate the <plugin:archive> plugin database.
 
-### Sub-commands
+## Sub-commands
 | Sub-command | Option | Description |
 | --- | --- | --- |
 | `search` || Search from the archive |
@@ -25,7 +25,7 @@ Search and manipulate the <plugin:archive> plugin database.
 || `<tag>` |  The tag(s) you would like to apply to the entries |
 | `consolidate` || Migrate old archive data to new model. This may take a long time. |
 
-### Examples
+## Examples
 ```console
 #searches the archive for "foo"
 $ flexget archive search "foo"

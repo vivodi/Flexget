@@ -1,7 +1,7 @@
-## `pending`
+# `pending`
 View and manage entries [pending approval](plugin:pending_approval).
 
-### Sub-commands
+## Sub-commands
 | Sub-command | Option | Description |
 | --- | --- | --- |
 | `list` | List pending entries |
@@ -21,7 +21,7 @@ View and manage entries [pending approval](plugin:pending_approval).
 || *optional:* ||
 || `--task-name <task_name>` | Filter by task name ||
 
-### Examples
+## Examples
 ```console
 # List all pending entries
 $ flexget pending list

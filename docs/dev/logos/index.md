@@ -2,7 +2,7 @@
 See page attachments, currently in PDF format. Bitmaps soon?
 
 ```{toctree}
-:max-depth: 1
+:maxdepth: 1
 logo-contest
 ```
 

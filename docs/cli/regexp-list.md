@@ -1,7 +1,7 @@
-## `regexp-list`
+# `regexp-list`
 View and manage [regexp lists](plugin:regexp_list).
 
-### Sub-commands
+## Sub-commands
 | Sub-command | option | description |
 | --- | --- | --- |
 | `all` || Shows all existing regexp lists |
@@ -26,7 +26,7 @@ View and manage [regexp lists](plugin:regexp_list).
 || `<list_name>` | Name of the regexp list to remove |
 
 
-### Examples
+## Examples
 ```console
 #lists all existing regexp lists
 $ flexget regexp-list all

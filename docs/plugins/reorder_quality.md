@@ -2,14 +2,14 @@
 
 This plugin allows you to reorder the built-in [qualities](/Qualities) in a simple fashion. Qualities can only be reordered within the same quality type eg. a codec cannot be above a resolution.
 
-### Config
+## Config
 ```text
   reorder_quality:
     <name>:
       above|below: <another name>
 ```
 
-### Example
+## Example
 This example will prefer webrip over hdtv.
 ```yaml
   download-task:

@@ -3,14 +3,14 @@ Parses URLs from html page. Useful on sites which have direct download links of 
 
 Many anime-fansubbers do not provide an RSS-feed, this usually works for those cases.
 
-### Example
+## Example
 ```
 html: <url>
 ```
 
 Note: This returns ALL links from the page so you need to configure some filters to match only to desired content.
 
-### Example with regexp
+## Example with regexp
 ```
 html: <url>
 regexp:

@@ -1,7 +1,7 @@
 # Check subtitles
 Set the **subtitles** field on all [entries](/Entry) about local files having subtitles. The field is a list of available languages.
 
-### Example
+## Example
 ```
 check_subs:
     filesystem:

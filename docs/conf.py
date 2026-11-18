@@ -34,7 +34,7 @@ extensions = [
     '_extensions.gallery_directive',
     '_extensions.toctable'
 ]
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'drafts']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**/_includes', 'drafts']
 suppress_warnings = [
     'config.cache',
     'ref.python',  # Can be removed after https://github.com/sphinx-doc/sphinx/issues/14223 is resolved

@@ -1,6 +1,6 @@
-## `backlog`
+# `backlog`
 View or clear entries from the <plugin:backlog> plugin.
-### Actions
+## Actions
 | Argument | Option | Description |
 | --- | --- | --- |
 | `list` || Show items in backlog |
@@ -11,7 +11,7 @@ View or clear entries from the <plugin:backlog> plugin.
 || [`--porcelain`](/cli/misc/table-styles) | Make the output parseable. Similar to using `--table-type porcelain` |
 | `clear` || Clear all items in backlog |
 
-### Examples
+## Examples
 ```console
 #lists entries from the backlog of task "foo_task"
 $ flexget backlog list foo_task

@@ -1,7 +1,7 @@
 # Remove Trackers
 Removes trackers from torrent files using regexp matching. Also works on magnet urls.
 
-### Example
+## Example
 ```
 remove_trackers:
   - moviex

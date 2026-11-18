@@ -23,7 +23,7 @@ To see what results your configuration has, use [--dump](/cli/execute.md#argumen
 
 When using extract functionality manipulate will join all returned groups together with separator. The default separator is single space.
 
-### Example 1
+## Example 1
 Title is filled with garbage that series plugin does not like.
 
 eg.
@@ -44,7 +44,7 @@ The (.*) part is what this regexp is extracting (capture group), so everything a
 
 Regexp can return any number of groups, value is combination of these (separated with a space).
 
-### Example 2
+## Example 2
 Some badly written site has invalid URLs. Uses \&amp; instead of &
 
 ```
@@ -57,7 +57,7 @@ manipulate:
 
 Currently these are fixed automatically by `urlfix` plugin.
 
-### Example 3
+## Example 3
 You can do multiple manipulates in a row, and they will be executed in order. You can also do multiple manipulates on the same field.
 
 ```
@@ -72,7 +72,7 @@ manipulate:
         format: ' '
 ```
 
-### Example 4
+## Example 4
 You can control how the regex hits are output using \1, \2, etc in format.
 
 ```
@@ -83,7 +83,7 @@ manipulate:
         format: '\2.\1.\3'
 ```
 
-### Example 5
+## Example 5
 The series plugin operates on both the title and description fields. If you want to exclude the description field, you can simply remove it:
 
 ```
@@ -92,7 +92,7 @@ manipulate:
       remove: yes
 ```
 
-### Example 6
+## Example 6
 
 There are advertisement in the title. Let's erase them.
 

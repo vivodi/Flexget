@@ -1,5 +1,5 @@
 # Recipes for series
-### Good starting points
+## Good starting points
 ```{toctree}
 :maxdepth: 1
 simple-series
@@ -7,7 +7,7 @@ template
 set-path
 ```
 
-### More advanced recipes
+## More advanced recipes
 ```{toctree}
 :maxdepth: 1
 trakt-manager

@@ -18,7 +18,7 @@ Now defunct May 2018 - This plugin provides the ability to send flexget notifica
 |developer_key|text|Optional developer key
 
 
-#### Examples
+## Examples
 :::{warning}
 Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
 :::
@@ -31,7 +31,7 @@ notify:
           api_key: API_KEY
 ```
 
-#### Advanced Example
+### Advanced Example
 ```yaml
 notify:
   entries:

@@ -13,7 +13,7 @@ This plugin provides the ability to send flexget notifications via the cross-pla
 |**phone_number**|text|Phone number to SMS. **Required**
 |**password**|text|Service password. **Required**
 
-#### Example:
+### Example:
 :::{warning}
 Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.
 :::

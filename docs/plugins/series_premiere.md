@@ -1,7 +1,7 @@
 # Series Premiere
 Accepts any entry that appears to be the first episode of a series.
 
-#### Example
+## Example
 
 Turns on the plugin for a task.
 ```yaml
@@ -18,7 +18,7 @@ There are two options specific to series_premiere also available:
 |allow_teasers| By default, S01E00 episodes will also be accepted, to turn this off, set this to `no`|
 |allow_seasonless|If you would also like to get initial episodes of series which do not have a season, (e.g. 'Mini.Series.Episode.I.hdtv',) you can set this to `yes`|
 
-#### Example
+## Example
 
 ```yaml
 series_premiere:

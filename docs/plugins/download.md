@@ -9,7 +9,7 @@ download: ~/torrents/
 
 This is the simplest use-case, there are additional options and features for more fine control.
 
-### Download path (advanced)
+## Download path (advanced)
 Some plugins set download path per entry.
 One such example is <plugin:regexp> that can be used to override path.
 
@@ -42,7 +42,7 @@ download: yes
 
 Note that in this example we did not specify path for download as we expect every entry to have a download `path`. If entry without `path` is tried to be downloaded it will be marked as failed.
 
-### Filename (advanced)
+## Filename (advanced)
 You can also override filename that is saved by `filename` field. Here's an example that sets it based on title.
 
 ```yaml
@@ -50,7 +50,7 @@ set:
   filename: '{{title|pathscrub}}.torrent'
 ```
 
-### Options (advanced)
+## Options (advanced)
 There are a couple of options that can be specified when using full syntax:
 
 ```yaml
@@ -69,8 +69,8 @@ download:
 |temp| Downloads are saved in a temporary location before being moved to their final path. You can override the default temporary folder with this option.  |
 |filename| Overrides the original filename. Supports jinja replacement.|
 
-### Multiple urls
+## Multiple urls
 Some plugins (ie. <plugin:rss>, see "group link" value) can store multiple urls, to be tolerant to broken urls. If several urls are available, they will be tried sequentially until one works.
 
-### Authentication
+## Authentication
 If basic or digest authentication is needed, use the <plugin:download_auth> for that.

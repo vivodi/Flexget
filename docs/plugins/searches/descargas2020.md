@@ -9,12 +9,12 @@ This plugin is part of [search](/plugins/index.md#search) plugin system
 
 Search plugin which gives results from [descargas2020.com](http://descargas2020.com/), spanish web. 
 
-### Config
+## Config
 Enabled / Disabled option:
 
 Valid choices are `yes`, and `no`
 
-### Example
+## Example
 ```
 descargas2020: yes
 ```

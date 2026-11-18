@@ -1,4 +1,4 @@
-## Group settings
+# Group settings
 Many times, you will want to apply a setting to more than one show at once. In this instance, you can use a more advanced config format, to define groups, and settings that apply to the whole group.
 
 ```

@@ -1,4 +1,4 @@
-## Complete working example for rTorrent
+# Complete working example for rTorrent
 This is a complete example for hooking up rTorrent with FlexGet for automatic downloads. This setup will download releases automatically and seed them until the given percentage (here 300%) and then stop seeding. This is important to keep the torrent alive but still avoid overloading your connection. If you delete the torrent from rTorrent the incomplete data is deleted and the torrent directory is cleaned.
 
 For this example, we use the following setup:
@@ -12,7 +12,7 @@ You need to manually create these directories.
 
 It can be tricky to get this all to work and it might be a bit complicated, but please try to understand at least a part of it before using it yourself.
 
-### rTorrent setup
+## rTorrent setup
 This configuration assumes that you have rTorrent 0.8.x. it might work in other versions as well, but there are no guarantees. You can put this to ~/.rtorrentrc.
 
 ```
@@ -68,7 +68,7 @@ system.method.set_key = event.download.erased,rm_incomplete,"branch=d.get_custom
 
 ```
 
-### FlexGet setup
+## FlexGet setup
 This configuration is just a simple example, see other recipes for more inspiration.
 
 ```
@@ -81,7 +81,7 @@ tasks:
     download: /srv/torrent/torrents
 ```
 
-### Final steps
+## Final steps
 You need to setup a proper crontab entries and start rTorrent to make the magic happen. Setting up crontab is done by running the command `crontab -e` and adding this line:
 
 ```
@@ -104,7 +104,7 @@ screen -r rtorrent
 
 You are all done, your downloads should start and stop automatically. All that is left for you to do is to make sure that you don't run out of disk space. 
 
-### Further improvements
+## Further improvements
 <plugin:torrent_scrub> removes resume information from downloads that prevent the torrent from properly starting in rTorrent.
 Plugins/<plugin:rtorrent_magnet> allows saving magnet links in rTorrent format.
 

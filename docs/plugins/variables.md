@@ -2,7 +2,7 @@
 
 This plugin can do value replacement on your config file . While originally intended to strip off passwords, api keys and other sensitive info from the configuration file, it is also useful to just re-use certain values in multiple places in your configuration. Any of the fields from your variables file can be referenced in the config inside the special delimiters `{? ?}`. Jinja is used under the hood, so any valid jinja expressions are allowed inside the delimeters.
 
-### Example
+## Example
 In this sample `config.yml` we configure the plugin to look for config variables in a file named `variables.yml`:
 
 ```yaml
@@ -60,9 +60,9 @@ tasks:
       list: test
       type: movies
 ```
-### Variables within config
+## Variables within config
 Variables can also be defined directly in the config file.
-#### Example
+### Example
 ```yaml
 variables:
   some_folder: /mnt/somewhere
@@ -71,12 +71,12 @@ tasks:
     download: "{? some_folder ?}/movies"
 ```
 
-### Variables from DB
+## Variables from DB
 Variables can be also cached to and loaded from DB. If a variables file is referenced from the configuration file, its contents will be cached to DB and will be accessible via the `/variables/` endpoint in the API.
 
 In order to have the config use the variables from the DB instead of the file, use `variables: yes` in the config file instead of the variable file name. Loading variables from DB and not the file is recommended when using the WebUI/API
 
-### Notes
+## Notes
 - Key name have limited support for special characters (at least "-" is not working). Stick with letters and underscore.
 - The variables file must stay in the same config.yml location.
 - Use singles quotes around URLs in your `variables.yml` file.

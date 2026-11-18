@@ -33,7 +33,7 @@ See LogoAndIcons for assets.
 
  - ![](logo-contest/PastedGraphic-3.png) by Linus Olsson
 
-### Attachments
+## Attachments
 * [Logo by Zundrium](logo-contest/flexget.psd)
 * [flexget-logo.png](logo-contest/flexget-logo.png)
 * [FlexGet logo offering, in Adobe Illustrator format](logo-contest/FlexGet-002.ai)

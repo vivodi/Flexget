@@ -13,7 +13,7 @@ $ aria2c --enable-rpc --rpc-listen-all
 
 Which is also very insecure. See Aria2 documentation for improving on that.
 
-### Options
+## Options
 
 | Name | Default | Required | Description |
 | --- | --- | --- | --- |
@@ -28,7 +28,7 @@ Which is also very insecure. See Aria2 documentation for improving on that.
 | secret | N/A | No | Aria2 `rpc-secret`|
 | options | N/A | No | Any Aria2 options in key-value format.|
 
-### Example
+## Example
 
 ```yaml
 aria2:

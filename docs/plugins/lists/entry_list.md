@@ -63,4 +63,4 @@ tasks:
 Please see [commandline documentation](/cli/entry-list)
 
 ## Entry List API
-`entry_list` plugin has full JSON API support. See [API post](http://discuss.flexget.com/t/flexget-rest-api/) for details.
+`entry_list` plugin has full JSON API support. See [API post](/guide/api) for details.

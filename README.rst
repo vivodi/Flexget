@@ -62,14 +62,14 @@ a look in our `cookbook`_.
 
 .. _YAML: http://www.yaml.org/
 
-.. _cookbook: https://flexget.com/Cookbook
+.. _cookbook: https://flexget.com/cookbook
 
 
-**ChangeLog:** https://flexget.com/ChangeLog
+**ChangeLog:** https://flexget.com/changelog
 
 **Help:** https://github.com/Flexget/Flexget/discussions
 
-**Chat:** https://flexget.com/Chat
+**Chat:** https://flexget.com/support
 
 **Bugs:** https://github.com/Flexget/Flexget/issues
 
@@ -84,7 +84,7 @@ FlexGet is installable via pip with the command::
 
 For more detailed instructions see the `installation guide`_.
 
-.. _installation guide: https://flexget.com/Install
+.. _installation guide: https://flexget.com/guide/installation
 
 How to contribute
 -----------------------

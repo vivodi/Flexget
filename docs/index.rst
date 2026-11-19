@@ -23,7 +23,7 @@ It supports torrents, NZBs, podcasts, comics, TV shows, movies, RSS feeds, HTML,
 
       +++
 
-      .. button-link:: https://flexget.com
+      .. button-ref:: guide/index
          :expand:
          :color: secondary
          :click-parent:

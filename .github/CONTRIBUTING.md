@@ -7,7 +7,7 @@ Use GitHub issues for feature requests.
 Before submitting an issue, make sure you:
 
 - Are running the latest version of FlexGet (check `flexget --version`)
-- Check the [upgrade actions](https://flexget.com/guide/upgrading/upgrade-actions) after updating to a major or minor version.
+- Check the [upgrade actions](/docs/guide/upgrading/upgrade-actions.md) after updating to a major or minor version.
 - Check if there is already an issue open about the problem.
 - Fully describe the problem, explain what you expected to happen.
 - Include the relevant config of the task having the trouble. (Remember to censor private info though.)

@@ -24,7 +24,7 @@ These are the complete configurations of actual end users. Feel free to add your
 * [frankyw](https://github.com/frankyw/flexget) (v3.5.15) - Trakt Movie + Multiple TV Lists, Transmission, list cleanup, YAML anchors, IRC plugin, Pushover notification.
 
 ## Tested & Working 2.x Configs
-While tested for 2.x, please refer to [Upgrade Actions](https://flexget.com/UpgradeActions) regarding breaking changes in minor version incrementations.
+While tested for 2.x, please refer to [Upgrade Actions](/guide/upgrading/upgrade-actions) regarding breaking changes in minor version incrementations.
 
 * [sysfs](https://gitlab.com/sisfs/dotfiles/) (v2.13.15) - A fork of jawilson below. (Trakt-Deluge-Slack-PMS on FreeBSD)
 * [jawilson](https://github.com/jawilson/dotfiles/tree/master/flexget) (v2.10.108) Trakt-managed movies and TV shows (Flexget + Trakt + Deluge + Pushbullet + PMS)

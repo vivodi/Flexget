@@ -128,4 +128,4 @@ See [movie-list commandline](/cli/movie-list) how to view and manage the list vi
 
 
 ## Movie List API
-`movie_list` plugin has full API support. See [API post](http://discuss.flexget.com/t/flexget-rest-api/) for details
+`movie_list` plugin has full API support. See [API post](/guide/api) for details

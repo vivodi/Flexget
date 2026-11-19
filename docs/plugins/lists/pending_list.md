@@ -69,4 +69,4 @@ First task `pending_new_shows` will add all accepted entries to an `pending_list
 Please see [commandline documentation](/cli/pending-list)
 
 ## Entry List API
-`pending_list` plugin has full JSON API support. See [API page](https://flexget.com/API) for details.
+`pending_list` plugin has full JSON API support. See [API page](/guide/api) for details.

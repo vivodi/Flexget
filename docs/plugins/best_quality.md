@@ -5,7 +5,7 @@ The best_qality plugin will sort entries, grouped by an identifier, and allow ac
 
 | **Option** | **Default** | **Description** |
 | --- | --- | --- |
-| identified_by | auto | Define how entries are identified to be a same content, default value `auto` uses entry `media_id` [field](/guide/entry). Supports [Jinja Template](https://flexget.com/Jinja). |
+| identified_by | auto | Define how entries are identified to be a same content, default value `auto` uses entry `media_id` [field](/guide/entry). Supports [Jinja Template](/guide/jinja). |
 | on_best | do_nothing | The action to preform on which has the best quality. Value `do_nothing` won't act on the entry ([undecided](/guide/filtering))  but allow it to by handled by other plugins. |
 | on_lower | reject | The action to preform on entries which are lower then the best quality. Value `do_nothing` won't act on the entry ([undecided](/guide/filtering))  but allows it to by handled by other plugins. |
 | single_best | yes | Consider only the first one as the best entry. |

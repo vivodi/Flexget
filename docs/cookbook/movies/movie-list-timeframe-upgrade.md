@@ -115,4 +115,4 @@ Other output plugins are [here](/plugins/index.md#output). This recipe is assumi
 We used a list plugin to represent 2 lists in this recipe. In our this case, it was the `movie_list` plugin, where we defined 2 named lists, that we used in multiple contexts. You can switch out `movie_list` for any of the list plugins [here](/plugins/index.md#managed-list), (pick one that supports movies though,) just remember to change all instances of the 'getlist' or 'upgradelist' list at the same time.
 
 ### YAML !Anchor/Alias
-Nobody wrote a cookbook entry about anchor/alias. But somebody did write about it on the forum, you can read about it [here](http://discuss.flexget.com/t/advanced-yaml-trick-anchors/2405?u=gazpachoking). This can be useful for repeating the same bit of config in different contexts, for example repeating the same list plugin config in `list_match`, `list_add`, and `discover`.
+Learn YAML anchor/alias [here](/guide/configuration/tips-and-tricks). This can be useful for repeating the same bit of config in different contexts, for example repeating the same list plugin config in `list_match`, `list_add`, and `discover`.

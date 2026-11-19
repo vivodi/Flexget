@@ -9,7 +9,7 @@
 | rename | \<filename> | Accepted entries are renamed to this filename (inside of the `to` directory). Capable of *value replacement. |
 | link_type | \<soft/hard> | Hardlinking directories creates new dirs and recursively hardlinks all files. Default is `soft`. |
 
-*Note: Info on value replacement can be found in the example [here](/guide/jinja). Commonly used replacement values come from the `Entry field` found [here](https://flexget.com/Entry)
+*Note: Info on value replacement can be found in the example [here](/guide/jinja). Commonly used replacement values come from the `Entry field` found [here](/guide/entry)
 ## Examples
 
 

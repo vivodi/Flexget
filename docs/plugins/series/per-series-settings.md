@@ -7,7 +7,7 @@ series:
       [setting]: [value]
 ```
 
-For example, with [quality](quality) settings:
+For example, with [quality](quality.md) settings:
 
 ```
 series:

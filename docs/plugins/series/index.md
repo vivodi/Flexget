@@ -9,9 +9,9 @@ Intelligent filter for TV-series.
 
 ## Features
  * Episode history aware, no duplicate downloads - refer to <plugin:seen> plugin page for more information
- * Plenty of [quality](quality) options
- * [Timeframe](timeframe), when used with sort_by plugin, selects the entry best matching the criteria in given timeframe
- * [Proper & Repack](propers) aware
+ * Plenty of [quality](quality.md) options
+ * [Timeframe](timeframe.md), when used with sort_by plugin, selects the entry best matching the criteria in given timeframe
+ * [Proper & Repack](propers.md) aware
  * Specials aware (grabs episodes with the series title and the word 'special')
  * Tries to ignore season packs (if not configured explicitly to get them), you can use <plugin:content_size> for extra insurance against them.
  * Supports double episodes. i.e. S01E01-E02
@@ -41,7 +41,7 @@ sort_by:
   reverse: yes
 ```
 
-However there are much better options avaialble in the plugin. For example specifying desired [quality](quality) or [timeframe](timeframe) to wait for one.
+However there are much better options avaialble in the plugin. For example specifying desired [quality](quality.md) or [timeframe](timeframe.md) to wait for one.
 
 ## Settings
 The series plugin supports a number of settings to customize it's behavior. Though the examples show the settings being applied to a single series, they can all be applied to a group of series as well.
@@ -54,25 +54,25 @@ The series plugin supports a number of settings to customize it's behavior. Thou
 | --- | --- |
 | [alternate_name](alternate_name) | Define other names which this show is also released as. |
 | [assume_special](assume_special) | Assume any entry with no series numbering detected is a special and treat it accordingly. |
-| [begin](begin) | Manually specify first episode to start series on. |
+| [begin](begin.md) | Manually specify first episode to start series on. |
 | [ep_regexp](regexps.md#episode-numbering-matching) | Manually specify regexp(s) that matches to episode, season numbering. |
 | [exact](exact) | Configure exact matching behavior. Needed for series which have similar named series. Uses 'auto' mode as default. |
 | [from_group](from_group) | Accept series only from given groups. |
 | [id_regexp](regexps.md#episode-numbering-matching) | Manually specify regexp(s) that matches to series identifier (numbering). |
-| [identified_by](identified_by) | Configure how episode numbering is detected. Uses 'auto' mode as default. |
-| [name_regexp](regexps) | Manually specify regexp(s) that matches to series name. |
+| [identified_by](identified_by.md) | Configure how episode numbering is detected. Uses 'auto' mode as default. |
+| [name_regexp](regexps.md) | Manually specify regexp(s) that matches to series name. |
 | [parse_only](parse_only) | Series plugin will not accept or reject any entries, merely fill in all metadata fields. |
-| [path](path) | Set *path* field for this series. |
+| [path](path.md) | Set *path* field for this series. |
 | [prefer_specials](prefer_specials) | Flag entries matching both special and a normal ID type as specials. |
-| [propers](propers) | Configure how propers are handled. |
-| [qualities](qualities) | Download all listed qualities when they become available. |
-| [quality](quality) | Required quality. |
+| [propers](propers.md) | Configure how propers are handled. |
+| [qualities](qualities.md) | Download all listed qualities when they become available. |
+| [quality](quality.md) | Required quality. |
 | [set](set) | Use <plugin:set> plugin to set any fields for this series. |
 | [special_ids](special_ids) | Defines other IDs which will cause entries to be flagged as specials. |
-| [specials](specials) | Turn off specials support for series. (on by default) |
-| [target](timeframe) | The target quality that should be downloaded without waiting for `timeframe` to complete. |
-| [timeframe](timeframe) | Wait given amount of time for specified quality to become available, after that fall back to best so far. |
-| [upgrade](upgrade) | Keeps getting the better qualities as they become available. |
+| [specials](specials.md) | Turn off specials support for series. (on by default) |
+| [target](timeframe.md) | The target quality that should be downloaded without waiting for `timeframe` to complete. |
+| [timeframe](timeframe.md) | Wait given amount of time for specified quality to become available, after that fall back to best so far. |
+| [upgrade](upgrade.md) | Keeps getting the better qualities as they become available. |
 | [season_packs](season_packs) | Enable downloading season packs. 
 
 ## Related plugins

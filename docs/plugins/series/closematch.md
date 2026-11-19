@@ -14,7 +14,7 @@ series:
 ### Case: Other series confuses the one I want
 You want to add series "foobar" into your configuration but there's also spinoff series called "foobar us" which you are not interested. Simplest way to prevent FlexGet getting confused about the "foobar s02e01" and "foobar us s01e01" is to specify [exact](exact) option.
 
-But as exact mode will stop matching when titles like "foobar.sub.title.s01e01" (rare) appear you might want to use [name_regexp](regexps).
+But as exact mode will stop matching when titles like "foobar.sub.title.s01e01" (rare) appear you might want to use [name_regexp](regexps.md).
 
 **Example**
 
@@ -29,7 +29,7 @@ This will use name detection regexp that will match to foobar but not when it's 
 ## Case: Series written in different ways
 Series name appears in multiple different ways. For example series "foobar" is sometimes spelled as "foobar 2005". Do not under any circumstances list this series twice in the configuration, it will confuse episode tracking (advancement) and you will get really weird results, if any.
 
-Instead list the series just once and use the form is more common, note that this name is what FlexGet uses everywhere including <plugin:tmdb_lookup> etc. And then use series plugin [name_regexp](regexps) option.
+Instead list the series just once and use the form is more common, note that this name is what FlexGet uses everywhere including <plugin:tmdb_lookup> etc. And then use series plugin [name_regexp](regexps.md) option.
 
 **Example**
 

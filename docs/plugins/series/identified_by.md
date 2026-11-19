@@ -57,4 +57,4 @@ Series that are identified by anything unique. There are not many built in regex
 Since id is free format, it doesn't support [tracking](tracking).
 
 ## Custom matching
-FlexGet identifies almost everything by default, but sometimes it may be necessary to customize matching. This can be achieved via [ep_regexp and id_regexp](regexps).
+FlexGet identifies almost everything by default, but sometimes it may be necessary to customize matching. This can be achieved via [ep_regexp and id_regexp](regexps.md).

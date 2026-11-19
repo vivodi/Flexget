@@ -4,10 +4,10 @@ Execute tasks immediately with an injected entry from the CLI, loosely equivalen
 ## Description
 `inject` expects to be passed a title and a URL. If only a URL is passed, Flexget attempts to find a suitable title from the response headers when that URL is requested. If, even after this, no title was found, the command will abort.
 
-Alternatively, you can use the [`execute`](execute) command with the `--inject` argument. The only difference is that unlike the `inject` command, `--inject` treats a single argument as `title` and sets `url` to `http://localhost/inject/` followed by a random 30-character alphanumeric string.
+Alternatively, you can use the [`execute`](execute.md) command with the `--inject` argument. The only difference is that unlike the `inject` command, `--inject` treats a single argument as `title` and sets `url` to `http://localhost/inject/` followed by a random 30-character alphanumeric string.
 
 ## Arguments
-Inherits all arguments from [](execute), and also supports the following arguments:
+Inherits all arguments from the [`execute` command](execute.md), and also supports the following arguments:
 
 | Argument | Description |
 | --- | --- |

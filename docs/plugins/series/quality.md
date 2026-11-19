@@ -3,7 +3,7 @@
 | **Name** | **Description** |
 | --- | --- |
 | quality | Accept only qualities that match this quality requirement. No other quality will be accepted. |
-| [qualities](qualities) | Accept all given qualities, multiple downloads |
+| [qualities](qualities.md) | Accept all given qualities, multiple downloads |
 
 Values should all be specified as a valid [quality requirement](/guide/qualities.md#requirements) string.
 

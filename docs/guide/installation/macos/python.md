@@ -31,4 +31,4 @@ $ pip3 install --upgrade setuptools
 
 ## Continue
 
-On the next page learn how to [install FlexGet](flexget) itself.
+On the next page learn how to [install FlexGet](flexget.md) itself.

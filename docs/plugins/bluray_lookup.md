@@ -2,7 +2,7 @@
 
 This plugin returns bluray information about movies and tv seasons from blu-ray.com. It cannot be used to lookup information about individual tv episodes, **only** tv seasons with (future) bluray releases.
 
-This lookup plugin is not very reliable, it's mainly used for the bluray movie estimator used by [discover](discover).
+This lookup plugin is not very reliable, it's mainly used for the bluray movie estimator used by <plugin:discover>.
 
 ## Syntax
 

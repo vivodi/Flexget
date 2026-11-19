@@ -32,32 +32,32 @@ Some commands will have mandatory arguments called positional arguments or actio
 Clicking on the commands will take you to a page with more information about it.
 | Command | Description |
 | --- | ---|
-| [`archive`](archive) | Search and manipulate the archive database|
-| [`backlog`](backlog) | View or clear entries from the <plugin:backlog> plugin |
-| [`check`](check) | Validate [configuration file](/guide/configuration/index) and print errors |
-| [`daemon`](daemon) | Run continuously, executing tasks according to [schedules](plugin:scheduler) defined in config |
-| [`database`](database) | Utilities to manage the FlexGet database |
-| [`doc`](doc) | Display [plugin](/plugins/index) documentation |
+| [`archive`](archive.md) | Search and manipulate the archive database|
+| [`backlog`](backlog.md) | View or clear entries from the <plugin:backlog> plugin |
+| [`check`](check.md) | Validate [configuration file](/guide/configuration/index) and print errors |
+| [`daemon`](daemon.md) | Run continuously, executing tasks according to [schedules](plugin:scheduler) defined in config |
+| [`database`](database.md) | Utilities to manage the FlexGet database |
+| [`doc`](doc.md) | Display [plugin](/plugins/index) documentation |
 | [`entry-list`](entry-list) | View and manage [entry lists](plugin:entry_list) |
-| [`execute`](execute) | Execute tasks now |
-| [`failed`](failed) | List or clear remembered [failures](plugin:retry_failed) |
-| [`history`](history) | View the history of entries that FlexGet has accepted |
-| [`inject`](inject) | Inject an entry from the CLI into tasks |
-| [`irc`](irc) | View and manage <plugin:irc> connections |
+| [`execute`](execute.md) | Execute tasks now |
+| [`failed`](failed.md) | List or clear remembered [failures](plugin:retry_failed) |
+| [`history`](history.md) | View the history of entries that FlexGet has accepted |
+| [`inject`](inject.md) | Inject an entry from the CLI into tasks |
+| [`irc`](irc.md) | View and manage <plugin:irc> connections |
 | [`jinja-filters`](jinja-filters)| View avaialble [Jinja](/guide/jinja) filters|
 | [`movie-list`](movie-list) | View and manage [movie lists](plugin:movie_list) |
 | [`pending`](pending)| View and manage entries [pending approval](plugin:pending_approval)|
 | [`pending-list`](pending-list)| View and manage [pending lists](plugin:pending_list)|
-| [`plugins`](plugins) | Print registered plugin summaries |
+| [`plugins`](plugins.md) | Print registered plugin summaries |
 | [`regexp-list`](regexp-list) | View and manage [regexp lists](plugin:regexp_list) |
-| [`rejected`](rejected) | List or clear [remembered rejections](plugin:remember_rejected) |
-| [`seen`](seen) | View or forget entries remembered by the <plugin:seen> plugin |
-| [`series`](series) | View and manipulate the <plugin:series> plugin database | 
+| [`rejected`](rejected.md) | List or clear [remembered rejections](plugin:remember_rejected) |
+| [`seen`](seen.md) | View or forget entries remembered by the <plugin:seen> plugin |
+| [`series`](series.md) | View and manipulate the <plugin:series> plugin database | 
 | [`service`](service)| Install a Windows service which runs the FlexGet daemon|
-| [`status`](status) | View task health status |
-| [`templates`](templates)| View file templates to be used with [notifer](/plugins/index.md#notifier-services-output) plugins|
-| [`trakt`](trakt) | View and manage [Trakt authentication](/guide/trakt.md/#trakt-authentication) |
-| [`web`](web) | Manage [web server](/guide/web-ui/index) settings |
+| [`status`](status.md) | View task health status |
+| [`templates`](templates.md)| View file templates to be used with [notifer](/plugins/index.md#notifier-services-output) plugins|
+| [`trakt`](trakt.md) | View and manage [Trakt authentication](/guide/trakt.md/#trakt-authentication) |
+| [`web`](web.md) | Manage [web server](/guide/web-ui/index) settings |
 
 ## Top-level options
 | Argument | Description |

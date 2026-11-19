@@ -105,7 +105,7 @@ exec:
 ```
 
 ### Allow background option
-Normally, FlexGet will wait the given command to finish so it can capture the return status and log the output. But if the command takes a long time to run (ex. direct downloads of large files), it will prevent further processing until the command completes. To fork the command into a background process so that FlexGet continues processing without delay, you not only have to add an ampersand (&) at the end of the command, you have to use the {{allow_background}} option. Note, this option will also prevent FlexGet from determining if the command failed, so it will not retry. A usage example:
+Normally, FlexGet will wait the given command to finish so it can capture the return status and log the output. But if the command takes a long time to run (ex. direct downloads of large files), it will prevent further processing until the command completes. To fork the command into a background process so that FlexGet continues processing without delay, you not only have to add an ampersand (&) at the end of the command, you have to use the `{{allow_background}}` option. Note, this option will also prevent FlexGet from determining if the command failed, so it will not retry. A usage example:
 
 ```yaml
 exec:

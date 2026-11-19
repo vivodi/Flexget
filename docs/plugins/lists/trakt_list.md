@@ -3,7 +3,7 @@
 This is part of [managed list](/plugins/index.md#managed-list) plugin system.
 :::
 
-This plugin creates an [Entry](/Entry) for each movie/show in one of the available [trakt.tv](http://trakt.tv) lists.
+This plugin creates an [Entry](/guide/entry) for each movie/show in one of the available [trakt.tv](http://trakt.tv) lists.
 
 This plugin is useful for example when used in a task with the <plugin:movie_list> plugin to add movies from your trakt watchlist to your <plugin:movie_list>, or to control the series plugin using <plugin:configure_series>.  
 

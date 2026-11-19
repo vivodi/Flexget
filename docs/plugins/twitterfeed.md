@@ -1,5 +1,5 @@
 # twitterfeed
-Creates [entries](/Entry) from a twitter account by looking at urls in tweets. 
+Creates [entries](/guide/entry) from a twitter account by looking at urls in tweets. 
 
 ## Example
 ```text

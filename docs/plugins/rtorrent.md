@@ -5,7 +5,7 @@ This plugin adds URL's directly into rTorrent.
 **Supports**
 
 * Protocols XMLRPC, SCGI and Local SCGI
-* Dynamically setting the download directory and custom attributes (numeric 1-5 and named) supporting [jinja replacement](/Jinja)
+* Dynamically setting the download directory and custom attributes (numeric 1-5 and named) supporting [jinja replacement](/guide/jinja)
 * Magnet urls
 * HTTP Digest authentication (**NOTE**: if 401 error code is returned, it falls back to either Basic or Digest depending on config setting)
 
@@ -29,7 +29,7 @@ rtorrent:
 | mkdir | [yes\|no] | Create the destination folder on the rTorrent server (default: yes) |
 | start | [yes\|no] | Automatically start newly added torrent (default: yes) |
 | action | [add\|update\|delete\|purge] | Default is add. Purge deletes a torrent and it's associated data|
-| path | Directory | Destination for downloaded file(s). Supports [jinja replacement](/Jinja). <br>**Note:** Will contain incomplete ongoing downloads.|
+| path | Directory | Destination for downloaded file(s). Supports [jinja replacement](/guide/jinja). <br>**Note:** Will contain incomplete ongoing downloads.|
 | priority | [off\|low\|medium\|high] | Set torrent priority (default off) |
 | custom1 | Text | Set custom field |
 | custom2 | Text | Set custom field |

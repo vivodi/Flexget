@@ -18,7 +18,7 @@ Search and manipulate the <plugin:archive> plugin database.
 || *optional:* ||
 || `--immortal` | Injected entries will not be able to be rejected by any plugins |
 || *execute arguments:* ||
-||| Arguments from the [`execute` command](/CLI/execute) are allowed here |
+||| Arguments from the [`execute` command](/cli/execute) are allowed here |
 | `tag-source` || Tag all archived entries within a given source | 
 || *positional:* ||
 || `<source>` | The source whose entries you would like to tag |

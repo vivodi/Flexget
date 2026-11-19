@@ -4,7 +4,7 @@ Creates entries based on search results. Queries are produced based on another i
 
 This may seem a bit scary at first, but just remember discover is normal input like rss feed
 
-Cookbook example: [discoverfeed](/Cookbook/Movies/discoverfeed)
+Cookbook example: [discoverfeed](/cookbook/movies/discover-feed)
 
 ## Config Format
 ```text
@@ -30,7 +30,7 @@ discover:
 |release_estimations|strict|Can be `loose`, `strict` or `ignore`, `smart` or `optimistic: <interval>`. <br/><br/> `strict` will reject all episodes/movies without air dates.<br/> `loose` will check for release dates, if release date can not be determined perform search anyway.<br/>`optimistic` sets the estimation mode to `strict` but starts searching `optimistic: <interval>` units (eg. 7 days) before release date. <br/>`ignore` no release date checking will be attempted (try to use `optimistic` if possible)<br/> `smart` will reject entries that are identified but do not contain a release date and accept entries that are not found |
 
 ### Supported search engines
-An overview of available [search plugins](/Searches) can be found [here](/Searches). For a list of installed search plugins use command `flexget plugins --interface search`.
+An overview of available [search plugins](/plugins/index.md#search) can be found [here](/plugins/index.md#search). For a list of installed search plugins use command `flexget plugins --interface search`.
 
 ### Reruns
 When using <plugin:next_series_episodes> as an input for `discover` it will attempt to retrieve new episodes until it fails to find more (up to 100 runs). The number of reruns can be limited with <plugin:max_reruns> plugin.

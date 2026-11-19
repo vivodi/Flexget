@@ -24,7 +24,7 @@
  - if using a different download client, replace all lines indented under `deluge` with corresponding lines for a different [supported download client](/plugins/index.md#output).
  - Note: `movedone` can only be used with deluge plugin.
  - The quality can be changed from 720p. [See here](plugin:quality)
- - The `user-agent` must be changed. [This site](www.whoishostingthis.com/tools/user-agent/) displays your user-agent.
+ - The `user-agent` must be changed. [This site](https://www.whoishostingthis.com/tools/user-agent/) displays your user-agent.
  - Save the [correct cookies](https://github.com/metaMMA/metaMMA/wiki/Using-FlexGet-to-automate-downloads#4-optional-if-using-a-vpn-cookies-may-need-to-be-stored)
 
 ```

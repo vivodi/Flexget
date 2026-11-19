@@ -1,5 +1,5 @@
 # Daemon
-FlexGet can be run in daemon mode, which means it will always run in the background, periodically running tasks on a schedule, or running the tasks initiated by another instance of FlexGet. Also see the [daemon CLI documentation](/CLI/daemon).
+FlexGet can be run in daemon mode, which means it will always run in the background, periodically running tasks on a schedule, or running the tasks initiated by another instance of FlexGet. Also see the [daemon CLI documentation](/cli/daemon).
 
 ## Usage
 To launch the FlexGet daemon, use the `start` command:
@@ -32,11 +32,11 @@ If you run `flexget execute` while a daemon is running, the execution will be se
 ## Starting the Daemon
 In order to get the daemon to start automatically on system boot, see the respective page in the Install Wizard, linked below, for your operating system.
 
-### Linux / BSD - [Scheduling](/InstallWizard/Linux/Scheduling)
+### Linux / BSD - [Scheduling](/guide/installation/linux/scheduling)
 
-### Windows - [Scheduling](/InstallWizard/Windows/FlexGet/Scheduling)
+### Windows - [Scheduling](/guide/installation/windows/scheduling)
 
-### macOS / OSX - [Autorun](/InstallWizard/OSX/Autorun)
+### macOS / OSX - [Autorun](/guide/installation/macos/autorun)
 
 ## Scheduling
 The <plugin:scheduler> plugin is responsible for executing your tasks periodically. By default it will run all tasks once an hour when FlexGet is running in daemon mode. Please see the <plugin:scheduler> documentation for more information on setting up schedules.

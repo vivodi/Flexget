@@ -1,6 +1,6 @@
 # Reorder Quality
 
-This plugin allows you to reorder the built-in [qualities](/Qualities) in a simple fashion. Qualities can only be reordered within the same quality type eg. a codec cannot be above a resolution.
+This plugin allows you to reorder the built-in [qualities](/guide/qualities) in a simple fashion. Qualities can only be reordered within the same quality type eg. a codec cannot be above a resolution.
 
 ## Config
 ```text

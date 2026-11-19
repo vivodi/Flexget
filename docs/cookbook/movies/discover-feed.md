@@ -33,4 +33,4 @@ tasks:
         - movie_list: movies
     transmission: yes # You could use another output plugin instead of this (deluge, qbittorrent, download)
 ```
-Plugins used: <plugin:priority>, <plugin:transmission>, <plugin:trakt_list>,<plugin:trakt_lookup>, <plugin:accept_all>, <plugin:movie_list>, <plugin:list_match>, <plugin:seen>, <plugin:torrent_alive>, <plugin:discover> using [search plugin](/Searches) [piratebay](/Searches/piratebay).
+Plugins used: <plugin:priority>, <plugin:transmission>, <plugin:trakt_list>,<plugin:trakt_lookup>, <plugin:accept_all>, <plugin:movie_list>, <plugin:list_match>, <plugin:seen>, <plugin:torrent_alive>, <plugin:discover> using [search plugin](/plugins/index.md#search) [piratebay](/plugins/searches/piratebay).

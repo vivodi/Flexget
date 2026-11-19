@@ -1,5 +1,5 @@
 # Url Rewriter for rmz.cr
-Read [how URL rewriting works](/URLRewriters).
+Read [how URL rewriting works](/guide/url-rewriters).
 
 The feed from rmz.cr only gives links to an indexing page which then contains the actual download links. This plugin grabs the download links from rmz.cr and rewrites the `url` field to the first link that is found.
 

@@ -128,7 +128,7 @@ $ docker build --pull -t <flexget image tag here>
 ```
 
 ### Upgrading
-Since config files may need updating when the minor version gets bumped, best practice would be to pin the minor version in your compose file or docker run command. e.g. `flexget/flexget:3.13` If you are not pinning it, make sure you understand what docker commands will cause new versions to be pulled, and check [Upgrade Actions](/UpgradeActions) and make sure everything is working as expected after upgrading.
+Since config files may need updating when the minor version gets bumped, best practice would be to pin the minor version in your compose file or docker run command. e.g. `flexget/flexget:3.13` If you are not pinning it, make sure you understand what docker commands will cause new versions to be pulled, and check [Upgrade Actions](/guide/upgrading/upgrade-actions) and make sure everything is working as expected after upgrading.
 
 #### Compose
 Run `docker compose pull` (after updating your pinned version if set) to pull the latest image.
@@ -139,7 +139,7 @@ Run `docker compose pull` (after updating your pinned version if set) to pull th
   
 ### Build your own image
 
-If you want to build your own, the Synology installation has a docker option with [instructions](/InstallWizard/SynologyNAS/Docker) (adjust to your OS as needed since some instructions are Synology specific such as the volume paths).
+If you want to build your own, the Synology installation has a docker option with [instructions](synology-nas/docker) (adjust to your OS as needed since some instructions are Synology specific such as the volume paths).
 
 ## Tips and tricks
 

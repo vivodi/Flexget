@@ -1,5 +1,5 @@
 # Url Rewriter for rlsbb.ru
-Read [how URL rewriting works](/URLRewriters).
+Read [how URL rewriting works](/guide/url-rewriters).
 
 The feed from rlsbb.ru contains only a few links of varying quality in its content field (which is only accessible in flexget since version 2.10.67). This plugin allows to filter those links for certain filehosters and qualities. It is also possible to search the comments of posts for additional links (for example to other filehosters of better quality).
 

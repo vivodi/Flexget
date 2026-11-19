@@ -33,7 +33,7 @@ Notes:
 
  * The names of the groups are arbitrary, so you can pick whatever you want.  
  In this example *normal* is just a group without any options.
- * If a group name is a [quality requirement](/Qualities#Requirements), it will automatically have that as a quality.  
+ * If a group name is a [quality requirement](/guide/qualities.md#requirements), it will automatically have that as a quality.  
  In this example *Series 3* has it's quality set to 720p, because 720p is a valid quality requirement.
  * Series may override any settings specified in group settings.  
  In this example *Series 4* overrides the quality setting of it's group with 1080p.

@@ -1,5 +1,5 @@
 # Table / list styles
-Nearly all lists in the FlexGet [CLI](/CLI) support the following arguments for styling.
+Nearly all lists in the FlexGet [CLI](/cli/index) support the following arguments for styling.
 
 ## Arguments
 | Argument | Description |

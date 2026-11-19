@@ -1908,7 +1908,7 @@ This changelog can be updated manually, but is also automatically updated based 
 ## 3.4.0 (2022-10-25)
 [all commits](https://github.com/Flexget/Flexget/compare/v3.3.41...v3.4.0)
 ### Changed
-- docker: make `/config` the default location to mount the config directory. See [UpgradeActions](/UpgradeActions#h-340-2022-10-25)
+- docker: make `/config` the default location to mount the config directory. See [UpgradeActions](/guide/upgrading/upgrade-actions)
 
 
 ## 3.3.41 (2022-10-24)
@@ -3896,9 +3896,9 @@ This changelog can be updated manually, but is also automatically updated based 
 
 ## 2.20.0 (2019-02-11)
 [all commits](https://github.com/Flexget/Flexget/compare/2.19.6...2.20.0)
-deluge and transmission plugins have both been given the ability to control (remove/pause/resume) torrents already loaded in the client. clean_transmission is now deperecated in favor of these features. See [this](/Cookbook/TorrentCleanup) recipe.
+deluge and transmission plugins have both been given the ability to control (remove/pause/resume) torrents already loaded in the client. clean_transmission is now deperecated in favor of these features. See [this](/cookbook/clean-transmission) recipe.
 
-Many deluge/transmission option names were also tweaked. See [UpgradeActions](/UpgradeActions#2200-20190211)
+Many deluge/transmission option names were also tweaked. See [UpgradeActions](/guide/upgrading/upgrade-actions)
 
 ### Fixed
 - irc: Fix ImportError crash for irc CLI
@@ -5372,7 +5372,7 @@ strings
 ## 2.10.26 (2017-04-04)
 [all commits](https://github.com/Flexget/Flexget/compare/2.10.25...2.10.26)
 ### Added
-- series - [season pack](Plugins/series/season_packs) support phase 1 ([#1710](https://github.com/Flexget/Flexget/issues/1761))
+- series - [season pack](plugin:series/season_packs) support phase 1 ([#1710](https://github.com/Flexget/Flexget/issues/1761))
 
 ## 2.10.25 (2017-04-02)
 [all commits](https://github.com/Flexget/Flexget/compare/2.10.24...2.10.25)

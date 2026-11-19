@@ -27,5 +27,5 @@ feeds:
 
 Uses plugins: <plugin:template>, <plugin:make_rss>
 
-[Back to The Cookbook](/Cookbook)
+[Back to The Cookbook](/cookbook/index)
 

@@ -28,4 +28,4 @@ seen:
 Using this will disregard the `original_url` attribute. 
 
 ## Commandline usage
-The plugin has a few command line options. You may use the CLI help for syntax info (`flexget seen --help`) or visit the [`seen` CLI wiki entry](/CLI/seen) for more examples in usage.
+The plugin has a few command line options. You may use the CLI help for syntax info (`flexget seen --help`) or visit the [`seen` CLI wiki entry](/cli/seen) for more examples in usage.

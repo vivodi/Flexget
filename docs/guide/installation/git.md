@@ -58,4 +58,4 @@ $ uv sync
 ```
 
 ## Become a contributor
-If you're interested in helping to improve FlexGet, or adding new plugins, please read our [contribute page](/Contribute).
+If you're interested in helping to improve FlexGet, or adding new plugins, please read our [contribute page](/dev/index).

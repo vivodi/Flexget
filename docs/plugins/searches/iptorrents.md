@@ -95,7 +95,7 @@ iptorrents:
 
 Both `uid` and `password` are located inside the IPTorrents cookie.
 
-To view this in the Chrome browser, first navigate to [http://iptorrents.com](/http://iptorrents.com) and login.
+To view this in the Chrome browser, first navigate to [http://iptorrents.com](http://iptorrents.com) and login.
 
 Open Chrome options -> `More tools` -> `Developer tools` (Or press Ctrl+Shift+I):
 

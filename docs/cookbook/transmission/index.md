@@ -1,5 +1,5 @@
 # Complete working example for Transmission
-**`ATTENTION:`** This recipe is for an older version of FlexGet and may not be valid anymore. An updated guide with similar features has been posted for deluge [here](/Cookbook/Deluge). 
+**`ATTENTION:`** This recipe is for an older version of FlexGet and may not be valid anymore. An updated guide with similar features has been posted for deluge [here](/cookbook/deluge). 
 
 this is a user contributed recipe. it is the setup i have on my ubuntu VPS that acts as a seedbox but you can adapt it to suit your needs easily.  
 it is a complete A-Z recipe for setting up flexget with transmission with a whole bunch of features that makes torrenting a lot less tedious.
@@ -629,4 +629,4 @@ if you have any questions or have any ideas to improve this recipe, please send 
 
 ----
 
-[Back to The Cookbook](/Cookbook)
+[Back to The Cookbook](/cookbook/index)

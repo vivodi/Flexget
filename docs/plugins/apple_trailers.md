@@ -34,4 +34,4 @@ This plugin populates the following entry fields:
 
 `genres`: Comma separated list of genres, per Apple's website.
 
-The above can be used if creating custom filenames with [Jinja](/Jinja).
+The above can be used if creating custom filenames with [Jinja](/guide/jinja).

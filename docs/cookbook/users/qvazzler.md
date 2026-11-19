@@ -158,7 +158,7 @@ tasks:
           >> "{? general.config_path ?}/logs/{?task?}/{?title?}.log"
 ```
 
-This config is accompanied by a `trackers` directory, that contains XML information about each of the trackers available through IRC. [Read about the IRC Daemon to find out more.](Plugins/Daemon/irc).
+This config is accompanied by a `trackers` directory, that contains XML information about each of the trackers available through IRC. [Read about the IRC Daemon to find out more.](/plugins/daemon/irc)
 
 ### The variables.yml file
 
@@ -210,7 +210,7 @@ It can feel a bit daunting figuring out all the variables by yourself. The best 
 
 Below is a decent example of how that script would look like.
 
-You can read more about the [FlexGet API on the wiki.](API).
+You can read more about the [FlexGet API on the wiki.](/guide/api).
 If you want to get the flexget token for one of your regular flexget instances, make sure API is enabled in your config (`web_server: yes`), password has been generated (`flexget web passwd <some_password>`) and after, use command `flexget web showtoken`.
 
 ```

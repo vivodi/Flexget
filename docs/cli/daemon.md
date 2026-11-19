@@ -1,8 +1,8 @@
 # `daemon`
-Run FlexGet continuously, executing tasks according to [schedules](plugin:scheduler) defined in the [config file](/Configuration).
+Run FlexGet continuously, executing tasks according to [schedules](plugin:scheduler) defined in the [config file](/guide/configuration/index).
 
 ## Notes
-Further information is available about [daemon operation](/Daemon).
+Further information is available about [daemon operation](/guide/daemon).
 
 ## Sub-commands
 | Sub-command | Option | Description |

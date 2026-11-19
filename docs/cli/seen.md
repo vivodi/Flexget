@@ -2,7 +2,7 @@
 View or forget entries remembered by the <plugin:seen> plugin.
 
 ## Notes
-The [`execute` option](/CLI/execute) `--learn` (optionally combined with `--tasks`) can be used to mark all entries that would be accepted as seen.
+The [`execute` option](/cli/execute) `--learn` (optionally combined with `--tasks`) can be used to mark all entries that would be accepted as seen.
 
 ## Sub-commands
 | Sub-command | option | description |

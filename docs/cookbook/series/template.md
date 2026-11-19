@@ -22,4 +22,4 @@ tasks:
 
 Uses plugins: <plugin:template>, <plugin:rss>, <plugin:series>, <plugin:exists_series>, <plugin:download>
 
-[Back to The Cookbook](/Cookbook)
+[Back to The Cookbook](/cookbook/index)

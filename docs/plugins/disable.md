@@ -1,5 +1,5 @@
 # Disable
-This plugin can be used to disable a plugin which you have included via the <plugin:template> or <plugin:include> plugin, as well as to disable [builtin](/Builtin) plugins.
+This plugin can be used to disable a plugin which you have included via the <plugin:template> or <plugin:include> plugin, as well as to disable [builtin](/guide/index) plugins.
 
 ## Configuration
 This plugin should be configured with either the name of the plugin you wish to disable, or a list of plugins you wish to disable. You can also use the special term `builtins` to disable all builtin plugins.

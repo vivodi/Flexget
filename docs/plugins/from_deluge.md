@@ -3,7 +3,7 @@
 Requires installing `deluge-client` via pip
 :::
 
-This plugin creates an [entry](/Entry) for each torrent that is currently loaded in Deluge (with optional filters.) It is useful for learning items you have manually added to Deluge into your FlexGet database, or changing settings (or renaming, moving) of torrents currently running in Deluge.
+This plugin creates an [entry](/guide/entry) for each torrent that is currently loaded in Deluge (with optional filters.) It is useful for learning items you have manually added to Deluge into your FlexGet database, or changing settings (or renaming, moving) of torrents currently running in Deluge.
 
 ## Options
 |  | **Main options** |

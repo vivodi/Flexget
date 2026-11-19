@@ -22,4 +22,4 @@ all_series:
   quality: 720p hdtv
   propers: no
 ```
-You can use [`--dump-config` ](/CLI/execute) option to see generated configuration file. You will likely only want to execute single task when doing that.
+You can use [`--dump-config` ](/cli/execute) option to see generated configuration file. You will likely only want to execute single task when doing that.

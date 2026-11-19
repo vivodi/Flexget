@@ -58,4 +58,4 @@ tasks:
  - <plugin:move>: We use the move plugin to move the file to a dynamic path based on the parsed series name and season. If there are other files in the input directory that the series plugin cannot parse, they will be skipped and remain in the original directory.
 
 
-[Back to The Cookbook](/Cookbook)
+[Back to The Cookbook](/cookbook/index)

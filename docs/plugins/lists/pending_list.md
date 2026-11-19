@@ -3,7 +3,7 @@
 This is part of [managed list](/plugins/index.md#managed-list) plugin system.
 :::
 
-Stores a copy of any entry that was added to it, and can be used in a variety of ways. Will only emit the entry after it has been approved via [CLI](/CLI/pending-list)/[API](/API). Very useful in creating a broad scoped task where you can cherry pick entries.  
+Stores a copy of any entry that was added to it, and can be used in a variety of ways. Will only emit the entry after it has been approved via [CLI](/cli/pending-list)/[API](/guide/api). Very useful in creating a broad scoped task where you can cherry pick entries.  
 See [managed list](/plugins/index.md#managed-list) how to use lists in general. 
 
 ## Configuration
@@ -66,7 +66,7 @@ First task `pending_new_shows` will add all accepted entries to an `pending_list
 
 ## Command line interface
 
-Please see [commandline documentation](/CLI/pending-list)
+Please see [commandline documentation](/cli/pending-list)
 
 ## Entry List API
 `pending_list` plugin has full JSON API support. See [API page](https://flexget.com/API) for details.

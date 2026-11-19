@@ -124,7 +124,7 @@ Plugin <plugin:seen> needs to be disabled since all the titles that movie queue 
 
 ## Movie list CLI
 
-See [movie-list commandline](/CLI/movie-list) how to view and manage the list via commandline.
+See [movie-list commandline](/cli/movie-list) how to view and manage the list via commandline.
 
 
 ## Movie List API

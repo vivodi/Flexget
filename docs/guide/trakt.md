@@ -1,6 +1,6 @@
 # Using Trakt in FlexGet
 
-- For Trakt CLI tools, see [`trakt` CLI command](/CLI/trakt).
+- For Trakt CLI tools, see [`trakt` CLI command](/cli/trakt).
 
 - To see how to looking up metadata from Trakt, look at the <plugin:trakt_lookup> plugin.
 
@@ -11,7 +11,7 @@
 ## Trakt Authentication
 There are multiple Trakt plugins (such as <plugin:trakt_list>, <plugin:list_remove>, <plugin:trakt_lookup>, and <plugin:list_clear>) that need to authenticate with your Trakt account if the profile or list is private, or if you are trying to edit lists. Any such plugin will have an `account` option.
 
-The [`flexget trakt` CLI command](/CLI/trakt) can be used to store that authentication under a given account name. Once you have set authentication up with this tool, you can set the `account` option in the appropriate Trakt plugins to access private information or edit lists.
+The [`flexget trakt` CLI command](/cli/trakt) can be used to store that authentication under a given account name. Once you have set authentication up with this tool, you can set the `account` option in the appropriate Trakt plugins to access private information or edit lists.
 
 The `username` option is also available in trakt plugins. This option is used for two purposes:
 - To access public information from the given username (such as public lists)
@@ -22,7 +22,7 @@ If you are using the `account` option, it is not required as it will default to 
 ### Authenticating with Trakt
 
 #### Initial authentication
-To authenticate with Trakt for the first time, run the following [CLI](/CLI/trakt) command:
+To authenticate with Trakt for the first time, run the following [CLI](/cli/trakt) command:
 ```console
 $ flexget trakt auth <account>
 ```

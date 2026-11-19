@@ -4,14 +4,14 @@ Note that executing values directly from 3rd party (example rss feed) potentiall
 :::
 
 
-Executes commands on [entries](/Entry).
+Executes commands on [entries](/guide/entry).
 
-This plugin can take two configuration formats [simple](#SimpleConfiguration) and [advanced](#AdvancedConfiguration).
+This plugin can take two configuration formats [simple](#simple-configuration) and [advanced](#advanced-configuration).
 
 ## Simple Configuration
 With this configuration, your command is executed on all accepted entries that reach output. If nothing reaches output as accepted, nothing is executed.
 
-You can use all (available) [entry](/Entry) fields in the command.
+You can use all (available) [entry](/guide/entry) fields in the command.
 
 ### Example
 ```yaml
@@ -27,7 +27,7 @@ exec:
 ```
 
 ## Advanced Configuration
-If you need more control over what entries and when the command gets executed, you can use the advanced configuration format. This requires some understanding of how the [internals](/Developers) of FlexGet work.
+If you need more control over what entries and when the command gets executed, you can use the advanced configuration format. This requires some understanding of how the [internals](/dev/index) of FlexGet work.
 
 For example the simple form:
 
@@ -82,7 +82,7 @@ exec:
       - echo "Synopsis: {{imdb_plot_outline}}" >> {{movie_name}}.nfo
 ```
 
-See [entry documentation](/Entry) for list of possible fields.
+See [entry documentation](/guide/entry) for list of possible fields.
 
 ### Fail entries option
 Setting the `fail_entries` option to yes will cause the entry to fail if the executed command has a non-zero return code.

@@ -3,10 +3,10 @@
 ## Flexget 1.2.313 configuration - TV & movies using showRSS and IMDB-watchlist
 For this to work you have to setup a few things.
 
-* Setup your favorite torrent-client and have it look in a folder for new torrents. In this configuration I use transmission.(XXX macro: "BR") Read here for installation instructions: [https://flexget.com/wiki/InstallWizard](/https://flexget.com/wiki/InstallWizard)
-* Find a good feed for your series. I highly recommend using showRSS [http://showrss.info](/http://showrss.info)
+* Setup your favorite torrent-client and have it look in a folder for new torrents. In this configuration I use transmission.(XXX macro: "BR")
+* Find a good feed for your series. I highly recommend using showRSS [http://showrss.info](http://showrss.info)
 * You have to find your userID at IMDB look at http://www.imdb.com/user/XXXXXXXXXX/ (the XX.. is your IMDB-userID).
-* Create a new e-mail with Gmail or use your existing one for e-mailnotifications.(XXX macro: "BR") Template goes into [flexdir](/flexdir)/templates/
+* Create a new e-mail with Gmail or use your existing one for e-mailnotifications.(XXX macro: "BR") Template goes into `flexdir/templates/`
 
 The watchlist you specify in this configuration have to be public for FlexGet to read it.
 

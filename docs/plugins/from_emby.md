@@ -1,5 +1,5 @@
 # Emby Input
-This plugin creates an [Entry](/Entry) for each movie/series/season/episode from emby's, watched list, favorites, libraries or playlists and filter based on some criteria
+This plugin creates an [Entry](/guide/entry) for each movie/series/season/episode from emby's, watched list, favorites, libraries or playlists and filter based on some criteria
 
 ## Plugin Settings
 Currently the following settings are supported:

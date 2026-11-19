@@ -79,6 +79,6 @@ uv tool uninstall flexget
 ## Next Step
 
 Choose your OS to continue setting up scheduling:
- * [Linux](/InstallWizard/Linux/Scheduling)
- * [Windows](/InstallWizard/Windows/Scheduling)
- * [Mac OSX](/InstallWizard/OSX/Autorun)
+ * [Linux](linux/scheduling)
+ * [Windows](windows/scheduling)
+ * [Mac OSX](macos/autorun)

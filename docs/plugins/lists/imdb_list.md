@@ -7,7 +7,7 @@ This is part of [managed list](/plugins/index.md#managed-list) plugin system.
 IMDb enforces captchas more often than not, which the plugin currently cannot handle. If login fails, please open an issue on [Github](https://www.github.com/Flexget/Flexget/issues). If you do not need to alter IMDb lists, you can use <plugin:imdb_watchlist> instead.
 :::
 
-Creates an [Entry](/Entry) for each item in an IMDb list.
+Creates an [Entry](/guide/entry) for each item in an IMDb list.
 
 This plugin is useful for example when used in a task with the <plugin:movie_list> plugin to add movies from your IMDb watchlist to your movie list, or to filter entries directly against the watchlist via <plugin:list_match> (see example below).
 

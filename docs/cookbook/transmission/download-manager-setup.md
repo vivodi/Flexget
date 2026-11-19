@@ -1,5 +1,5 @@
 # Download Manager Setup
-this is a continuation of the [recipe for setting up flexget with transmission client. ](/Cookbook/Transmission)  
+this is a continuation of the [recipe for setting up flexget with transmission client. ](/cookbook/transmission/index)  
 please refer to that recipe if you are interested in how to setup flexget & transmission for automating your torrenting.
 
 this page alone will not be of much use to you unless you are an advanced user.

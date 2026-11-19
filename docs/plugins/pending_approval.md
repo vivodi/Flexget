@@ -32,7 +32,7 @@ There are currently two ways of approving entries: CLI and API.
 - View all pending entries: `flexget pending list`  
 - Approve a pending entry: `flexget pending approve <ENTRY_ID>`  
 
-View `pending_approval` [CLI page](/CLI/pending_approval) for more details and options.
+View `pending_approval` [CLI page](/cli/pending) for more details and options.
 
 *****Note:***** Approved entries will be accepted in the task regardless of any other filters that may reject them.
 

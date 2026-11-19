@@ -79,4 +79,4 @@ You can also put the above export command in the "startup" section of openWRT so
 
 
 ## Continue
-[Scheduling](/InstallWizard/Linux/Environment/FlexGet/Scheduling)
+[Scheduling](linux/scheduling)

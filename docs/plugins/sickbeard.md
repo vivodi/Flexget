@@ -1,5 +1,5 @@
 # Sickbeard
-This plugin creates an [Entry](/Entry) for each show in your [sickbeard](http://sickbeard.com/) show list (including ended ones).
+This plugin creates an [Entry](/guide/entry) for each show in your [sickbeard](http://sickbeard.com/) show list (including ended ones).
 This plugin can be used with the <plugin:discover> or <plugin:configure_series> plugins to add those shows to the shows list.
 
 ## Plugin Settings

@@ -1,6 +1,6 @@
 # Kitsu
 
-This plugin produces an [entry](/Entry) for each movie or series in a public [Kitsu.io](http://www.kitsu.io) library. 
+This plugin produces an [entry](/guide/entry) for each movie or series in a public [Kitsu.io](http://www.kitsu.io) library. 
 
 **Notes:** 
 

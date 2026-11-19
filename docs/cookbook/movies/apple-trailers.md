@@ -18,4 +18,4 @@ AppleTrailers:
     filename: '{{title}} - Trailer - 720p.mov'
 ```
 
-[Back to The Cookbook](/Cookbook)
+[Back to The Cookbook](/cookbook/index)

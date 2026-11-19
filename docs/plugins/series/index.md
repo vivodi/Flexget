@@ -15,7 +15,7 @@ Intelligent filter for TV-series.
  * Specials aware (grabs episodes with the series title and the word 'special')
  * Tries to ignore season packs (if not configured explicitly to get them), you can use <plugin:content_size> for extra insurance against them.
  * Supports double episodes. i.e. S01E01-E02
- * [Series searching support](/Cookbook/Series/Search) (via <plugin:discover> and <plugin:next_series_episodes> plugins)
+ * [Series searching support](/cookbook/series/search) (via <plugin:discover> and <plugin:next_series_episodes> plugins)
 
 **Simple configuration:**
 
@@ -55,10 +55,10 @@ The series plugin supports a number of settings to customize it's behavior. Thou
 | [alternate_name](alternate_name) | Define other names which this show is also released as. |
 | [assume_special](assume_special) | Assume any entry with no series numbering detected is a special and treat it accordingly. |
 | [begin](begin) | Manually specify first episode to start series on. |
-| [ep_regexp](regexps#Episodenumberingmatching) | Manually specify regexp(s) that matches to episode, season numbering. |
+| [ep_regexp](regexps.md#episode-numbering-matching) | Manually specify regexp(s) that matches to episode, season numbering. |
 | [exact](exact) | Configure exact matching behavior. Needed for series which have similar named series. Uses 'auto' mode as default. |
 | [from_group](from_group) | Accept series only from given groups. |
-| [id_regexp](regexps#Episodenumberingmatching) | Manually specify regexp(s) that matches to series identifier (numbering). |
+| [id_regexp](regexps.md#episode-numbering-matching) | Manually specify regexp(s) that matches to series identifier (numbering). |
 | [identified_by](identified_by) | Configure how episode numbering is detected. Uses 'auto' mode as default. |
 | [name_regexp](regexps) | Manually specify regexp(s) that matches to series name. |
 | [parse_only](parse_only) | Series plugin will not accept or reject any entries, merely fill in all metadata fields. |
@@ -92,13 +92,13 @@ These plugins are complementary to the series plugin.
 * If the series appears in task(s) with slightly different naming conventions and spinoffs like FooBar and FooBar US read [this guide](closematch). 
 * FlexGet respects *propers* which means that the same episode will be downloaded twice if the second one contains words such as `proper`, `repack`, `rerip`, or `real`.
 * If series name is written in multiple different ways, don't add them as separate series. This will confuse episode tracking. 
-* Check [series cookbook](/Cookbook/Series) for more complete examples and advanced uses.
-* If using discover, existing collection can be imported with [this](/Cookbook/Series/SeedDB) recipe.
+* Check [series cookbook](/cookbook/series/index) for more complete examples and advanced uses.
+* If using discover, existing collection can be imported with [this](/cookbook/series/seed-db) recipe.
 
 ## Commandline interface
 
 ### `series` Commandline Arguments
-The series plugin has several features available at the command line via the [`flexget series` command](/CLI/series).
+The series plugin has several features available at the command line via the [`flexget series` command](/cli/series).
 
 ### `execute` Commandline Arguments
 There are also options to the `flexget execute` command which affect the series plugin:

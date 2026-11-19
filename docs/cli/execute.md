@@ -1,5 +1,5 @@
 # `execute`
-Execute tasks now. If FlexGet is not running as a [daemon](/Daemon) or via [cron](/InstallWizard/Partial/Crontab), this is the only way tasks can be executed.
+Execute tasks now. If FlexGet is not running as a [daemon](/guide/daemon) or via [cron](/guide/installation/linux/scheduling.md#using-cronjobs), this is the only way tasks can be executed.
 
 ```{toctree}
 :glob:

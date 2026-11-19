@@ -48,4 +48,4 @@ tasks:
 ```
 
 ## CLI
-You can also [interact with regexp_list](/CLI/regexp-list) via command line.
+You can also [interact with regexp_list](/cli/regexp-list) via command line.

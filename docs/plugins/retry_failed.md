@@ -5,7 +5,7 @@ By default, there is a 1 hour wait time in between retries of failed entries. Th
 
 CLI `flexget failed` provides tools to `list` and `clear` failed entries.
 
-This plugin is a [builtin](/Builtin) and does not need to be explicitly placed in your task unless you would like to override the defaults. 
+This plugin is a [builtin](/guide/index) and does not need to be explicitly placed in your task unless you would like to override the defaults. 
 
 ## Example
 

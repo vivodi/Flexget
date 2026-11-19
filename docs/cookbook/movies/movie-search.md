@@ -17,4 +17,4 @@
     transmission: yes # You could use another output plugin instead of this (deluge, download)
 ```
     
--   Plugins used: <plugin:movie_list>,  <plugin:trakt_lookup>,<plugin:transmission>,<plugin:accept_all>, <plugin:movie_list>, <plugin:list_match>, <plugin:seen>, <plugin:torrent_alive>,<plugin:priority>,<plugin:discover>,[search plugin](/Searches) [piratebay](/Searches/piratebay).
+-   Plugins used: <plugin:movie_list>,  <plugin:trakt_lookup>,<plugin:transmission>,<plugin:accept_all>, <plugin:movie_list>, <plugin:list_match>, <plugin:seen>, <plugin:torrent_alive>,<plugin:priority>,<plugin:discover>,[search plugin](/plugins/index.md#search) [piratebay](/plugins/searches/piratebay).

@@ -1,7 +1,7 @@
 # Upgrading PIP installation
 
 :::{note}
-Detailed changes can be found from [ChangeLog](/ChangeLog).
+Detailed changes can be found from [ChangeLog](/changelog).
 :::
 
 ## Check current version
@@ -19,13 +19,13 @@ Write your current version down somewhere.
 
 ## Upgrade
 
-If you are using cron and have short cron interval, comment FlexGet out from the cron. If you are running the daemon, you should [stop the daemon](/Daemon) until the upgrade is complete and you verify your config file works with the updated version.
+If you are using cron and have short cron interval, comment FlexGet out from the cron. If you are running the daemon, you should [stop the daemon](/guide/daemon) until the upgrade is complete and you verify your config file works with the updated version.
 
 There has been alot of errors arising from setuptools package being out of date and failing an upgrade.
 Please make sure to upgrade setuptools.
 
 :::{note}
-Note: On some environments, pip might be available under name pip3 to differentiate it from Python 2. Check [Problems with pip](/PipProblems) page if issues arise.
+Note: On some environments, pip might be available under name pip3 to differentiate it from Python 2. Check [Problems with pip](/guide/installation/pip-problems) page if issues arise.
 :::
 
 ```console

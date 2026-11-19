@@ -1,7 +1,7 @@
 # Windows
 
 :::{warning}
-FlexGet is currently mostly command line based, although we have an experimental [Web UI](#web-ui-v2) under development. Be aware that this is not "double click to install and a beautiful UI pops up". But it's not that hard either. [Help is available.](/NeedHelp)
+FlexGet is currently mostly command line based, although we have an experimental [Web UI](/guide/web-ui/v2) under development. Be aware that this is not "double click to install and a beautiful UI pops up". But it's not that hard either. [Help is available.](/guide/support)
 :::
 
 ## Set up environment
@@ -13,6 +13,7 @@ If you already have a compatible version of Python installed, you can continue t
 
 Otherwise, install a compatible version of 3.x (see supported versions list above) from [python.org](http://python.org/download/).
 
+(verify-python-is-in-your-path)=
 ### Verify Python is in your PATH
 
 The Python installer should put the Python interpreter into your [PATH](http://en.wikipedia.org/wiki/Environment_variable#System_path_variables) environment variable. You can easily test this.
@@ -56,7 +57,7 @@ This will upgrade `pip` and `setuptools` to the latest versions.
 :::{note}
 If you do not have the Python scripts directory in your [PATH](http://en.wikipedia.org/wiki/Environment_variable#System_path_variables) you will 
 need to use the full path for commands 
-`pip` and `flexget`. Otherwise you will get a "command not found" error. Find instructions on the previous page for [modifying your PATH](/InstallWizard/Windows#verify-python-is-in-your-path) to make your life easier!
+`pip` and `flexget`. Otherwise you will get a "command not found" error. Find instructions on the previous page for [modifying your PATH](#verify-python-is-in-your-path) to make your life easier!
 :::
 
 ### Install

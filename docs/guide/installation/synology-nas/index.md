@@ -8,11 +8,11 @@ python-package
 
 There are a few different ways to go about running FlexGet on your NAS. They are listed below in order of preference.
 
-## [Docker container](/InstallWizard/SynologyNAS/Docker)
+## [Docker container](docker)
 
 Running FlexGet in a Docker container gives you the ultimate level of control over its environment.
 
-## [Local Python package](/InstallWizard/SynologyNAS/PythonPackage)
+## [Local Python package](python-package)
 
 :::{note}
 Supported Python versions: {{ py_versions }}

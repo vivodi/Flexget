@@ -4,7 +4,7 @@ This plugin will allow you to connect a bot to an IRC channel. It listens for re
 
 The benefit to this plugin over regular search plugins that utilize API/scraping is that any new downloads will be picked up as soon as they are available.
 
-You can always get the current status of the IRC plugin, as well as restart and stop it, via the [command line](/CLI/irc).
+You can always get the current status of the IRC plugin, as well as restart and stop it, via the [command line](/cli/irc).
 
 ## Prerequisites
 * **Install `irc_bot`**.
@@ -26,7 +26,7 @@ $ flexget daemon start --daemonize
 
 ## Daemon plugin
 
-Note that this is a daemon plugin. Unlike most plugins, it is not placed under the tasks section of the config, but rather is a [top-level key](/Configuration#top-level-keys). Example:
+Note that this is a daemon plugin. Unlike most plugins, it is not placed under the tasks section of the config, but rather is a [top-level key](/guide/configuration/index.md#top-level-keys). Example:
 
 ```text
 irc:

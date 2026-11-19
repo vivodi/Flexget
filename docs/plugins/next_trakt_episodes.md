@@ -7,7 +7,7 @@ Please see [Trakt Authentication](/guide/trakt.md/#trakt-authentication) for how
 Warning: There is currently a problem where this plugin will not emit the next episode for a season when it has not yet aired. #2831
 :::
 
-This plugin creates an [Entry](/Entry) for the next episode to watch or to collect for each show you have marked seen or collected in your [trakt.tv](http://trakt.tv) account.
+This plugin creates an [Entry](/guide/entry) for the next episode to watch or to collect for each show you have marked seen or collected in your [trakt.tv](http://trakt.tv) account.
 
 This plugin can be used in combination with several plugins, like <plugin:discover> to search for new episodes to download, or <plugin:set_series_begin> to reset the first episode for configured series, and so on.  
 

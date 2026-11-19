@@ -1,5 +1,5 @@
 # Filtering
-All plugins may do following actions (sometimes referred as operation) to [entry](/Entry).
+All plugins may do following actions (sometimes referred as operation) to [entry](/guide/entry).
 
 * Accept
 * Reject

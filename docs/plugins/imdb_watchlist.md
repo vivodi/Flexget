@@ -1,6 +1,6 @@
 # IMDB watch list 
 
-This plugin creates an [entry](/Entry) for each item in an IMDB list.
+This plugin creates an [entry](/guide/entry) for each item in an IMDB list.
 
 This plugin is useful for example when used in a task with the <plugin:movie_list> plugin  to add movies from your IMDb watchlist to your movie list.
 

@@ -9,7 +9,7 @@ Additionally, the file cfscrape.py must be put in the folder : /var/lib/flexget
 :::
 
 # CPASBIEN Search plugin
-This search plugin will get results from [http://www.cpasbien.pw/](/http://www.cpasbien.pw/)
+This search plugin will get results from [http://www.cpasbien.pw/](http://www.cpasbien.pw/)
 
 ## Configuration
 Configuration requires only the category and you can only have ONE:

@@ -1,5 +1,5 @@
 # MyEpisodes list
-This plugin creates an [Entry](/Entry) for each show in your [myepisodes.com](http://www.myepisodes.com) show list.
+This plugin creates an [Entry](/guide/entry) for each show in your [myepisodes.com](http://www.myepisodes.com) show list.
 
 This plugin is useful for example when used to control the series plugin using <plugin:configure_series>.  
 

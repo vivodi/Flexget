@@ -1,5 +1,5 @@
 # URL Rewrite
-Read [how URL rewriting works](/URLRewriters).
+Read [how URL rewriting works](/guide/url-rewriters).
 
 Allows manipulating download pages into proper download URLs. If information required to generate the URL is not present, the site needs urlrewriting plugin.
 

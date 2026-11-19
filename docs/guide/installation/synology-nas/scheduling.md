@@ -2,7 +2,7 @@
 ## Edit crontab
 FlexGet is meant to be executed the from a user's own crontab, **not** from /etc/crontab (root). Although this is possible it is highly discouraged. 
 
-See [http://forum.synology.com/enu/viewtopic.php?f=39&t=13473](/http://forum.synology.com/enu/viewtopic.php?f=39&t=13473) for details of how to setup scheduling for users other than root.
+See [http://forum.synology.com/enu/viewtopic.php?f=39&t=13473](http://forum.synology.com/enu/viewtopic.php?f=39&t=13473) for details of how to setup scheduling for users other than root.
 
 Create a new user, crontab. As root, create a file named 'crontab' in crontab's home directory containing:
 ```

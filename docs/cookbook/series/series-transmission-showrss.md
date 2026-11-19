@@ -43,7 +43,7 @@ tasks:
       filename: '{{ tvdb_series_name }} - {{ series_id }} - {{ tvdb_ep_name }}{{ location | pathext }}'
 ```
 
-For the complete configuration with Transmission refer to [Transmission setup](/Series/SeriesPresetMultipleRSStoTransmission) and use this configuration in *~/.flexget/config.yml* file.
+For the complete configuration with Transmission refer to [Transmission setup](series-preset-multiple-rss-to-transmission) and use this configuration in *~/.flexget/config.yml* file.
 
 
 ## Alternative simple setup

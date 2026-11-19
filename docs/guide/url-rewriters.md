@@ -7,7 +7,7 @@ Many RSS-feeds (and other inputs) don't provide URLs directly to a torrent-file,
 
 Foremost: automatically and in the background!
 
-URL Rewriters are special type of plugins that detect if any of the [entries](/Entry) in a feed point to a download page instead of actual content. When such a [entry](/Entry) is detected, the rewriter will step in and modify the URL so that it points into the actual desired content. This is usually achieved by editing URL or by requesting the download page and finding the correct download link from there.
+URL Rewriters are special type of plugins that detect if any of the [entries](/guide/entry) in a feed point to a download page instead of actual content. When such a [entry](/guide/entry) is detected, the rewriter will step in and modify the URL so that it points into the actual desired content. This is usually achieved by editing URL or by requesting the download page and finding the correct download link from there.
 
 URL Rewriters do not need to be configured aside from generic <plugin:urlrewrite>. URL rewriting happens automatically in the background for all supported sites.
 
@@ -36,7 +36,7 @@ As of 2017-06 following rewriters are included. To get up to date list run comma
 * nnm-club       
 * nyaa           
 * piratebay      
-* [rmz](Plugins/rmz)
+* <plugin:rmz>
 * serienjunkies  
 * shortened      
 * torrent411
@@ -51,4 +51,4 @@ This works only when URL is only slightly different from the download page, see 
 
 ## Not on the list? Make your own
 
-Use existing rewriter as a starting point, it should be quite easy if you have any programming experience. DeadFrog rewriter is a good one to make a copy of and start hacking with it. If you make something, please [contribute it](/Contribute).
+Use existing rewriter as a starting point, it should be quite easy if you have any programming experience. DeadFrog rewriter is a good one to make a copy of and start hacking with it. If you make something, please [contribute it](/dev/index).

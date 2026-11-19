@@ -36,7 +36,7 @@ deluge: yes
 | action | The action that should be performed on this torrent. add/remove/purge (remove and delete data)/pause/resume (default *add*) |
 | path | The download location |
 | move_completed_path | The location files will be moved when torrent finishes (the location will be created if it doesn't exist). |
-| label | Label to assign to torrents in Deluge. This field can be a [Jinja expression](/Jinja) and is rendered before being passed to Deluge. The special value `No Label` will remove an existing label from a torrent. |
+| label | Label to assign to torrents in Deluge. This field can be a [Jinja expression](/guide/jinja) and is rendered before being passed to Deluge. The special value `No Label` will remove an existing label from a torrent. |
 | queue_to_top | If yes will move torrent to top of queue when added, if no will move to bottom. |
 | add_paused | If yes, will add the torrents to deluge in the paused state. |
 | max_up_speed | Sets the maximum upload speed. Must be specified as a decimal (i.e. 1.0) |

@@ -105,7 +105,7 @@ rss:
 ```
 
 ### Capture other fields
-If you want to keep information in another rss field attached to the flexget [entry](/Entry), you can use the `other_fields` option.
+If you want to keep information in another rss field attached to the flexget [entry](/guide/entry), you can use the `other_fields` option.
 
 **Example**
 ```YAML

@@ -1,5 +1,5 @@
 # `--inject`
-Allows injecting imaginary entry for FlexGet to process. You can also use [the inject cli command](/CLI/inject) for a slightly easier format.
+Allows injecting imaginary entry for FlexGet to process. You can also use [the inject cli command](../inject) for a slightly easier format.
 
 :::{seealso}
 The only difference from [](../inject) is that `--inject` treats a single argument as `title` and sets `url` to `http://localhost/inject/` followed by a random 30-character alphanumeric string.
@@ -31,7 +31,7 @@ $ flexget execute --tasks some.task --inject "Some.Title" "Some.direct.url" acce
 This would inject imaginary title with direct link to file into a single task, accept it and force it trough even if some filter tries to reject it.
 
 ## Setting Entry Fields
-You can also set arbitrary [entry fields](/Entry) when injecting. This is done in entryfield=value format. These can be listed at any point after the url.
+You can also set arbitrary [entry fields](/guide/entry) when injecting. This is done in entryfield=value format. These can be listed at any point after the url.
 
 **Example:**
 

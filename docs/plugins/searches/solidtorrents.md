@@ -3,7 +3,7 @@
 This plugin is part of [search](/plugins/index.md#search) plugin system
 :::
 
-This search plugin will get results from [https://solidtorrents.net](/https://solidtorrents.net) or a reverse proxy if specified.
+This search plugin will get results from [https://solidtorrents.net](https://solidtorrents.net) or a reverse proxy if specified.
 
 ## Configuration
 Simplest configuration, uses default search options. (all categories, sort by seeders)

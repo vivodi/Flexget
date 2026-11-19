@@ -1,6 +1,6 @@
 # MyAnimeList
 
-This plugin produces an [entry](/Entry) for each item on [MyAnimeList](https://myanimelist.net) list. It can be used as a source for the <plugin:configure_series> plugin.
+This plugin produces an [entry](/guide/entry) for each item on [MyAnimeList](https://myanimelist.net) list. It can be used as a source for the <plugin:configure_series> plugin.
 
 **Notes:** 
 

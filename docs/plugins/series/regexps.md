@@ -34,6 +34,7 @@ For example if `some series` appears in multiple different naming conventions, y
       - ^some.series.2011
 ```
 
+(episode-numbering-matching)=
 ### Episode numbering matching
 ep_regexp is for series enumerated by season and episode numbers (eg, S04E01). Naive example:
 

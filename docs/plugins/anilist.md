@@ -1,6 +1,6 @@
 # AniList
 
-This plugin produces an [entry](/Entry) for each item on a user's [AniList](https://anilist.co) list. It can be used as a source for the <plugin:configure_series> plugin.
+This plugin produces an [entry](/guide/entry) for each item on a user's [AniList](https://anilist.co) list. It can be used as a source for the <plugin:configure_series> plugin.
 
 **Notes:** 
 

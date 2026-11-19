@@ -1,5 +1,5 @@
 # Next Series Episodes
-Creates an [Entry](/Entry) for the next episode needed in each series you have configured in the <plugin:series> plugin (intended to be used with the <plugin:discover> plugin). You must have one of either <plugin:series> or <plugin:configure_series>  configured in the same task for this to work. 
+Creates an [Entry](/guide/entry) for the next episode needed in each series you have configured in the <plugin:series> plugin (intended to be used with the <plugin:discover> plugin). You must have one of either <plugin:series> or <plugin:configure_series>  configured in the same task for this to work. 
 
 If FlexGet has not seen the series for some time and is locked to specific episode numbering scheme, or if the series is not explicitly configured to some format via [`begin`](plugin:series/begin) or [`identified_by`](plugin:series/identified_by), `next_series_episodes` can not guess which episode to emit.
 

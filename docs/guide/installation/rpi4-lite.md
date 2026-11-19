@@ -63,4 +63,4 @@ $ pipx inject flexget transmission-rpc
 
 ## Next Step
 
-Continue to [Scheduling](/InstallWizard/Linux/Scheduling).
+Continue to [Scheduling](linux/scheduling).

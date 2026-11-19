@@ -1,5 +1,5 @@
 # Next Sonarr Episodes
-This plugin creates an [Entry](/Entry) for the first missing episode for every show as defined in [Sonarr](http://sonarr.tv) .
+This plugin creates an [Entry](/guide/entry) for the first missing episode for every show as defined in [Sonarr](http://sonarr.tv) .
 
 This plugin can be used in combination with several plugins, like <plugin:discover> to search for new episodes to download, or <plugin:set_series_begin> to reset the first episode for configured series, and so on.
 

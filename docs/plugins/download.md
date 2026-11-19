@@ -26,7 +26,7 @@ download: ~/torrents/
 
 This results that entries matching patterns 1 and 2 are saved into
 ~/torrents/ and pattern3 is saved to ~/another_location/. 
-In the background this works by setting [entries](/Entry) matching pattern3 field `path` to `~/another_location/`.
+In the background this works by setting [entries](/guide/entry) matching pattern3 field `path` to `~/another_location/`.
 
 For even more customization you can use <plugin:set> plugin to manually construct path to whatever you like.
 

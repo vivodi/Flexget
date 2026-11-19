@@ -3,7 +3,7 @@
 This is part of [managed list](/plugins/index.md#managed-list) plugin system.
 :::
 
-Creates an [Entry](/Entry) for each show in your [Sonarr](https://sonarr.tv/) show list (including ended ones by default).
+Creates an [Entry](/guide/entry) for each show in your [Sonarr](https://sonarr.tv/) show list (including ended ones by default).
 
 This plugin can be used with the <plugin:discover> or <plugin:configure_series> plugins to add those shows to the shows list.
 

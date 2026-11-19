@@ -1,5 +1,5 @@
 # If
-The if plugin can evaluate simple jinja expressions on the [entry fields](/Entry) and take one of several actions if the expression evaluates to True; it can accept, reject, or fail the entry, or it can run certain filter plugins on the matching entries.
+The if plugin can evaluate simple jinja expressions on the [entry fields](/guide/entry) and take one of several actions if the expression evaluates to True; it can accept, reject, or fail the entry, or it can run certain filter plugins on the matching entries.
 
 ## Available Objects and Functions
 The if plugin allows evaluating [jinja expressions](http://jinja.pocoo.org/docs/2.9/templates/#expressions), which are similar to a limited subset of python. If statements can contain:
@@ -10,7 +10,7 @@ The if plugin allows evaluating [jinja expressions](http://jinja.pocoo.org/docs/
 - Any of the methods of objects available are useable with the exception of \_\_doubleunderscore\_\_ ones. e.g tvdb_genres[0].upper()
 - [Jinja Filters](http://jinja.pocoo.org/docs/2.9/templates/#list-of-builtin-filters)
 - [Jinja Tests](http://jinja.pocoo.org/docs/2.9/templates/#builtin-tests)
-- Any of FlexGet's [custom Jinja filters/tests](/Jinja)
+- Any of FlexGet's [custom Jinja filters/tests](/guide/jinja)
 
 There are several other functions and objects available added by FlexGet. Some of them were used before the switch to jinja and have native jinja equivalents that can be switched to:
 

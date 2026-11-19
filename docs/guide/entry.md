@@ -1,6 +1,6 @@
 # Entry
 Entry represents a single item created by input(s), usually a downloadable content.
-It contains all the information necessary for [plugins](/plugins/index) to perform their job . Usually some [action](/FilterOperations) like accept or reject on the entry.
+It contains all the information necessary for [plugins](/plugins/index) to perform their job . Usually some [action](/guide/filtering) like accept or reject on the entry.
 
 For example, the <plugin:regexp> plugin checks whether the given regular expression matches the entry's **title** or **url** and acts accordingly.
 
@@ -40,7 +40,7 @@ Use `--dump` option to see your task content as this list is not complete or alw
 | series_id | <plugin:series> | Series episode identifier, ie. `S01E02` or `2009-12-1` |
 | series_date | <plugin:series> | The date of the episode. (only available for date based series) |
 | proper | <plugin:series> | Whether this entry is a proper or repack release |
-| argenteam_subtitle | [argenteam](/Searches/argenteam) | aRGENTeaM subtitle's url |
+| argenteam_subtitle | <plugin:argenteam> | aRGENTeaM subtitle's url |
 | imdb_url | <plugin:imdb_lookup>+others | Imdb url |
 | imdb_id | <plugin:imdb_lookup>* | Imdb identifier |
 | imdb_name | <plugin:imdb_lookup>* | Imdb name |
@@ -58,7 +58,7 @@ Use `--dump` option to see your task content as this list is not complete or alw
 | movie_name | <plugin:imdb_lookup>* | Movie title |
 | movie_year | <plugin:imdb_lookup>* | Movie release year |
 | output | <plugin:download> | Downloaded file |
-| torrent | modify_torrent | When entry is a torrent this contains [Torrent class](/TorrentObject) |
+| torrent | <plugin:torrent> | The <project:#flexget.utils.bittorrent.Torrent> object obtained by loading the .torrent file from the path specified in the `file` field.|
 | data | <plugin:download> | Internal. Binary content. |
 | content_size | <plugin:content_size> | Parsed size of torrents or NZBs. |
 | location | <plugin:filesystem> | The local filename of the entry. |

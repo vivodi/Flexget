@@ -21,4 +21,4 @@ tasks:
 
 Uses Plugins/<plugin:manipulate>, Plugins/<plugin:html>
 
-[Back to The Cookbook](/Cookbook)
+[Back to The Cookbook](/cookbook/index)

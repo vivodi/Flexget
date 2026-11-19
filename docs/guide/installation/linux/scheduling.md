@@ -1,7 +1,7 @@
 # Scheduling
 
 ## Configuration
-Before scheduling FlexGet you must [write a configuration file](/Configuration) and test that it works correctly.  The SQLite database file will get created in the same directory with the configuration file, so please make sure the user executing flexget has write access to that path.
+Before scheduling FlexGet you must [write a configuration file](/guide/configuration/index) and test that it works correctly.  The SQLite database file will get created in the same directory with the configuration file, so please make sure the user executing flexget has write access to that path.
 
 
 ## Scheduling
@@ -9,7 +9,7 @@ FlexGet can be periodically executed from user crontab or via systemd. Another p
 
 ### Daemon Mode
 
-With FlexGet running in [daemon mode](/Daemon) you can use the <plugin:scheduler> plugin to define when your tasks should be run inside the configuration file.
+With FlexGet running in [daemon mode](/guide/daemon) you can use the <plugin:scheduler> plugin to define when your tasks should be run inside the configuration file.
 
 To start the daemon at system boot you could use following cronjob:
 
@@ -19,6 +19,7 @@ To start the daemon at system boot you could use following cronjob:
 
 Note that the path in this example needs to be adapted to your environment. There are also some other methods available, listed [here](/guide/daemon.md#starting-the-daemon).
 
+(using-cronjobs)=
 ### Using Cronjobs
 
 #### Detemine full path to executable
@@ -81,4 +82,4 @@ This will prompt you for the root password (as system services require root to b
 
 ## More options
 
-Further more complicated upstart jobs etc can be found [Linux/AutoStart](/InstallWizard/Linux/AutoStart)
+Further more complicated upstart jobs etc can be found [Linux/AutoStart](auto-start)

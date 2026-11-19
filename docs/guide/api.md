@@ -1,6 +1,6 @@
 # API
 
-Flexget offers a JSON API, that is the basis of its [Web-UI](/Web-UI) and can also be used independently of it. 
+Flexget offers a JSON API, that is the basis of its [Web-UI](/guide/web-ui/index) and can also be used independently of it. 
 
 ## Enabling the API
 To enable the API add the following to your config.yml:

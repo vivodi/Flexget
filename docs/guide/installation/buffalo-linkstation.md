@@ -72,4 +72,4 @@ crontab -e
 #so you basically would load edit the crontab file (crontab -e), hit i, insert the new line, hit ESC, :wq, done
 ```
 
-For sample configurations, check out the [Cookbook](/Cookbook).
+For sample configurations, check out the [Cookbook](/cookbook/index).

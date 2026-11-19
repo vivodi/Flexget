@@ -15,7 +15,7 @@ Send messages to your iPhone using [Prowl](http://prowlapp.com).
 |priority|numeric| Set message priority. Values between -2 and 2 are accepted.| `0`|
 
 ### Example
-Get your unique API key [here](/https://prowlapp.com/api_settings.php)
+Get your unique API key [here](https://prowlapp.com/api_settings.php)
 
 :::{warning}
 Examples show a specifc scenario usage of the <plugin:notify> plugin. See its wiki for a more detailed usage exaplantion.

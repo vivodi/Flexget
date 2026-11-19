@@ -1,12 +1,12 @@
 # Plugins
-Plugins provide most of the functionality in FlexGet. Plugins usually create, manipulate or download **[entries](/Entry)** but they can also change how FlexGet operates. Many plugins can use the **[Jinja2 ](/Jinja)** template system.
+Plugins provide most of the functionality in FlexGet. Plugins usually create, manipulate or download **[entries](/guide/entry)** but they can also change how FlexGet operates. Many plugins can use the **[Jinja2 ](/guide/jinja)** template system.
 
 Most plugins are enabled by placing a keyword and required settings in a configuration file. All plugins listed below are included in the FlexGet package (with the exception of the third-party plugins section). 
 
-This documentation is meant for the latest released version. If you are upgrading from an older version, see [upgrade actions](/UpgradeActions) and the [changelog](/ChangeLog) for help in migrating your configuration file.
+This documentation is meant for the latest released version. If you are upgrading from an older version, see [upgrade actions](/guide/upgrading/upgrade-actions) and the [changelog](/changelog) for help in migrating your configuration file.
 
 ## Indentation in examples
-All configuration examples are assumed to be placed under the `tasks` (or `templates`) [top-level keys](/Configuration#top-level-keys). If the documentation has this example:
+All configuration examples are assumed to be placed under the `tasks` (or `templates`) [top-level keys](/guide/configuration/index.md#top-level-keys). If the documentation has this example:
 
 ```yaml
 series:
@@ -25,7 +25,7 @@ tasks:
 
 This makes examples more compact and reduces unnecessary boilerplate.
 
-For further help with YAML and indenting, see [configuration](/Configuration).
+For further help with YAML and indenting, see [configuration](/guide/configuration/index).
 
 ## Plugin Types
 - [Input](#input)
@@ -40,7 +40,7 @@ For further help with YAML and indenting, see [configuration](/Configuration).
 - [Third-Party Plugins](#third-party-plugins)
 
 ## Input
-Produce **[entries](/Entry)** from external source.  
+Produce **[entries](/guide/entry)** from external source.  
 Most requests are cached so there is no penalty for using the same RSS URL multiple times in the configuration, for example.
 
 **Note:** If you are looking for torrent search plugins, refer to [Search Plugins](/plugins/index.md#search).
@@ -130,8 +130,8 @@ lists/pending_list: Manually approve entries. [Managed list](/plugins/index.md#m
 ```
 
 ## Filter
-Reject or Accept **[entries](/Entry)** based on given rules. A single task may have any number of filters.  
-If you plan to use multiple filters per task, you should look at **[filtering operations](/Filtering)** to understand how they work.
+Reject or Accept **[entries](/guide/entry)** based on given rules. A single task may have any number of filters.  
+If you plan to use multiple filters per task, you should look at **[filtering operations](/guide/filtering)** to understand how they work.
 
 ### Content based filters
 Filters based on the nature of the input content (such as movie, series, series premiere & etc.)
@@ -166,7 +166,7 @@ pending_approval: Store entries in local cache until manually approved via CLI o
 remember_rejected: Remember rejections and reject them in future runs. 
 require_field: Reject entries that do not have the specified fields. 
 seen_movies: Rejects already downloaded movies (detected by imdb-link). 
-seen: Reject already downloaded entries. [Builtin](/Builtin) 
+seen: Reject already downloaded entries. [Builtin](/guide/index) 
 unique: Accept/Reject entries with duplicate fields, except for the first item.
 ```
 
@@ -177,7 +177,7 @@ Filters based specifically for torrents
 content_filter: Reject based on filenames within torrents. 
 magnets: Rejects entries with only magnet links. 
 private_torrents: Reject private or public torrents. 
-seen_info_hash: Rejects already downloaded torrents (detected by torrent info hash). [Builtin](/Builtin) 
+seen_info_hash: Rejects already downloaded torrents (detected by torrent info hash). [Builtin](/guide/index) 
 torrent_alive: Reject any torrents that do not have an active tracker with seeds. 
 ```
 
@@ -235,6 +235,7 @@ pogcal_acquired: Mark accepted episodes on [pogdesign TV calendar](http://pogdes
 subtitles: Download subtitles from opensubtitles.org.
 ```
 
+(notifier-services-output)=
 ### Notifier services output
 Send notifications for accepted entries via various notification services. To allow any service to be used for any type of notification, FlexGet separates the plugins that generate messages from those that deliver them.
 
@@ -314,7 +315,7 @@ make_rss: Generate RSS-feed file from passed entries.
 ## Metadata
 Retrieve additional data from internal parsers or 3rd party sites. Used for population of more fields than default or to actively perform data retrieval for specific input types.
 
-These provide metainfo (i.e. fields) to [Entry](/Entry).
+These provide metainfo (i.e. fields) to [Entry](/guide/entry).
 
 ```{toctable}
 emby_lookup: Performs [Emby](https://emby.media/) search and populates several entry fields that can be used in other plugins.
@@ -351,6 +352,7 @@ path_by_ext: Change (download) path based on file-type (extension).
 path_by_space: Select a path based on disk stats 
 remove_trackers: Remove trackers from a torrent. 
 set: Set 'path' or other info per task. Can be dynamic per entry. 
+torrent: Parse torrent files, populate `torrent`, `torrent_info_hash` and `filename` field, and writes back any modifications made by other plugins
 ```
 
 ### Data operations
@@ -421,8 +423,8 @@ no_entries_ok: Silence warnings about task not producing entries, for tasks wher
 parameterize: Allows the config for an input plugin to be parameterized using another input plugin.
 priority: Change task execution order. 
 plugin_priority: Change plugin priorities.
-reorder_quality: Reorder [qualities](/Qualities) to make one quality better or worse than another. 
-retry_failed: Save failed entries so they can be retried. [Builtin](/Builtin) 
+reorder_quality: Reorder [qualities](/guide/qualities) to make one quality better or worse than another. 
+retry_failed: Save failed entries so they can be retried. [Builtin](/guide/index) 
 run_task: Trigger exectution of another task.
 variables: Replace specific jinja2 values in config before executing tasks. 
 sequence: Allows the same plugin to be configured multiple times in a task. 
@@ -565,6 +567,6 @@ daemon/irc: Connect a bot to an IRC channel and act on tracker announcements.
 third-party-plugins
 ```
 
-Plugins can be installed by simply placing them in a `plugins` folder alongside your configuration file. (This would usually be `~/.flexget/plugins/`, however it may be different if your config is in a different [location](/guide/configuration/index#location).) It is also possible to package plugins in a separate Python package like [FlexGet extras](https://github.com/Flexget/extras).
+Plugins can be installed by simply placing them in a `plugins` folder alongside your configuration file. (This would usually be `~/.flexget/plugins/`, however it may be different if your config is in a different [location](/guide/configuration/index.md#location).) It is also possible to package plugins in a separate Python package like [FlexGet extras](https://github.com/Flexget/extras).
 
 There is a list of [third-party and extra plugins](third-party-plugins) available, which are plugins that are not common, actively maintained or are otherwise unsuitable for main distribution.

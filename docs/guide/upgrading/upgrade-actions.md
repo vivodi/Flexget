@@ -23,7 +23,7 @@ The `hearing_impaired` option has been replaced by `subtitle_categories`. `subti
 
 ## **3.19.0** - 2026-03-05
 
-### [Torznab](/Searches/torznab)
+### <plugin:torznab>
 
 Configuration option `website` was renamed to `url` to be inline with other plugins.
 
@@ -89,7 +89,7 @@ The [legacy parse mode](https://core.telegram.org/bots/api#markdown-style) was m
 
 ## **3.11.13** - 2024-01-27
 
-The <plugin:transmission> (and <plugin:from_transmission>) plugins now require [transmission-rpc]() version 7.0.3 or greater. Run ```pip install --upgrade transmission-rpc``` from the environment where flexget is installed to upgrade.
+The <plugin:transmission> (and <plugin:from_transmission>) plugins now require `transmission-rpc` version 7.0.3 or greater. Run ```pip install --upgrade transmission-rpc``` from the environment where flexget is installed to upgrade.
 
 ## **3.11.0** – 2023-12-25
 ### Better Timezone support
@@ -106,7 +106,7 @@ Help reporting any bugs, or upgrading any plugins still using naive times would 
 ### Python 3.7 Dropped
 Python 3.7 has been EoL since June. Support for it has now been dropped. You'll need to install Flexget with Python 3.8+ in order to upgrade.
 ### passthepopcorn login
-The [passthepopcorn](/Searches/passthepopcorn) plugin has been fixed, but configs need to be updated to use the `apiuser` and `apikey` configuration rather than `username` and `password`.
+The <plugin:passthepopcorn> plugin has been fixed, but configs need to be updated to use the `apiuser` and `apikey` configuration rather than `username` and `password`.
 
 ## **3.9.0** – 2023-08-17
 ### Series Tracking
@@ -120,10 +120,10 @@ In addition, if you were using a plugin that takes a filesize in the config, you
 More info in [the PR](https://github.com/Flexget/Flexget/pull/3802)
 
 ## **3.7.0** – 2023-05-09
-The [morethantv](/Searches/morethantv) plugin categories have been updated to match changes made at the site. They will need to be updated in your config to use the new categories.
+The <plugin:morethantv> plugin categories have been updated to match changes made at the site. They will need to be updated in your config to use the new categories.
 
 ## **3.6.0** – 2023-04-09
-The <plugin:transmission> (and <plugin:from_transmission>) plugins now require [transmission-rpc]() version 4.1.4 or greater. Run ```pip install --upgrade transmission-rpc``` from the environment where flexget is installed to upgrade.
+The <plugin:transmission> (and <plugin:from_transmission>) plugins now require `transmission-rpc` version 4.1.4 or greater. Run ```pip install --upgrade transmission-rpc``` from the environment where flexget is installed to upgrade.
 
 ## **3.5.0** -- 2022-11-03
 Support for python 3.6 has been dropped. Install FlexGet using python 3.7 or newer to continue upgrading.
@@ -164,7 +164,7 @@ Added new <plugin:limit> plugin which replaces limit option from older plugins (
 
 ## **2.20.0** -- 2019.02.11
 ### clean_transmission
-The `clean_transmission` plugin has been deprecated. The transmission plugin has gained the ability to remove torrents, which should be used in place of `clean_transmission`. A recipe detailing how to do this can be found [here](/Cookbook/TorrentCleanup). (The deluge plugin has gained the same ability now too.)
+The `clean_transmission` plugin has been deprecated. The transmission plugin has gained the ability to remove torrents, which should be used in place of `clean_transmission`. A recipe detailing how to do this can be found [here](/cookbook/clean-transmission). (The deluge plugin has gained the same ability now too.)
 
 `clean_transmission` is still available to use at the moment, but some of its internals had to be tweaked. If you do not immediately replace this plugin, make sure to do a `--test` run to ensure it still causes the behavior you expect.
 
@@ -322,7 +322,7 @@ In addition, single mode will now ignore existing subtitles if the languages do 
   ```
 
 ### `secrets`:
-- renamed to [`variables`](Plugins/variables) to reflect the more general usage pattern it has gotten.
+- renamed to <plugin:variables> to reflect the more general usage pattern it has gotten.
 - The formatting for replacing variables has also been changed so as to not conflict with other jinja in the config file. Example change needed:
   ```yaml
   # Before
@@ -344,17 +344,17 @@ In addition, single mode will now ignore existing subtitles if the languages do 
 
 ### <plugin:if>:
 - changed to use [jinja expressions](http://jinja.pocoo.org/docs/2.9/templates/#expressions) rather than raw python ones. As the syntax is very similar, most if statements should continue to work correctly.
-- If notable changes end up being needed, feel free to come discuss in [chat](Chat) and/or update this space with instructions for others.
+- If notable changes end up being needed, feel free to come discuss in [chat](/guide/support) and/or update this space with instructions for others.
 
 ## **2.8.0** -- 2016.12.07
-- Support for string replacement has been removed. [Jinja2](/Jinja) is the only supported method now.
+- Support for string replacement has been removed. [Jinja2](/guide/jinja) is the only supported method now.
 
 **The below information is kept for reference, but the notification system was changed again in 2.9.0!**
 - Notifier changes, following the feedback from 2.7.0:
   - Created `notify_entries` and `notify_task` and deprecated `notify` plugin.
   - Changed `notify_crash` to `notify_abort`.
   - Tweaked `file_templates`usage slightly.
-  - Added [templates](/CLI/templates) CLI action to get a list of available file templates.
+  - Added [templates](/cli/templates) CLI action to get a list of available file templates.
 
 ## **2.7.0** -- 2016.11.15
 **This information is kept for reference, but the notification system was changed again in 2.9.0!**
@@ -368,19 +368,19 @@ In addition, single mode will now ignore existing subtitles if the languages do 
 - <plugin:move>, <plugin:copy>: 
   - Changed option `filename` to `rename` since it caused issues with <plugin:filesystem> plugin.
   - jinja2 replacement render issues will not abort task and not fallback to default.
-- [Daemon](/Daemon):
+- [Daemon](/guide/daemon):
   - `flexget daemon reload` has been renamed to `flexget daemon reload-config` to avoid confusion.
   - `flexget daemon enable-autoreload` and `flexget daemon disable-autoreload` have been removed as their use was limited and ill-conceived.
 
 
 ## **2.5.0** -- 2016.10.21
-- [Daemon](/Daemon)/[CLI](/CLI):
+- [Daemon](/guide/daemon)/[CLI](/cli/index):
   - Due to changes in the IPC protocol, you will not be able to connect to a running daemon that is an earlier version than 2.5.0 using CLI commands. Remember to stop your daemon _before_ upgrading to ensure you can elegantly shut it down.
 
 ## **2.4.0** -- 2016.10.18
 * <plugin:move>, <plugin:delete>, <plugin:copy>:
   * `along` has been greatly simplified and includes similarly named files with specified extensions -- regex/glob no longer supported.
-* [Daemon](/Daemon)
+* [Daemon](/guide/daemon)
   * automatically reloads config before task execution if it detects any changes.
 * `tmdb_released`
   * field changed to a Date instead of DateTime ([#1260](https://github.com/Flexget/Flexget/issues/1260))
@@ -415,9 +415,9 @@ In addition, single mode will now ignore existing subtitles if the languages do 
   * removed along with all related plugins. Use <plugin:movie_list> instead.
 * `imdb_required`:
   * Removed plugin. Switch to <plugin:imdb_lookup> and <plugin:require_field>.
-* [CLI](/CLI):
+* [CLI](/cli/index):
   * Changed practically all CLI plugins to output using a standardized table [dependency](https://github.com/Robpol86/terminaltables) for a more consistent (and pretty expeirence). Some of the content has been altered in the relevant plugins, and `--porcelain` works slightly different now. See relevant plugin Wiki for details.
-* [CLI `trakt`](/CLI/trakt):
+* [CLI `trakt`](/cli/trakt):
   * command `flexget trakt show` has been renamed to `flexget trakt list`
 * `subtitle_queue`, `torrentz`, `rutracker`, `newzleech`, `publichd`, `bt-chat`, `btjunkie`, `isohunt`, `redskunk`, `stmusic`:
   * Removed plugins
@@ -471,7 +471,7 @@ Version 2.0.0 of FlexGet introduces Python 3.x support. This was a huge refactor
 
 For more information on py2/3 code visit [Developers](/dev/index).
 
-Please log bugs in [GitHub](/https://github.com/Flexget/Flexget/issues).
+Please log bugs in [GitHub](https://github.com/Flexget/Flexget/issues).
 
 ## 1.2.505 -- 2016.04.07
 **Series CLI Changes:**
@@ -483,7 +483,7 @@ Please log bugs in [GitHub](/https://github.com/Flexget/Flexget/issues).
 
 **List interface:**
 
-A new convention of plugins that allows usage as input, filter and output. See [wiki page](/plugins/index#managed-list) for additional information.
+A new convention of plugins that allows usage as input, filter and output. See [wiki page](/plugins/index.md#managed-list) for additional information.
 * <plugin:imdb_list> plugin has changed attributes (and can now be used to add, remove or filter movies from IMDB watchlist directly).
 * `couchpotato` changed its name to `couchpotato_list`.
 * `sonarr` changed its name to `sonarr_list`.
@@ -497,7 +497,7 @@ TVDB plugins 'password' field has been changed to 'account_id'. To get your acco
 Plugin rlslog has been removed and is no longer supported
 
 ## 1.2.484 -- 2016.03.16
-All TVDB plugins have been upgraded to use the new TVDB API [api-beta.thetvdb.com/swagger#/](/api-beta.thetvdb.com/swagger#/)
+All TVDB plugins have been upgraded to use the new TVDB API [api-beta.thetvdb.com/swagger#/](https://api-beta.thetvdb.com/swagger#/)
 
 Due to the change in API the `account_id` can no longer be used within tvdb plugins, it now requires `username` and `password` within your config.
 

@@ -17,4 +17,4 @@ feeds:
 
 Uses plugins: <plugin:interval>, <plugin:text>, <plugin:download>
 
-[Back to The Cookbook](/Cookbook)
+[Back to The Cookbook](/cookbook/index)

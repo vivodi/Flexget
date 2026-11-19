@@ -213,9 +213,9 @@ feeds:
 
 Uses plugins: <plugin:template>, <plugin:email>, <plugin:transmission>, `adv_exec`, <plugin:exists_series>, <plugin:series>, <plugin:quality>, <plugin:html>, <plugin:rss>, <plugin:filesystem>, <plugin:manipulate>
 
-[Back to The Cookbook/Series](/Cookbook/Series)
+[Back to The Cookbook/Series](/cookbook/series/index)
 
-[Back to The Cookbook](/Cookbook)
+[Back to The Cookbook](/cookbook/index)
 
 ## referenced helper script(s) in config.yml
 **manage_exists_series.sh**:
@@ -241,6 +241,6 @@ for i in ${!VOLUMES[@](/@)}; do
 done
 ```
 
-[Back to The Cookbook/Series](/Cookbook/Series)
+[Back to The Cookbook/Series](/cookbook/series/index)
 
-[Back to The Cookbook](/Cookbook)
+[Back to The Cookbook](/cookbook/index)

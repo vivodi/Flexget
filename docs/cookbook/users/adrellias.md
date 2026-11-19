@@ -2,10 +2,10 @@
 
 My config file is mostly based off the below users configuration.   
 
-[atlanta800](https://github.com/atlanta800/dotfiles/tree/master/flexget) (now on github, old page [here](/Cookbook/UserAtlanta800))::
+[atlanta800](https://github.com/atlanta800/dotfiles/tree/master/flexget)
 
 He has a lot of just sane settings! I wanted a automated setup that someone that does not know how to, add things to a config file could use. 
-A spouse for instance. So my config uses [http://trakt.tv/](/http://trakt.tv/) to generate rss based searches without having to add the new series to a config file every time. 
+A spouse for instance. So my config uses [http://trakt.tv/](http://trakt.tv/) to generate rss based searches without having to add the new series to a config file every time. 
 
 So i use the discover plugin with trakt_list to generate input feeds rss searches dynamically.
 

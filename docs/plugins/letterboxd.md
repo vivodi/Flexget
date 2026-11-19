@@ -1,5 +1,5 @@
 # Letterboxd
-This plugin produces an [entry](/Entry) for each film in any public [Letterboxd](http://letterboxd.com) list. These entries can then be added to the [movie_queue](/movie_queue#AddingRemovingusingTasks), used to initiate a search with [discover](/discover), or passed to some other [output plugin](/plugins/index.md#output). Results are cached for two hours to avoid flooding the site.
+This plugin produces an [entry](/guide/entry) for each film in any public [Letterboxd](http://letterboxd.com) list. These entries can then be added to the `movie_queue` plugin, used to initiate a search with <plugin:discover>, or passed to some other [output plugin](/plugins/index.md#output). Results are cached for two hours to avoid flooding the site.
  
 ## Configuration
 
@@ -39,7 +39,7 @@ tasks:
     movie_queue: add
 ```
 
-In addition to `title`, `url`, `imdb_id`, `tmdb_id`, `movie_name` and `movie_year`, [entries](/Entry) created by the plugin are populated with a few site-specific fields:
+In addition to `title`, `url`, `imdb_id`, `tmdb_id`, `movie_name` and `movie_year`, [entries](/guide/entry) created by the plugin are populated with a few site-specific fields:
 
 
 |  |  | **Entry fields**  |
@@ -48,7 +48,7 @@ In addition to `title`, `url`, `imdb_id`, `tmdb_id`, `movie_name` and `movie_yea
 | **letterboxd_score**   |   | The average rating (out of 10) given to the film by Letterboxd users (included when available).  |
 | **letterboxd_uscore**  |   | The rating (out of 10) given to the film by the list owner (included for `diary` and `rated` lists).  |
 
-You can of course [filter](/plugins/index.md#filter) against any of these fields. `letterboxd_list` may be useful where more than one input plugin (or [more than one Letterboxd list](/inputs)) is included in the task. `letterboxd_score` and `letterboxd_uscore` can used in conjunction with [Python if statements](/if), like so:
+You can of course [filter](/plugins/index.md#filter) against any of these fields. `letterboxd_list` may be useful where more than one input plugin (or [more than one Letterboxd list](plugin:inputs)) is included in the task. `letterboxd_score` and `letterboxd_uscore` can used in conjunction with [Python if statements](plugin:if), like so:
 
 ```
 tasks:
@@ -61,7 +61,7 @@ tasks:
     movie_queue: add
 ```
 
-When dealing with large lists, it may be worthwhile to feed entries to an intermediary plugin such as <plugin:trakt_list> with [`list_add`](Plugins/List/list_add). There is no publicly available [API for Letterboxd](http://letterboxd.com/api-coming-soon/) as of yet, so the plugin works by combing through the HTML source code for each film's page on the site. This isn't particularly fast if you want to, say, use [crossmatch](/crossmatch) to reject films you've marked as seen on Letterboxd. In that case, you could have your config set up like this:
+When dealing with large lists, it may be worthwhile to feed entries to an intermediary plugin such as <plugin:trakt_list> with [`list_add`](plugin:list_add). There is no publicly available [API for Letterboxd](http://letterboxd.com/api-coming-soon/) as of yet, so the plugin works by combing through the HTML source code for each film's page on the site. This isn't particularly fast if you want to, say, use [crossmatch](plugin:crossmatch) to reject films you've marked as seen on Letterboxd. In that case, you could have your config set up like this:
 
 ```
 tasks:

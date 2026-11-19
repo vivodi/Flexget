@@ -1,7 +1,7 @@
 # Timeframe and Target
 Timeframe value: NUM (minutes|hours|days|weeks)
 
-Specify a timeframe in which FlexGet waits for the chosen quality. The desired quality should be given with `target` option, and should be a valid [quality requirements](/Qualities#Requirements) string. If specified quality does not become available within given timeframe after a different quality has been seen, best quality so far is chosen. `target` has default value of 720p hdtv+ when timeframe option is given. 
+Specify a timeframe in which FlexGet waits for the chosen quality. The desired quality should be given with `target` option, and should be a valid [quality requirements](/guide/qualities.md#requirements) string. If specified quality does not become available within given timeframe after a different quality has been seen, best quality so far is chosen. `target` has default value of 720p hdtv+ when timeframe option is given. 
 
 **IMPORTANT NOTE**: If you also specify the [quality](quality) option along with timeframe, it will be enforced no matter what (both before and after the timeframe expires.) "enforced" doesn't mean that quality will be picked, it just means things that don't match it will be ignored.
 

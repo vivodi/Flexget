@@ -32,7 +32,7 @@ By default FlexGet tries to find `config.yml` from several places, in this order
 - `~/.flexget/` (`C:\Users\YOURUSER\flexget\` on Windows 7, and `C:\Documents and Settings\YOURUSER\flexget\` on Windows XP)
 - `~/.config/flexget` (only on Linux)
 
-The first path containing a config file will be used. Creating the `~/.flexget/` directory and placing your `config.yml` in there is currently considered a best practice. You can also use the `-c` [CLI](/CLI) argument to manually specify a config file name (and path) when FlexGet is run.
+The first path containing a config file will be used. Creating the `~/.flexget/` directory and placing your `config.yml` in there is currently considered a best practice. You can also use the `-c` [CLI](/cli/index) argument to manually specify a config file name (and path) when FlexGet is run.
 
 ## Top-Level Keys
 In YAML, indendation is crucially important. Most of your time will be spent with keys  that are indented at least two spaces. Following are the top-level keys. In other words, these are never indented.
@@ -40,7 +40,7 @@ In YAML, indendation is crucially important. Most of your time will be spent wit
 - `tasks`
 - `templates` (see [plugin](plugin:template))
 - `schedule` (see [plugin](plugin:scheduler))
-- `web_server` (see [Web UI](/Web-UI))
+- `web_server` (see [Web UI](/guide/web-ui/index))
 - `variables` (see [plugin](plugin:variables))
 - `irc` (see [plugin](plugin:irc))
 
@@ -159,7 +159,7 @@ Remember to consult the [plugins](/plugins/index) wiki page to choose your plugi
 **Now just sit back, and let FlexGet do the work for you!**
 
 :::{note}
-Check out [this page](/StillConfusedYaml) if you are still confused about YAML syntax.
+Check out [this page](still-confused-yaml) if you are still confused about YAML syntax.
 :::
 
 ## Common misconceptions
@@ -169,7 +169,7 @@ Check out [this page](/StillConfusedYaml) if you are still confused about YAML s
 
 ## Tips
 ### Task Naming
-Take special care when naming your tasks as this could be very helpful later on. Say you want to use a [schedule](/Daemon#Scheduling), or call several tasks in one call to do similar things. With a little thought to task naming and the use of wildcard calls, this can be very simple. This makes setting up schedules and batch task calls easy.
+Take special care when naming your tasks as this could be very helpful later on. Say you want to use a [schedule](/guide/daemon.md#scheduling), or call several tasks in one call to do similar things. With a little thought to task naming and the use of wildcard calls, this can be very simple. This makes setting up schedules and batch task calls easy.
 
 Take the following tasks list as an example:
 
@@ -203,7 +203,7 @@ $ flexget execute --tasks Movies-*
 $ flexget execute --tasks Update-trakt-*
 ```
 
-Or setup a [schedule](/Daemon#Scheduling). The wildcards operate in the same as they do in the command line example above.
+Or setup a [schedule](/guide/daemon.md#scheduling). The wildcards operate in the same as they do in the command line example above.
 
 ```yaml
 schedules:
@@ -223,18 +223,18 @@ schedules:
 ```
 
 ### Test execution
-This command executes all tasks, but doesn't write anything to the disk. Additionally, some network functionality is disabled during testing. See the [CLI `--test`](/CLI#flexget-level-arguments) argument for more details.
+This command executes all tasks, but doesn't write anything to the disk. Additionally, some network functionality is disabled during testing. See the [CLI `--test`](/cli/index.md#top-level-options) argument for more details.
 
 ```console
 $ flexget --test execute
 ```
 
 ### Check configuration syntax
-When you create or modify your configuration file, try running FlexGet with the [`check` command](/CLI/check). It will go through the configuration file and report any irregularities or errors found. If you used the recommended configuration name and location, simply executing `flexget check` will do this. If this doesn't report any errors you should have a fully-working configuration file.
+When you create or modify your configuration file, try running FlexGet with the [`check` command](/cli/check). It will go through the configuration file and report any irregularities or errors found. If you used the recommended configuration name and location, simply executing `flexget check` will do this. If this doesn't report any errors you should have a fully-working configuration file.
 
 Note that it may report warnings, but these are not errors and can usually safely be ignored.
 
 ## References
- * See [how to manage series](/Cookbook/Series/Template) in the Cookbook for how to refine this example into real world usage (with multiple tasks).
+ * See [how to manage series](/cookbook/series/template) in the Cookbook for how to refine this example into real world usage (with multiple tasks).
  * Continue into [plugins](/plugins/index) to learn about all of the available plugins you may use in the configuration file.
- * There are several [environment variables](environment_variables) which can be used to set the default behavior of certain FlexGet functions.
+ * There are several [environment variables](environment-variables) which can be used to set the default behavior of certain FlexGet functions.

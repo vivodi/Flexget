@@ -14,4 +14,4 @@ $ flexget -V
 This should output the version number of FlexGet.
 
 ## Continue
-Next, learn how to [autorun the daemon](/InstallWizard/OSX/Autorun) at startup.
+Next, learn how to [autorun the daemon](autorun) at startup.

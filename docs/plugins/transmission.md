@@ -49,7 +49,7 @@ transmission:
 | username | Text |  |
 | password | Text |  |
 | action | [add\|remove\|purge\|pause\|resume\|bypass_queue] | The action that should be performed on this torrent. 'purge' means remove torrent and data. (default: add) |
-| path | Directory | Destination for downloaded file(s). Supports [jinja replacement](/Jinja).<br />If this options is specified for already downloaded torrent then transmission will move downloaded torrent data to new location.|
+| path | Directory | Destination for downloaded file(s). Supports [jinja replacement](/guide/jinja).<br />If this options is specified for already downloaded torrent then transmission will move downloaded torrent data to new location.|
 | add_paused | [Yes\|No] |  |
 | bandwidth_priority | [-1,0,1] |  |
 | honor_limits | [Yes\|No] |  |
@@ -64,7 +64,7 @@ transmission:
 | include_subs | [Yes\|No] | If yes, in addition to the main file, files with subtitle extensions will be downloaded (.srt, .sub, .idx, .ass, .ssa) |
 | content_filename | Text | This can be used to rename the main file inside the torrent. [see here](#content-renaming) |
 | rename_like_files | [Yes\|No] | If enabled, file patterns matching the main file will be renamed according to 'content_filename' |
-| include_files | Pattern [Single\|List] | Will include file patterns if they have been excluded by 'main_file_only'. For patterns [see here](/content_filter) |
+| include_files | Pattern [Single\|List] | Will include file patterns if they have been excluded by 'main_file_only'. For patterns [see here](plugin:content_filter)|
 | skip_files | Pattern [Single\|List] | Will 'skip' file patterns if main_file_only is not enabled OR the main_file_only requirement isn't met in the torrent. For patterns [see here](plugin:content_filter) |
 | queue_position | Number | Will set the torrent's position in the queue to the specified number, where 0 is the top of the queue |
 
@@ -74,7 +74,7 @@ transmission: yes
 ```
 
 ## Advanced
-Transmission plugin will also utilize options from [entry](/Entry) fields. This allows more refined configuration per entry field selection.
+Transmission plugin will also utilize options from [entry](/guide/entry) fields. This allows more refined configuration per entry field selection.
 
 Here is an example task using the series plugin:
 

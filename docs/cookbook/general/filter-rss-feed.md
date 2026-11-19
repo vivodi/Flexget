@@ -68,4 +68,4 @@ tasks:
 Uses plugins: <plugin:template>, <plugin:priority>, <plugin:rss>, <plugin:deluge>, <plugin:no_entries_ok>, <plugin:set>, <plugin:exists_series>, <plugin:tvmaze_lookup>, <plugin:imdb_lookup>, <plugin:accept_all>, <plugin:metainfo_series>, <plugin:require_field>, <plugin:if>, <plugin:metainfo_movie>
 
 
-[Back to The Cookbook](/Cookbook)
+[Back to The Cookbook](/cookbook/index)

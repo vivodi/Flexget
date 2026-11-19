@@ -42,7 +42,7 @@ First task `get-movies` will add all accepted entries to an `entry_list` with th
 
 ### Search in entry list:
 
-You can use `entry_list` as a [search](/Searches) plugin to use with <plugin:discover>:
+You can use `entry_list` as a [search](/plugins/index.md#search) plugin to use with <plugin:discover>:
 
 ```yaml
 tasks:
@@ -60,7 +60,7 @@ tasks:
 
 ## Command line interface
 
-Please see [commandline documentation](/CLI/entry-list)
+Please see [commandline documentation](/cli/entry-list)
 
 ## Entry List API
 `entry_list` plugin has full JSON API support. See [API post](http://discuss.flexget.com/t/flexget-rest-api/) for details.

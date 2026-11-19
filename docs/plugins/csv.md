@@ -34,4 +34,4 @@ csv:
 ```
 
 Fields title and url are mandatory. First field is 1.
-List of other common (optional) fields can be found from [entries](/Entry) documentation.
+List of other common (optional) fields can be found from [entries](/guide/entry) documentation.

@@ -1,6 +1,6 @@
 # Cookbook
 
-To get started, create these as a file `~/.flexget/config.yml` (see [Configuration](/Configuration) for more details)
+To get started, create these as a file `~/.flexget/config.yml` (see [Configuration](/guide/configuration/index) for more details)
 
 From here you can find tips and recipes for common tasks.
 Feel free to add your own recipes or improve existing ones.  

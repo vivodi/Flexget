@@ -1,6 +1,6 @@
 # Set
 
-Stores info in an [entry](/Entry). Can also do dynamic formatting per entry.
+Stores info in an [entry](/guide/entry). Can also do dynamic formatting per entry.
 
 ## Example
 

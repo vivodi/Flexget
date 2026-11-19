@@ -1,5 +1,5 @@
 # Command Line Interface (CLI)
-FlexGet is usually invoked as a [Daemon](/Daemon) or via [cron](/InstallWizard/Partial/Crontab), configured with its [configuration](/Configuration) file. Many functions can also be performed on the command line. The following information can be seen on the command line by invoking `flexget --help` or the equivalent `flexget -h`.
+FlexGet is usually invoked as a [Daemon](/guide/daemon) or via [cron](/guide/installation/linux/scheduling.md#using-cronjobs), configured with its [configuration](/guide/configuration/index) file. Many functions can also be performed on the command line. The following information can be seen on the command line by invoking `flexget --help` or the equivalent `flexget -h`.
 
 ```{toctree}
 :caption: Top-level subcommands
@@ -14,7 +14,7 @@ FlexGet is invoked from the command line like so:
 ```console
 $ flexget <argument> <command> <command-arguments>
 ```
-For example, the FlexGet configuration file can be checked against configuration errors by calling `flexget check`. This particularly useful command should be ran whenever you make changes or after [upgrading](/Upgrade).
+For example, the FlexGet configuration file can be checked against configuration errors by calling `flexget check`. This particularly useful command should be ran whenever you make changes or after [upgrading](/guide/upgrading/index).
 
 ### `<command>`
 In the above example, `check` is the `<command>` being used. 
@@ -32,34 +32,34 @@ Some commands will have mandatory arguments called positional arguments or actio
 Clicking on the commands will take you to a page with more information about it.
 | Command | Description |
 | --- | ---|
-| [`archive`](/CLI/archive) | Search and manipulate the archive database|
-| [`backlog`](/CLI/backlog) | View or clear entries from the <plugin:backlog> plugin |
-| [`check`](/CLI/check) | Validate [configuration file](/Configuration) and print errors |
-| [`daemon`](/CLI/daemon) | Run continuously, executing tasks according to [schedules](plugin:scheduler) defined in config |
-| [`database`](/CLI/database) | Utilities to manage the FlexGet database |
-| [`doc`](/CLI/doc) | Display [plugin](/plugins/index) documentation |
-| [`entry-list`](/CLI/entry-list) | View and manage [entry lists](plugin:entry_list) |
-| [`execute`](/CLI/execute) | Execute tasks now |
-| [`failed`](/CLI/failed) | List or clear remembered [failures](plugin:retry_failed) |
-| [`history`](/CLI/history) | View the history of entries that FlexGet has accepted |
-| [`inject`](/CLI/inject) | Inject an entry from the CLI into tasks |
-| [`irc`](/CLI/irc) | View and manage <plugin:irc> connections |
-| [`jinja-filters`](/CLI/Jinja-Filters)| View avaialble [Jinja](/Jinja) filters|
-| [`movie-list`](/CLI/movie-list) | View and manage [movie lists](plugin:movie_list) |
+| [`archive`](archive) | Search and manipulate the archive database|
+| [`backlog`](backlog) | View or clear entries from the <plugin:backlog> plugin |
+| [`check`](check) | Validate [configuration file](/guide/configuration/index) and print errors |
+| [`daemon`](daemon) | Run continuously, executing tasks according to [schedules](plugin:scheduler) defined in config |
+| [`database`](database) | Utilities to manage the FlexGet database |
+| [`doc`](doc) | Display [plugin](/plugins/index) documentation |
+| [`entry-list`](entry-list) | View and manage [entry lists](plugin:entry_list) |
+| [`execute`](execute) | Execute tasks now |
+| [`failed`](failed) | List or clear remembered [failures](plugin:retry_failed) |
+| [`history`](history) | View the history of entries that FlexGet has accepted |
+| [`inject`](inject) | Inject an entry from the CLI into tasks |
+| [`irc`](irc) | View and manage <plugin:irc> connections |
+| [`jinja-filters`](jinja-filters)| View avaialble [Jinja](/guide/jinja) filters|
+| [`movie-list`](movie-list) | View and manage [movie lists](plugin:movie_list) |
 | [`pending`](pending)| View and manage entries [pending approval](plugin:pending_approval)|
 | [`pending-list`](pending-list)| View and manage [pending lists](plugin:pending_list)|
-| [`plugins`](/CLI/plugins) | Print registered plugin summaries |
-| [`regexp-list`](/CLI/regexp-list) | View and manage [regexp lists](plugin:regexp_list) |
-| [`rejected`](/CLI/rejected) | List or clear [remembered rejections](plugin:remember_rejected) |
-| [`seen`](/CLI/seen) | View or forget entries remembered by the <plugin:seen> plugin |
-| [`series`](/CLI/series) | View and manipulate the <plugin:series> plugin database | 
+| [`plugins`](plugins) | Print registered plugin summaries |
+| [`regexp-list`](regexp-list) | View and manage [regexp lists](plugin:regexp_list) |
+| [`rejected`](rejected) | List or clear [remembered rejections](plugin:remember_rejected) |
+| [`seen`](seen) | View or forget entries remembered by the <plugin:seen> plugin |
+| [`series`](series) | View and manipulate the <plugin:series> plugin database | 
 | [`service`](service)| Install a Windows service which runs the FlexGet daemon|
-| [`status`](/CLI/status) | View task health status |
+| [`status`](status) | View task health status |
 | [`templates`](templates)| View file templates to be used with [notifer](/plugins/index.md#notifier-services-output) plugins|
-| [`trakt`](/CLI/trakt) | View and manage [Trakt authentication](/guide/trakt.md/#trakt-authentication) |
-| [`web`](/CLI/web) | Manage [web server](/Web-UI) settings |
+| [`trakt`](trakt) | View and manage [Trakt authentication](/guide/trakt.md/#trakt-authentication) |
+| [`web`](web) | Manage [web server](/guide/web-ui/index) settings |
 
-## Top-level arguments
+## Top-level options
 | Argument | Description |
 | --- | --- |
 | `-h, --help` | Show help message and exit. Note that most commands support this as an argument to the command as well, such as `flexget series show -h` for help on how to use `series show`. This particular argument always follows the command (and any arguments to the command). |

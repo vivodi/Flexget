@@ -1,5 +1,5 @@
 # Require field
-This plugin will reject any [entries](/Entry) that do not have the specified [fields](/Entry#Knownfields). Also rejects if specified field is present, but is an empty string.
+This plugin will reject any [entries](/guide/entry) that do not have the specified [fields](/guide/entry.md#known-fields). Also rejects if specified field is present, but is an empty string.
 
 **Example:**
 

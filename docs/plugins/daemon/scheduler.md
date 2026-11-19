@@ -2,7 +2,7 @@
 The scheduler is a plugin for use in daemon mode which can execute tasks periodically.
 
 ## Configuration
-To tell FlexGet how often it should execute your tasks, you can set up the `schedules` block in the config file. Note that unlike most plugins, `schedules` is one of the [top-level keys](/Configuration#top-level-keys) and is not indented under anything else.
+To tell FlexGet how often it should execute your tasks, you can set up the `schedules` block in the config file. Note that unlike most plugins, `schedules` is one of the [top-level keys](/guide/configuration/index.md#top-level-keys) and is not indented under anything else.
 
 Each schedule consists of a list of tasks to run, and an interval which they should be run at. If you run the daemon without specifying a schedules block, a default schedule of Every task, every hour is assumed.
 

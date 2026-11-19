@@ -1,6 +1,6 @@
 # AniDB List
 
-This plugin produces an [entry](/Entry) for each movie or series on a public [AniDB](http://www.anidb.net) wishlist. These entries can then be added to the <plugin:movie_list>, used to initiate a search with [discover](/discover), or passed to some other [output plugin](/plugins/index.md#output). Results are cached for two hours to avoid flooding the site.
+This plugin produces an [entry](/guide/entry) for each movie or series on a public [AniDB](http://www.anidb.net) wishlist. These entries can then be added to the <plugin:movie_list>, used to initiate a search with <plugin:discover>, or passed to some other [output plugin](/plugins/index.md#output). Results are cached for two hours to avoid flooding the site.
 
 **Notes:** 
 

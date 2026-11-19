@@ -5,7 +5,7 @@ Results are cached so this doesn't cause unnecessary load to [imdb](http://www.i
 
 **Notes:** 
 
- * If [Entry](/Entry) doesn't have `imdb_id` present plugin will try to use imdb's search function. This does not work on 100% of cases and in some rare cases it may even get wrong movie details.
+ * If [Entry](/guide/entry) doesn't have `imdb_id` present plugin will try to use imdb's search function. This does not work on 100% of cases and in some rare cases it may even get wrong movie details.
  * To reject non imdb compatible entries, use <plugin:require_field> plugin on the 'imdb_id' field.
  * This plugin doesn't keep any track of accepted movies, if you want to prevent same movie being accepted multiple times use <plugin:seen_movies> plugin alongside.
 

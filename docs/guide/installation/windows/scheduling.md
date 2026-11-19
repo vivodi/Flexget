@@ -1,7 +1,7 @@
 # Scheduling
 
 ## Configure
-Follow the [configuration tutorial](/Configuration) and make a basic configuration file as a starting point.
+Follow the [configuration tutorial](/guide/configuration/index) and make a basic configuration file as a starting point.
 
 ### Windows-specific tips
 

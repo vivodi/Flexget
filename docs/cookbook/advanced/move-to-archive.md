@@ -165,4 +165,4 @@ Uses plugins:
   * <plugin:metainfo_movie>
   * <plugin:age>
 
-[Back to The Cookbook](/Cookbook)
+[Back to The Cookbook](/cookbook/index)

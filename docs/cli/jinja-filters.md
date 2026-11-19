@@ -1,5 +1,5 @@
 # `jinja-filters`
-View available [Jinja](/Jinja) filters and their descriptions.
+View available [Jinja](/guide/jinja) filters and their descriptions.
 
 ## Optional arguments
 | Argument | Description |

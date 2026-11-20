@@ -29,7 +29,7 @@ View and manage the <plugin:series> plugin database.
 || `<episode_id> [<episode_id> ...]`<br>`<season_id> [<season_id> ...]`  | Episode or season ID(s) to forget (optional)|
 | `remove`                                                              || Removes episodes, seasons, or a whole series from the series database only |
 || `<series name>`                                                       | Name of the series |
-|| `<episode_id> [<episode_id> ...]`<br>`<season_id> [<season_id> ...]`  | Episode or season ID(s) to forget (optional)||
+|| `<episode_id> [<episode_id> ...]`<br>`<season_id> [<season_id> ...]`  | Episode or season ID(s) to forget (optional)|
 | `add`                                   |||
 || `<series name>`                                                       | Name of the series |
 || `<episode_id> [<episode_id> ...]`<br>`<season_id> [<season_id> ...]`  | Episode or season ID(s)  to add|

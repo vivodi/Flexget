@@ -19,7 +19,7 @@ View and manage entries [pending approval](plugin:pending_approval).
 || `(<entry_id>\|all)` | Reject one pending entry by ID, or all pending entries |
 | `clear` | Clear all unapproved pending entries |
 || *optional:* ||
-|| `--task-name <task_name>` | Filter by task name ||
+|| `--task-name <task_name>` | Filter by task name |
 
 ## Examples
 ```console

@@ -24,4 +24,4 @@ tasks:
 | <plugin:priority> | Run the task early, before other tasks that may do downloading |
 | <plugin:trakt_list> | Watch list source |
 | <plugin:accept_all> | We want to add all items to the queue |
-| <plugin:list_add> | Add accepted entries to specified list||
+| <plugin:list_add> | Add accepted entries to specified list|

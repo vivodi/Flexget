@@ -31,4 +31,4 @@ Language can take any [IS0-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-
 | tmdb_revenue |
 | tmdb_homepage |
 | movie_name |
-||movie_year||
+|movie_year|

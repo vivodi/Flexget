@@ -15,7 +15,7 @@ It can be tricky to get this all to work and it might be a bit complicated, but 
 ## rTorrent setup
 This configuration assumes that you have rTorrent 0.8.x. it might work in other versions as well, but there are no guarantees. You can put this to ~/.rtorrentrc.
 
-```
+```ini
 session = /srv/torrent/session
 
 # Default directory to save the downloaded torrents.
@@ -71,7 +71,7 @@ system.method.set_key = event.download.erased,rm_incomplete,"branch=d.get_custom
 ## FlexGet setup
 This configuration is just a simple example, see other recipes for more inspiration.
 
-```
+```yaml
 tasks:
   debian:
     html: http://cdimage.debian.org/debian-cd/current/i386/bt-dvd/
@@ -84,7 +84,7 @@ tasks:
 ## Final steps
 You need to setup a proper crontab entries and start rTorrent to make the magic happen. Setting up crontab is done by running the command `crontab -e` and adding this line:
 
-```
+```text
 23 */2 * * * /path/to/flexget/flexget.py --cron
 ```
 
@@ -92,14 +92,14 @@ This will cause FlexGet to be run every second hour 23 minutes past the hour (00
 
 finally you need to start rTorrent:
 
-```
-screen -dSm rtorrent rtorrent
+```console
+$ screen -dSm rtorrent rtorrent
 ```
 
 to attach the screen and check downloads:
 
-```
-screen -r rtorrent
+```console
+$ screen -r rtorrent
 ```
 
 You are all done, your downloads should start and stop automatically. All that is left for you to do is to make sure that you don't run out of disk space. 

@@ -9,17 +9,15 @@ Nearly all lists in the FlexGet [CLI](/cli/index) support the following argument
 
 ## Examples
 ```console
-#use the porcelain table style
+$ # use the porcelain table style
 $ flexget series list --porcelain
-#output
 Name                          | Latest | Age       | Downloaded                  | Identified By
  Foo Series                   | -      | -         | -                           | ep
  Bar Series                   | S03E10 | 540d 13h  | hdtv h264                   | ep
  ...
 
-#use the plain table style
+$ # use the plain table style
 $ flexget series list --table-type plain
-#output
 +-------------------------------+--------+-----------+-----------------------------+---------------+
 | Name                          | Latest | Age       | Downloaded                  | Identified By |
 +-------------------------------+--------+-----------+-----------------------------+---------------+
@@ -28,18 +26,16 @@ $ flexget series list --table-type plain
   ...
 +-------------------------------+--------+-----------+-----------------------------+---------------+
 
-#use the github table style
+$ # use the github table style
 $ flexget series list --table-type github
-#output
 | Name                          | Latest | Age       | Downloaded                  | Identified By |
 |-------------------------------|--------|-----------|-----------------------------|---------------|
 | Banshee                       | S03E10 | 540d 13h  | hdtv h264                   | ep            |
 | Castle 1 behind               | S08E01 | 348d 14h  | 720p hdtv h264              | ep            |
   ...
 
-#use the single table style
+$ # use the single table style
 $ flexget series list --table-type single
-#output
 lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqwqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqk
 x Name                          x Latest x Age       x Downloaded                  x Identified By x
 tqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqnqqqqqqqqnqqqqqqqqqqqnqqqqqqqqqqqqqqqqqqqqqqqqqqqqqnqqqqqqqqqqqqqqqu
@@ -48,8 +44,8 @@ x Bar Series 1 behind           x S08E01 x 348d 14h  x 720p hdtv h264           
   ...
 mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvqqqqqqqqvqqqqqqqqqqqvqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvqqqqqqqqqqqqqqqj
 
-#use the double table style
-#output
+$ # use the double table style
+$ flexget series list --table-type double
 ╔═══════════════════════════════╦════════╦═══════════╦═════════════════════════════╦═══════════════╗
 ║ Name                          ║ Latest ║ Age       ║ Downloaded                  ║ Identified By ║
 ╠═══════════════════════════════╬════════╬═══════════╬═════════════════════════════╬═══════════════╣
@@ -57,5 +53,4 @@ mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvqqqqqqqqvqqqqqqqqqqqvqqqqqqqqqqqqqqqqqqqqqqqqqq
 ║ Bar series 1 behind           ║ S08E01 ║ 348d 14h  ║ 720p hdtv h264              ║ ep            ║
 ⋮ ...
 ╚═══════════════════════════════╩════════╩═══════════╩═════════════════════════════╩═══════════════╝
-
 ```

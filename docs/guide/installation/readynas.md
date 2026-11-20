@@ -8,70 +8,70 @@ This is just collected info from various sources and a bit of my own ideas. The 
 Basic linux knowledge you will need to access your readynas machine using a terminal program like [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) Any ssh client will do though. Some spare time, compilation of the packages and libraries will take a few hours as the Readynas does not have a fast cpu on the spec list. This guide is simply a long list of commands you need to type in your terminal window (even better paste them in) To enable ssh access to your readynas visit this [page](http://www.readynas.com/?page_id=617) There you will also find APT support which will be needed.
 
 ## Set up environment
-```
-apt-get update
-apt-get install libc6-dev gcc libtag1-dev libssl-dev zlibc zlib1g-dev
+```console
+$ apt-get update
+$ apt-get install libc6-dev gcc libtag1-dev libssl-dev zlibc zlib1g-dev
 
 ```
 
 ## Install sqlite
-```
-mkdir /c/src
-cd /c/src
-wget http://www.sqlite.org/sqlite-autoconf-3070400.tar.gz
-tar xzf sqlite-autoconf-3070400.tar.gz 
-cd sqlite-autoconf-3070400
-./configure --build=sparc-linux
-make install
-cd ..
+```console
+$ mkdir /c/src
+$ cd /c/src
+$ wget http://www.sqlite.org/sqlite-autoconf-3070400.tar.gz
+$ tar xzf sqlite-autoconf-3070400.tar.gz 
+$ cd sqlite-autoconf-3070400
+$ ./configure --build=sparc-linux
+$ make install
+$ cd ..
 ```
 
 ## Install Python 2.7.1
-```
-wget http://www.python.org/ftp/python/2.7.1/Python-2.7.1.tgz
-tar xzf Python-2.7.1.tgz
-cd Python-2.7.1
-./configure --build=sparc-linux
-make install
-cd ..
+```console
+$ wget http://www.python.org/ftp/python/2.7.1/Python-2.7.1.tgz
+$ tar xzf Python-2.7.1.tgz
+$ cd Python-2.7.1
+$ ./configure --build=sparc-linux
+$ make install
+$ cd ..
 ```
 
 ## Fix missing local library
 When python is installed, I assume it is running the ldconfig command which will break most programs that reside in /usr/local/bin which is dependant from /usr/local/lib. It is because the readynas enviroment does not ship with a ld.so.conf file which tells the system where to look for libraries. This will take care of this.
 
-```
-echo /usr/local/lib >> /etc/ld.so.conf
-ldconfig
+```console
+$ echo /usr/local/lib >> /etc/ld.so.conf
+$ ldconfig
 ```
 
 ## Install Python setuptools
-```
-wget http://peak.telecommunity.com/dist/ez_setup.py
-python ez_setup.py
+```console
+$ wget http://peak.telecommunity.com/dist/ez_setup.py
+$ python ez_setup.py
 ```
 
 ## Installing Flexget itself
-```
-easy_install flexget
+```console
+$ easy_install flexget
 ```
 
 
 ## Transmission support (optional)
-```
-easy_install transmissionrpc
+```console
+$ easy_install transmissionrpc
 ```
 
 ## Verify flexget
-```
-flexget -V
+```console
+$ flexget -V
 ```
 
 ## Scheduling
 Scheduling on linux using crontab can be done in different ways. This is how i do ;-)
 
-```
-echo "*/30 * * * * /usr/local/bin/flexget" > /root/crontabfile
-crontab /root/crontabfile
+```console
+$ echo "*/30 * * * * /usr/local/bin/flexget" > /root/crontabfile
+$ crontab /root/crontabfile
 ```
 
 ## Configuration
@@ -80,15 +80,15 @@ FlexGet is the most powerful downloader I have seen, and can be tailored to do a
 FlexGet by default tries to find it's configuration config.yml file in ~/.flexget/
 I strongly encourage you to link that dir to the /c partition on your readynas device. The way FlexGex operates it can use lots of space in the temp dir and you risk running out of space on the root file system which will cause bad things:
 
-```
-mkdir /c/flexget
-ln -s /c/flexget/ /root/.flexget
+```console
+$ mkdir /c/flexget
+$ ln -s /c/flexget/ /root/.flexget
 ```
 
 This will ensure that flexget has enough space for even the most space demanding feeds :-)
 8
 ## Configuration example
-```
+```yaml
 presets:
   global:
     prowl:
@@ -127,8 +127,8 @@ This will use RSS feed from [http://www.ezrss.it](http://www.ezrss.it) and injec
 ## Upgrading
 FlexGet is in development and changes are frequent. If you ever need to update the script it is very simple. Issue this at the shell prompt:
 
-```
-easy_install --upgrade flexget
+```console
+$ easy_install --upgrade flexget
 ```
 
 This will upgrade FlexGet. Visit [upgrade actions](/guide/upgrading/upgrade-actions) to see if any actions are needed to finish the upgrade.

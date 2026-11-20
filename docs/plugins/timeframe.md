@@ -16,7 +16,7 @@ Specify a timeframe in which FlexGet waits for the chosen quality. The desired q
 
 ## Syntax:
 
-```text
+```yaml
 timeframe:
   identified_by: <jinja template>
   target: <quality requirement>

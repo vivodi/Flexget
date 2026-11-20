@@ -6,7 +6,7 @@ This is likely to generate errors and not work 100%. This is because of issues w
 
 I would recommend making this a separate configuration file which you manually run only once or when needed. You can set up tract_acquired updating to your normal configuration file. If you put these into your config that is ran by cron, specify <plugin:interval> for update feeds. Something along once per day or week.
 
-```
+```yaml
 tasks:
 
   Update-TV:

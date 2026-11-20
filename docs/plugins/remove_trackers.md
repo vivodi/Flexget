@@ -2,7 +2,7 @@
 Removes trackers from torrent files using regexp matching. Also works on magnet urls.
 
 ## Example
-```
+```yaml
 remove_trackers:
   - moviex
 ```

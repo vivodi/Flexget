@@ -20,7 +20,7 @@ All plugins may do following actions (sometimes referred as operation) to [entry
 ## Scenario
 Assuming configuration:
 
-```
+```yaml
 regexp:
   accept:
     - Something

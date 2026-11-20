@@ -21,7 +21,7 @@ Features:
 
 Most of these can be implemented easily by generating configuration for user in the backend. For example enabling automatic movie discovery should make a following configuration.
 
-```
+```yaml
 tasks:
   webui-movie-discover:
     discover:
@@ -36,8 +36,10 @@ The UI should probably not be responsible for generating this configuration, rat
 
 The REST API for this would be quite simple, take in movie list(s) and source(s).
 
-```
-PUT /webui-movies/ {'movie-lists': [movies](/movies), 'from': [kickass](/kickass)}
+```http
+PUT /webui-movies/ HTTP/3
+
+{"movie-lists": ["movies"], "from": ["kickass"]}
 ```
 GET request would just return same stuff.
 

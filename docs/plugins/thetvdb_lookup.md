@@ -12,7 +12,7 @@ thetvdb_lookup: yes
 
 For most purposes, the series name is sufficient to get a match on TheTVDB. If you can't get a match (e.g., multiple IDs defined for a series name) then you can provide the tvdb_id from their website to bypass the matching process.
 
-```
+```yaml
 series:
   - some_series:
       set:
@@ -59,7 +59,7 @@ This plugin looks up more information from thetvdb.com about any entries that Fl
 ## Example
 
 The most common use is to look up an episode title that can be used to format a pretty filename. This example uses `tvdb_ep_name` as parsed by thetvdb_lookup in the <plugin:set> plugin to set `content_filename` (which the <plugin:deluge> plugin uses to rename the main file within a torrent.) The 'default' jinja filter is used to insert 'Unknown' if thetvdb_lookup fails to get an tvdb_ep_name for the entry.
-```
+```yaml
 thetvdb_lookup: yes
 set:
   content_filename: "{{ series_name }} - {{ series_id }} - {{ tvdb_ep_name|default('Unknown') }}  - {{ quality|upper }}"

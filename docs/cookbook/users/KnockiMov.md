@@ -18,7 +18,7 @@ All thanks to user UnNefer for his e-mail-template from his own guide: [here](/c
 
 Below is my configuration as of 2015.06.01. Template is located at the bottom of this page to be downloaded.
 
-```
+```yaml
 #####################################################################################
 #
 # KnockiMov FlexGet-configuration

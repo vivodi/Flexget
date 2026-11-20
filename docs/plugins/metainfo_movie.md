@@ -2,7 +2,7 @@
 Allows parsing the received title by selected movie parser, and populating entry fields with relevant movie attributes.
 
 ## Syntax
-```
+```yaml
 metainfo_movie: yes
 ```
 

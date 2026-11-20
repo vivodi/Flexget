@@ -31,7 +31,7 @@ different perioid, number of items or both. Value -1 means unlimited.
         
 ### Example
         
-```
+```yaml
 make_rss:
   file: ~/public_html/series.rss
   days: 2
@@ -41,7 +41,7 @@ make_rss:
 Generate RSS that will containg last two days and no more than 10 items.
         
 ### Example
-```
+```yaml
 make_rss:
   file: ~/public_html/series.rss
   days: -1
@@ -55,7 +55,7 @@ Generate RSS that will contain last 50 items, regardless of dates.
 You can specify what [field](/guide/entry) from entry is used as a link in generated rss feed.
         
 ### Example
-```
+```yaml
 make_rss:
   file: ~/public_html/series.rss
   link:

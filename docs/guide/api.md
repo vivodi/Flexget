@@ -20,8 +20,8 @@ web_server:
   web_ui: no
 ```
 Then run Flexget in daemon mode:
-```text
-flexget daemon start
+```console
+$ flexget daemon start
 ```
 
 ## Using the API
@@ -30,8 +30,8 @@ The API uses SwaggerUI documentation which can be accessed via the configured ho
 ## Authentication
 Set a password and start flexget in daemon mode to start the web server.
 
-```text
-flexget web passwd <some_password>
+```console
+$ flexget web passwd <some_password>
 ```
 
 The login username is `flexget` and the password is what you set above. 

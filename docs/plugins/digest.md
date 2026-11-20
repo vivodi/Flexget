@@ -2,17 +2,17 @@
 This plugin works as an output plugin, and collects entries from tasks to be combined into another task (usually for notification.) The `from_digest` plugin is then used in the task where the entries should be acted upon, e.g. notifications sent.
 
 ## Configuration
-```text
+```yaml
 digest: <listname>
 ```
 or
-```text
+```yaml
 digest:
   list: <listname>
   state: [accepted|rejected|failed|undecided]
 ```
 You can also specify a list of states to be digested.
-```text
+```yaml
 digest:
   list: <listname>
   state:

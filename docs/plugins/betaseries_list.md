@@ -9,7 +9,7 @@ This plugin is useful for when used in a task with the <plugin:configure_series>
 
 **Example:**
 
-```
+```yaml
 configure_series:
   from:
     betaseries_list:
@@ -24,7 +24,7 @@ You Api key can be requested freely at http://www.betaseries.com/api.
 
 If you want to download the series followed by multiple members
 
-```
+```yaml
 configure_series:
   from:
     betaseries_list:

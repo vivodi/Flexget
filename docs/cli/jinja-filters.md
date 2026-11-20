@@ -9,9 +9,9 @@ View available [Jinja](/guide/jinja) filters and their descriptions.
 
 ## Examples
 ```console
-# Displays all filters
+$ # Displays all filters
 $ flexget jinja-filters
 
-# Filter by jinja filter name
+$ # Filter by jinja filter name
 $ flexget jinja-filters --name re_replace
 ```

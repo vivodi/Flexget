@@ -2,7 +2,7 @@
 
 One could easily download all kinds of stuff from [RuTracker](https://rutracker.org), it doesn't even requires authentication to do that, thanks to `rutracker` plugin.
 
-```
+```yaml
 variables:
   # RuTracker forum id, look it up in URL
   # e.g. https://rutracker.org/forum/viewforum.php?f=1997

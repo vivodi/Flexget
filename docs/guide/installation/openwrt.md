@@ -7,40 +7,40 @@ FlexGet and dependencies currently need ~7MB of free space, plus the stuff you i
 ## Python
 Install python with sqlite3 and yaml. Python-openssl is only necessary for https connections, python-expat for the nzb-plugin.
 
-```
-opkg install python python-sqlite3 pyyaml
-opkg install python-sqlite
-opkg install python-expat
-opkg install python-openssl
+```console
+$ opkg install python python-sqlite3 pyyaml
+$ opkg install python-sqlite
+$ opkg install python-expat
+$ opkg install python-openssl
 
-opkg install python-bzip2
+$ opkg install python-bzip2
 ```
 
 
 ## easy_install
-```
-opkg install distribute
+```console
+$ opkg install distribute
 ```
 
 ## pip
 [pip usage:](http://www.pip-installer.org/en/latest/usage.html)
 
-```
-easy_install pip
+```console
+$ easy_install pip
 ```
 
 
 ## Install
 Run command:
 
-```
-pip install flexget
+```console
+$ pip install flexget
 ```
 
 If you decide to unpack your packages on an external storage (**recommended**), use the following command: (this is needed if you get a 'No space left on device' error)
 
-```
-pip install flexget -b /your/path/to/extstorage/tmp
+```console
+$ pip install flexget -b /your/path/to/extstorage/tmp
 ```
 
 
@@ -51,8 +51,8 @@ If the installation fails (IOError's, End of file...), it's related to a full fi
 ## Verify installation
 Run command:
 
-```
-# flexget -V
+```console
+$ flexget -V
 FlexGet 1.0r2230
 ```
 
@@ -65,9 +65,9 @@ Once you have completed the above step "opkg install distribute"
 
 Run command:
 
-```
-export PYTHONPATH=$PYTHONPATH:/mnt/sda1   
-easy_install -d /mnt/sda1/ flexget
+```console
+$ export PYTHONPATH=$PYTHONPATH:/mnt/sda1   
+$ easy_install -d /mnt/sda1/ flexget
 ```
 
 [Where /mnt/sda1/ is my mounted USB flash]

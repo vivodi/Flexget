@@ -18,15 +18,15 @@ Further information is available about [daemon operation](/guide/daemon).
 
 ## examples
 ```console
-#starts the FlexGet daemon
+$ # starts the FlexGet daemon
 $ flexget daemon start
 
-#starts the FlexGet daemon and daemonizes the process
+$ # starts the FlexGet daemon and daemonizes the process
 $ flexget daemon start -d
 
-#stops the FlexGet daemon
+$ # stops the FlexGet daemon
 $ flexget daemon stop
 
-#stops the FlexGet daemon but waits for all tasks to finish
+$ # stops the FlexGet daemon but waits for all tasks to finish
 $ flexget daemon stop --wait
 ```

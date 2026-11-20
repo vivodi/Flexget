@@ -3,7 +3,7 @@ Enable strict name matching. Useful for differentiating between series whose nam
 
 **Example**
 
-```
+```yaml
 series:
   - Test:
       exact: yes

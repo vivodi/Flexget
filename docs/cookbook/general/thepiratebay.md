@@ -3,7 +3,7 @@ The default handling of magnet links with the html plugin tries to generate a ti
 the url, but sometimes results in duplicates. The following extracts the title from the dn=
 field, which is more readable and reliable.
 
-```
+```yaml
 tasks:
   thepiratebay:
     html:

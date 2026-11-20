@@ -13,7 +13,7 @@ Currently the following settings are supported:
 | **when** | When to `refresh`, on `accepted`, `rejected`, `failed`, `no_entries`, `aborted`, `always`
 
 ## Config format
-```text
+```yaml
 emby_refresh:
     server:
         host: http://localhost:8096

@@ -3,7 +3,7 @@ Specify a custom path for a series. Note that this does **not** download it, you
 
 **Example:**
 
-```
+```yaml
 series:
   - some series:
       path: ~/download/some_series/

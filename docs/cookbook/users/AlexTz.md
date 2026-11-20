@@ -6,7 +6,7 @@ This is a complete work in progress.
 
 
 
-```
+```yaml
 templates:
   global:
 #download path

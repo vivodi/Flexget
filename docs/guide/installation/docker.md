@@ -75,7 +75,7 @@ Valid image tags:
 #### Custom entrypoint
 
 `entrypoint.sh`
-```
+```sh
 #!/bin/sh
 
 apk add --no-cache $PKG1
@@ -119,12 +119,10 @@ RUN   set -x; \
 Build the image:
 ```console
 $ docker build -t <flexget image tag here>
-
 ```
 To upgrade your image to the latest FlexGet version make sure you add the --pull argument to your build command:
 ```console
 $ docker build --pull -t <flexget image tag here>
-
 ```
 
 ### Upgrading

@@ -13,7 +13,7 @@ This search plugin will get results from [http://www.cpasbien.pw/](http://www.cp
 
 ## Configuration
 Configuration requires only the category and you can only have ONE:
-```
+```yaml
 cpasbien: <category>
 ```
 
@@ -36,7 +36,7 @@ cpasbien: <category>
 | musique | Category for music |
 
 Example with discover:
-```
+```yaml
 tv_search_cpasbien:
   discover:
     what:

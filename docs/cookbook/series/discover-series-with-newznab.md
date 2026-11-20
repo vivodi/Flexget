@@ -10,7 +10,7 @@ To configure the newznab episodes you need to provide :
 - Category type to search on newznab
 - Wait time between two calls on the website (this can lower load on the newznab server).
 
-```
+```yaml
 tvsearch:
   domain_delay:
     www.xxxxxx.com: 3 seconds

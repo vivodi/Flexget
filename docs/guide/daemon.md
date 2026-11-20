@@ -8,22 +8,22 @@ To launch the FlexGet daemon, use the `start` command:
 
 
 ^*Note 2: In earlier versions, use `--config-autoreload`  instead of `--autoreload-config`*^
-```YAML
-flexget daemon start [-d, --autoreload-config]
+```console
+$ flexget daemon start [-d, --autoreload-config]
 ```
 
 
 To stop a currently running daemon you can use `stop`:
-```
-flexget daemon stop
+```console
+$ flexget daemon stop
 ```
 To check the status of the flexget daemon you can use `status`:
-```
-flexget daemon status
+```console
+$ flexget daemon status
 ```
 To have the daemon reload the config file from disk you can use the `reload-config` command:
-```
-flexget daemon reload-config
+```console
+$ flexget daemon reload-config
 ```
 
 ## Remote Execution

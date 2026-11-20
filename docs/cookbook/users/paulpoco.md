@@ -8,7 +8,7 @@ Automatically download torrents from a folder.
 
 config.yml
 
-```
+```yaml
 templates:
   global:
     notifymyandroid:
@@ -310,7 +310,7 @@ tasks:
 
 series.yml
 
-```
+```yaml
 series:
   - Fast Food Mania
   - Fish Tank Kings

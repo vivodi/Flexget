@@ -29,11 +29,11 @@ the username would be `some-user` (not `Some User`), and the list would `some-us
 ## Usage notes
 The plugin can easily be used to queue up films from your Letterboxd watchlist to be downloaded by another task:
 
-```
+```yaml
 tasks:
   queue-letterboxd-watchlist:
     letterboxd:
-      username: *****
+      username: '*****'
       list: watchlist
     accept_all: yes
     movie_queue: add
@@ -50,11 +50,11 @@ In addition to `title`, `url`, `imdb_id`, `tmdb_id`, `movie_name` and `movie_yea
 
 You can of course [filter](/plugins/index.md#filter) against any of these fields. `letterboxd_list` may be useful where more than one input plugin (or [more than one Letterboxd list](plugin:inputs)) is included in the task. `letterboxd_score` and `letterboxd_uscore` can used in conjunction with [Python if statements](plugin:if), like so:
 
-```
+```yaml
 tasks:
   queue-well-reviewed-films:
     letterboxd:
-      username: *****
+      username: '*****'
       list: diary
     if:
       - 'letterboxd_uscore >= 8': accept
@@ -63,18 +63,18 @@ tasks:
 
 When dealing with large lists, it may be worthwhile to feed entries to an intermediary plugin such as <plugin:trakt_list> with [`list_add`](plugin:list_add). There is no publicly available [API for Letterboxd](http://letterboxd.com/api-coming-soon/) as of yet, so the plugin works by combing through the HTML source code for each film's page on the site. This isn't particularly fast if you want to, say, use [crossmatch](plugin:crossmatch) to reject films you've marked as seen on Letterboxd. In that case, you could have your config set up like this:
 
-```
+```yaml
 tasks:
   add-to-trakt:
     letterboxd:
-      username: *****
+      username: '*****'
       list: watched
       sort_by: added
       max_results: 20  # <--- Set depending on how often you run the task; high enough that it will catch all new entries,
     accept_all: yes    #      but low enough so as not to parse (much) more of the list than is necessary. 
     trakt_add:
-      username: *****
-      password: *****
+      username: '*****'
+      password: '*****'
       list: watched
 
   download-films:
@@ -83,8 +83,8 @@ tasks:
     crossmatch:
       from:
         - trakt_list:
-            username: *****
-            password: *****
+            username: '*****'
+            password: '*****'
             list: watched
             type: movies
       fields:

@@ -9,7 +9,7 @@ This should not be needed on most tasks, and may cause problems in instances whe
 
 **Example:**
 
-```
+```yaml
 only_new: yes
 ```
 

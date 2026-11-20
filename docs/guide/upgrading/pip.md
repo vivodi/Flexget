@@ -50,7 +50,7 @@ The below script is intended as an example, it is designed to be run on linux as
 
 Details: The script first checks if a new version of Flexget is avalaible.  If there is, the flexget service is stopped and the cron jobs for the flexget user are temporarliy disabled, the script waits for all instances of flexget to exit and kill the processes if they do not.  It then automatically upgrades flexget with using pip.  Once the upgrade is complete, the script finds all files named “config.yml” and runs “flexget check” for each file.  If the check should fail for any of the files due to changes in the flexget code, flexget is uninstalled by pip and the version of flexget that was previously installed is installed again.  Finally, the cron jobs are restored and the flexget service is started.
 
-```
+```bash
 #!/bin/bash
 FLEXGET_USER=flexget
 CONFIG_PATH=/home/flexget/

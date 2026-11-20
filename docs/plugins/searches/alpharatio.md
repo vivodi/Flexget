@@ -7,7 +7,7 @@ This plugin is part of [search](/plugins/index.md#search) plugin system
 Search plugin for the private tracker AlphaRatio.
 
 Config
-```text
+```yaml
   - alpharatio:
      username: user
      password:  pass 

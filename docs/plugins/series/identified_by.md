@@ -3,7 +3,7 @@ Specify how episode number is detected.
 
 **Example:**
 
-```
+```yaml
 series:
   - pioneer one:
       identified_by: ep
@@ -41,7 +41,7 @@ Series that are identified by air date.
 
 **Note:** If a date is ambiguous, due to different date formats used in different countries, the most recent interpretation is used (that isn't in the future.) You can use the `date_yearfirst` and `date_dayfirst` options to alter this behavior.
 
-```
+```yaml
 identified_by: date
 date_yearfirst: yes
 ```

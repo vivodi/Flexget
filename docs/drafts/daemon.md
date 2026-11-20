@@ -3,7 +3,7 @@ Implement daemon mode + scheduler.
 
 **Configuration draft**:
 
-```
+```yaml
 schedule:
   default:
     .
@@ -20,7 +20,7 @@ Note, it should be possible to define interval as minutes, hours, days and ideal
 
 **Draft 1:**
 
-```
+```yaml
 schedule:
   default:
     *: 1 hours      # default interval for all days (* may not be valid key?)
@@ -33,7 +33,7 @@ Daemon / schedule mode trough --daemon parameter (status | start | stop | reload
 
 **Draft 2:**
 
-```
+```yaml
 schedule:
   default:
     interval: 30m # 30 minute interval as default

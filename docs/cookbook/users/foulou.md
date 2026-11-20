@@ -5,7 +5,7 @@ This is the personal configuration of user foulou . I will try to remember to up
 Updated Config if this one is outdated : http://pastebin.com/CsSLVCJA
 Trakt Config : http://pastebin.com/uupakwR6
 
-```
+```yaml
 templates:
   global:
     make_rss: /var/www/rss/flexget.rss

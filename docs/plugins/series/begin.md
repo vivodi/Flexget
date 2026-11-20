@@ -20,7 +20,7 @@ $ flexget series begin "Name of Series" S02E01
 ## Setting from config
 You can also set `begin` directly from a task config:
 
-```
+```yaml
 series:
   - Pioneer One:
       begin: S02E01
@@ -28,8 +28,8 @@ series:
 
 ## Viewing
 Setting `begin` via any of the methods above will save it in the database. You can see what the `begin` episode is for a given series by using the [CLI](/cli/series) command `series show`:
-```
-flexget series show "Show Name"
+```console
+$ flexget series show "Show Name"
 ```
 
 If a `begin` episode is set, it will be listed at the bottom of the resulting table. (Note it will also be reflected in the table, even if it hasn't been downloaded or seen, in which case all columns except the Entity ID will be empty.)

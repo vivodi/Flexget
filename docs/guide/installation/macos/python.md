@@ -10,7 +10,7 @@ Next you will need to install Python and pip. These versions of Python are curre
 Homebrew will install the latest version of Python 3, and pip alongside it.
 
 ```console
-# installs the latest version of Python 3.x
+$ # installs the latest version of Python 3.x
 $ brew install python
 ```
 
@@ -24,7 +24,7 @@ By installing Python using Brew, you also installed pip and setuptools. If you i
 
 You should upgrade pip to the latest version, as well as setuptools:
 ```console
-# upgrade pip and setuptools (Python 3.x)
+$ # upgrade pip and setuptools (Python 3.x)
 $ pip3 install --upgrade pip
 $ pip3 install --upgrade setuptools
 ```

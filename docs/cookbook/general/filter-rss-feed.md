@@ -3,7 +3,7 @@ This setup will take a RSS Feed that you want to download everything from. For e
 * Replace 'RSS Feed URL' with your Feeds URL 
 * Change the downloader plugin (used here deluge) to your downloaders plugin, and change the set sections accordingly (may not be possible for all downloaders) 
 * Change the folder locations from 'D:\...' to your setups. 
-```
+```yaml
 templates:
   book:
     rss: 

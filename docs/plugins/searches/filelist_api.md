@@ -17,7 +17,7 @@ This search plugin will get results from [FileList](https://filelist.io).
 ## Configuration
 Requires username and passkey. Passkey can be retrieved from [profile](https://filelist.io/my.php).
 
-```
+```yaml
 filelist:
   username: xxxxxxx
   passkey: xxxxxx
@@ -29,7 +29,7 @@ filelist:
 ```
 
 **Categories**
-```
+```text
 Anime 
 Audio 
 Desene
@@ -60,7 +60,7 @@ XXX
 ```
 ## Example Usage
 
-```
+```yaml
 tasks:
   movies-discover:
     template: movies

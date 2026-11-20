@@ -11,7 +11,7 @@ Will either be a component of webui, or a separately enablable module that webui
 ## Standard formats
 When returning a list of "things" it should be formatted as
 
-```
+```json
 {
   "items": [list of items]
 }
@@ -19,7 +19,7 @@ When returning a list of "things" it should be formatted as
 
 When returning an object it should be formatted as 
 
-```
+```json
 {
   "object": {object}
 }
@@ -30,7 +30,7 @@ When returning an object it should be formatted as
 #### /execution
 Executions would be represented with a data structure something like this.
 
-```
+```json
 {
   "id": <id in queue>,
   "status": "running|pending",

@@ -1,7 +1,7 @@
 # Plugin chaining
 Consider single tv preset for all series feeds ..
 
-```
+```yaml
 presets:
   tv:
     series_premieres: yes
@@ -18,7 +18,7 @@ You cannot really add quality to it since it will mess up series. You probably w
 
 Currently you can workaround this by
 
-```
+```yaml
 presets:
   tv:
     series:
@@ -38,7 +38,7 @@ presets:
 
 however now you must make duplicate feeds, eg.
 
-```
+```yaml
 feeds:
   bitmetv:
     rss: ....
@@ -52,7 +52,7 @@ I don't know if this is a really a problem since inputs are cached, so the secon
 
 But it might be cleaner if series_premieres were to allow specifying qualities.
 
-```
+```yaml
 series_premieres:
   quality:
     min: hdtv
@@ -64,7 +64,7 @@ However re-implementing the quality into the series_premieres goes a bit against
 ## Plugin chaining
 Make filtering API to plugins that works per entries. Example
 
-```
+```python
 def process(self, feed, entry):
   if 'foo' in entry[title](/title):
     feed.reject('bar')
@@ -72,7 +72,7 @@ def process(self, feed, entry):
 
 Plugin could still use this when configure at feed level, eg.
 
-```
+```python
 def on_feed_filter(self, feed):
   for entry in feed.entries:
     self.process(feed, entry)
@@ -94,7 +94,7 @@ Make some easy way to call all these from a plugin, maybe something similar to p
 
 If this approach is taken, will we eventually end up with ugly yaml like
 
-```
+```yaml
 feeds:
   test:
     rss: .....

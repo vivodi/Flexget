@@ -1,7 +1,7 @@
 # Set deluge options trough series groups
 
 ## Movedone groups
-```
+```yaml
 series:
   settings:
     group a:

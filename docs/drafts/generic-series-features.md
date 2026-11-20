@@ -4,7 +4,7 @@
 Each of these sub-functions should be separate plugin. Let's think timeframe for example.
 
 
-```
+```python
 class Timeframe:
   # plugin provides this service
   def evaluate(self, entry, identified_by, config):
@@ -21,7 +21,7 @@ class Timeframe:
 
 Example usage from series_plugin
 
-```
+```python
 accepted = plugin.get_plugin_by_name('timeframe').instance.evaluate(
     entry, "{0} {1}".format(series_name, series_id, timeframe_config)
 ```
@@ -34,13 +34,13 @@ Ps. As an addition to timeframe I would like to set "deadline" for series, get s
 
 ### Plugins to do ?
 	
-```
+```yaml
 timeframe:
   target: 720p
   amount: 12h
 ```  
  
-```
+```yaml
 deadline: 
  target: 720p
  amount: 12 hours
@@ -48,11 +48,11 @@ deadline:
 
 * Timeframe needs to operate on accepted entries in order to work well with other plugins
 
-```
+```yaml
 propers: 12 hours
 ```
 
-```
+```yaml
 qualities:
   - 720p
   - 1080p
@@ -60,7 +60,7 @@ qualities:
 
 not so sure about this ....
 
-```
+```yaml
 upgrade:
   quality:
     - 720p
@@ -76,7 +76,7 @@ Using combination of these plugins might get a bit interesting ...
 ### Generic use in task
 This could be used in task standalone
 
-```
+```yaml
 timeframe:
   identified_by: {{ series_name }} {{ series_id }}
   target: 720p
@@ -84,7 +84,7 @@ timeframe:
 
 
 ### Standalone with movies
-```
+```yaml
 rss: .....
 imdb_lookup: yes
 timeframe: 
@@ -101,7 +101,7 @@ imdb:
 (gazp) We could make this field be the inside of a jinja `{{}}` block (or even add the {{ magically only when the user didn't have them.) So you could write `imdb_id` or `series_name + series_id`
 
 ### With new movies plugin
-```
+```yaml
 rss: ....
 movies:
   from:
@@ -116,7 +116,7 @@ movies:
 * movies plugin will need to supply identified_by to timeframe somehow
 * does movies plugin bring anything here opposed to
 
-```
+```yaml
 rss: ...
 imdb_lookup: yes
 list_match:
@@ -139,7 +139,7 @@ Series plugin is a bit problematic as it does not currently have unique identifi
 
 Usage with movies:
 
-```
+```yaml
 rss: ....
 movies:
   from:
@@ -156,7 +156,7 @@ Remember that plugin `movie_list` produced entries may contains id field(s) that
 ### Example flow (Quality)
 Assuming we are using multiple ids and each id field is an identifier class. 
 
-```
+```yaml
 rss: .....
 imdb_lookup: yes
 tvdb_lookup: yes

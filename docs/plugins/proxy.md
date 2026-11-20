@@ -4,14 +4,14 @@ Configures FlexGet to use a proxy when accessing sites. This plugin will be auto
 **NOTE:** Not all communication will go through the proxy, only certain plugins have been refactored to use this. The <plugin:rss>, <plugin:download>, and some other plugins will use this proxy.
 
 **Example:**
-```
+```yaml
 proxy: http://myproxy.com:8080
 ```
 
 **Example:**
 
 If you need to configure a proxy for only one protocol, or different proxies for different protocols, this configuration style can be used.
-```
+```yaml
 proxy:
   http: http://myproxy.com:8080
   ftp: http://otherproxy.com:

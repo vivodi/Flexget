@@ -1,5 +1,5 @@
 ### New movies plugin
-```
+```yaml
 movies:
   comedy, scifi:
     imdb_score: 6.2+

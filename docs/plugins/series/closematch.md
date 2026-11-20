@@ -5,7 +5,7 @@ There are a few ways to deal with this problem, but this simplest is this:
 You want to add series "foobar" into your configuration, which is also sometimes released as "foobar uk". Just putting "foobar" in your config will match both of these fine. But say there's also spinoff series called "foobar us" which you are not interested. Simplest way to prevent FlexGet getting confused about the "foobar s02e01" and "foobar us s01e01" is to put the "uk" in parentheses, i.e. "foobar (uk)". This will cause FlexGet to allow both the "foobar s02e01" and "foobar uk s02e01" forms, but not "foobar us s02e01".
 
 **Example**
-```
+```yaml
 series:
   - foobar (uk)
 ```
@@ -18,7 +18,7 @@ But as exact mode will stop matching when titles like "foobar.sub.title.s01e01" 
 
 **Example**
 
-```
+```yaml
 series:
   - foobar:
       name_regexp: ^foobar(?!.us)
@@ -33,7 +33,7 @@ Instead list the series just once and use the form is more common, note that thi
 
 **Example**
 
-```
+```yaml
 series:
   - foobar:
       name_regexp: ^foobar(.2005)?

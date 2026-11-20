@@ -13,7 +13,7 @@ With FlexGet running in [daemon mode](/guide/daemon) you can use the <plugin:sch
 
 To start the daemon at system boot you could use following cronjob:
 
-```
+```text
 @reboot /usr/local/bin/flexget daemon start -d
 ```
 
@@ -26,8 +26,8 @@ Note that the path in this example needs to be adapted to your environment. Ther
 
 To determine where FlexGet command resides run:
 
-```
-which flexget
+```console
+$ which flexget
 ```
 
 Example output: `/usr/local/bin/flexget`. This may be different in your environment! If you used virtualenv installation remember to activate it before running the previously mentioned command.
@@ -38,21 +38,21 @@ FlexGet is meant to be executed from users own crontab, **not** from /etc/cronta
 
 To change default editor for crontab, you can use command:
 
-```
-export EDITOR=nano
+```console
+$ export EDITOR=nano
 ```
 
 ^You may wish to add this into your ~/.bashrc so it will be always the default editor^
 
 To edit user crontab execute command (Note: [ubuntu](https://help.ubuntu.com/community/CronHowto#Enable%20User%20Level%20Cron)):
 
-```
-crontab -e
+```console
+$ crontab -e
 ```
 
 Enter one new line on crontab:
 
-```
+```text
 @hourly /usr/local/bin/flexget --cron execute
 ```
 
@@ -60,7 +60,7 @@ This will run FlexGet every hour. You may run it more frequently as well, but I 
 
 To run more often you may use crontab in form of:
 
-```
+```text
 */30 * * * * /usr/local/bin/flexget --cron execute
 ```
 

@@ -4,7 +4,7 @@ Downloads content from a ftp and saves it into a local path. Path is retrieved f
 **`NOTE:`** The `ftp_tmp_path` option will probably be changed to just `path` for consistency with other plugins. #2443
 
 **Example:**
-```
+```yaml
 ftp_download:
   use-ssl: False
   delete_origin: False
@@ -13,8 +13,8 @@ ftp_download:
 
 ## Prerequisites
 - The `ftp` extra provided by FlexGet is installed.
-  ```
-  pip install flexget[ftp]
+  ```console
+  $ pip install flexget[ftp]
   ```
 
 

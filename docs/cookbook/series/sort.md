@@ -1,7 +1,7 @@
 # Sort Downloads with FlexGet
 This recipe is to sort your already downloaded series into their own folders. Note that FlexGet is not really made for sorting so this is a bit complicated and hackish.
 
-```
+```yaml
 templates:
 
   # NOTE!! This template cannot have any other plugins or else it will affect our sort-series.

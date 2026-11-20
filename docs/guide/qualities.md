@@ -32,26 +32,26 @@ In your config, you are not limited to specifying a single quality you want, you
 
 **Ranges:**
 To specify a range in a given category, write the lower and upper bound, with a dash in between. Note that a range must be between two items of the same category (in the same column above.) Examples:
-```
+```text
 720p-1080p
 hdtv-bluray
 ```
 
 **Open ended range:**
 If you would just like to specify a lower bound on the category, you can follow it with a plus. Examples:
-```
+```text
 480p+
 tvrip+
 ```
 If you would like to place just an upper bound, this is also possible with the <= symbol.
-```
+```text
 <=720p
 <=bluray
 ```
 
 **Discrete values:**
 If you would like to specify one value, multiple acceptable values for a category, but nothing inbetween them, you can use a pipe to join them. The pipe essentially means 'or'. Examples:
-```
+```text
 720p
 sdtv|hdtv
 dd5.1|dts|aac
@@ -59,7 +59,7 @@ dd5.1|dts|aac
 
 **Disallowing values:**
 If you just want to block certain values from being acceptable, you can prefix them with an exclamation mark. Examples:
-```
+```text
 !dts
 !cam
 !10bit
@@ -68,7 +68,7 @@ If you just want to block certain values from being acceptable, you can prefix t
 ### Putting it together
 So, any time a quality (range) needs to be specified in the config, you can combine these techniques to define the acceptable values for each category. If your quality string starts with a symbol, instead of a letter or number, you have to place quotes around the whole thing. Here are some examples of complete quality requirements that could be used in your config:
 
-```
+```text
 hdtv
 720p
 720p hdtv+

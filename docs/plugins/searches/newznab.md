@@ -6,7 +6,7 @@ This plugin is part of [search](/plugins/index.md#search) plugin system
 The newznab plugins is used in conjunction with the <plugin:discover> plugins.
 
 With the <plugin:next_series_episodes>
-```
+```yaml
 discover:
   what:
     - next_series_episodes: yes
@@ -19,7 +19,7 @@ discover:
 
 or the <plugin:movie_list>
 
-```
+```yaml
 discover:
   what:
     - movie_list: movies

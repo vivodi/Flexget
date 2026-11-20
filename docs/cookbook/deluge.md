@@ -23,6 +23,6 @@ The following is a comprehensive guide on how to setup an ubuntu seedbox/vps wit
 ## PDF Download
 You can download a PDF version of the tutorial from the following google drive link:
 
-```
+```text
 https://drive.google.com/open?id=0BzU4nr8FNKaKeGpPTmdrY3lzbUE
 ```

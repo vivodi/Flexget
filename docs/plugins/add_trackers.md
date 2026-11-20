@@ -2,7 +2,7 @@
 Adds the listed trackers to any torrents grabbed by the feed. Also works on magnet urls.
 
 ## Example
-```
+```yaml
 add_trackers:
   - http://tracker1.com/announce
   - udp://tracker2.com/announce

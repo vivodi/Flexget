@@ -7,13 +7,13 @@ Some options how to start FlexGet Automatically on boot
 
 Probably easiest and most compatible if used virtualenv.
 
-```
-crontab -e
+```console
+$ crontab -e
 ```
 
 put
 
-```
+```text
 @reboot /path/to/flexget daemon start -d
 ```
 
@@ -23,7 +23,7 @@ To have flexget run as a system unit.
 
 `sudo nano /usr/lib/systemd/system/flexget.service`
 
-```
+```ini
 [Unit]
 Description=Flexget Daemon
 After=network.target
@@ -46,32 +46,32 @@ The above assumes that there is a daemon user and group available. Modify as nee
 
 Now, create the location to store flexgets configuration file, logs and database.
 
-```
-sudo mkdir /etc/flexget
-sudo chown daemon:daemon /etc/flexget
+```console
+$ sudo mkdir /etc/flexget
+$ sudo chown daemon:daemon /etc/flexget
 ```
 
 You can now place your config.yml file in the /etc/flexget directory.
 
 Enable or disable Flexget at boot using :
 
-```
-sudo systemctl enable flexget
-sudo systemctl disable flexget
+```console
+$ sudo systemctl enable flexget
+$ sudo systemctl disable flexget
 ```
 
 Read the systemd log: 
 
-```
-journalctl -u flexget
+```console
+$ journalctl -u flexget
 ```
 
 Control the daemon:
 
-```
-systemctl status flexget
-systemctl stop flexget
-systemctl start flexget
+```console
+$ systemctl status flexget
+$ systemctl stop flexget
+$ systemctl start flexget
 ```
 
 
@@ -81,7 +81,7 @@ To have FlexGet accessible as a systemd user unit.
 See [here](https://wiki.archlinux.org/index.php/Systemd/User#User_Services) for more.
 
 `sudo nano /usr/lib/systemd/user/flexget.service` or `vim ~/.config/systemd/user/flexget.service`
-```
+```ini
 [Unit]
 Description=FlexGet Daemon
 After=network.target
@@ -97,27 +97,27 @@ WantedBy=default.target
 
 Allows users who are not logged in to run long-running services.
 A user manager is spawned for the user at boot and kept around after logouts.
-```
-sudo loginctl enable-linger <username>
+```console
+$ sudo loginctl enable-linger <username>
 ```
 
 Any end-users can enable or disable it using :
-```
-systemctl --user enable flexget
-systemctl --user disable flexget
+```console
+$ systemctl --user enable flexget
+$ systemctl --user disable flexget
 ```
 
 Read log: 
-```
-journalctl --user --user-unit flexget
+```console
+$ journalctl --user --user-unit flexget
 ```
 
 Control daemon:
 
-```
-systemctl --user status flexget
-systemctl --user stop flexget
-systemctl --user start flexget
+```console
+$ systemctl --user status flexget
+$ systemctl --user stop flexget
+$ systemctl --user start flexget
 ```
 
 
@@ -129,7 +129,7 @@ All of the following should be done as the root user.
 
 First, create a /etc/default/flexget file with the following content :
 
-```
+```ini
 # Configuration for /etc/init.d/flexget
 
 # User to run flexget as.
@@ -310,30 +310,30 @@ exit 0
 
 Then, give executions rights to the script :
 
-```
-chmod +x /etc/init.d/flexget
+```console
+$ chmod +x /etc/init.d/flexget
 ```
 
 And then, generate the necessary symlinks for the service to start on boot :
+```console
+$ insserv -d flexget
 ```
-insserv -d flexget
-
 OR
-
-update-rc.d flexget defaults
+```console
+$ update-rc.d flexget defaults
 ```
 
 To start, stop or check if the daemon is running :
+```console
+$ /etc/init.d/flexget start
+$ /etc/init.d/flexget stop
+$ /etc/init.d/flexget status
 ```
-/etc/init.d/flexget start
-/etc/init.d/flexget stop
-/etc/init.d/flexget status
-
 OR
-
-service flexget start
-service flexget stop
-service flexget status
+```console
+$ service flexget start
+$ service flexget stop
+$ service flexget status
 ```
 
 ### Upstart script (Ubuntu =<16.04)
@@ -364,14 +364,14 @@ exec start-stop-daemon -S --chuid $user --user $user --exec /usr/local/bin/flexg
 ```
 
 Read log: 
-```
-sudo tail -f /var/log/upstart/flexget.log
+```console
+$ sudo tail -f /var/log/upstart/flexget.log
 ```
 
 Control daemon:
 
-```
-sudo status flexget
-sudo stop flexget
-sudo start flexget
+```console
+$ sudo status flexget
+$ sudo stop flexget
+$ sudo start flexget
 ```

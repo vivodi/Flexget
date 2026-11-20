@@ -8,7 +8,7 @@ This is a filter plugin that uses a list to accept or reject generated entries b
 
 ## Syntax
 
-```text
+```yaml
 list_match:
   from:
     - <list_type>: <list_name>

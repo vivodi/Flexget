@@ -5,7 +5,7 @@ Open issues: #227, #580
 
 Downloads subtitles for downloaded movies
 
-```
+```yaml
 subtitles:
   languages:
      - fin

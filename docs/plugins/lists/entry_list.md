@@ -8,7 +8,7 @@ See [managed list](/plugins/index.md#managed-list) how to use lists in general.
 
 ## Configuration
 
-```
+```yaml
 entry_list: <NAME>
 ```
 

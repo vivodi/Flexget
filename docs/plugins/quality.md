@@ -8,7 +8,7 @@ Allows specifying acceptable qualities. All other qualities will be rejected.
 
 With the simple usage, you just specify which quality you want.
 
-```
+```yaml
 quality: 720p+ hdtv
 ```
 
@@ -16,7 +16,7 @@ Any valid [quality requirements](plugin:quality#qualities) string can be used he
 
 You can also use a list form to specify multiple quality requirement strings that are acceptable. In this case, only entries that do not match at least one of the quality strings will be rejected.
 
-```
+```yaml
 quality:
   - 720p hdtv
   - 1080p webdl

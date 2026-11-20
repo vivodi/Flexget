@@ -15,6 +15,6 @@ Enabled / Disabled option:
 Valid choices are `yes`, and `no`
 
 ## Example
-```
+```yaml
 descargas2020: yes
 ```

@@ -12,6 +12,6 @@ Print summaries for registered [plugins](/plugins/index).
 
 ## Examples
 ```console
-#shows all builtin plugins
+$ # shows all builtin plugins
 $ flexget plugins --builtins
 ```

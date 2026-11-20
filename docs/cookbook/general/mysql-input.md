@@ -3,7 +3,7 @@
 You can use the <plugin:exec> plugin to pass certain fields of an entry to a MySQL database. Make yourself comfortable with basic MySQL syntax first [here](http://dev.mysql.com/doc/refman/5.6/en/index.html).
 
 The correct command for <plugin:exec> on Win7 is as follows:
-```
+```yaml
 exec: <%SystemRoot%>\system32\cmd.exe /c <\PATH\TO\>mysql.exe -u <user> -p<pwd> --execute="INSERT INTO <table> VALUES ('{{<entry1>}}','{{<entry2>}}')" <database>
 ```
 * Strings between brackets '<' and '>' represent values you need to fill in yourself: <%SystemRoot>; <\PATH\TO\>; <user>; <pwd>; <table>; <entry>; <database>

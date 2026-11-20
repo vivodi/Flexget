@@ -2,7 +2,7 @@
 If True, cause entries matching both a normal ID type (ep, sequence, etc) and special to be flagged as specials. If False, entry will be flagged as the normal ID type. Defaults to False.
 
 Example:
-```
+```yaml
 series:
   - My Series:
       prefer_specials: True

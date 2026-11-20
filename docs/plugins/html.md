@@ -4,14 +4,14 @@ Parses URLs from html page. Useful on sites which have direct download links of 
 Many anime-fansubbers do not provide an RSS-feed, this usually works for those cases.
 
 ## Example
-```
+```yaml
 html: <url>
 ```
 
 Note: This returns ALL links from the page so you need to configure some filters to match only to desired content.
 
 ## Example with regexp
-```
+```yaml
 html: <url>
 regexp:
   accept:
@@ -25,7 +25,7 @@ This would download all links that have mp3 link with word podcast in them.
 By default html plugin will try to guess where link titles should be captured from but in some cases this goes wrong and you end up with useless titles like 'DL', '1', '2'. In case automatic selection does not work you will need to specify where titles should be captured from. Note that it may not always be possible to get good titles if the the title is nowhere near the link.
 
 ### Example
-```
+```yaml
 html:
   url: <url>
   title_from: url
@@ -49,7 +49,7 @@ In some cases the titles are completely useless, however you may still get good 
 In case page contains too many links, you can use regexps to select only certain links.
 
 ### Example
-```
+```yaml
 html:
   url: <url>
   links_re:
@@ -65,13 +65,13 @@ To allow grabbing links where there is no content (e.g. magnet links sometimes).
 ## Basic Authentication
 This plugin supports baisic authentication, it can be specified in the url:
 
-```
+```yaml
 html: http://username:password@url.com
 ```
 
 Or as parameters:
 
-```
+```yaml
 html:
   url: <url>
   username: <username>
@@ -82,7 +82,7 @@ html:
 You can dump the received HTML into a file by using parameter `dump`. Useful for debugging.
 
 ### Example
-```
+```yaml
 html:
   url: <url>
   dump: file.html
@@ -92,7 +92,7 @@ html:
 You can perform multiple request by using the increment option.
 
 ### Example
-```
+```yaml
 html:
   url: "www.somesite.com/search/?category=10&page={{i}}"
   increment: True
@@ -100,7 +100,7 @@ html:
 
 This will grab entries from 
 
-```
+```text
 www.somesite.com/search/?category=10&page=0
 www.somesite.com/search/?category=10&page=1
 www.somesite.com/search/?category=10&page=2
@@ -108,7 +108,7 @@ www.somesite.com/search/?category=10&page=2
 
 ... and so on, until a total of 200 entries are retrieved, or no entry is retrieved on one request.
 
-```
+```yaml
 html:
   url: "www.somesite.com/search/?category=10&from={{i}}&to={{i+49}}"
   increment: 
@@ -119,7 +119,7 @@ html:
 
 This configuration will grab entries from those URLs
 
-```
+```text
 www.somesite.com/search/?category=10&from=0&to=49
 www.somesite.com/search/?category=10&from=50&to=99
 www.somesite.com/search/?category=10&from=100&to=149

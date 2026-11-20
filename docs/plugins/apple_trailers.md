@@ -2,7 +2,7 @@
 Adds support for [Apple Trailers](http://trailers.apple.com/) as an input source.
 
 ## Simple Configuration Example:
-```
+```yaml
 apple_trailers: 480p
 accept_all: yes
 download: ~/movies/trailers
@@ -11,7 +11,7 @@ download: ~/movies/trailers
 This would download all trailers with 480p resolution. Resolution is a choice of 480p or 720p.
 
 ## Full Configuration Example:
-```
+```yaml
 apple_trailers:
   quality: 480p
   genres: ['Action and Adventure']

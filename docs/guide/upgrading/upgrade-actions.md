@@ -186,8 +186,8 @@ All multi-word options have been changed to have an underscore for consistency a
 
 ### <plugin:from_deluge>
 The `keys` option has been removed. from_deluge now provides all fields from deluge with the `deluge_` prefix. Field names may vary slightly between deluge versions. Do a test run of your task to verify field names after the update:
-```sh
-flexget --test execute --tasks my_from_deluge_task --dump
+```console
+$ flexget --test execute --tasks my_from_deluge_task --dump
 ```
 This will show all available field names and values which you can use to update your config appropriately.
 
@@ -337,7 +337,7 @@ In addition, single mode will now ignore existing subtitles if the languages do 
       rss: "{? myrss ?}"
   ```
   If you use notepad++ or another editor capable of doing search and replace with regular expressions, the following may be sufficient (note: only tested in notepad++):
-  ```
+  ```text
   find: \{\{\s?secrets\.(.*?)\s?\}\}
   replace: \{\? \1 \?\}
   ```
@@ -386,7 +386,7 @@ In addition, single mode will now ignore existing subtitles if the languages do 
   * field changed to a Date instead of DateTime ([#1260](https://github.com/Flexget/Flexget/issues/1260))
 * Web-UI/API:
   * Major API refactor. Enabling Web-UI/API config changed:
-    ```YAML
+    ```yaml
     web_server:
       bind: 0.0.0.0 # IP V4
       port: 3539 # Valid port number
@@ -590,14 +590,14 @@ These plugins have been update to use trakt api v2. They no longer need `api_key
 **trakt_list**
 
 Trakt list has been updated to api v2, and the config has been made more consistent with the other trakt plugins. The built-in list names have been standardized to `watchlist`, `watched`, and `collection`. Listing episodes from custom lists is now also possible. `api_key` option should be removed from config. The list and type should now be specified as two separate options, e.g.
-```
+```yaml
 trakt_list:
   username: me
   api_key: blah
   movies: watchlist
 ```
 would now become:
-```
+```yaml
 trakt_list:
   username: me
   list: watchlist

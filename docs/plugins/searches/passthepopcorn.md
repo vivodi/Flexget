@@ -16,7 +16,7 @@ WARNING: The plugin sets a resonable rate limit for requests to the site, if you
 
 
 NOTE: `freeleech: no` removes all freeleech results.
-```
+```yaml
 passthepopcorn:
   apiuser: myusername (required)
   apikey: myapikey (required)

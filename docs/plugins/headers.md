@@ -8,7 +8,7 @@ Check out <plugin:cookies> plugin as well.
 To use feeds that require login, setting cookie is usually required. You will need to extract the cookie for site and grab details from it (often uid, pass).
 
 ## Configuration
-```
+```yaml
 headers:
   Cookie: "uid=3945; pass=f8bae52ca325b14ef2523fabc"
 ```

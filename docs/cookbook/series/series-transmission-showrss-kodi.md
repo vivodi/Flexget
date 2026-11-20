@@ -4,7 +4,7 @@ This configuration is to be used with the a website like [showRSS](http://new.sh
 
 
 ## config.yml
-```
+```yaml
 tasks:
   # downloading task and remove finished torrents
   # called via cron every 30 minutes. 
@@ -76,12 +76,12 @@ tasks:
 This configuration (**download-showrss**) grabs all the series based on the website RSS url for your account (replace **MYID** with your account) and sends to a local Transmission.  The same download task will clean up Transmission once seeding is complete.
 
 command:
-```
-crontab -e
+```console
+$ crontab -e
 ``` 
 
 to run every 30 minutes
-```
+```text
 0,30 * * * * /usr/local/bin/flexget -l /var/log/flexget.log execute --tasks=download-showrss
 ```
 
@@ -93,7 +93,7 @@ to run every 30 minutes
 The second task (**sort-shows**) is called when Transmission completes, set in the **script-torrent-done-filename** option.  This task will move and rename downloads and then tell a running Kodi instance to update its library.
 
 file-name:
-```
+```text
 torrent-done.sh
 ```
 

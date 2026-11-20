@@ -2,7 +2,7 @@
 
 
 **config.yml** - template section:
-```
+```yaml
 templates:
   global:
     # configuration of email parameters
@@ -76,7 +76,7 @@ templates:
 
 Thanks to user gazpachoking and his patch in r1367 we can now use Plugin/<plugin:set> to set the path for each entry in feed manage-series and manage-series-remote.
 
-```
+```yaml
 feeds:
   EZTV:
     rss: <feed url>

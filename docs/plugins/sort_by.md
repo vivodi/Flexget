@@ -22,7 +22,7 @@ Config:
 sort_by: title
 ```
 Result:
-```yaml
+```text
 His Entry
 My Entry
 The Cats Entry
@@ -36,7 +36,7 @@ sort_by:
   reverse: yes
 ```
 Result:
-```yaml
+```text
 The Cats Entry
 My Entry
 His Entry
@@ -50,7 +50,7 @@ sort_by:
   ignore_articles: yes
 ```
 Result:
-```yaml
+```text
 The Cats Entry
 His Entry
 My Entry
@@ -64,7 +64,7 @@ sort_by:
   ignore_articles: '^(his|my)\s'
 ```
 Result
-```yaml
+```text
 # note that 'His Entry' and 'My Entry' will be considered identical for the sort (since 'His' and 'My' will be ignored) and may be reversed, but will always be before 'The Cats Entry'
 My Entry
 His Entry

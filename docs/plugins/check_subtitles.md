@@ -2,7 +2,7 @@
 Set the **subtitles** field on all [entries](/guide/entry) about local files having subtitles. The field is a list of available languages.
 
 ## Example
-```
+```yaml
 check_subs:
     filesystem:
       path:

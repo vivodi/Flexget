@@ -12,6 +12,6 @@ List or clear [remembered rejections](plugin:remember_rejected).
 
 ## Examples
 ```console
-#lists all rejected entries
+$ # lists all rejected entries
 $ flexget rejected list
 ```

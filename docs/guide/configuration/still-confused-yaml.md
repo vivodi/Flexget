@@ -1,7 +1,7 @@
 # Still confused about Yaml?
 Please note that each indentation level must be precisely **2 spaces**. Tabs are forbidden for indentation. Why are indentation even required in Yaml? It is used for semantics or **relation**. Consider example:
 
-```
+```yaml
 pets:
   cat:
     name: furry
@@ -18,7 +18,7 @@ Here we have two pets, cat and dog. Each of them has name, and age. Dog has list
 
 Some other configuration files might represent previous example in following form:
 
-```
+```ini
 pets.cat.name=furry
 pets.cat.age=5
 pets.dog.name=barky
@@ -28,7 +28,7 @@ pets.dog.toys=bone, ball
 
 But consider more complex situation ...
 
-```
+```yaml
 pets:
   dog:
     name: barky

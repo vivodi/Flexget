@@ -3,7 +3,7 @@ This plugin changes task execution order. Without explicitly setting priority, t
 
 **Example**
 
-```
+```yaml
 tasks:
   task a:
     priority: 10

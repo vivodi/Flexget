@@ -66,7 +66,7 @@ Create rTorrent action on complete
 
 File .rtorrent.rc
 
-```
+```ini
 system.method.set_key = event.download.finished,move_complete,"execute=mv,-u,$d.get_base_path=,$d.get_custom1=;d.set_directory=$d.get_custom1="
 ```
 *This configuration for rtorrent is outdated and needs to be updated.*

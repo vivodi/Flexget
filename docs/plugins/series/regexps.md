@@ -12,7 +12,7 @@ The standard name matching works quite well, but in some cases you may need to s
 
 **Example:**
 
-```
+```yaml
 series:
   - some series:
       ep_regexp: (\d\d)-(\d\d\d)     # must return TWO groups, both being numeric values
@@ -26,7 +26,7 @@ All above regexps also accept multiple regular expressions in list form.
 ## Name regexp
 For example if `some series` appears in multiple different naming conventions, you can give list of regexps that match to series name. The match is tried from title AND description fields.
 
-```
+```yaml
 - some series:
     name_regexp:
       - ^some.series
@@ -38,7 +38,7 @@ For example if `some series` appears in multiple different naming conventions, y
 ### Episode numbering matching
 ep_regexp is for series enumerated by season and episode numbers (eg, S04E01). Naive example:
 
-```
+```yaml
 ep_regexp:
   - s(\d+)e(\d+)
   - s(\d+)ep(\d+)
@@ -46,7 +46,7 @@ ep_regexp:
 
 id_regexp is for series that are not enumerated by season/episode numbering. Naive example:
 
-```
+```yaml
 id_regexp:
   - (\d\d\d\d).(\d+).(\d+)
   - (\d+).(\d+).(\d\d\d\d)

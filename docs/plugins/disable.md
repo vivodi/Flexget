@@ -5,7 +5,7 @@ This plugin can be used to disable a plugin which you have included via the <plu
 This plugin should be configured with either the name of the plugin you wish to disable, or a list of plugins you wish to disable. You can also use the special term `builtins` to disable all builtin plugins.
 
 ## Example (disabling plugins from a template)
-```
+```yaml
 movies:
   download: ~/torrents/movies/
   imdb:
@@ -27,13 +27,13 @@ Task nzbs uses all other configuration from template movies but removes the down
 ## Example (disabling builtin plugins)
 Disables all builtins:
 
-```
+```yaml
 disable: builtins
 ```
 
 Disables the <plugin:seen> and <plugin:seen_info_hash> builtins:
 
-```
+```yaml
 disable:
   - seen
   - seen_info_hash

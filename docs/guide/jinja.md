@@ -73,7 +73,7 @@ When using Jinja2 tests, you can use the following custom tests in addition to t
 |`is fs_link`|Check whether object is existing symlink in filesystem.|
 ### Example:
 
-```YAML
+```yaml
 if:
   # check whether torrent file is in incomplete directory
   - ('/path/torrents/incomplete' ~ title) is fs_file: reject

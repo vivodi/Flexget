@@ -1,7 +1,7 @@
 # Abort If Exists
 Abort the running task if the specified field in an entry matches the regexp. This is useful when moving local files around and a program is currently transferring data to the disk.
 
-```TEXT
+```yaml
 abort_if_exists:
   regexp: <regexp>
   field: <field name>

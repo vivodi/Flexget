@@ -1,7 +1,7 @@
 # Fancy Movie List Magic
 Series plugin has some really nice features, like timeframe and upgrade, which it might be desirable to replicate with movies. This config shows how you can use multiple tasks to emulate series plugin features like timeframe with upgrade on a list of movies you want.
 
-```
+```yaml
 # Since we are making more than one task, which will share some common plugins, let's put some of those plugins in templates.
 # Ain't nobody got time to type this crap twice.
 templates:

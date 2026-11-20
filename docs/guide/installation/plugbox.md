@@ -5,16 +5,16 @@ However it seems to discourage upgrading to Python 3 in PlugBox. This shouldn't 
 
 According to post [here](http://plugboxlinux.org/forum/viewtopic.php?f=9&t=368&start=10#p3071) the following should work fine if you are running Python 3.
 
-```
-pacman -S python2 python-distribute
-easy_install-2.7 pip
-pip install flexget
+```console
+$ pacman -S python2 python-distribute
+$ easy_install-2.7 pip
+$ pip install flexget
 ```
 
 **Note:** There will be some GCC compiler complaints about optional speedups. Ignore these, those will fall back to pure python.
 
 To verify installation:
 
-```
-flexget -V
+```console
+$ flexget -V
 ```

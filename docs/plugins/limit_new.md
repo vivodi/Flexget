@@ -3,7 +3,7 @@ Limit number of new items.
 
 Example:
 
-```
+```yaml
 limit_new: 1
 ```
 

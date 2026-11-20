@@ -6,7 +6,7 @@ Because I pull from a site that uses unrarred files and you subscribe to shows a
 
 Updated: 2016-07-07
 
-```
+```yaml
 # vim: tabstop=2 softtabstop=2 expandtab:
 
 secrets: secrets.yml

@@ -19,7 +19,7 @@ Enjoy :)
 
 *Note 3: Make sure that after you have edited the config file, that indentation is correct. There should be no extra spaces on blank lines and everything should be indented using double spaces.*
 
-```
+```yaml
 #########################################################################################################################################################################################
 #                                                                                                                                                                                       #
 # UNNEFER'S ULTIMATE FLEXGET CONFIG                                                                                                                                                     #
@@ -154,7 +154,7 @@ tasks:
     imdb:
       min_year: 1980
       min_score: 5
-	  min_votes: 1000
+      min_votes: 1000
     set:
       path: /MOVIEDOWNLOADLOCATION
     email:

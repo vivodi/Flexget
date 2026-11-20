@@ -13,7 +13,7 @@ Sort movies with correct name
 fix RemoveEndedShows
 automatically move 1 new show from watchlist to following list every month
 
-```
+```yaml
 secrets: secrets.yml
 
 templates:

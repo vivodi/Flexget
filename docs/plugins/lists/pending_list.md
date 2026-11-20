@@ -8,13 +8,13 @@ See [managed list](/plugins/index.md#managed-list) how to use lists in general.
 
 ## Configuration
 
-```text
+```yaml
 pending_list: <NAME>
 ```
 
 Or:
 
-```text
+```yaml
 pending_list: 
   list_name: <name>
   [include]: [pending|approved|all]

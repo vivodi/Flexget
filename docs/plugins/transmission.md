@@ -10,7 +10,7 @@ $ pip install flexget[transmission]
 ## Usage
 **Example:**
 
-```
+```yaml
 transmission:
   host: localhost
   port: 9091
@@ -22,16 +22,14 @@ The username and password can be set from the GUI, but if you're using the headl
 
 Also make sure that rpc-whitelist isn't preventing FlexGet from connecting to localhost or whatever IP address it's using. The settings below will permit clients connecting from localhost and 192.168.x.x, assuming they also provide the correct credentials, it will also deny all other IP ranges:
 
-```
-...
+```json
 "rpc-whitelist": "127.0.0.1,192.168.*.*",
 "rpc-whitelist-enabled": true,
-...
 ```
 
 ## Transmission-GTK
 If you are running Ubuntu, or most any modern distribution, chances are great that you have transmission-gtk instead of transmission-daemon. In this case: Open transmission-gtk, go to *Edit > Preferences*, and navigate to the *Remote* tab. Check *"Allow remote access"* and set your username and password. If *"Only allow these IP addresses"* is checked, be sure to have your IP included. Test the connection by clicking on *"Open web client"* button. If you can authenticate from the web client, you should have no problems authenticating with your flexget configuration file as follows:
-```
+```yaml
 transmission:
   host: localhost
   port: 9091

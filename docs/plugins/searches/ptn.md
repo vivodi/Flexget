@@ -6,7 +6,7 @@ This plugin is part of [search](/plugins/index.md#search) plugin system
 This plugin searches the private bittorent site PtN. You'll need to enter your username, password, as well as your login key, which can be found on your profile page.
 
 **Basic config:**
-```
+```yaml
 ptn:
   username: xxxx
   password: xxxx
@@ -33,7 +33,7 @@ By default, the results will include torrents from all categories, however you c
 - webrip
 
 This goes into the config like:
-```
+```yaml
 ptn:
   username: xxxx
   password: xxxx

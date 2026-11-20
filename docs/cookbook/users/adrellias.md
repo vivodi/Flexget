@@ -11,7 +11,7 @@ So i use the discover plugin with trakt_list to generate input feeds rss searche
 
 This is just a extract of what i have changed in atlanta800's config file
 
-```
+```yaml
 # This template is a "global" template for all TV-related feeds.
   # We keep all of the RSS feeds that list tv-related torrents here
   # as well as where to check existing shows.
@@ -37,7 +37,7 @@ This is just a extract of what i have changed in atlanta800's config file
 This is the only thing i have in my tasks for series.
 
 
-```
+```yaml
 # This is where we pull everything together
 tasks:
 

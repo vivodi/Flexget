@@ -11,13 +11,13 @@ Any entry containing field(s) `imdb_id`, `trakt_movie_id` or `tmdb_id` can be ad
 
 ## Schema
 
-```text
+```yaml
 movie_list: <name>
 ```
 
 Or:
 
-```text
+```yaml
 movie_list: 
   list_name: <name>
   [strip_year]: <yes|no>

@@ -27,6 +27,6 @@ Search and manipulate the <plugin:archive> plugin database.
 
 ## Examples
 ```console
-#searches the archive for "foo"
+$ # searches the archive for "foo"
 $ flexget archive search "foo"
 ```

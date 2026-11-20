@@ -23,9 +23,9 @@ View and manage entries [pending approval](plugin:pending_approval).
 
 ## Examples
 ```console
-# List all pending entries
+$ # List all pending entries
 $ flexget pending list
 
-# Approve all pending entries
+$ # Approve all pending entries
 $ flexget pending approve all
 ```

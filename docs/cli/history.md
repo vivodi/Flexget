@@ -13,6 +13,6 @@ View the history of entries that FlexGet has accepted.
 
 ## Examples
 ```console
-#displays the accepted history in porcelain table format
+$ # displays the accepted history in porcelain table format
 $ flexget history --porcelain
 ```

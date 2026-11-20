@@ -66,7 +66,7 @@ rss:
 ## `cookielib bug`
 If you get an error like this: 
 
-```
+```pytb
 /usr/lib/python2.6/_MozillaCookieJar.py:109: UserWarning: cookielib bug!
 Traceback (most recent call last):
   File "/usr/lib/python2.6/_MozillaCookieJar.py", line 82, in _really_load
@@ -85,7 +85,7 @@ $ curl -b oldcookiefile.txt --cookie-jar newcookiefile.txt http://url
 <br>
 
 ## `Distribution Not Found`
-```
+```pytb
 Traceback (most recent call last):
   File "/usr/local/bin/flexget", line 5, in <module>
     from pkg_resources import load_entry_point

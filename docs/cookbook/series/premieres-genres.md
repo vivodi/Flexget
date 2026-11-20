@@ -1,5 +1,5 @@
 # Get series premieres with genre filtering
-```
+```yaml
 tasks:
    get_shows:
       rss: https://www.xxxx.com/feeds.php?xxxx

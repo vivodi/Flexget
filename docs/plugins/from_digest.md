@@ -3,16 +3,16 @@ This plugin outputs entries which have been collected by the <plugin:digest> plu
 
 
 ## Configuration
-```text
+```yaml
 from_digest: <listname>
 ```
 or
-```text
+```yaml
 from_digest:
   list: <listname>
 ```
 You can also `limit` the number of entries to output, as well as manage how long before they `expire` (i.e. removed from the list) as follows:
-```text
+```yaml
 from_digest:
   list: <listname>
   limit: <number of items>

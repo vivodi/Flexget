@@ -13,7 +13,7 @@ The best_qality plugin will sort entries, grouped by an identifier, and allow ac
 
 ## Syntax:
 
-```
+```yaml
 best_quality:
   identified_by: <jinja template>
   on_best: [accept|reject|do_nothing]

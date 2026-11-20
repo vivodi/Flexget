@@ -15,7 +15,7 @@ trakt_lookup: yes
 ```
 or
 
-```YAML
+```yaml
 trakt_lookup:
    account: <flexget account name>
    username: <trakt username>
@@ -148,7 +148,7 @@ trakt_lookup:
 
 The most common uses we'll see are using it for <plugin:make_rss> and making pretty filenames using <plugin:set> to set `content_filename` in the <plugin:deluge>. The 'default' jinja filter is used to insert 'Unknown' if trakt_lookup failes to get an entry field.
 
-```
+```yaml
 trakt_lookup: yes
 set:
   content_filename: "{{series_name}} - {{series_id}} - {{trakt_ep_name|default('Unknown')}}"
@@ -156,7 +156,7 @@ set:
 
 ### Reject entries that have been marked as watched
 
-```
+```yaml
 some_task:
   trakt_lookup:
     username: my_trakt_tv_username

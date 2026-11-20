@@ -17,6 +17,6 @@ View and manage <plugin:irc> connections.
 
 ## Examples
 ```console
-#shows the status for a specific irc connection
+$ # shows the status for a specific irc connection
 $ flexget irc status
 ```

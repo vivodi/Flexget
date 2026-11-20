@@ -12,7 +12,7 @@ By default FlexGet will consider both of these series the same, if 'Seriesname' 
 ## The Workaround
 To solve this we can manually specify [exact](plugin:series/exact) mode for this series using the regular <plugin:series> plugin.
 
-```
+```yaml
 # Use configure_series as normal, and also include the series plugin like this:
 series:
   # The series name specified here should be exactly the same as it comes from configure_series

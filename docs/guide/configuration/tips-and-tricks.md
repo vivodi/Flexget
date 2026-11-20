@@ -6,7 +6,7 @@ In case you have multiple download locations, or path is long, you may wish to u
 
 Example:
 
-```
+```yaml
 series: &series ~/torrents/series
 movies: &movies ~/torrents/movies
 
@@ -27,7 +27,7 @@ feeds:
 
 Variables can also be defined on their first occurrence and then reused as needed.
 
-```
+```yaml
 ---
 feeds:
   feed A:
@@ -50,7 +50,7 @@ In case you have similar feed configurations you can use use one of them as temp
 
 Example:
 
-```
+```yaml
 feeds:
   feed A: &movies
     rss: http://some.site.com/rss.php

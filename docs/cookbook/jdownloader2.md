@@ -6,7 +6,7 @@ Activate Jdownloader2's folderwatch function and use the exec plugin in flexget.
 
 
 example:
-```
+```yaml
 tasks:
   task_name:
     rss: http://example.com
@@ -23,7 +23,7 @@ tasks:
 folderwatch is located by default inside the JDownloader2 installation folder
 
 these are the changeable values:
-```
+```properties
 #a comment
    extractPasswords=["Password1","Password2"](/"Password1","Password2")
    enabled=null

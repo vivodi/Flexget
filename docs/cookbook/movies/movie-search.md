@@ -1,5 +1,5 @@
 # Movie Search
-  ```
+  ```yaml
   movies search:
     trakt_lookup: yes  # can also use imdb_lookup or tmdb_lookup
     priority: 10 # run after the movie queue fill task

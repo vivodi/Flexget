@@ -52,7 +52,7 @@ $ pip install qbittorrent-api
 
 **Example:**
 
-```
+```yaml
 from_qbittorrent:
   host: localhost
   port: 8081

@@ -36,7 +36,7 @@ Currently the following settings are supported:
 | **type** | Type of items to be listed, can be one of: `movies`, `shows`, or `episodes`|
 
 ## Config format
-```text
+```yaml
 trakt_list:
   username: <trakt username>
   [account]: <account set up in CLI>

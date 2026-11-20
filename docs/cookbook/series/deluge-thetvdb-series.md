@@ -1,5 +1,5 @@
 # Advanced deluge/thetvdb config showing many features
-```
+```yaml
 templates:
   tv:
     configure_series:

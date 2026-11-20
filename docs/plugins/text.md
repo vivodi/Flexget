@@ -1,7 +1,7 @@
 # Text
 Parse any text for entries using regular expression. This doesn't work well with HTML, please use <plugin:html> instead.
 
-```
+```yaml
 text:
   url: <url>
   entry:
@@ -16,7 +16,7 @@ Format can be used to modify matched values. All fields that were parsed are usa
 **Note:** each entry must have at least two fields, title and url.
 
 ## Example:
-```
+```yaml
 text:
   url: http://www.nbc.com/Heroes/js/novels.js
   # construct our entry with this data

@@ -12,7 +12,7 @@ If you have IMDB/TMBD lookup failures and some movie or series that "slip throug
 ## Example
 To enable `guessit` for movie and series parsing:
 
-```
+```yaml
 parsing:
   movie: guessit
   series: guessit

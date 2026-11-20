@@ -22,6 +22,6 @@ View and manage [Trakt authentication](/guide/trakt.md/#trakt-authentication), f
 
 ## Examples
 ```console
-#refreshes the access token associated with the "my_foo_account"
+$ # refreshes the access token associated with the "my_foo_account"
 $ flexget trakt refresh my_foo_account
 ```

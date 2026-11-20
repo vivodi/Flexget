@@ -7,7 +7,7 @@ This may seem a bit scary at first, but just remember discover is normal input l
 Cookbook example: [discoverfeed](/cookbook/movies/discover-feed)
 
 ## Config Format
-```text
+```yaml
 discover:
   what:
     - <input plugin config>

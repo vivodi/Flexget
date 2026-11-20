@@ -3,19 +3,19 @@ Generate entries from SFTP to download with <plugin:sftp_download>. This plugin 
 
 ## Prerequisites
 - The `sftp` extra provided by FlexGet is installed.
-  ```
-  pip install flexget[sftp]
+  ```console
+  $ pip install flexget[sftp]
   ```
 **NOTE:** If experiencing issues with connections, you may need to [downgrade](https://github.com/Yenthe666/auto_backup/issues/47) pysftp to 0.2.8 (if using 0.2.9).
 
 This can easily be done by running:
-```
-pip uninstall pysftp
-pip install pysftp==0.2.8
+```console
+$ pip uninstall pysftp
+$ pip install pysftp==0.2.8
 ```
 
 If you are using a custom port, make sure to not put it in quotes so it is specified as a number:
-```
+```yaml
 sftp_list:
   host: example.com
   username: Username
@@ -26,7 +26,7 @@ pysftp depends on the Pycrypto library. If you are using Windows, you may have t
 
 **Example**
 
-```
+```yaml
 sftp_list:
   host: example.com
   username: Username

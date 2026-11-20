@@ -3,7 +3,7 @@ Default behavior is to download propers always.
 
 To disable propers completely:
 
-```
+```yaml
 series:
   - some series:
       quality: 720p
@@ -12,7 +12,7 @@ series:
 
 To specify timeframe in which propers are accepted:
 
-```
+```yaml
 series:
   - some series:
       quality: 720p

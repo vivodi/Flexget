@@ -30,6 +30,6 @@ execute/*
 
 ## Examples
 ```console
-#executes the "foo_task"
+$ # executes the "foo_task"
 $ flexget execute --tasks foo_task
 ```

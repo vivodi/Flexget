@@ -18,7 +18,7 @@ FLEXGET config.yml:
 everything in with CHANGE-infront needs to be replaced
 
 #############################################################################
-```
+```yaml
 templates:
   DELUGE:
     deluge:
@@ -256,7 +256,7 @@ optionally, email yourself the content of 'list' at intervals, below example is 
 
 #############################################################################
 
-```
+```text
 0 17 * * * cat /var/lib/deluge/list | mail -s 'daily viewing' userlist ; rm /var/lib/deluge/list
 
 ```

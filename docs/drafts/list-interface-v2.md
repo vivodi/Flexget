@@ -3,13 +3,13 @@ Just some ideas ...
 
 Alternative to add_list, remove_list
 
-```
+```yaml
 manage_list:
   add:
     - movie_list: foobar
 ```
 
-```
+```yaml
 manage_list
   remove:
     - trakt_list:
@@ -20,7 +20,7 @@ manage_list
 
 
 ## list_accept, list_reject, list_queue mess
-```
+```yaml
 match_list:
   from:
     - [list](/list)
@@ -33,7 +33,7 @@ default marked with *
 
 examples:
 
-```
+```yaml
 match_list:
   from:
     - trakt_list:

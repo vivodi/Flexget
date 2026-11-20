@@ -33,7 +33,7 @@ Basically you have one IRC Daemon config, along with other regular configs.
 Whenever a new torrent is announced in an IRC channel you're in, the irc daemon sends that torrent to the api of each of the regular user configs.
 
 ### The IRC Config
-```
+```yaml
 variables: variables.yml
 schedules: no
 
@@ -164,7 +164,7 @@ This config is accompanied by a `trackers` directory, that contains XML informat
 
 Just so you get the idea, it looks like this.
 
-```
+```yaml
 general:
   config_path: '/home/flexget/.virtualenvs/irc_daemon'
   notifyscript: 'notify_daemons.sh'
@@ -213,7 +213,7 @@ Below is a decent example of how that script would look like.
 You can read more about the [FlexGet API on the wiki.](/guide/api).
 If you want to get the flexget token for one of your regular flexget instances, make sure API is enabled in your config (`web_server: yes`), password has been generated (`flexget web passwd <some_password>`) and after, use command `flexget web showtoken`.
 
-```
+```bash
 #!/bin/bash
 
 TITLE=$1
@@ -270,13 +270,13 @@ done
 
 ### Here's what one of the regular configs look like. (NOTE: Uses Trakt, you need a scrobbler via XBMC/Kodi or Plex)
 - Runs as a daemon. Execute it with 
-```
-flexget -c config.yml -l logs/flexget.log -L verbose daemon start --daemonize
+```console
+$ flexget -c config.yml -l logs/flexget.log -L verbose daemon start --daemonize
 ```
 
 You'll note that there's a task suffixed "_direct" for movies and shows, which are used by the IRC daemon. There is also a task for season packs. There is a lot of commented stuff throughout the configs, I am leaving them in for you to take inspiration from.
 
-```
+```yaml
 variables: variables.yml
 # Things that need to be updated here in case of config-copy (because they are integers..)
 # * 'port' fields (note: web_server port needs to be different from other instances!)
@@ -669,7 +669,7 @@ tasks:
 
 A small snippet of variables.yml (you get the idea):
 
-```
+```yaml
 trakt_lists:
   shows_follow: 1-b-shows-b-follow
   shows_backlog: 2-b-shows-b-get-backlog

@@ -19,7 +19,7 @@ Intelligent filter for TV-series.
 
 **Simple configuration:**
 
-```
+```yaml
 series:
   - some series
   - another series
@@ -35,7 +35,7 @@ So if we get same episode twice:
 
 Only one of them is downloaded, with default configuration the first entry matching quality requirements is chosen. In this example we have no spesific requirements. To get the best quality within current execution you can sort qualities with <plugin:sort_by> plugin.
 
-```
+```yaml
 sort_by:
   field: quality
   reverse: yes

@@ -2,7 +2,7 @@
 A more complete example of a configuration for pushbullet including more information from the series plugin. This of course can be expanded, but it is good to for figuring out how Jinja2 templates work. Also to test this try the mock task.
 
 ## Pushbullet configuration
-```
+```yaml
 templates:
   add_pushbullet:
     pushbullet:
@@ -12,7 +12,7 @@ templates:
 ```
 
 Output in the format:
-```
+```yaml
 title: <Task name> - <Series Name> <Episode Number>
 body:
   ‣ episode:   <episode name>
@@ -22,7 +22,7 @@ body:
 ```
 
 ## Test
-```
+```yaml
 tasks:
   test_push:
     manual: true

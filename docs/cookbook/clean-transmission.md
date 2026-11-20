@@ -25,8 +25,8 @@ tasks:
 
 ## Defining Criteria
 In order to determine what fields are available from the torrent client it is easiest to run a test like this:
-```sh
-flexget --test execute --tasks "remove stale torrents" --dump
+```console
+$ flexget --test execute --tasks "remove stale torrents" --dump
 ```
 The `--test` will ensure nothing is actually removed while you are testing, and the `--dump` means that all the available entry fields will be printed out. You can then determine which entry fields you would like to filter on.
 

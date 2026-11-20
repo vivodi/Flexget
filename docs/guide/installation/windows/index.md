@@ -74,7 +74,7 @@ This will install FlexGet and all of the additional components it requires.
 ### Verify installation
 Run this command in the command prompt:
 
-```console
+```doscon
 C:\>flexget -V
 ```
 This should output the installed version.

@@ -14,7 +14,7 @@ The plugin will do the following:
 
 Config:
 
-```
+```yaml
 nfo_lookup: yes
 ```
 
@@ -24,7 +24,7 @@ Example of a full task
 
 Given a folder where each movie is in a subfolder, the task bellow will read all movies and generate an HTML file.
 
-```
+```yaml
 filesystem:
   path: SOME_PATH_WITH_MOVIES
   recursive: 2

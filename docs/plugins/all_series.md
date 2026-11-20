@@ -7,7 +7,7 @@ Plugin expects the title format to start with the series name followed by the ep
 
 Turns on the plugin for a task.
 
-```
+```yaml
 all_series: yes
 ```
 
@@ -16,7 +16,7 @@ Behind the scenes, `all_series` just configures the <plugin:series> plugin with 
 
 ### Example
 
-```
+```yaml
 all_series:
   path: /media/TV
   quality: 720p hdtv

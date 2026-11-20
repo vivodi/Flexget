@@ -12,6 +12,6 @@ list or clear remembered failures
 
 ## Examples
 ```console
-#lists all the entries with failures
+$ # lists all the entries with failures
 $ flexget failed list
 ```

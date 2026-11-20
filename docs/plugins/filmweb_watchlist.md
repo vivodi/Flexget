@@ -2,8 +2,8 @@
 
 This plugin requires the pyfilmweb Python module for accessing filmweb API. To install the Python module run:
 
-```
-pip install pyfilmweb==0.1.1.1
+```console
+$ pip install pyfilmweb==0.1.1.1
 ```
 
 This plugin creates an [entry](/guide/entry) for each item in an Filmweb watch list.

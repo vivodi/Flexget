@@ -6,16 +6,16 @@ This plugin is based on [IMDBPY](http://imdbpy.sourceforge.net/) and it is requi
 ## Plugin Settings
 The only required setting is ID. The plugin can be used in several formats.
 For example:
-```
+```yaml
 from_imdb: ch0001354
 ```
 Or:
-```
+```yaml
 from_imdb: 
       id: ch0001354
 ```
 More than one can be used:
-```
+```yaml
 from_imdb:
       id:
         - nm0004874 # Vin Diesel
@@ -40,7 +40,7 @@ These two examples are equal. The only important part is to give the full IMDB I
 
 
 ### Example:
-```
+```yaml
 tasks:
   auto-queue:
     from_imdb:

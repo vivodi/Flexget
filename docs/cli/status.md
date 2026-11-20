@@ -17,9 +17,9 @@ View task health status.
 
 ## Examples
 ```console
-#shows the status for all tasks
+$ # shows the status for all tasks
 $ flexget status
 
-#displays status of the "foo_queue" task in porcelain table layout
+$ # displays status of the "foo_queue" task in porcelain table layout
 $ flexget status --task "foo_queue" --porcelain
 ```

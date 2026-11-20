@@ -11,12 +11,12 @@ This search plugin will get tv seasons (they do not allow single episodes) and m
 ## Configuration
 Only required parameter is `passkey`, which can be found on your AHD profile. This key is unique to your account so guard it well!
 
-```
+```yaml
 awesomehd:
   passkey: <passkey>
   only_internal: true|false (default false)
 ```
 Alternative config (`only_internal` still defaults to `False`):
-```
+```yaml
 awesomehd: <passkey>
 ```

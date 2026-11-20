@@ -3,7 +3,7 @@ Mainly for advanced users only. Allows setting and cleaning entry fields with re
 
 Syntax:
 
-```
+```yaml
 manipulate:
   - <destination field>:
       [phase]: <phase>
@@ -28,13 +28,13 @@ Title is filled with garbage that series plugin does not like.
 
 eg.
 
-```
+```text
 [48952] The Series S01E01 720p
 ```
 
 This could be fixed by removing the [48952]
 
-```
+```yaml
 manipulate:
   - title:
       extract: \[\d+\](.*)
@@ -47,7 +47,7 @@ Regexp can return any number of groups, value is combination of these (separated
 ## Example 2
 Some badly written site has invalid URLs. Uses \&amp; instead of &
 
-```
+```yaml
 manipulate:
   - url:
       replace:
@@ -60,7 +60,7 @@ Currently these are fixed automatically by `urlfix` plugin.
 ## Example 3
 You can do multiple manipulates in a row, and they will be executed in order. You can also do multiple manipulates on the same field.
 
-```
+```yaml
 manipulate:
   - title:
       extract: .*\[\s*(.*)\s*\]-.*
@@ -75,7 +75,7 @@ manipulate:
 ## Example 4
 You can control how the regex hits are output using \1, \2, etc in format.
 
-```
+```yaml
 manipulate:
   - title:
       replace:            
@@ -86,7 +86,7 @@ manipulate:
 ## Example 5
 The series plugin operates on both the title and description fields. If you want to exclude the description field, you can simply remove it:
 
-```
+```yaml
 manipulate:
   - description:
       remove: yes
@@ -96,7 +96,7 @@ manipulate:
 
 There are advertisement in the title. Let's erase them.
 
-```
+```yaml
 manipulate:
   - title:
       erase:

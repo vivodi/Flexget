@@ -3,7 +3,7 @@
 This plugin checks wether the user is running the latest version of flexget. To avoid unnecesary requests, this happens on an interval by default (1 request per day).
 The plugin can be added to any task and output a log warning if it finds an update:
 
-```
+```text
 2016-01-06 17:56 WARNING  version_checker task1           You are not running latest Flexget Version. Current is 1.2.424.dev and latest is 1.2.423
 ```
 

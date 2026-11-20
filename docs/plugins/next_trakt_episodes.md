@@ -29,7 +29,7 @@ Currently the following settings are supported:
 ### Example: set series begin
 This example shows how the next_trakt_episodes plugin could be used with the <plugin:set_series_begin> plugin in order to set the first episode to download for the series in the my_tv_show list on Trakt. By default FlexGet will start from first episode it sees in the task. This is mainly useful if you set up discover.
 
-```
+```yaml
 tasks:
   sync-trakt:
     next_trakt_episodes:

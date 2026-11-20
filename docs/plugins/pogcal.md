@@ -3,7 +3,7 @@ Produces an entry for each show you have checked on your tv show calender at [po
 
 ## Configuration
 Username and password for the website are the only configuration options:
-```
+```yaml
 pogcal:
   username: me@here.com
   password: xxxx

@@ -19,7 +19,7 @@ The launcher package simply reads your `~/.bash_profile` file and starts the Fle
 ### Launch Agent
 Create /Users/USERNAME/Library/LaunchAgents/com.flexget.plist with:
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -46,20 +46,20 @@ Create /Users/USERNAME/Library/LaunchAgents/com.flexget.plist with:
 
 Then:
 
-```
-launchctl load -w /Users/USERNAME/Library/LaunchAgents/com.flexget.plist
+```console
+$ launchctl load -w /Users/USERNAME/Library/LaunchAgents/com.flexget.plist
 ```
 
 When upgrading, use this to unload the plist:
 
-```
-launchctl unload /Users/USERNAME/Library/LaunchAgents/com.flexget.plist
+```console
+$ launchctl unload /Users/USERNAME/Library/LaunchAgents/com.flexget.plist
 ```
 
 If you want to check if Flexget is running, use
 
-```
-launchctl list | grep flexget
+```console
+$ launchctl list | grep flexget
 ```
 
 If the process is running, you'll see a process ID in the first column, followed by the last exit status. If the second column isn't 0, check your log file for errors.

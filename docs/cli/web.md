@@ -11,9 +11,9 @@ Manage web server settings
 
 ## Examples
 ```console
-#shows the FlexGet web server API token
+$ # shows the FlexGet web server API token
 $ flexget web showtoken
 
-#changes the password to foopass
+$ # changes the password to foopass
 $ flexget web passwd foopass
 ```

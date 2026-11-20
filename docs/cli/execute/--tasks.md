@@ -3,8 +3,8 @@ Allows running only selected tasks from the config.
 
 **Syntax:**
 
-```
---tasks <TASK> [TASK](/TASK)
+```console
+$ flexget execute --tasks <TASK> [TASK](/TASK)
 ```
 
 where the given task names can also be glob patterns (i.e. using `*`, `?` or `[charsets](/charsets)`).
@@ -13,22 +13,22 @@ where the given task names can also be glob patterns (i.e. using `*`, `?` or `[c
 **Example:**
 
 If you want to only execute a task called `mytask` run flexget like so:
-```
-flexget execute --tasks mytask
+```console
+$ flexget execute --tasks mytask
 ```
 
 **Multiple tasks example:**
 
 If you would like to run multiple tasks you can list them separated by spaces. This example runs `my task` and `yourtask`:
-```
+```console
 flexget execute —-tasks "my task" yourtask
 ```
 
 **Pattern example:**
 
 If you would like to select a number of tasks that have similar names:
-```
-flexget execute --tasks "tv*"
+```console
+$ flexget execute --tasks "tv*"
 ```
 
 
@@ -37,7 +37,7 @@ flexget execute --tasks "tv*"
 **NOTE** You can accomplish a similar effect with the <plugin:interval> plugin, or using FlexGet's built-in scheduling in daemon mode. With this method you must be aware that two instances of FlexGet cannot run at the same time due to a lock file.
 
 Another very useful application of the pattern selection is to have cron schedules like this:
-```
+```text
 */5     * * * *         nice flexget execute --cron --tasks "*-5"
 */14    * * * *         nice flexget execute --cron --tasks "*-14"
 ```

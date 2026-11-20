@@ -11,7 +11,7 @@ MQTT is a part of the [notifier](/plugins/index.md#notifier-services-output) plu
 
 ### Sorry, Beautiful documentation is work-in-progress. Use this for now / fix me.
 
-```text
+```yaml
 broker_address: "iot.eclipse.org"
 topic: "flexget/notifications"
 [broker_port: 1883]

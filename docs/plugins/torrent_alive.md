@@ -6,19 +6,19 @@ Rejections are remembered by default for one hour. If the entry is accepted agai
 **`NOTE:`** This plugin only works if the tracker supports a standard scrape. It will cause entries to be rejected if none of the trackers for a torrent support scrape; In this case, do not use this plugin.
 
 **Example:**
-```
+```yaml
 torrent_alive: yes
 ```
 
 You can also specify the minimum number of seeds needed.
-```
+```yaml
 torrent_alive: 10
 ```
 
 **Advanced Format:**
 
 If you need to specify that rejections should last a different amount of time than 1 hour, you can use the advanced config format:
-```
+```yaml
 torrent_alive:
   min_seeds: 10
   reject_for: 15 minutes

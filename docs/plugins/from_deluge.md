@@ -22,8 +22,8 @@ This plugin creates an [entry](/guide/entry) for each torrent that is currently 
 This plugin passes on all information provided by deluge on as entry fields. The names of these fields will all be prefixed with `deluge_`. The naming may vary slightly depending on deluge version.
 
 To get a full listing of fields provided, run the following command:
-```sh
-flexget --test execute --tasks <name of from_deluge task> --dump
+```console
+$ flexget --test execute --tasks <name of from_deluge task> --dump
 ```
 
 Here are some of the more common entry fields which will be created:

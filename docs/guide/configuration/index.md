@@ -194,12 +194,12 @@ tasks:
 As you can see above, there are seven tasks listed, but instead of calling each task individual, or all of them at once, you could use wildcards on the command line like this:
 
 ```console
-# executes Series-Primary and Series-Premieres
+$ # executes Series-Primary and Series-Premieres
 $ flexget execute --tasks Series-*
 $ flexget execute --tasks Update-Queue
-# executes Movies-Queue and Movies-All
+$ # executes Movies-Queue and Movies-All
 $ flexget execute --tasks Movies-*
-# executes Update-trakt-TV and Update-trakt-Movies
+$ # executes Update-trakt-TV and Update-trakt-Movies
 $ flexget execute --tasks Update-trakt-*
 ```
 

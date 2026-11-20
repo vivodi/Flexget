@@ -43,7 +43,7 @@ This will find all your tv shows and movies that are no longer listed in the Del
   * Moving files is the same as if you moved them manually - consider how and when to run!
   
 
-```
+```yaml
 tasks:
   old-deluge-tv:
     priority: 1

@@ -3,7 +3,7 @@ The <plugin:series> plugin has timeframe functionality which allows download to 
 
 **Example:**
 
-```
+```yaml
 templates:
   movies:
     imdb:

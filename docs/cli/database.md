@@ -13,6 +13,6 @@ Utilities to manage the FlexGet database.
 
 ## Examples
 ```console
-# cleanup unnecessary data from the database
+$ # cleanup unnecessary data from the database
 $ flexget database cleanup
 ```

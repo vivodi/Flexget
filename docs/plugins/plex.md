@@ -35,7 +35,7 @@ Using selection 'all' or 'recentlyViewedShows' will only produce a list of show 
 
 ## Sample configuration
 Server on local network used as input for show listing:
-```
+```yaml
 configure_series:
   from:
     plex:
@@ -45,7 +45,7 @@ configure_series:
 ```
 
 Remote server with Myplex authentication:
-```
+```yaml
 plex:
   section: 3
   server: 111.222.333.444
@@ -56,13 +56,13 @@ plex:
 ```
 
 Remote Plex-Cloud Server:
-```
+```yaml
 plex:
   section: 1
-  server: **.ric.plex.services  # You get Server URL from https://plex.tv/users/cpms
+  server: '**.ric.plex.services'  # You get Server URL from https://plex.tv/users/cpms
   port: 80
   selection: recentlyAdded
-  token: ****** # only use token ore user/pw not both!
+  token: '******' # only use token ore user/pw not both!
   username: myplexusername
   password: myplexpassword
 ```

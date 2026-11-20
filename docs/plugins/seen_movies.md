@@ -11,18 +11,18 @@ There are two different operating modes, `strict` and `loose`.
 
 Strict mode will reject all entries that have not been identified as movies. Loose mode will not intervene.
 
-```
+```yaml
 seen_movies: strict
 ```
 or
-```
+```yaml
 seen_movies:
   matching: strict
 ```
 
 ### Scope
 By default this plugin will only allow a movie to be accepted once in any task. You can limit it to the current task by changing the scope to `local`.
-```
+```yaml
 seen_movies:
   scope: local
 ```

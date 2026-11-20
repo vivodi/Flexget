@@ -2,8 +2,8 @@
 
 ## Prerequisites
 - The `subliminal` extra provided by FlexGet is installed.
-  ```
-  pip install flexget[subliminal]
+  ```console
+  $ pip install flexget[subliminal]
   ```
 
 Download subtitles for entries referring to existing video files. 
@@ -23,7 +23,7 @@ Download subtitles for entries referring to existing video files.
 
 ### Example (complete task)
 
-```
+```yaml
 tasks:
   get-subtitles:
     filesystem:

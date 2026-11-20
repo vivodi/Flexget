@@ -8,7 +8,7 @@ This plugin marks the checkbox for accepted episodes on the [pogdesign TV calend
 
 ## Configuration
 This plugin takes just two options, your username and password at the pogdesign calendar.
-```
+```yaml
 pogcal_acquired:
   username: me@internet.com
   password: itsasecret

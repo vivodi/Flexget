@@ -17,7 +17,7 @@ Currently the following settings are supported:
 
 
 ## Config format
-```
+```yaml
 myepisodes_list:
   username: <value>
   password: <value>
@@ -28,7 +28,7 @@ myepisodes_list:
 ### Example: Autoconfigure series
 This example shows how the trakt_list plugin could be used with the <plugin:configure_series> plugin in order to download all of the series you have included in a custom trakt list called 'following shows'.
 
-```
+```yaml
 configure_series:
   from:
     myepisodes_list:

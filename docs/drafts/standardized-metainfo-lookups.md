@@ -11,14 +11,14 @@
 ## Configuration
 Suggested formats:
 
-```
+```yaml
 metainfo:
   type: series
   provider: trakt
 ```
 ----------------
 Alternate idea: metainfo providers are configured at the root of the config. This way, even things like cli utilities (movie queue) can request a lookup which can use the users settings.
-```
+```yaml
 tasks:
   a:
     metainfo: series

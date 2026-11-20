@@ -6,7 +6,7 @@ Commandline parameter must be comma separated list of variable=values.
 
 Configuration example:
 
-```
+```yaml
 tasks:
   my task:
     rss: $url
@@ -15,6 +15,6 @@ tasks:
 
 Commandline example:
 
-```
---cli-config "url=http://some.url/, path=~/downloads"
+```console
+$ flexget execute --cli-config "url=http://some.url/, path=~/downloads"
 ```

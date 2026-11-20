@@ -19,7 +19,7 @@ $ pip2 install --upgrade pip
 
 ## Pip package issues
 
-```
+```pytb
 Traceback (most recent call last):
   File "/usr/lib/python2.7/dist-packages/pip/__init__.py", line 74, in <module>
     from pip.vcs import git, mercurial, subversion, bazaar  # noqa
@@ -33,8 +33,10 @@ ImportError: cannot import name IncompleteRead
 Solution in the forum was to remove pip from OS package manager. And the follow [this](https://pip.pypa.io/en/latest/installing/#install-pip).
 
 ## Default python version switched
-```
+```console
 [root@foobar ~]# pip install --upgrade flexget
+```
+```pytb
 Traceback (most recent call last):
   File "/usr/bin/pip", line 5, in <module>
     from pkg_resources import load_entry_point
@@ -70,7 +72,7 @@ $ curl https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py | sudo py
 ```
 
 ## Distribute package
-```
+```pytb
 Traceback (most recent call last):
 File "/usr/local/lib/python2.7/site-packages/distribute-0.6.14-py2.7.egg/setuptools/command/egg_info.py", line 308, in run
 self.add_defaults()

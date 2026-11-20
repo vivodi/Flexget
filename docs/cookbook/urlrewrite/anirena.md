@@ -1,5 +1,5 @@
 # Anirena
-```
+```yaml
 urlrewrite:
   aniarena:
     regexp: 'http://www.anirena.com/viewtracker.php\?action=details&id=(?P<id>\d+)'

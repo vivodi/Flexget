@@ -7,16 +7,16 @@ this page alone will not be of much use to you unless you are an advanced user.
 **PREPARE THE WEB SERVER**
 
 on your VPS/seedbox, run the following commands one after the other:
-```
-sudo apt-get install lighttpd
-sudo apt-get install php5-cgi
-sudo nano "" > /etc/lighttpd/lighttpd.conf
-sudo nano /etc/lighttpd/lighttpd.conf
+```console
+$ sudo apt-get install lighttpd
+$ sudo apt-get install php5-cgi
+$ sudo nano "" > /etc/lighttpd/lighttpd.conf
+$ sudo nano /etc/lighttpd/lighttpd.conf
 ```
 then copy and paste the following text into nano:
 
 **note:** replace "djnitehawk" with your username
-```
+```ini
 server.modules = (
 	"mod_access",
 	"mod_alias",
@@ -74,36 +74,36 @@ fastcgi.server = ( ".php" => ((
 save and exit nano by pressing CTRL+X and Y and enter.
 
 and then run the following command:
-```
-sudo nano /etc/lighttpd/pass.txt
+```console
+$ sudo nano /etc/lighttpd/pass.txt
 ```
 then copy and paste the following text into nano:
 
 **note:** replace "djnitehawk" with your username and replace "A_STRONG_PASSWORD_FOR_YOUR_WEB_SERVER" with a strong password.
-```
+```text
 djnitehawk:A_STRONG_PASSWORD_FOR_YOUR_WEB_SERVER
 ```
 save and exit nano by pressing CTRL+X and Y and enter.
 
 and then run the following commands one after the other:
-```
-sudo chmod 777 /etc/lighttpd/pass.txt
-sudo openssl req -new -x509 -keyout server.pem -out server.pem -days  36500 -nodes
+```console
+$ sudo chmod 777 /etc/lighttpd/pass.txt
+$ sudo openssl req -new -x509 -keyout server.pem -out server.pem -days  36500 -nodes
 ```
 at this point, it will ask you for some personal details. just enter the appropriate values for generating your own self signed SSL certificate. pay special attention when it asks for your "**Common Name (e.g. server FQDN or YOUR name)**". you have to enter your domain or subdomain name you have setup for your VPS/seedbox. i have not tried entering an IP address in this field, but you can try.
 
 after the wizard finishes, run the following commands one after the other:
 
-```
-sudo chmod 777 server.pem
-sudo mv server.pem /etc/lighttpd/
-sudo lighty-enable-mod ssl
-nano ~/Ready/index.php
+```console
+$ sudo chmod 777 server.pem
+$ sudo mv server.pem /etc/lighttpd/
+$ sudo lighty-enable-mod ssl
+$ nano ~/Ready/index.php
 ```
 then copy and paste the following text into nano:
 
 **note:** replace "djnitehawk" with your username.
-```
+```php
 <?php
 
 $src = "/home/djnitehawk/Ready";
@@ -161,21 +161,21 @@ function ListIn($dir, $prefix) {
 save and exit nano by pressing CTRL+X and Y and enter.
 
 and then run the following commands one after the other:
-```
-chmod 777 ~/Ready/index.php
-sudo service lighttpd restart
+```console
+$ chmod 777 ~/Ready/index.php
+$ sudo service lighttpd restart
 ```
 that's all you have to do on your VPS/seedbox.
 
 to verify that your newly installed web server is running with SSL, visit your VPS/seedbox in a web browser like so:
-```
+```text
 https://vps.mydomain.com
 ```
 if everything works correctly, it should now prompt you for a username and password with some text like: "Password protected area... Get lost!" :-)
 
 if it's not working, go back and double check your work. optionally try restarting your VPS/seedbox with:
-```
-sudo shutdown -r 0
+```console
+$ sudo shutdown -r 0
 ```
 ----
 **PREPARE THE LOCAL COMPUTER**
@@ -186,13 +186,13 @@ ok, lets get started...
 
 log into your local ubuntu box and run the followings commands one after the other:
 
-```
-sudo apt-add-repository ppa:t-tujikawa/ppa
-sudo apt-get update
-sudo apt-get install aria2
-sudo apt-get install curl
-cd ~/
-nano downer
+```console
+$ sudo apt-add-repository ppa:t-tujikawa/ppa
+$ sudo apt-get update
+$ sudo apt-get install aria2
+$ sudo apt-get install curl
+$ cd ~/
+$ nano downer
 ```
 then copy and paste the following text into nano:
 
@@ -340,43 +340,43 @@ read sdlkdjf
 save and exit nano by pressing CTRL+X and Y and enter.
 
 and then run the following command:
-```
-chmod +x downer
+```console
+$ chmod +x downer
 ```
 that's it. the setup is now complete...
 ----
 to test the download manager, first make sure that your VPS/seedbox has some files in the "~/Ready" folder.
 
 then log in to your local ubuntu box and issue the following command to start downloading files from your VPS/SB server:
-```
-./downer
+```console
+$ ./downer
 ```
 to cancel the downloading, simply press CTRL+C
 
 to display a list of files that are on the VPS/SB in the "~/Ready" folder, simply run:
-```
-./downer list
+```console
+$ ./downer list
 ```
 to limit the bandwidth used up by the download manager, simply run:
-```
-./downer 100
+```console
+$ ./downer 100
 ```
 the 100 above is to set the download bandwidth limit to 100 KB/s. to limit the bandwidth to 1 MB/s, use 1024 like so:
-```
-./downer 1024
+```console
+$ ./downer 1024
 ```
 that's all there is to it... enjoy!!!
 ----
 **TIPS & TRICKS**
 
 to run the download manager in the background, so you can close/disconnect from your terminal session, use as follows:
-```
-screen -R x
-./downer
+```console
+$ screen -R x
+$ ./downer
 ```
 at this point, you can either close your terminal session or detach from the download manager by pressing CTRL+A+D and it will still keep downloading your files from the VPS/SB.
 
 to reconnect to an already running download manager, issue the screen command again like so:
-```
-screen -R x
+```console
+$ screen -R x
 ```

@@ -18,7 +18,7 @@ Currently the following settings are supported:
 | **sort** | Sort by `comunity_rating`, `critic_rating`, `date_created`, `date_played`, `play_count`, `premiere_date`, `production_year`, `sort_name`, `random`, `revenue`, `runtime`. Can also specify the order type in `field` and the `order` as  `ascending ` or  `descending `
 
 ## Config format
-```text
+```yaml
 emby_list:
     server:
         host: http://localhost:8096

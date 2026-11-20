@@ -2,7 +2,7 @@
 Parses any RSS feed.
 
 ## Simple configuration
-```YAML
+```yaml
 rss: <url>
 ```
 
@@ -11,7 +11,7 @@ Note: https supported.
 ### Authentication
 **Basic http authentication**
 
-```YAML
+```yaml
 rss:
   url: <url>
   username: <name>
@@ -25,7 +25,7 @@ You can also use local file instead of url.
 
 **Example**
 
-```YAML
+```yaml
 rss:
   url: file:///path/to/rss/something.xml
 ```
@@ -37,7 +37,7 @@ There are more advanced options that can be used with the rss plugin if you need
 By default this plugin outputs each entry from the rss on every run. If you would like to improve the performance of a task using this plugin, you can set `all_entries: no` to have each entry only created on the first run it is seen.
 
 **Note:** Due to this behavior, the <plugin:only_new> plugin is not needed along with this input, and in fact should not be used, as it is less efficient.
-```YAML
+```yaml
 rss:
   url: http://example.com
   all_entries: no
@@ -49,7 +49,7 @@ configure module to use url from any feedparser entry attribute.
 
 **Example**
 
-```YAML
+```yaml
 rss:
   url: <url>
   link: guid
@@ -59,7 +59,7 @@ You can also configure link with a list of fields. This will cause the download,
 
 **Example**
 
-```YAML
+```yaml
 rss:
   url: <url>
   link:
@@ -72,7 +72,7 @@ rss:
 If you would like to use a different field from the rss as the title of the flexget entry, (or if your feed does not provide titles for the entries,) you can use the `title` option to specify any feedparser entry attribute.
 
 **Example**
-```YAML
+```yaml
 rss:
   url: <url>
   title: date
@@ -84,7 +84,7 @@ frequently invalid items.
 
 **Example**
 
-```YAML
+```yaml
 rss:
   url: <url>
   silent: yes
@@ -98,7 +98,7 @@ The download plugin will then try to download each link until one works.
 
 **Example**
 
-```YAML
+```yaml
 rss:
   url: <url>
   group_links: yes
@@ -108,7 +108,7 @@ rss:
 If you want to keep information in another rss field attached to the flexget [entry](/guide/entry), you can use the `other_fields` option.
 
 **Example**
-```YAML
+```yaml
 rss:
   url: <url>
   other_fields:
@@ -127,7 +127,7 @@ rss:
 ### Convert to ASCII
 Some feeds contain unicode characters which may cause problems. To force these into ASCII (and strip characters that can't) you set the `ascii` option to `yes`.
 
-```YAML
+```yaml
 rss:
   url: <url>
   ascii: yes
@@ -140,7 +140,7 @@ Sometimes feeds have non-escaped `&` in them. In correct XML every `&` whould be
 This option is turned off by default because it's potentially CPU and memory intensive, also it makes process a bit slower.
 
 **Example**:
-```YAML
+```yaml
 rss:
   url: https://url-here
   escape: yes

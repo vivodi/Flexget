@@ -28,7 +28,7 @@ You may be required to upgrade transmission-rpc after upgrading transmission, fo
 
 **Example:**
 
-```
+```yaml
 from_transmission:
   host: localhost
   port: 9091

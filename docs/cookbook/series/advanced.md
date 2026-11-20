@@ -1,7 +1,7 @@
 # Advanced example with setting groups and qualities
 How to use most of the series plugin features, with template:
 
-```
+```yaml
 templates:
   tv:
     series:

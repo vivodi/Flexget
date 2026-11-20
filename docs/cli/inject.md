@@ -19,12 +19,12 @@ Inherits all arguments from the [`execute` command](execute.md), and also suppor
 
 ## Examples
 ```console
-#Example, passing both title and URL (for example if the remote server doesn’t return a filename in its response headers)
+$ # Example, passing both title and URL (for example if the remote server doesn’t return a filename in its response headers)
 $ flexget inject "your.tv.show.s01e01.720p.web-dl.mkv" "http://example.com/torrents.php?id=33"
 
-#Example, passing only a URL (will fail if no title can be determined)
+$ # Example, passing only a URL (will fail if no title can be determined)
 $ flexget inject "http://example.com/torrents.php?id=33"
 
-#Arguments for the execute command can be appended, for example to tell a particular task to run with the injected entry
+$ # Arguments for the execute command can be appended, for example to tell a particular task to run with the injected entry
 $ flexget --test inject "http://example.com/your.tv.show.s01e01.torrent" --tasks yourtask --dump
 ```

@@ -14,7 +14,7 @@ Go to the DSM Package Center and install the Docker package. Run it.
 
 Use the DSM Control Panel to create a new user called `docker`. Make a note of the user's UID:
 
-```sh
+```console
 $ id -u docker
 1234
 ```
@@ -26,7 +26,7 @@ The rest of this page will assume a UID of 1234.
 Create a new directory on your NAS (doesn't really matter where) and copy these two files there. You'll use them to create your image. 
 
 `Dockerfile`
-```
+```dockerfile
 FROM     python:alpine
 
 ARG      DOCKER_UID
@@ -53,7 +53,7 @@ CMD      ["./start.sh"]
 ```
 
 `start.sh`
-```
+```sh
 #!/bin/sh
 if [ -f ~/.flexget/.config-lock ]; then
     rm ~/.flexget/.config-lock
@@ -65,13 +65,13 @@ Make a note of the current version of [FlexGet on PyPI](https://pypi.python.org/
 
 Navigate into the directory containing the files above. To build your image, run the following command (don't forget to substitute in your `docker` user's UID):
 
-```sh
-docker build --build-arg DOCKER_UID=1234 -t flexget:3.1.62 .
+```console
+$ docker build --build-arg DOCKER_UID=1234 -t flexget:3.1.62 .
 ```
 
 Make sure that it worked by running `docker images`. You should see something like this:
 
-```sh
+```console
 $ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 flexget             3.1.62              ff4e5f3f1239        20 hours ago        160.4 MB
@@ -85,7 +85,7 @@ FlexGet and Transmission make a great pair; FlexGet decides what .torrents to gr
 As above, copy the file below into its own directory (not the one you used for FlexGet). Note, the download folder in the container starts with a capital D!
 
 `Dockerfile`
-```
+```dockerfile
 FROM        alpine
 
 ARG         DOCKER_UID
@@ -111,13 +111,13 @@ ENTRYPOINT  ["transmission-daemon", "--foreground", "--log-info"]
 
 Navigate into said directory and run this command to build an image:
 
-```sh
-docker build --build-arg DOCKER_UID=1234 -t transmission:2.94-r1 .
+```console
+$ docker build --build-arg DOCKER_UID=1234 -t transmission:2.94-r1 .
 ```
 
 And again, check that it worked:
 
-```sh
+```console
 $ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 transmission        2.94-r1             15577a02872f        20 hours ago        8.157 MB
@@ -140,11 +140,11 @@ The `docker run` commands you need to launch each container are below. Note that
 
 Create the necessary directories on your NAS:
 
-```sh
-mkdir -p \
-  /volume1/docker/transmission/config \
-  /volume1/docker/transmission/incomplete \
-  /volume1/docker/transmission/watch
+```console
+$ mkdir -p \
+    /volume1/docker/transmission/config \
+    /volume1/docker/transmission/incomplete \
+    /volume1/docker/transmission/watch
 ```
 
 The `docker run` command below maps Transmission's config, incomplete, and watch directories into locations under `/volume1/docker/transmission` on the host. It also maps the downloads directory to a Shared Folder cat `/volume1/Media/Downloads`.
@@ -153,18 +153,18 @@ Note that you'll need to set the correct in-container locations for each of thes
 
 Use this command to launch the container:
 
-```sh
-docker run -d \
-  --env "TZ=America/Los_Angeles" \
-  --name transmission \
-  --net host \
-  --publish 9091:9091 \
-  --restart always \
-  --volume /volume1/docker/transmission/config:/home/transmission/.config \
-  --volume /volume1/docker/transmission/incomplete:/home/transmission/incomplete \
-  --volume /volume1/docker/transmission/watch:/home/transmission/watch \
-  --volume /volume1/Media/Downloads:/home/transmission/Downloads \
-  transmission:latest
+```console
+$ docker run -d \
+    --env "TZ=America/Los_Angeles" \
+    --name transmission \
+    --net host \
+    --publish 9091:9091 \
+    --restart always \
+    --volume /volume1/docker/transmission/config:/home/transmission/.config \
+    --volume /volume1/docker/transmission/incomplete:/home/transmission/incomplete \
+    --volume /volume1/docker/transmission/watch:/home/transmission/watch \
+    --volume /volume1/Media/Downloads:/home/transmission/Downloads \
+    transmission:latest
 ```
 
 Stop it with `docker stop transmission` before editing the settings file.
@@ -202,28 +202,28 @@ The web UI will be available at `http://your-nas-host:9091/transmission/web/` (d
 
 Create the necessary directories:
 
-```sh
-mkdir -p /volume1/docker/flexget
+```console
+$ mkdir -p /volume1/docker/flexget
 ```
 
 Start FlexGet:
 
-```sh
-docker run -d \
-  --env "TZ=America/Los_Angeles" \
-  --name flexget \
-  --restart always \
-  --volume /volume1/docker/flexget:/home/flexget/.flexget \
-  --volume /volume1/docker/transmission/watch:/home/flexget/torrents \
-  flexget:3.1.62
+```console
+$ docker run -d \
+    --env "TZ=America/Los_Angeles" \
+    --name flexget \
+    --restart always \
+    --volume /volume1/docker/flexget:/home/flexget/.flexget \
+    --volume /volume1/docker/transmission/watch:/home/flexget/torrents \
+    flexget:3.1.62
 ```
 
 With these volume settings, FlexGet will download .torrent files directly into Transmission's watch directory.
 
 Your config file lives at `/volume1/docker/flexget/config.yml`. It's not necessary to stop/start the whole container when you make changes – instead, use the following command:
 
-```sh
-docker exec flexget flexget daemon reload-config
+```console
+$ docker exec flexget flexget daemon reload-config
 ```
 
 ## That's all folks

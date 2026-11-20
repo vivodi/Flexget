@@ -13,7 +13,7 @@ This plugin can be enabled with a simple boolean. Alternately, if unrar isn't de
 | unrar_tool | Specifies the path of the unrar tool. Only necessary if its location is not defined in the operating system's PATH environment variable. |
 
 ## Examples
-```
+```yaml
 series-decompress:
     filesystem:
       path: /Volumes/Drobo/downloads/tv/

@@ -31,7 +31,7 @@ Simple actions (accept, reject, and fail) can be specified directly after the co
 
 **Example:** This will reject any series that have the 'Reality' genre, and any episodes that aired more than 10 days ago.
 
-```
+```yaml
 thetvdb_lookup: yes
 if:
   - "'Reality' in tvdb_genres": reject
@@ -40,7 +40,7 @@ if:
 
 **Example:** Here is a more advanced example to reject multiple imdb_genres.
 
-```
+```yaml
 imdb_lookup: yes 
 
 if:
@@ -54,7 +54,7 @@ You can also run certain other filter plugins (and the set plugin) on matching e
 
 Here is how might use a few plugins together to require that newer movies have a better quality than older ones.
 
-```
+```yaml
 imdb_lookup: yes
 seen_movies: strict
 quality: dvdrip+
@@ -64,7 +64,7 @@ if:
 ```
 
 ### Set field values
-```
+```yaml
 if:
   - "'1080p' in title":
       set:

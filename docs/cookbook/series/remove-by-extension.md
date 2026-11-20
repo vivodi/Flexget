@@ -7,13 +7,13 @@ This task-recipe removes the files and creates a script to forget the episodes
 this config does not work on Windows, You'd have to make the exec-plugin create a bat-file.. but the concept is the same
 
 execute like this (on linux)
-```
-flexget execute --tasks unwanted-series && /your_dir/cleanup.sh
+```console
+$ flexget execute --tasks unwanted-series && /your_dir/cleanup.sh
 ```
 
 But first, put this in your config
 
-```
+```yaml
 tasks:
   unwanted-series:
     manual: yes

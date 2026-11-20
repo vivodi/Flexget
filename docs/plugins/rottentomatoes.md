@@ -12,7 +12,7 @@ Results are cached so this doesn't cause unnecessary load to [Rotten Tomatoes](h
  * You should [[http://developer.rottentomatoes.com/|create]] and use your own API key instead of the default, as Rotten Tomatoes limits the number of concurrent users per key. You can change the API key using <plugin:rottentomatoes_lookup>
 
 ## Example
-```
+```yaml
 rottentomatoes_lookup: rh8chjzp8vu6gnpwj88736uv # API key
 rottentomatoes:
   min_critics_score: 75
@@ -22,8 +22,8 @@ rottentomatoes:
 ```
 
 ## Full configuration
-```
-Note: All parameters are optional. Some are mutually exclusive.
+```yaml
+# Note: All parameters are optional. Some are mutually exclusive.
 
         min_critics_score: <num>
         min_audience_score: <num>

@@ -4,8 +4,8 @@ Simple plugin for converting magnet links to torrent files without the use of to
 
 ## Prerequisites
 - `libtorrent` is installed.
-  ```
-  pip install libtorrent
+  ```console
+  $ pip install libtorrent
   ```
 
 ## Usage

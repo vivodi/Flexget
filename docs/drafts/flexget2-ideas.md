@@ -14,7 +14,7 @@ Better ways?: http://martyalchin.com/2008/jan/10/simple-plugin-framework/ This d
 - Problem: Attempt to standardize the free for all we currently have with entry fields.
 
   Solution?: Ditch unmanaged entry fields. Entries will have one required attribute, which is title. We will then have a set of predefined tags which can be applied to entries. A tag may also contain a set of required (and/or optional) fields that come with it. The list of defined tags should be easily extended by a plugin. Then processing plugins would declare tags that an entry requires in order to be processed by that plugin. Example: The 'episode' tag would have 'series' and 'identifier' as required fields (i.e. any entry tagged as an episode is guaranteed to have that info) Some plugin like exists_series would then declare that an entry requires the 'episode' tag in order to be processed. If plugins also declared what tags they add during processing, this means we could report all these tag errors before even attempting to run a task (in a config validator or editor.) example snippet:
-```
+```python
 if 'episode' in entry.tags:
   if entry.episode.identifier in my_database:  # Maybe access tag fields under a tag namespace like this?
     # do something

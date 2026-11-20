@@ -24,18 +24,18 @@ For the requirement and rejection fields, you can specify a single mask, a list 
 
 ## Examples
 - Reject torrents that do not have mkv file in them:
-```
+```yaml
 content_filter:
   require: '*.mkv'
 ```
 - Reject torrents that have rars in them:
 
-```
+```yaml
 content_filter:
   reject: '*.rar'
 ```
 - Reject torrent if it doesn't have mp4 OR mkv in it. Reject also if there are wmv files
-```
+```yaml
 content_filter:
   require:
     - '*.mp4'
@@ -43,19 +43,19 @@ content_filter:
   reject: '*.wmv'
 ```
 - Reject torrents that don't have a matroska container AND a nfo file:
-```
+```yaml
 content_filter:
   require_all: 
     - '*.mkv'
     - '*.nfo'
 ```
 - Reject multifile torrents that don't have one file at least 90% of total size (single-file torrents are not affected)
-```
+```yaml
 content_filter:
   require_mainfile: yes
 ```
 - Reject torrent if none of its files match any of the entries in a previously populated <plugin:regexp_list>
-```
+```yaml
 content_filter:
   regexp_mode: yes
   require:

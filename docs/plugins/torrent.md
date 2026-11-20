@@ -29,8 +29,6 @@ The plugin ensures every torrent entry has a clean `filename` ending in `.torren
 3. Slashes (`/`) and spaces are replaced with underscores (`_`), and zero-width spaces (`\u200b`) are removed.
 4. The `.torrent` extension is appended.
 
-
-
 ### 3. Writing Modified Torrents
 
 During the output phase, if another plugin has modified the parsed `torrent` object on an entry, the `torrent` plugin automatically re-encodes and writes the updated torrent data back to the file on disk.
@@ -47,7 +45,5 @@ Once a torrent file is successfully parsed, the following fields are added to th
 
 ```{tip}
 You can reference `{{ torrent_info_hash }}` or `{{ filename }}` in Jinja2 templates for downstream plugins (such as notifications or custom output plugins).
-
-```
 
 ```

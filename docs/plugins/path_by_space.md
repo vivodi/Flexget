@@ -30,7 +30,7 @@ This example will find the path with the most free space by percent and any othe
 
 If drive1 has 50%, drive2 has 52% and drive3 has 10% free then the plugin will randomly select drive1 or drive2.
 
-```
+```yaml
 tasks:
   TV:
     path_by_space:
@@ -47,7 +47,7 @@ This example will find the path with the most free space by size and any other p
 
 If drive1 has 50GiB, drive2 has 20GiB and drive3 has 54GiB free then the plugin will randomly select drive1 or drive3.
 
-```
+```yaml
 tasks:
   TV:
     path_by_space:

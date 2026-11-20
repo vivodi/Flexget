@@ -69,7 +69,7 @@ it is a complete A-Z recipe for setting up flexget with transmission with a whol
 
 **IMDB:**  
 
-```
+```text
 log into your imdb account and add a few movies to your default "Watchlist".
 then create a new watchlist called "HDWatchlist" and add a couple of movies to that too.
 then open up that HDWatchlist and have a look at the url. it would be in the form of: http://www.imdb.com/list/XXXXX/
@@ -78,14 +78,14 @@ write down or make a note of the string of characters that's at the XXXXX part. 
 
 **THETVDB:**
 
-```
+```text
 log into the site and visit the following url: http://thetvdb.com/?tab=userinfo
 make note of the "Account Identifier". also dont forget to add a few tv series to your favorites while you are there.
 ```
 
 **BOXCAR:**
 
-```
+```text
 install the boxcar app on your idevice.
 log into your boxcar account and create a new provider at http://boxcar.io/site/providers
 open up the newly created provider and make note of the "Your API key is:" field.
@@ -99,16 +99,16 @@ ssh or log in to your ubuntu box and run the following commands one after the ot
 
 **note:** replace "djnitehawk" with your username  
 
-```
-cd ~/
-sudo apt-get install python-software-properties
-sudo add-apt-repository ppa:transmissionbt/ppa
-sudo apt-get update
-sudo apt-get install transmission-daemon
-sudo useradd -g transmission-daemon djnitehawk
-echo "" > prep-dirs.sh
-chmod +x prep-dirs.sh
-nano prep-dirs.sh
+```console
+$ cd ~/
+$ sudo apt-get install python-software-properties
+$ sudo add-apt-repository ppa:transmissionbt/ppa
+$ sudo apt-get update
+$ sudo apt-get install transmission-daemon
+$ sudo useradd -g transmission-daemon djnitehawk
+$ echo "" > prep-dirs.sh
+$ chmod +x prep-dirs.sh
+$ nano prep-dirs.sh
 ```
 
 **troubleshooting:** if the "useradd" command above says the group doesn't exist, restart the machine first and try "sudo adduser djnitehawk debian-transmission"
@@ -158,11 +158,11 @@ save and exit nano by pressing CTRL+X and Y and enter.
 
 and then run the following commands one after the other:
 
-```
-./prep-dirs.sh
-sudo service transmission-daemon stop
-sudo echo "" > /etc/transmission-daemon/settings.json
-sudo nano /etc/transmission-daemon/settings.json
+```console
+$ ./prep-dirs.sh
+$ sudo service transmission-daemon stop
+$ sudo echo "" > /etc/transmission-daemon/settings.json
+$ sudo nano /etc/transmission-daemon/settings.json
 ```
 
 then copy and paste the following text into nano:
@@ -170,7 +170,7 @@ then copy and paste the following text into nano:
 **note:** replace "djnitehawk" with your username.  
 **note:** replace "YOUR_PASSWORD_GOES_HERE" with a password of your choice.
 
-```
+```json
 {
     "alt-speed-down": 1024, 
     "alt-speed-enabled": false, 
@@ -249,9 +249,9 @@ save and exit nano by pressing CTRL+X and Y and enter.
 
 and then run the following commands one after the other:
 
-```
-sudo service transmission-daemon start
-rm prep-dirs.sh
+```console
+$ sudo service transmission-daemon start
+$ rm prep-dirs.sh
 ```
 
 ----
@@ -260,14 +260,14 @@ rm prep-dirs.sh
 
 run the following commands one after the other:
 
-```
-cd ~/
-sudo apt-get install unrar
-sudo apt-get install curl
-mkdir tex
-cd tex
-echo "" > tex.sh
-nano tex.sh
+```console
+$ cd ~/
+$ sudo apt-get install unrar
+$ sudo apt-get install curl
+$ mkdir tex
+$ cd tex
+$ echo "" > tex.sh
+$ nano tex.sh
 ```
 
 then copy and paste the following text into nano:
@@ -388,8 +388,8 @@ save and exit nano by pressing CTRL+X and Y and enter.
 
 and then run the following command:
 
-```
-chmod 777 tex.sh
+```console
+$ chmod 777 tex.sh
 ```
 
 ----
@@ -398,14 +398,14 @@ chmod 777 tex.sh
 
 run the following commands one after the other:
 
-```
-cd ~/
-sudo apt-get install python-pip
-sudo pip install flexget
-easy_install transmissionrpc
-cd .flexget
-echo "" > config.yml
-nano config.yml
+```console
+$ cd ~/
+$ sudo apt-get install python-pip
+$ sudo pip install flexget
+$ easy_install transmissionrpc
+$ cd .flexget
+$ echo "" > config.yml
+$ nano config.yml
 ```
 
 then copy and paste the following text into nano:
@@ -421,7 +421,7 @@ then copy and paste the following text into nano:
 - `YOUR_IMDB_HDWATCHLIST_ID`
 - `XXXXX`
 
-```
+```yaml
 templates:
   tv:
     transmission:
@@ -499,8 +499,8 @@ save and exit nano by pressing CTRL+X and Y and enter.
 and then run the following command to check if the config file has any errors:
 if any errors are found, edit the config.yml again and double check your work.
 
-```
-flexget --check
+```console
+$ flexget --check
 ```
 
 ----
@@ -509,17 +509,17 @@ flexget --check
 
 first run the following command and note down the full path to the flexget binary:
 
-```
-which flexget
+```console
+$ which flexget
 ```
 
 then run the following commands one after the other:
 
-```
-cd ~/.flexget
-echo "" > cron.sh
-chmod 777 cron.sh
-nano cron.sh
+```console
+$ cd ~/.flexget
+$ echo "" > cron.sh
+$ chmod 777 cron.sh
+$ nano cron.sh
 ```
 
 then copy and paste the following text into nano:
@@ -565,15 +565,15 @@ save and exit nano by pressing CTRL+X and Y and enter.
 
 then run the following command:
 
-```
-crontab -e
+```console
+$ crontab -e
 ```
 
 then copy and paste the following line (at the end) into nano:
 
 **note:** replace "djnitehawk" with your username.
 
-```
+```text
 */30 * * * * /home/djnitehawk/.flexget/cron.sh
 ```
 
@@ -581,8 +581,8 @@ save and exit nano by pressing CTRL+X and Y and enter.
 
 now run flexget manually in verbose mode to see if everything is running ok:
 
-```
-flexget --verbose
+```console
+$ flexget --verbose
 ```
 
 that's all you need to automate your torrents with flexget and transmission. you can keep adding new movies and tv shows to your watchlists on imdb and thetvdb sites and flexget will automatically keep an eye out for matching torrents that comes out in the future and download them for you.
@@ -606,7 +606,7 @@ download-manager-setup
 
 if/when you get a notification saying that transmission is not running, you have to do the following to make sure you wont miss any torrents:
 
-```
+```text
 1) start the transmission daemon manually or restart the machine.
 2) edit your config.yml and find and replace "all_entries: no" with "all_entries: yes"
 3) run flexget once manually
@@ -615,7 +615,7 @@ if/when you get a notification saying that transmission is not running, you have
 
 if you have a firewall enabled on your VPS/SB, make sure the following ports are open for business:
 
-```
+```text
 port: 80 (web server)
 port: 54321 (transmission daemon)
 port: 12345 (transmission webui/remote/clients)

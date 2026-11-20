@@ -1,7 +1,7 @@
 # TV Maze Lookup
 This plugin looks up more information from tvmaze.com about any entries that FlexGet has identified as series. tvmaze_lookup will populate several more entry fields that can be used in other plugins.
 
-```
+```yaml
 tvmaze_lookup: yes
 ```
 

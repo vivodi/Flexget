@@ -54,7 +54,7 @@ configured in same format for merge to be possible. Additionally (as of 1.2), al
 
 **Incompatible:**
 
-```
+```yaml
 template-a:
   series:
     - foo
@@ -78,7 +78,7 @@ For merging to work they need to be in same format:
 
 **Compatible:**
 
-```
+```yaml
 template-a:
   series:
     normal:
@@ -97,7 +97,7 @@ template-b:
 
 In which case the result is:
 
-```
+```yaml
 series:
   settings:
     720p:

@@ -13,7 +13,7 @@ Entries can be downloaded using [download-npo](https://github.com/Carpetsmoker/d
 | **download_premium** | If 'download_premium' is set to 'yes', the plugin will also download entries that are marked as exclusive content for NPO Plus subscribers.|
 
 ## Example
-```
+```yaml
 your_task:
   npo_watchlist:
     email: aaaa@bbb.nl
@@ -28,3 +28,4 @@ your_task:
     on_output:
       for_accepted:
         - download-npo -o "path/to/directory/{{series_name_plain}}" -f "{serie_titel} - {datum} {aflevering_titel} ({episode_id})" -t {{url}}
+```

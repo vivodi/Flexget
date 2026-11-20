@@ -55,15 +55,15 @@ Environment variables set option defaults for the subcommand noted, and are over
 
 ## Examples
 ```console
-#lists a summary of the different series being tracked
+$ # lists a summary of the different series being tracked
 $ flexget series list
 
-#sets the series "FooSeries" to start with episode one of season 6
+$ # sets the series "FooSeries" to start with episode one of season 6
 $ flexget series begin FooSeries S06E01
 
-#shows all releases for the show FooSeries
+$ # shows all releases for the show FooSeries
 $ flexget series show FooSeries
 
-#deletes the whole show FooSeries even from seen plugin
+$ # deletes the whole show FooSeries even from seen plugin
 $ flexget series forget FooSeries
 ```

@@ -6,6 +6,6 @@ This can be run at any time without adverse effect. It should always be run as t
 
 ## Examples
 ```console
-#checks the flexget configuration for consistency
+$ # checks the flexget configuration for consistency
 $ flexget check
 ```

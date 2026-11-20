@@ -9,12 +9,12 @@ This search plugin will get results from [https://www.limetorrents.cc](https://w
 
 ## Configuration
 Simply enable the plugin:
-```
+```yaml
 limetorrents: yes
 ```
 
 You can specify a single category:
-```
+```yaml
 limetorrents:
   category: movies
 ```
@@ -30,7 +30,7 @@ limetorrents:
 * `other`
 
 You can also specify the sorting of the entries:
-```
+```yaml
 limetorrents:
   order_by: date
 ```

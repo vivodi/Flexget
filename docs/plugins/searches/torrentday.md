@@ -7,7 +7,7 @@ This search plugin will get results from [https://torrentday.com](https://torren
 
 ## Configuration
 Configuration requires the 3 cookies from an active login session. You also need rss_key (found in your TD account preferences page). 
-```
+```yaml
 torrentday:
   uid: xxxxxxxx (required) NOT YOUR LOGIN. find this in your browser's cookies
   passkey: xxxx (required) NOT YOUR PASSWORD. see previous
@@ -46,7 +46,7 @@ category, Can be *one* of the following:
 https://kb.iu.edu/d/ajfi
 ( Includes steps for Safari and IE )
 ## Example Config
-```
+```yaml
 tasks:
   moviesTOdiscoverFROMtd:
     discover:

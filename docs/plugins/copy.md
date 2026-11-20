@@ -3,7 +3,7 @@
 
 Syntax:
 
-```text
+```yaml
 copy:
   [to]: directory to copy accepted entries to, allows value replacement, defaults to download path
   [rename]: the actual filename inside the 'to' directory to rename the entries, allows value replacement

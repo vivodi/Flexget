@@ -4,7 +4,7 @@ This plugin will scan accepted items that haven't been downloaded for magnet URI
 ## Example
 Save magnet link to rTorrent watch directory as a file.
 
-```
+```yaml
 rtorrent_magnet: ~/torrents/
 ```
 

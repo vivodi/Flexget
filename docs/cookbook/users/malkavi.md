@@ -12,7 +12,7 @@ I have split my config in several files and include in the main config
 ## Main config
 
 
-```
+```yaml
 variables: secretfile.yml
 templates:
   torrent_server:
@@ -188,7 +188,7 @@ tasks:
 ## DivXATope
 
 
-```
+```yaml
 rss:
   url: http://divxatope.com/feeds.xml
 series:
@@ -209,7 +209,7 @@ regexp:
 ```
 
 ## NewPCT
-```
+```yaml
 rss:
   url: http://www.newpct.com/feed/
   link: link

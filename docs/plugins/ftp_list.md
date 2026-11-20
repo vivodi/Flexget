@@ -4,8 +4,8 @@ Generate entries from a remote FTP server. Entries can be downloaded via <plugin
 
 ## Prerequisites
 - The `ftp` extra provided by FlexGet is installed.
-  ```
-  pip install flexget[ftp]
+  ```console
+  $ pip install flexget[ftp]
   ```
 
 ## Plugin Settings

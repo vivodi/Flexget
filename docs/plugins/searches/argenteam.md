@@ -14,21 +14,21 @@ Add an entry field `argenteam_subtitle`, which contains subtitle’s url.
 
 ## Examples
 ### Simple download
-```
+```yaml
 argenteam:
     force_subtitles: yes
 ```
 
 ### Download video and subtitles
-```
+```yaml
 argenteam:
     force_subtitles: yes
 exec: ./argenteam_download_subtitle.sh '{{argenteam_subtitle}}' /downloads/transmission >> argenteam_subtitles.log
 ```
 #### Script to download
 argenteam_download_subtitle.sh
-```
-wget "$1" -qO subs.zip
-unzip -o subs.zip -d "$2"
-rm subs.zip
+```console
+$ wget "$1" -qO subs.zip
+$ unzip -o subs.zip -d "$2"
+$ rm subs.zip
 ```

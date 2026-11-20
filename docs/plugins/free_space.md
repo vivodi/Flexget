@@ -26,7 +26,7 @@ This plugin will abort a task if free space on a given drive is getting low.
 
 Abort task if less than 500MB remaining on the disk where `/location/to/monitor` is located.
 
-```
+```yaml
 free_space:
   path: location/to/monitor
   space: 500
@@ -35,7 +35,7 @@ free_space:
 
 Abort task if less than 5000MB (5GB) remaining on the disk where `/remote/location/to/monitor` is located. Remote paths must be enclosed in quotation marks. 
 
-```
+```yaml
 free_space:
   path: '/remote/location/to/monitor'
   space: 5000
@@ -48,7 +48,7 @@ free_space:
 
 Abort task if less than 15000MB (15GB) remaining in the `/media/sdh1/username` directory. This assumes that 1000000MB (1TB) of usage is allowed and the user's home directory is specified by `path`. This also assumes that the remote server is listening on port 8022 for an SSH connection. Remote paths must be enclosed in quotation marks. 
 
-```
+```yaml
 free_space:
   port: 8022
   path: '/media/sdh1/username'

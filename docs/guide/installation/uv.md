@@ -6,12 +6,12 @@ Instructions can be found [at the uv website.](https://docs.astral.sh/uv/getting
 
 ## Install FlexGet
 We can then use uv to install FlexGet:
-```
-uv tool install flexget
+```console
+$ uv tool install flexget
 ```
 or with fully locked dependency versions:
-```
-uv tool install flexget[locked]
+```console
+$ uv tool install flexget[locked]
 ```
 This will install FlexGet into a uv managed virtual environment, and add the binaries to your PATH.
 
@@ -19,8 +19,8 @@ The `locked` extra is not required, but is recommended, because it makes sure yo
 
 ### Specifying python version
 You can also specify what version of python you would like to use
-```
-uv tool install flexget[locked] --python 3.13
+```console
+$ uv tool install flexget[locked] --python 3.13
 ```
 
 ### Adding extras
@@ -38,14 +38,14 @@ There are several extras we include that install optional dependencies needed by
 - all (this will include all of the above)
 
 You can specify them when installing and an appropriate version of the dependency will be installed and upgraded alongside flexget for you. e.g.
-```
-uv tool install flexget[locked,all]
-uv tool install flexget[locked,deluge,telegram]
+```console
+$ uv tool install flexget[locked,all]
+$ uv tool install flexget[locked,deluge,telegram]
 ```
 
 If you need extra dependencies other than the extras listed above, they can also be specified.
-```
-uv tool install flexget[locked] --with myotherdependency
+```console
+$ uv tool install flexget[locked] --with myotherdependency
 ```
 :::{note}
 If you later decide you want to switch python versions or change extras, you can simply run the `uv tool install` command again with your new options.
@@ -53,18 +53,18 @@ If you later decide you want to switch python versions or change extras, you can
 
 ## Run FlexGet
 FlexGet will be added to your PATH, so you can run it from anywhere.
-```
-flexget --help
+```console
+$ flexget --help
 ```
 
 ## Updating
 To update to the latest version of FlexGet, you can run:
-```
-uv tool upgrade flexget
+```console
+$ uv tool upgrade flexget
 ```
 If you need to get a specific version, you can specify it:
-```
-uv tool upgrade flexget==3.15.36
+```console
+$ uv tool upgrade flexget==3.15.36
 ```
 :::{warning}
 You probably don't want to specify a specific FlexGet version during `uv tool install`, as this version constraint will keep applying when you try to `uv tool upgrade` later. It is better to do the install, then "upgrade" to the specific version you need right now.
@@ -72,8 +72,8 @@ You probably don't want to specify a specific FlexGet version during `uv tool in
 
 ## Uninstalling
 If you installed with this method, you can:
-```
-uv tool uninstall flexget
+```console
+$ uv tool uninstall flexget
 ```
 
 ## Next Step

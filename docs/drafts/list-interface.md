@@ -15,26 +15,26 @@ Alternative implementation idea: Rather than implement the different list method
 (imdb_list couldn't implement the list interface though, since we can't programmatically add/remove.)
 
 ## movie_queue reimplemented with a generic list backend
-```
+```yaml
 movie_queue:
   list:
     - # Plugin implementing the list interface here
 ```
 #e.g.
 # db backed. Would be equivalent to current movie_queue
-```
+```yaml
 movie_queue:
   list:
     - movie_list: myopts
 ```
 # online service backed
-```
+```yaml
 movie_queue:
   list:
     - trakt_list: myopts
 ```
 # This would be almost equivalent to this (already possible) config
-```
+```yaml
 crossmatch:
   from:
     - trakt_list: myopts
@@ -48,7 +48,7 @@ trakt_remove: myopts
 
 ### alternate movie queue reimplementation
 Rather than have the movie matching logic in the `movie_queue` plugin, make a generic `queue` plugin, and have the list interface define the matches. We then make a movie_list plugin with the list interface, and the contains method on that list will do the movie matching logic (marking a match if any of the known movie ids match.) 
-```
+```yaml
 queue:
   list:
     - movie_list: options
@@ -58,7 +58,7 @@ The idea here is that we could then make e.g. a `regex_list` plugin, which could
 ## Other plugins to operate on generic lists
 ### list_sync
 Syncs a generic list plugin with all accepted entries
-```
+```yaml
 imdb_list: opts  # or 'listdir' might be another good one
 accept_all: yes
 list_sync:
@@ -73,7 +73,7 @@ output plugins to add/remove accepted entries from a list
 These replace current plugins like trakt_add/trakt_remove, but now you can use this for any of the list plugins, or multiple lists at once.
 
 Example task, do something with items in a trakt list then remove them:
-```
+```yaml
 trakt_list: myopts
 accept_all: yes
 # Do something here
@@ -91,7 +91,7 @@ Ideally every list plugin wouldn't have to write their own cli interface. Not ex
 
 ## Examples
 
-```
+```yaml
 tasks:
   cp_list_to_entry_list:
     couchpotato_list:

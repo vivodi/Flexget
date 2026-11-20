@@ -6,7 +6,7 @@ Sleep during the specified task execution phase.
 ## Phase Order
 Task execution in Flexget takes the form of a series of phases, which run in this order by default:
 
-```
+```text
 start
 input
 metainfo
@@ -20,19 +20,19 @@ exit
 There is also an `abort` phase which is triggered if an error occurs during some other phase. This can occur at any time, depending upon when the error happens, so is not part of the specified order list above. It can, however, still be used as the specified phase for this plugin.
 
 The phase during which each plugin operates can be seen by running the following command from the command line:
-```
-flexget plugins
+```console
+$ flexget plugins
 ```
 This list also shows the priority a plugin has set by default in each phase. (See below for more about using <plugin:plugin_priority> in combination with this plugin.)
 
 ## Configuration
 Configuration can take one of two forms. In the first, simpler form, sleep is always executed during the `start` phase, and delays execution for the specified number of seconds.
-```
+```yaml
 sleep: <seconds>
 ```
 
 The second form is more versatile and is available as of v1.2.298. It allows you to delay execution during a specified phase (from the list above) in addition to specifying the number of seconds.
-```
+```yaml
 sleep:
   seconds: <seconds>
   phase: <phase>
@@ -49,7 +49,7 @@ Imagine a scenario with two output plugins - one that modifies the stored locati
 
 ### Example
 A sample configuration for the above scenario is listed below, and uses <plugin:deluge> and <plugin:aria2>, which are both output plugins. Deluge is a torrent client, and aria2 is a download manager. This example gets a list of torrents from Deluge, changes their file locations, and then passes the new locations to aria2. The sleep plugin is used to ensure enough time has passed between issuing the move command in Deluge and giving the new paths to aria2. The default priority for deluge is 135, for aria2 is 128, and for sleep is 255. Therefore, the priority of sleep is changed to 129, so it will run between them.
-```
+```yaml
 from_deluge:
   filter: seeding
 deluge:

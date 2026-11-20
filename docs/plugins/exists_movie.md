@@ -2,7 +2,7 @@
 This plugin will scan through accepted entries, and reject any movie entry that is already found on disk.
 
 ## Syntax
-```
+```yaml
 exists_movie:
   path: /path/to/movies
   [type]: {dirs|files}

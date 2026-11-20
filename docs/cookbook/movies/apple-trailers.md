@@ -8,7 +8,7 @@
 
 This method involves looking up movie titles through the <plugin:imdb_lookup> plugin or the <plugin:thetvdb_lookup> plugin. It is then followed up with an <plugin:if> filter to sort out the genres you don't want included. In the example below, the genres of Documentary, Foreign, Comedy, Fantasy, or Musical were rejected.
 
-```
+```yaml
 AppleTrailers:
   rss: http://trailers.apple.com/trailers/home/rss/newtrailers.rss
   imdb_lookup: yes

@@ -3,7 +3,7 @@
 This plugin allows you to reorder the built-in [qualities](/guide/qualities) in a simple fashion. Qualities can only be reordered within the same quality type eg. a codec cannot be above a resolution.
 
 ## Config
-```text
+```yaml
   reorder_quality:
     <name>:
       above|below: <another name>

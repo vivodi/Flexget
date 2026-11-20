@@ -10,7 +10,7 @@ Results are cached so this doesn't cause unnecessary load to [imdb](http://www.i
  * This plugin doesn't keep any track of accepted movies, if you want to prevent same movie being accepted multiple times use <plugin:seen_movies> plugin alongside.
 
 ## Example
-```
+```yaml
 imdb:
   min_score: 6.2
   min_votes: 5000
@@ -19,7 +19,7 @@ imdb:
 ```
 
 ## Full configuration
-```
+```yaml
 Note: All parameters are optional. Some are mutually exclusive.
 
         min_score: <num>

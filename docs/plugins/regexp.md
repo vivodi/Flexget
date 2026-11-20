@@ -6,7 +6,7 @@ Use regular expression to Accept or Reject entries. FlexGet uses python regexp f
 ## Simple examples
 Accept entries matching regexp(s).
 
-```
+```yaml
 regexp:
   accept:
     - regexp 1
@@ -15,7 +15,7 @@ regexp:
 
 Reject permanently entries matching regexp(s). This should be used when you absolutely do not want to download matching entries, even if some other plugin (ie. `imdb`, `series`) would deem them acceptable.
 
-```
+```yaml
 regexp:
   reject:
     - regexp 1
@@ -25,7 +25,7 @@ regexp:
 ## Examples
 Require something to be in the title by rejecting everything that does **not** have it.
 
-```
+```yaml
 regexp:
   reject_excluding:
     - regexp
@@ -35,7 +35,7 @@ This can be combined with some other accepting filter.
 
 Multiple operations. This would be useful when grabbing some shows and they appear with unwanted languages as well.
 
-```
+```yaml
 regexp:
   accept:
     - show name
@@ -48,7 +48,7 @@ regexp:
 Any regexp rule can set custom path for matching entry.
 
 ### Example
-```
+```yaml
 regexp:
   accept: 
     - regexp here: ~/custom/path
@@ -56,7 +56,7 @@ regexp:
 
 or
 
-```
+```yaml
 regexp:
   accept: 
     - regexp here:

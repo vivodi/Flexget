@@ -12,7 +12,7 @@ This is an example how to use uTorrent with flexget and take advantage of dynami
 ## FlexGet configuration
 Let's start with config:
 
-```
+```yaml
 # You must tell FlexGet to download the torrent file to some directory, so that it can be passed to uTorrent
     download: C:\torrents
 
@@ -52,7 +52,7 @@ There is one downside in this method. Utorrent will be brought up every time new
 This way flexget is run every hour and new torrents are added to existing uTorrent background session. Easy way to create background session is to run newly created Scheduled Task rule manually. Before running, remember to enable WebUI access from uTorrent GUI, otherwise you will lose control to uTorrent.
 
 ## Example config
-```
+```yaml
 tasks:
   movies:
     rss: http://some.tracker.feed.com

@@ -10,9 +10,9 @@ View file templates to be used with [notifer](/plugins/index.md#notifier-service
 
 ## Examples
 ```console
-# Shows all templates
+$ # Shows all templates
 $ flexget templates
 
-# Filters by name 'rss'
+$ # Filters by name 'rss'
 $ flexget templates --name rss
 ```

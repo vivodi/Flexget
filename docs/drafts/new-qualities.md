@@ -63,26 +63,26 @@ In your config, you are not limited to specifying a single quality you want, you
 
 **Ranges:**
 To specify a range in a given category, write the lower and upper bound, with a dash in between. Note that a range must be between two items of the same category (in the same column above.) Examples:
-```
+```text
 720p-1080p
 hdtv-bluray
 ```
 
 **Open ended range:**
 If you would just like to specify a lower bound on the category, you can follow it with a plus. Examples:
-```
+```text
 480p+
 tvrip+
 ```
 If you would like to place just an upper bound, this is also possible with the <= symbol.
-```
+```text
 <=720p
 <=bluray
 ```
 
 **Discrete values:**
 If you would like to specify one value, multiple acceptable values for a category, but nothing inbetween them, you can use a pipe to join them. Examples:
-```
+```text
 720p
 sdtv|hdtv
 dd5.1|dts|aac
@@ -90,7 +90,7 @@ dd5.1|dts|aac
 
 **Disallowing values:**
 If you just want to block certain values from being acceptable, you can prefix them with an exclamation mark. Examples:
-```
+```text
 !dts
 !cam
 !10bit
@@ -98,7 +98,7 @@ If you just want to block certain values from being acceptable, you can prefix t
 
 ### Putting it together
 So, any time a quality range needs to be specified in the config, you can combine these techniques to define the acceptable values for each category. If your quality string starts with a symbol, instead of a letter or number, you have to place quotes around the whole thing. Here are some examples of complete quality requirements that could be used in your config:
-```
+```text
 hdtv
 720p
 720p hdtv+
@@ -113,7 +113,7 @@ The `min_quality` and `max_qaulity` options have been removed. These are replace
 
 Here is an example config change that would be required.
 Old way:
-```
+```yaml
 series:
   settings:
     groupa:
@@ -123,7 +123,7 @@ series:
       max_quality: 720p
 ```
 New way:
-```
+```yaml
 series:
   settings:
     groupa:
@@ -135,13 +135,13 @@ series:
 ## Quality Plugin Changes
 `min` and `max` options have been removed, ranges can be specified without them now.
 Config, old way:
-```
+```yaml
 quality:
   min: 720p
   max: 1080p
 ```
 New way: (You probably want to add the a source requirement, like dsr+ bit here so that you don't get 'cam' or 'workprint' etc. sources)
-```
+```yaml
 quality: 720p-1080p dsr+
 ```
 
@@ -149,10 +149,10 @@ quality: 720p-1080p dsr+
 When adding a movie to the queue, either via CLI or through queue_movies plugin, you can now specify quality in the new manner.
 
 Examples:
+```console
+$ flexget --movie-queue add "A Good Movie" "720p+ bluray+"
 ```
-flexget --movie-queue add "A Good Movie" "720p+ bluray+"
-```
-```
+```yaml
 queue_movies:
   quality: 720p-1080p bluray
 ```

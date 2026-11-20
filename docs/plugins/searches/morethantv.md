@@ -7,7 +7,7 @@ This search plugin will get results from [https://www.morethantv.me/](https://ww
 
 ## Configuration
 Requires username and password. (your usual login credentials)
-```
+```yaml
 morethantv:
   username: xxxxxxx
   password: xxxxxxx
@@ -34,7 +34,7 @@ Normally, you'd just want to use `all_tags: yes`
 ## Usage
 Say you want to perform a search on mtv using your [input](/plugins/index.md#input) entries, and the entries are all TV shows. You can do that using the <plugin:discover> plugin.
 
-```
+```yaml
 discover:
   what:
     - next_series_episodes: yes

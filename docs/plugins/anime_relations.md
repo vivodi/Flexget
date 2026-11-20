@@ -41,7 +41,7 @@ mock:
 accept_all: true
 ```
 ### Result:
-```
+```text
 ─── Accepted ───────────────────────────────────────────────────────────────────────
 title                      : Re:Zero kara Hajimeru Isekai Seikatsu 2nd Season
 al_id                      : 108632

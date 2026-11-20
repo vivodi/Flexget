@@ -6,7 +6,7 @@ Let's say a new series you fancy comes out and you want to add it to your downlo
 
 Of course this works will other feeds as well, but the sake of demonstration showRSS is used.
 
-```
+```yaml
 tasks:
   # downloading task
   download-rss:
@@ -48,7 +48,7 @@ For the complete configuration with Transmission refer to [Transmission setup](s
 
 ## Alternative simple setup
 
-```
+```yaml
 tasks:
   task-a:
     rss: http://showrss.karmorra.info/rss.php?user_id=USERID&hd=2&proper=0

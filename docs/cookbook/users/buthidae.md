@@ -20,7 +20,7 @@ Finally, because we have a [Mac OS X LaunchAgent](/guide/installation/macos/inde
 
 I've put in lots of comments on stuff that I struggled with while I was learning :-)
 
-```
+```yaml
 secrets: secretfile.yml
 # Running on OS X via launchd, so the scheduler is disabled
 schedules: no

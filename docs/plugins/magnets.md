@@ -7,6 +7,6 @@ This is useful if you are using the <plugin:download> plugin as output, or if yo
 <plugin:content_filter> or <plugin:content_size> plugins, which cannot get the required information from magnets.
 
 ## Usage
-```
+```yaml
 magnets: no
 ``` 

@@ -31,7 +31,7 @@ pyload:
 ```
 
 Default values for the config elements:
-```
+```yaml
 pyload:
   api: http://localhost:8000/api
   queue: yes

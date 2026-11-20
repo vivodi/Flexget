@@ -1,6 +1,6 @@
 # SABnzbd
 ## Example
-```
+```yaml
 sabnzbd:
   key: 123456
   url: http://localhost:8080/api?
@@ -8,7 +8,7 @@ sabnzbd:
 ```
 
 ## All possible parameters
-```
+```yaml
 sabnzbd:
   key: ...
   url: ...

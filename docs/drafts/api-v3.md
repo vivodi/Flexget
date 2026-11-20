@@ -1,7 +1,7 @@
 # Some sketches for api_ver 3
 We're planning to move away from task.entries and instead pass iterable to the plugin, new method signature will be:
 
-```
+```python
 def on_task_xxx(self, task, config, entries):
 ```
 
@@ -9,7 +9,7 @@ def on_task_xxx(self, task, config, entries):
 This is still the open question.
 
 ### Option 1 - helpers
-```
+```python
 from flexget.entry import accepted, rejected, undecided
 
 # and then iterating
@@ -24,7 +24,7 @@ for entry in accepted(undecided(entries)):
 * Requires imports
 
 ### Option 2 - generator expression
-```
+```python
 for entry in (e.accepted for e in entries):
   e.reject()
 ```
@@ -33,14 +33,14 @@ for entry in (e.accepted for e in entries):
 * Feels very pythonic and is very explicit
 * Iterating the old task.entries is even more verbose - and we do this most
 
-```
+```python
 for entry in (e.accepted or e.undecided for e in entries):
   e.reject()
 ```
 
 This could be alleviated with new property, but it might just make things more confusing, explicit is better than implicit .. right?
 
-```
+```python
 for entry in (e.active for e in entries):
   e.reject()
 ```
@@ -48,7 +48,7 @@ for entry in (e.active for e in entries):
 ### Option 3 - properties
 If/since our entries is custom list class, we could use properties from it.
 
-```
+```python
 for entry in entries.accepted:
   entry.reject()
 ```

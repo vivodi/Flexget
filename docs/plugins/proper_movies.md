@@ -4,13 +4,13 @@ Keep track of downloaded movies and force re-download if proper version from sam
 ## Configuration:
 Set a time limit on how long to look for propers:
 
-```
+```yaml
 proper_movies: n <minutes|hours|days|weeks>
 ```
 
 Turn it on permanently:
 
-```
+```yaml
 proper_movies: yes
 ```
 

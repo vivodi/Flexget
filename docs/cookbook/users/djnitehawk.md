@@ -11,7 +11,7 @@ this is my personal config.yml which does the following:
 
 replace everything in ALL_CAPS with your relevant information and you should be good to go.
 
-```
+```yaml
 schedules:
   - tasks: [TV-SHOWS,MOVIES]
     interval:

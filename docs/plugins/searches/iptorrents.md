@@ -9,7 +9,7 @@ This search plugin will get results from [http://iptorrents.com](http://iptorren
 
 ### Required Configuration
 `rss_key`, `uid`, and `password` strings are required:
-```
+```yaml
 iptorrents: 
   rss_key: xxxxx
   uid: xxxxx
@@ -21,7 +21,7 @@ iptorrents:
 #### Category
 
 If you would like to search within a custom category, you can use the `category` list option:
-```
+```yaml
 iptorrents: 
   rss_key: xxxxx
   uid: xxxxx
@@ -31,7 +31,7 @@ iptorrents:
 ```
 
  This list can contain one or more of the following:
- ```
+ ```text
  all
  Movie-3D
  Movie-480p
@@ -60,7 +60,7 @@ iptorrents:
 ***Note**: these categories may change over time, it is recommended to check IPTorrents for up-to-date category names.*
 
 You can also specify the category number directly from IPTorrents if it is not listed above:
-```
+```yaml
 iptorrents: 
   rss_key: xxxxx
   uid: xxxxx
@@ -75,7 +75,7 @@ iptorrents:
 
 If you would only like to search for freeleach content, use the `free` boolean option:
 
-```
+```yaml
 iptorrents: 
   rss_key: xxxxx
   uid: xxxxx

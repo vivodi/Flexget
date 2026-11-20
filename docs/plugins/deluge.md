@@ -9,8 +9,8 @@ Manages torrents within the [deluge](http://deluge-torrent.org) bittorrent clien
 
 ## Prerequisites
 - The `deluge` extra provided by FlexGet is installed.
-  ```
-  pip install flexget[deluge]
+  ```console
+  $ pip install flexget[deluge]
   ```
 - The version of Deluge is 1.3 or 2.0.
 

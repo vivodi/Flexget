@@ -5,7 +5,7 @@ This is a system designed for easily managing your FlexGet series from trakt.tv.
 - You define shows you want to follow by creating a trakt list called `My TV Shows` (in this example, you can call it anything you want) and adding any shows you want the FlexGet series plugin to follow to that list.
 - In order to make it easier to start getting a show from a certain episode, you can add the specific episode you want to start at to the `My TV Shows` list and it will be handled automatically.
 
-```
+```yaml
 templates:
   # This is just in a template so that it can easily be re-used in multiple tasks 
   # (for example in an rss based and discover based task)

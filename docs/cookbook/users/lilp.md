@@ -22,7 +22,7 @@ Each party to its renaming files of the form (TvShowsName - SXXEXX - Quality).
 Each party moves files ending in a shape file (VotreChemin/TvShowsName/SXX/).
 The movie part move the finish file in to a folder.
 
-```
+```yaml
 #Envois de mail lorsqu'un fichier est téléchargé
 ﻿email:
   from: xx.xx@gmail.com

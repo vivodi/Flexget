@@ -18,8 +18,8 @@ Use `flexget service --help` to get the options. Make sure you specify an userna
 
 Localhost usernames are .\
 
-```
-flexget service install --username .\johndoe --password janedoe --state auto
+```console
+$ flexget service install --username .\johndoe --password janedoe --state auto
 ```
 
 None of the options provided by `flexget service --help` seem to work currently. A workaround is to use `flexget service install` to install the basic service and then using Windows Services manager to edit the user the service is run under.

@@ -4,38 +4,38 @@ The archive plugin will keep a history of all entries from a given task, whether
 
 Simply enable without any tagging.
 
-```
+```yaml
 archive: yes
 ```
 
 With tagging:
 
-```
+```yaml
 archive: [torrent, tv]
 ```
 
 Search (via commandline):
 
-```
-archive search [@TAG] [@TAG] KEYWORD
+```console
+$ flexget archive search [@TAG] [@TAG] KEYWORD
 ```
 Note: if keyword has spaces it must be quoted.
 
 Retrieve and inject into task (via commandline):
 
-```
-archive inject ID [FORCE]
+```console
+$ flexget archive inject ID [FORCE]
 ```
 For more examples and complete commandline/CLI usage see the [CLI archive](/cli/archive) article.
 
 ## Urlrewriter
-```
+```yaml
 flexget_archive: yes
 ```
 
 or
 
-```
+```yaml
 flexget_archive: [tag, tag]
 ```
 

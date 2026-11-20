@@ -7,7 +7,7 @@ This will produce rss-feed containing all matches with direct downloadable urls 
 Many applications support checking certain directory for new files. When new file (e.g. torrent, nzb) is placed in there they start downloading them automatically. These work excellently with FlexGet.
 :::
 
-```
+```yaml
 templates:
   global:
     make_rss:

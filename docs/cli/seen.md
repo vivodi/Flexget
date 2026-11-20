@@ -22,20 +22,20 @@ All sub-commands support the `--task` option, which can be specified to only act
 
 ## Examples
 ```console
-#Adds the title "The Foo Movie" to the seen database
+$ # Adds the title "The Foo Movie" to the seen database
 $ flexget seen add "The Foo Movie"
 
-#Can be used to forget everything seen from the FooTask.
+$ # Can be used to forget everything seen from the FooTask.
 $ flexget seen forget --task FooTask "*"
 
-#Can be used to remove any url, title or even imdb url which already has been seen once to be downloaded again
+$ # Can be used to remove any url, title or even imdb url which already has been seen once to be downloaded again
 $ flexget seen forget <value>
 
-#Can can be used to add any url, title or even imdb url as already seen  preventing them to be downloaded
+$ # Can can be used to add any url, title or even imdb url as already seen  preventing them to be downloaded
 $ flexget seen add <value>
 
-#Especially useful when you have downloaded something manually outside FlexGet
-seen add "http://example.com/torrents/1235321"
-#With tasks using plugin seen_movies you can also use imdb id to mark any movie as already seen
+$ # Especially useful when you have downloaded something manually outside FlexGet
+$ flexget seen add "http://example.com/torrents/1235321"
+$ # With tasks using plugin seen_movies you can also use imdb id to mark any movie as already seen
 $ flexget seen add tt0119698
 ```

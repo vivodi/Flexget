@@ -29,7 +29,7 @@ This plugin is designed to take input from a web resource or a file and parse th
 
 
 ## Example
-```
+```yaml
 regexp_parse:
   source: http://username:password@ezrss.it/feed/
   sections:

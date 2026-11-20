@@ -2,7 +2,7 @@
 Mainly for testing / development.
 
 ## Example
-```
+```yaml
 mock:
   - {title: 'Name.Of.The.Series.S01E01.XviD-FlexGet', url: 'http://some.url.com/12345'}
 ```

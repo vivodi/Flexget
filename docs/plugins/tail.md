@@ -3,7 +3,7 @@ Similar to the <plugin:text> plugin but remembers the file position and continue
 
 **Example:**
 
-```
+```yaml
 tail:
   file: ~/irclogs/some/log
   entry:

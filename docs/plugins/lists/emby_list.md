@@ -20,7 +20,7 @@ Currently the following settings are supported:
 | **list** | The list to return, can be `watched`, `favorite`, a library, or a playlist. If typed, `watched` or `favorite`, those lists will be assumed, if it's a valid library, that will be assumed, if not, it will be assumed a playlist and created if it does not exist.
 
 ## Config format
-```text
+```yaml
 emby_list:
     server:
         host: http://localhost:8096

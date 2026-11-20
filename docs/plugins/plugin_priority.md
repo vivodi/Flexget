@@ -3,7 +3,7 @@ Each plugin has default priority which usually makes the most sense, however in 
         
 **Example:**
 
-```
+```yaml
 plugin_priority:
   series: 240
   manipulate: 250

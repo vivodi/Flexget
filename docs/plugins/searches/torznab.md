@@ -2,7 +2,7 @@
 Designed to search using Torznab indexers with with <plugin:discover> plugins. Tested using [Jackett](https://github.com/Jackett/Jackett), though should work with any Torznab indexer.
 
 ## Config format
-```text
+```yaml
 discover:
   what:
     - ...

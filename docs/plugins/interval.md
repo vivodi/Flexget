@@ -5,7 +5,7 @@ Format: <n> {minutes|hours|days|months}
 
 Example:
 
-```
+```yaml
 interval: 7 days
 ```
 

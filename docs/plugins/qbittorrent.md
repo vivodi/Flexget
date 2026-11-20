@@ -3,8 +3,8 @@ Downloads content from entry URL and loads it into the  qBittorrent bittorrent c
 
 ## Requirements
 - The `qbittorrent` extra provided by FlexGet is installed.
-  ```
-  pip install flexget[qbittorrent]
+  ```console
+  $ pip install flexget[qbittorrent]
   ```
 - The version of qBittorrent is 3.1.3 and above.
 - qBittorrent web UI is enabled in the options menu.

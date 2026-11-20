@@ -18,7 +18,7 @@ This family of search plugins will search for torrents on most Gazelle-based web
 The plugins in the Gazelle family form a hierarchy. The `redacted` and `notwhatcd` plugins are specialized versions of the `gazellemusic` plugin, which, in turn, is a specialized version of the `gazelle` plugin
 
 This can be visualized like so:
-```
+```text
       gazelle
          |
     gazellemusic
@@ -83,7 +83,7 @@ Inherits all options from `gazellemusic`
 
 
 ## Example tasks
-```
+```yaml
 tasks:
     nwcd:
         notwhatcd:

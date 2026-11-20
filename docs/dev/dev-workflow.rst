@@ -59,7 +59,7 @@ Overview
    $ git diff # Optional
    $ git add modified_file
    $ git commit
-   # push the branch to your own Github repo
+   $ # push the branch to your own Github repo
    $ git push origin my-new-feature
 
 In more detail
@@ -69,21 +69,19 @@ In more detail
    of related changes, move on to the next steps.
 
 #. Optional: Check which files have changed with ``git status``. You'll see a
-   listing like this one:
+   listing like this one::
 
-   .. code:: text
-
-     # On branch my-new-feature
-     # Changed but not updated:
-     #   (use "git add <file>..." to update what will be committed)
-     #   (use "git checkout -- <file>..." to discard changes in working directory)
-     #
-     # modified:   README
-     #
-     # Untracked files:
-     #   (use "git add <file>..." to include in what will be committed)
-     #
-     # INSTALL
+     ​# On branch my-new-feature
+     ​# Changed but not updated:
+     ​#   (use "git add <file>..." to update what will be committed)
+     ​#   (use "git checkout -- <file>..." to discard changes in working directory)
+     ​#
+     ​# modified:   README
+     ​#
+     ​# Untracked files:
+     ​#   (use "git add <file>..." to include in what will be committed)
+     ​#
+     ​# INSTALL
      no changes added to commit (use "git add" and/or "git commit -a")
 
 #. Optional: Compare the changes with the previous version using with ``git
@@ -143,7 +141,9 @@ your branch.
 Writing the commit message
 --------------------------
 
-Commit messages should be clear and follow a few basic rules.  Example::
+Commit messages should be clear and follow a few basic rules.  Example:
+
+.. code:: text
 
    feat(plugin): add telegram notifier
 
@@ -181,11 +181,11 @@ the remote repository with new commits from upstream::
 
 Next, you need to update the feature branch::
 
-   # go to the feature branch
+   $ # go to the feature branch
    $ git checkout my-new-feature
-   # make a backup in case you mess up
+   $ # make a backup in case you mess up
    $ git branch tmp my-new-feature
-   # rebase on upstream develop branch
+   $ # rebase on upstream develop branch
    $ git rebase upstream/develop
 
 If you have made changes to files that have changed also upstream,
@@ -216,12 +216,12 @@ If you mess up during a rebase::
 
 If you notice you messed up after the rebase::
 
-   # reset branch back to the saved point
+   $ # reset branch back to the saved point
    $ git reset --hard tmp
 
 If you forgot to make a backup branch::
 
-   # look at the reflog of the branch
+   $ # look at the reflog of the branch
    $ git reflog show my-feature-branch
 
    8630830 my-feature-branch@{0}: commit: BUG: io: close file handles immediately
@@ -229,7 +229,7 @@ If you forgot to make a backup branch::
    26aa21a my-feature-branch@{2}: commit: BUG: lib: make seek_gzip_factory not leak gzip obj
    ...
 
-   # reset the branch to where it was before the botched rebase
+   $ # reset the branch to where it was before the botched rebase
    $ git reset --hard my-feature-branch@{2}
 
 If you didn't actually mess up but there are merge conflicts, you need to
@@ -269,32 +269,30 @@ want to make the following changes:
 
 We do as follows::
 
-    # make a backup of the current state
+    $ # make a backup of the current state
     $ git branch tmp HEAD
-    # interactive rebase
+    $ # interactive rebase
     $ git rebase -i 6ad92e5
 
-This will open an editor with the following text in it:
-
-.. code:: text
+This will open an editor with the following text in it::
 
     pick 13d7934 First implementation
     pick 2dec1ac Fix a few bugs + disable
     pick a815645 Modify it so that it works
     pick eadc391 Fix some remaining bugs
 
-    # Rebase 6ad92e5..eadc391 onto 6ad92e5
-    #
-    # Commands:
-    #  p, pick = use commit
-    #  r, reword = use commit, but edit the commit message
-    #  e, edit = use commit, but stop for amending
-    #  s, squash = use commit, but meld into previous commit
-    #  f, fixup = like "squash", but discard this commit's log message
-    #
-    # If you remove a line here THAT COMMIT WILL BE LOST.
-    # However, if you remove everything, the rebase will be aborted.
-    #
+    ​# Rebase 6ad92e5..eadc391 onto 6ad92e5
+    ​#
+    ​# Commands:
+    ​#  p, pick = use commit
+    ​#  r, reword = use commit, but edit the commit message
+    ​#  e, edit = use commit, but stop for amending
+    ​#  s, squash = use commit, but meld into previous commit
+    ​#  f, fixup = like "squash", but discard this commit's log message
+    ​#
+    ​# If you remove a line here THAT COMMIT WILL BE LOST.
+    ​# However, if you remove everything, the rebase will be aborted.
+    ​#
 
 To achieve what we want, we will make the following changes to it::
 
@@ -331,9 +329,9 @@ Deleting a branch on GitHub
 ::
 
    $ git checkout develop
-   # delete branch locally
+   $ # delete branch locally
    $ git branch -D my-unwanted-branch
-   # delete branch on github
+   $ # delete branch on github
    $ git push origin --delete my-unwanted-branch
 
 Several people sharing a single repository

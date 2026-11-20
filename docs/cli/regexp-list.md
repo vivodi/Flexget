@@ -28,6 +28,6 @@ View and manage [regexp lists](plugin:regexp_list).
 
 ## Examples
 ```console
-#lists all existing regexp lists
+$ # lists all existing regexp lists
 $ flexget regexp-list all
 ```

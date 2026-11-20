@@ -5,11 +5,11 @@ This plugin is [Builtin](/guide/index) and needs no configuration, however you c
 
 ## Local Mode
 To only consider previously grabbed torrents within the current task you can configure like this:
-```
+```yaml
 seen_info_hash: local
 ```
 ## Turning Off
 To turn off this plugin on a particular task, you can either use the <plugin:disable> plugin, or configure it like this:
-```
+```yaml
 seen_info_hash: no
 ```

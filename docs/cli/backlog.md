@@ -13,9 +13,9 @@ View or clear entries from the <plugin:backlog> plugin.
 
 ## Examples
 ```console
-#lists entries from the backlog of task "foo_task"
+$ # lists entries from the backlog of task "foo_task"
 $ flexget backlog list foo_task
 
-#lists entries from the backlog of task "foo_task" with porcelain table type
+$ # lists entries from the backlog of task "foo_task" with porcelain table type
 $ flexget backlog --porcelain list foo_task
 ```

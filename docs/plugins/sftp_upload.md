@@ -3,8 +3,8 @@ Upload files to a SFTP server.
 
 ## Prerequisites
 - The `sftp` extra provided by FlexGet is installed.
-  ```
-  pip install flexget[sftp]
+  ```console
+  $ pip install flexget[sftp]
   ```
 
 pysftp depends on the Pycrypto library. If you are using Windows,you may have to install it manually. Windows binaries are available [here](http://www.voidspace.org.uk/python/modules.shtml#pycrypto).

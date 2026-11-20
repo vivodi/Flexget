@@ -23,7 +23,7 @@ Integrate with Radarr.
 Use Radarr as input
 
 
-```
+```yaml
 radarr_as_input:
   radarr_list:
     base_url: "http://127.0.0.1"
@@ -37,7 +37,7 @@ radarr_as_input:
 
 Add entries from RSS feed into Radarr:
 
-```
+```yaml
 rss: "http://example.com"
 accept_all: yes
 list_add:
@@ -51,7 +51,7 @@ list_add:
 
 Use list_remove to remove items from Radarr:
 
-```
+```yaml
 remove_from_radarr_list:
   mock:
     - { title: "Ocean's Twelve (2004)", imdb_id: 'tt0349903', tmdb_id: 163 }

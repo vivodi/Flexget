@@ -2,7 +2,7 @@
 
 This recipe allows you to download the latest episodes from a remote PMS by using a section from your local PMS to configure the series plugin.
 
-```
+```yaml
 import_series:
   from:
     plex:

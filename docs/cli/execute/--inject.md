@@ -7,8 +7,8 @@ The only difference from [](../inject) is that `--inject` treats a single argume
 
 **Syntax:**
 
-```text
---inject <TITLE> [URL] [ACCEPT] [FORCE]
+```console
+$ flexget execute --inject <TITLE> [URL] [ACCEPT] [FORCE]
 ```
         
 Without URL a random url will be generated. All other inputs are disabled.

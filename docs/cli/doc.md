@@ -8,6 +8,6 @@ Displays plugin documentation. It may not be complete or available for all plugi
 
 ## Examples
 ```console
-#displays the documentation for the "series" plugin
+$ # displays the documentation for the "series" plugin
 $ flexget doc series
 ```

@@ -5,7 +5,7 @@ Allows including configuration from another file into a task.
 
 **config.yml**
 
-```
+```yaml
 tasks:
   stuff:
     rss: ...
@@ -15,7 +15,7 @@ tasks:
 
 **series.yml**
 
-```
+```yaml
 series:
   - foo
   - bar
@@ -24,7 +24,7 @@ series:
 This allows parts of configuration to be shared between multiple configuration files (databases).
 
 You can also include multiple files using this format:
-```
+```yaml
 include:
   - include1.yml
   - include2.yml

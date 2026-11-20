@@ -6,14 +6,14 @@ API registration seems to be broken, making this plugin defunct
 Emits an entry for each movie in a [Rotten Tomatoes](http://www.rottentomatoes.com) list.
 
 ## Configuration
-```
+```yaml
 rottentomatoes_list:
   api_key: rh8chjzp8vu6gnpwj88736uv
-  dvds:
-    - top_rentals
-    - upcoming
-  movies:
-    - box_office
+    dvds:
+      - top_rentals
+      - upcoming
+    movies:
+      - box_office
 ```
 
 You should [[http://developer.rottentomatoes.com/|create]] and use your own API key instead of the default, as Rotten Tomatoes limits the number of concurrent users per key.

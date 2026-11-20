@@ -18,7 +18,7 @@ Remember to change the example address to your own =) You can use the -t option 
 
 Then insert the script in your crontab:
 
-```
+```text
 @hourly ~/bin/flexget_logwatch
 ```
 

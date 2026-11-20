@@ -9,7 +9,7 @@ This is rather complicated and mostly useless as series plugin will continue fro
 
 This helps FlexGet learn what type of series numbering your shows have, as well as what episodes you already have. This can be accomplished by making a special task which you will run after setting up FlexGet.
 
-```
+```yaml
 templates:
   tv:
     # your series config, (or import_series) goes here

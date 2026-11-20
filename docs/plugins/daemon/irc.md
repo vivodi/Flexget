@@ -28,7 +28,7 @@ $ flexget daemon start --daemonize
 
 Note that this is a daemon plugin. Unlike most plugins, it is not placed under the tasks section of the config, but rather is a [top-level key](/guide/configuration/index.md#top-level-keys). Example:
 
-```text
+```yaml
 irc:
   my_irc_name:
     <irc_config>

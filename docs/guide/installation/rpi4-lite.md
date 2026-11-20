@@ -24,24 +24,24 @@ https://pip.pypa.io/en/stable/installation/#get-pip-py
 
 Use get-pip.py
 
-```bash
-cd /tmp
-wget https://bootstrap.pypa.io/get-pip.py
-sudo python3 get-pip.py
+```console
+$ cd /tmp
+$ wget https://bootstrap.pypa.io/get-pip.py
+$ sudo python3 get-pip.py
 ```
 
 Install pipx, update path and reload changes
 
-```bash
-python3 -m pip install --user pipx
-~/.local/bin/pipx ensurepath
-source ~/.bashrc
+```console
+$ python3 -m pip install --user pipx
+$ ~/.local/bin/pipx ensurepath
+$ source ~/.bashrc
 ```
 
 Install FlexGet
 
-```bash
-~/.local/bin/pipx install flexget
+```console
+$ ~/.local/bin/pipx install flexget
 ```
 
 Test, you should see version number

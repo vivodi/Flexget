@@ -51,4 +51,4 @@ Note that the changelog can always be updated manually, but sticking to this str
 
 # Docs
 
-Updating the docs is also a valuable way to contribute. The wiki can be found at `/docs`.
+Updating the docs is also a valuable way to contribute. The docs can be found at `/docs`.

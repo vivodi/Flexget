@@ -1,7 +1,7 @@
 # Python and pip
 
 :::{note}
-The instructions in this step assume you have just installed Homebrew as detailed on the [previous page](index).
+The instructions in this step assume you have just installed Homebrew as detailed on the [previous page](index.md).
 :::
 
 ## Python and pip

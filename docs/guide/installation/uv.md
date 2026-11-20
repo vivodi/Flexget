@@ -25,12 +25,12 @@ $ uv tool install flexget[locked] --python 3.13
 
 ### Adding extras
 There are several extras we include that install optional dependencies needed by some of the most common plugins. They are:
-- [boto3](plugin:sns)
+- [`boto3`](plugin:sns)
 - <plugin:deluge>
 - ftp (used by <plugin:ftp_list> and <plugin:ftp_download> plugins)
 - <plugin:qbittorrent>
-- [plexapi](plugin:plex)
-- [rarfile](plugin:decompress)
+- [`plexapi`](plugin:plex)
+- [`rarfile`](plugin:decompress)
 - sftp (used by <plugin:sftp_list>, <plugin:sftp_download> and <plugin:sftp_upload> plugins)
 - <plugin:subliminal>
 - <plugin:transmission>

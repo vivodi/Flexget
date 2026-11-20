@@ -3,13 +3,7 @@
 To get started, create these as a file `~/.flexget/config.yml` (see [Configuration](/guide/configuration/index) for more details)
 
 From here you can find tips and recipes for common tasks.
-Feel free to add your own recipes or improve existing ones.  
-
-:::{warning}
-**To edit the wiki:**
-Please create new pages only under /Cookbook/ ! 
-Don't create new pages in the root of the wiki.
-:::
+Feel free to add your own recipes or improve existing ones.
 
 ```{toctree}
 :caption: Delicious recipes

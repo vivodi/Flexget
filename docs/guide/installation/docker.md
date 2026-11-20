@@ -27,15 +27,21 @@ If you need other pip or alpine packages, you can create a custom script to run 
 ### Usage
 
 #### docker cli
-```bash
-docker run -d \
-  --name flexget \
-  -v /host/config:/config \        # required
-  -e TZ=$TIMEZONE \                # optional: defaults to UTC
-  -p 5050:5050 \                   # optional: for webui
-  flexget/flexget \
-  daemon start
+```console
+$ docker run -d \
+    --name flexget \
+    -v /host/config:/config \
+    -e TZ=$TIMEZONE \
+    -p 5050:5050 \
+    flexget/flexget \
+    daemon start
 ```
+
+**Parameters:**
+
+- `-v /host/config:/config` *(required)*: Mounts the host configuration directory to `/config` inside the container.
+- `-e TZ=$TIMEZONE` *(optional)*: Sets the container timezone (e.g., `Asia/Tokyo`). Defaults to `UTC`.
+- `-p 5050:5050` *(optional)*: Exposes the port for the WebUI.
 
 #### docker compose
 Create a file called `compose.yaml`:
@@ -100,20 +106,19 @@ With docker compose, add `entrypoint`:
 ```yaml
 services:
   flexget:
-    ...
     entrypoint: /config/entrypoint.sh
     ...
 ```
 
 #### Custom Dockerfile
 
-```Dockerfile
-FROM  flexget/flexget
+```dockerfile
+FROM flexget/flexget
 
-RUN   set -x; \
-		  apk add --no-cache PKG 
-      # or 
-      pip install --no-cache-dir PKG
+RUN set -x; \
+    apk add --no-cache PKG 
+    # or 
+    pip install --no-cache-dir PKG
 
 ```
 Build the image:
@@ -130,10 +135,6 @@ Since config files may need updating when the minor version gets bumped, best pr
 
 #### Compose
 Run `docker compose pull` (after updating your pinned version if set) to pull the latest image.
-
-### 3rd party images
-  - [linuxserver/flexget](https://hub.docker.com/r/linuxserver/flexget) / [ghcr.io/linuxserver/flexget](https://github.com/linuxserver/docker-flexget/pkgs/container/flexget) / lscr.io/linuxserver/flexget
-  - [wiserain/flexget](https://hub.docker.com/r/wiserain/flexget) / [ghcr.io/wiserain/flexget](https://github.com/wiserain/docker-flexget/pkgs/container/flexget)
   
 ### Build your own image
 

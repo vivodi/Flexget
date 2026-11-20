@@ -374,7 +374,7 @@ Plugins that can perform various operations and do not readily fit into any cate
 Perform various operations on request that are being sent and received. 
 
 ```{plugintable}
-convert_magnet: Converts magnet uris to torrent files using libtorrent 
+convert_magnet: Converts magnet URIs to torrent files using libtorrent 
 cookies: Use FireFox3 cookies. 
 domain_delay: Sets a minimum interval between requests to specific domains. 
 formlogin: Log in to web site via login form. 

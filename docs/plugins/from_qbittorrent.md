@@ -12,7 +12,7 @@ $ pip install qbittorrent-api
 
 ## Options
 
-| **Name** | **Info** | **Description** |
+| Name | Info | Description |
 | --- | --- | --- |
 | host | Text | Where qbittorrent is listening |
 | port | Number | Connected port  |

@@ -3,7 +3,7 @@ This plugin produces an [entry](/guide/entry) for each film in any public [Lette
  
 ## Configuration
 
-| **Paramaters**     | An asterisk (*) indicates that the parameter is required  |
+| Paramaters     | An asterisk (*) indicates that the parameter is required  |
 | --- | --- |
 | **username***        | Your or another user's Letterboxd username.  |
 | **list***            | The name of a custom list, or one of the following built in lists: `watchlist`, `diary`, `likes`, `rated` or `watched`.  |
@@ -42,7 +42,7 @@ tasks:
 In addition to `title`, `url`, `imdb_id`, `tmdb_id`, `movie_name` and `movie_year`, [entries](/guide/entry) created by the plugin are populated with a few site-specific fields:
 
 
-|  |  | **Entry fields**  |
+|  |  | Entry fields  |
 | --- | --- | --- |
 | **letterboxd_list**    |   | The list that the entry was pulled from, in the format `list (username)`.  |
 | **letterboxd_score**   |   | The average rating (out of 10) given to the film by Letterboxd users (included when available).  |

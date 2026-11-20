@@ -6,7 +6,7 @@ This plugin is part of [search](/plugins/index.md#search) plugin system
 This family of search plugins will search for torrents on most Gazelle-based websites.
 
 ## Plugins
-| **name** | **description** |
+| name | description |
 |---|---|
 | `gazelle` | A generic plugin that searches a Gazelle-based website. Limited functionality (just basic search) but should work for almost all of them.|
 | `gazellemusic` | A plugin that searches a Gazelle-based music website. Based on the source code for what.cd since it's the starting point of all Gazelle-based music sites.|
@@ -35,7 +35,7 @@ The only options that are required are `username`, `password`, and `base_url`. N
 
 
 ### `gazelle`
-|**key** | **decription** |
+|key | decription |
 |---|---|
 |`username`| The username to log into the site as|
 |`password`| The password for the username|
@@ -46,7 +46,7 @@ The only options that are required are `username`, `password`, and `base_url`. N
 
 ### `gazellemusic`
 Inherits all options from `gazelle`
-|**key** | **decription** |
+|key | decription |
 |---|---|
 |`artist`|Artist name|
 |`album`|Album name|
@@ -66,7 +66,7 @@ Inherits all options from `gazelle`
 
 ### `redacted`
 Inherits all options from `gazellemusic`
-|**key** | **decription** |
+|key | decription |
 |---|---|
 |`encoding`|Same as `gazellemusic` without `q8.x (VBR)`|
 |`format`|Same as `gazellemusic` without `Ogg Vorbis`|
@@ -75,7 +75,7 @@ Inherits all options from `gazellemusic`
 
 ### `notwhatcd`
 Inherits all options from `gazellemusic`
-|**key** | **decription** |
+|key | decription |
 |---|---|
 |`media`|Same as `gazellemusic` plus `Blu-ray`, `Unknown`|
 |`release_type`|Same as `gazellemusic` plus `demo`, `concert recording`, `dj mix`|

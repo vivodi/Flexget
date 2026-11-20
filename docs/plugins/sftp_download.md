@@ -18,7 +18,7 @@ sftp_download:
 
 ## Options
 
-| **Name** | **Info** | **Description** |
+| Name | Info | Description |
 | --- | --- | --- |
 |  to  |  Path  |  Destination path; supports Jinja2 templating on the input entry. Fields such as series_name must be populated prior to input into this plugin using metainfo_series or similar.  |
 |  recursive  |  [Yes\|No]  |  Indicates wether to download directory contents recursively.  |

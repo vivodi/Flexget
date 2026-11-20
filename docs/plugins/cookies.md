@@ -9,7 +9,7 @@ cookies: ~/.flexget/cookies.sqlite
 ## Types
 This plugin will attempt to determine what type of cookies file you are using based on the extension.
 
-| **Extensions** | **Type** |
+| Extensions | Type |
 | --- | --- |
 | .txt | mozilla |
 | .lwp | lwp |

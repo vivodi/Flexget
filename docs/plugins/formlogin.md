@@ -33,7 +33,7 @@ regexp:
 ## Options
 All options except for the API key are optional
 
-| **Name** | **Description** |
+| Name | Description |
 | --- | --- |
 | form | URL to the login form |
 | username | Username to the site |

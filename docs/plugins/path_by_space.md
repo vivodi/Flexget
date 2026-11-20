@@ -3,7 +3,7 @@ This plugin can be used to select a path based the disk usage.
 
 ## Configuration
 
-| **Option** | **Description** |
+| Option | Description |
 | --- | --- |
 | select | [most_free \| most_free_percent \| most_used \| most_used_percent] |
 | paths | The paths to compare |

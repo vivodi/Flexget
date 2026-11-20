@@ -7,7 +7,7 @@ Removes resume information and other non-standard data from torrent downloads. N
 
 There is only one settings which determines what kind of metadata is removed from torrents:
 
-| **Value** | **Description** |
+| Value | Description |
 | --- | --- |
 | off | almost equivalent to commenting it out|
 | on | normal scrubbing, all custom keys on top-level|

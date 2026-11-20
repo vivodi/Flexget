@@ -71,7 +71,7 @@ Clicking on the commands will take you to a page with more information about it.
 | `--bugreport` | Create a detailed bug report for use in reporting an issue on [GitHub](https://github.com/Flexget/Flexget/issues). Note that the output might contain _private_ data, such as URLs or IP addresses, so edit that out before posting or submitting it. |
 | `--profile [OUTFILE]` | Use the Python profiler for this run to debug performance issues. |
 | `--cron` | Used when executing FlexGet non-interactively. This allows background maintenance to run, disables stdout and stderr output, and reduces the logging level to `info`. |
-| `--debug-warnings` | Elevate warnings to errors for debugging purposes, so a traceback is shown.
+| `--debug-warnings` | Elevate warnings to errors for debugging purposes, so a traceback is shown.|
 | `--debug-db-sessions` | Debug session starts and ends, for finding problems with database locks. |
 
 ```{toctree}

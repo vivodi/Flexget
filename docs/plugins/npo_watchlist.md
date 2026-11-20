@@ -4,13 +4,13 @@ Produces entries for every episode on the user's npo.nl watchlist (Dutch public 
 Entries can be downloaded using [download-npo](https://github.com/Carpetsmoker/download-npo).
 
 
-| **Option** | **Description** |
+| Option | Description |
 | --- | --- |
 | **email** | Your username for npo.nl |
 | **password** | Your password for npo.nl |
 | **remove_accepted** | If set to 'yes', the plugin will delete accepted entries from the watchlist after download is complete. Defaults to 'no'. |
-| **max_episode_age_days** | If set (and not 0), entries will only be generated for episodes broadcast in the last x days. This only applies to episodes related to series the user is following.
-| **download_premium** | If 'download_premium' is set to 'yes', the plugin will also download entries that are marked as exclusive content for NPO Plus subscribers.
+| **max_episode_age_days** | If set (and not 0), entries will only be generated for episodes broadcast in the last x days. This only applies to episodes related to series the user is following.|
+| **download_premium** | If 'download_premium' is set to 'yes', the plugin will also download entries that are marked as exclusive content for NPO Plus subscribers.|
 
 ## Example
 ```

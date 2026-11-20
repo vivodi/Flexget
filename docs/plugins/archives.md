@@ -8,7 +8,7 @@ archives.
 This plugin can be enabled with a simple boolean. Alternately, if unrar isn't defined by your system's PATH environment variable, you can specify the path manually using *unrar_tool*.
 
 
-| **Option** | **Decscription** |
+| Option | Decscription |
 | --- | --- |
 | unrar_tool | Specifies the path of the unrar tool. Only necessary if its location is not defined in the operating system's PATH environment variable. |
 

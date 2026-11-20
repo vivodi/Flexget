@@ -9,7 +9,7 @@ series:
 ```
 
 
-|  **Title**  |  **prefer_specials:**  |  **Resulting series_id_type:**  |
+|  Title  |  prefer_specials:  |  Resulting series_id_type:  |
 | --- | --- | --- |
-|  the show s03e04 special  |  True  |  special  |
-|| the show s03e04 special || False || ep ||
+| the show s03e04 special  |  True  |  special  |
+| the show s03e04 special | False | ep |

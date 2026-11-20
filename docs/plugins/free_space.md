@@ -2,7 +2,7 @@
 This plugin will abort a task if free space on a given drive is getting low.
 
 
-| **Option** |     **Values** | **Description** |
+| Option |     Values | Description |
 | --- | ------- | --- |
 | path | \<directory path> | The path to monitor for free space. |
 | space | \<integer> | Amount of free space (in MB) that you require for new entries to be allowed. |

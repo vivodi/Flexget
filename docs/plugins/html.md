@@ -134,7 +134,7 @@ www.somesite.com/search/?category=10&from=450&to=499
 
 #### Additionnal increment Options
 
-| **Option** | **Description** | **type** | **default** |
+| Option | Description | type | default |
 | --- | --- | --- | --- |
 | from | Increment starting value | Number | 0 |
 | to | If defined, plugin will stop when increment reach this value | Number | - |

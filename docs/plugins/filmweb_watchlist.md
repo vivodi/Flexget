@@ -16,7 +16,7 @@ This plugin is useful for example when used in a task with the <plugin:movie_lis
 
 ## Options
 
-| **Name** | **Type** | **Required** | **Description** |
+| Name | Type | Required | Description |
 | --- | --- | --- | --- |
 | login | string | true | Username or email address to your account
 | password | string | true | Password to your account

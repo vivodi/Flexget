@@ -9,7 +9,7 @@ For example, the <plugin:regexp> plugin checks whether the given regular express
 These are mandatory fields. You don't necessarily need to deal with anything more complicated for simple use cases.
 
 
-| **Name** | **Value** |
+| Name | Value |
 | --- | --- |
 | title | Linux Mint 17.3 cinnamon |
 | url | http://torrents.linuxmint.com/torrents/linuxmint-17.3-cinnamon-64bit.iso.torrent |
@@ -22,7 +22,7 @@ Use `--dump` option to see your task content as this list is not complete or alw
 :::
 
 
-| **Name** | **Created by** | **Description** |
+| Name | Created by | Description |
 | --- | --- | --- |
 | id | multiple plugins | Set by metainfo plugins to the unique identifer for this entry. IE: "movie 2010" or "series S01E01" |
 | path | multiple plugins | Path where this entry content should be saved |

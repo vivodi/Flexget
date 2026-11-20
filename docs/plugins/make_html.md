@@ -3,7 +3,7 @@ Generate an HTML file for accepted entries.
 
 ## Options
 
-| **Name** | **Info** | **Description** |
+| Name | Info | Description |
 | --- | --- | --- |
 |  file  |  Text  |  File to be created  |
 |  template  |  Text  |  Specify a custom Jinja template. Custom templates should be placed in <flexget config dir>/templates/. Defaults to builtin template (html.template).  |

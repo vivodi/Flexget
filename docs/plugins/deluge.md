@@ -26,7 +26,7 @@ deluge: yes
 
 ### Options
 
-| **Name** | **Description** |
+| Name | Description |
 | --- | --- |
 | host | Deluge host (default *localhost*) |
 | port | Deluge port (default *58846*) |

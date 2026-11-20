@@ -34,7 +34,7 @@ discover:
 You need then to configure the newznab plugins, which take 3 parameters:
 
 
-| **Option** | **Description** |
+| Option | Description |
 | --- | --- |
 | website | website of the newznab server |
 | apikey | most newznab requires this key in order to make search on their website |

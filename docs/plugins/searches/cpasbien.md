@@ -18,7 +18,7 @@ cpasbien: <category>
 ```
 
 
-| **Category** | **Description** |
+| Category | Description |
 | --- | --- |
 | all | Not filtered by any category |
 | misc | Category for miscellaneous files |

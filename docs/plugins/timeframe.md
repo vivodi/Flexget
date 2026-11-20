@@ -6,13 +6,13 @@ Specify a timeframe in which FlexGet waits for the chosen quality. The desired q
 
 ## Settings
 
-| **Option** | **Description** |
+| Option | Description |
 | --- | --- |
 | identified_by | Define how entries are identified, default `auto` which uses entry id [field](/guide/entry). Supports [Jinja Template](/guide/jinja) |
 | target | The target quality that should be upgraded to. Upgrades will not continue after target is met. |
 | wait | How long to wait for `target` quality. |
-| on_waiting | The action to preform on entries which are pending for the `target` quality. `do_nothing` won't act on the entry ([undecided](/guide/filtering)). Default is `reject`
-| on_reached | The action to perform on entries which reach the `target` quality or timeframe has expired. `do_nothing` won't act on the entry ([undecided](/guide/filtering)). Default is `accept`
+| on_waiting | The action to preform on entries which are pending for the `target` quality. `do_nothing` won't act on the entry ([undecided](/guide/filtering)). Default is `reject`|
+| on_reached | The action to perform on entries which reach the `target` quality or timeframe has expired. `do_nothing` won't act on the entry ([undecided](/guide/filtering)). Default is `accept`|
 
 ## Syntax:
 

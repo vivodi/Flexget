@@ -10,7 +10,7 @@ Download subtitles for entries referring to existing video files.
 
 ### Options
 
-| **Name** | **Info** | **Description** |
+| Name | Info | Description |
 | --- | --- | --- |
 | languages | list | List of preferred languages (as IETF codes) |
 | alternatives | list | List of secondary languages: subtitles in this list are downloaded, but the entry will be processed again until one for the `languages` list is found |

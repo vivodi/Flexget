@@ -3,7 +3,7 @@ Upgrade plugin will continue getting better qualities of an entry (tracked by a 
 
 ## Settings
 
-| **Option** | **Description** |
+| Option | Description |
 | --- | --- |
 | identified_by | Define how entries are identified, default `auto` which uses entry id [field](/guide/entry). Supports [Jinja Template](/guide/jinja) |
 | tracking | If enabled by it's self will track entry but not upgrade. |

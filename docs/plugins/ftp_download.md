@@ -22,7 +22,7 @@ ftp_download:
 All options available are optional.
 
 
-| **Name** | **Description** |
+| Name | Description |
 | --- | --- |
 | use-ssl | Defines wether or not it should use SSL login. |
 | ftp_tmp_path | Defines the local path in which the medias will be downloaded. |

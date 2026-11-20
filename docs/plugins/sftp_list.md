@@ -41,7 +41,7 @@ sftp_list:
 
 ## Options
 
-| **Name** | **Info** | **Description** |
+| Name | Info | Description |
 | --- | --- | --- |
 |  host  |  Text  |  Host to connect to  |
 |  port  |  Number |  Port the remote SSH server is listening on. Defaults to port 22.  |

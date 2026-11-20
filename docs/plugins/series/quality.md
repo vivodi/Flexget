@@ -1,6 +1,6 @@
 # Quality
 
-| **Name** | **Description** |
+| Name | Description |
 | --- | --- |
 | quality | Accept only qualities that match this quality requirement. No other quality will be accepted. |
 | [qualities](qualities.md) | Accept all given qualities, multiple downloads |

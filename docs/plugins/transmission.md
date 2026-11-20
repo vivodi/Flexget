@@ -41,7 +41,7 @@ transmission:
 
 ## Options
 
-| **Name** | **Info** | **Description** |
+| Name | Info | Description |
 | --- | --- | --- |
 | host | Text | Where transmission is listening (default: localhost) |
 | port | Number | Connected port (default: 9091) |

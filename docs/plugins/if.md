@@ -15,13 +15,13 @@ The if plugin allows evaluating [jinja expressions](http://jinja.pocoo.org/docs/
 There are several other functions and objects available added by FlexGet. Some of them were used before the switch to jinja and have native jinja equivalents that can be switched to:
 
 
-| **Object** | **Decscription** | **Jinja equivalent** |
+| Object | Decscription | Jinja equivalent |
 | --- | --- | --- |
-| has_field('<field_name>') | Returns true if the entry has the field field_name. | `<field_name> is defined`
-| len(<iterable>) | Returns the length of the iterable | `<iterable>|length` |
+| has_field('<field_name>') | Returns true if the entry has the field field_name. | `<field_name> is defined`|
+| len(<iterable>) | Returns the length of the iterable | `<iterable>\|length` |
 | any(<iterable>) | Returns true if any of the items in the iterable are true. |
 | all(<iterable>) | Returns true if all items in the iterable are true. |
-| sorted(<iterable>) | Return a new sorted list from the items in iterable. | `<iterable>|sort` |
+| sorted(<iterable>) | Return a new sorted list from the items in iterable. | `<iterable>\|sort` |
 | now | This is a python datetime object equal to the time the if statement was evaluated. |
 | timedelta | From the python standard library [datetime.timedelta](http://docs.python.org/library/datetime.html#datetime.timedelta) |
 

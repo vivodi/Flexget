@@ -8,12 +8,12 @@ Your plugin's wiki page must be located under `/plugins` on this site, for examp
 
 ## Third-Party Plugins
 Refer to the wiki page for download link and installation instructions.
-| **Name** | **Description** |
+| Name | Description |
 | --- | --- |
 
 ## FlexGet Extras Package
 
 These plugins are not included in the core package and must be installed from the FlexGet [GitHub repository](https://github.com/Flexget/extras).
 
-| **Name** | **Description** |
+| Name | Description |
 | --- | --- |

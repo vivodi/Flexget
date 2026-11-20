@@ -11,7 +11,7 @@ pysftp depends on the Pycrypto library. If you are using Windows,you may have to
 
 ## Options
 
-| **Name** | **Info** | **Description** |
+| Name | Info | Description |
 | --- | --- | --- |
 |  host  |  Text  |  Host to connect to  |
 |  port  |  Integer  |  Port the remote SSH server is listening on. Defaults to port 22.  |

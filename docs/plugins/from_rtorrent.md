@@ -4,7 +4,7 @@ This plugin creates entries from rTorrent for further automation.
 
 ## Options
 
-| **Name** | **Info** | **Description** |
+| Name | Info | Description |
 | --- | --- | --- |
 | uri | Text | rTorrent URI. IE: scgi://localhost:5000, http://localhost:80/RPC2, /home/rtorrent/rtorrent.sock  |
 | username | Text | Username when using HTTP for basic auth |

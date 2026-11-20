@@ -34,24 +34,24 @@ When using Jinja2 templates, you can use the following custom filters in additio
 
 |Name|Description|
 |---|---|
-|`asciify`|Simplify a string replacing for example `à` with `a`, `õ` with `o` and `ç` with `c`
-|`format_number`|Formats a number according to the user's locale.
-|`format_size(si=false)`| Formats a number of bytes into an appropriate unit. (biggest unit where the value is still over 1) e.g. `1.3 GiB`
+|`asciify`|Simplify a string replacing for example `à` with `a`, `õ` with `o` and `ç` with `c`|
+|`format_number`|Formats a number according to the user's locale.|
+|`format_size(si=false)`| Formats a number of bytes into an appropriate unit. (biggest unit where the value is still over 1) e.g. `1.3 GiB`|
 |`formatdate(format)`| Do string formatting on datetime objects according to [strftime](http://strftime.org/).|
-|`get_year`|Get year from end of string (for example: get year from the end of movie name)
+|`get_year`|Get year from end of string (for example: get year from the end of movie name)|
 |`pad(length)`| Pad a number with 0s to the specified length|
 |`parse_size(si=false)`|Tries to parse a size from a human readable format. e.g. 3GB, 32 kb. Result will be in bytes. If `si` is `true`, sizes will be assumed to be with metric prefixes. e.g. 1KB = 1000B (rather than 1024B)|
-|`parsedate`|Attempts to parse a date according to the rules in RFC 2822
+|`parsedate`|Attempts to parse a date according to the rules in RFC 2822|
 |`pathbase`|Base name of a path.|
 |`pathdir`| Directory containing the given path.|
 |`pathext`|Extension of a path (including the '.').|
 |`pathname`|Base name of a path, without its extension.|
-|`pathscrub(os)`| Replace problematic characters in a path. If os parameter is omitted, the current os, or os defined by <plugin:pathscrub> plugin will be used.<br> **NOTE:** This should rarely be needed due to the builtin <plugin:pathscrub> plugin.
-|`re_replace(pattern, replacement)`| Do regexp substitution on the string.<br>**NOTE 1**: Case-sensitive. You can change this behaviour by starting your pattern with `(?i)`<br>- `'This MIGHT Match'|re_replace('might', 'WON’T')`<br>- `'This MIGHT Match'|re_replace('(?i)might', 'WILL')`<br>**NOTE 2:** Captured groups can be accessed in the replacement string by using backreferences:<br>- `\\1` when enclosed with apostrophes or `\\\\1` when enclosed with quotes<br>- `\g<1>` when enclosed with either apostrophes or quotes|
-|`re_search(pattern)`|Perform a search for given regexp pattern, return the matching portion of the text.
-|`strip_symbols`|Removes all special chars from a string, keeps accent words. The symbols are removed, only `()-_[].` and replaced by a `space`. Double `space` are also replaced by a single `space`
-|`strip_year`|Removes year from end of string (for example: remove year from the end of movie name)
-|`to_date`|Formats date
+|`pathscrub(os)`| Replace problematic characters in a path. If os parameter is omitted, the current os, or os defined by <plugin:pathscrub> plugin will be used.<br> **NOTE:** This should rarely be needed due to the builtin <plugin:pathscrub> plugin.|
+|`re_replace(pattern, replacement)`| Do regexp substitution on the string.<br>**NOTE 1**: Case-sensitive. You can change this behaviour by starting your pattern with `(?i)`<br>- `'This MIGHT Match'\|re_replace('might', 'WON’T')`<br>- `'This MIGHT Match'\|re_replace('(?i)might', 'WILL')`<br>**NOTE 2:** Captured groups can be accessed in the replacement string by using backreferences:<br>- `\\1` when enclosed with apostrophes or `\\\\1` when enclosed with quotes<br>- `\g<1>` when enclosed with either apostrophes or quotes|
+|`re_search(pattern)`|Perform a search for given regexp pattern, return the matching portion of the text.|
+|`strip_symbols`|Removes all special chars from a string, keeps accent words. The symbols are removed, only `()-_[].` and replaced by a `space`. Double `space` are also replaced by a single `space`|
+|`strip_year`|Removes year from end of string (for example: remove year from the end of movie name)|
+|`to_date`|Formats date|
 
 
 ### Example:

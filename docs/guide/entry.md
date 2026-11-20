@@ -170,3 +170,6 @@ Use `--dump` option to see your task content as this list is not complete or alw
 | tvmaze_series_actors | <plugin:tvmaze_lookup> | A list of the cast of the show. |
 
 ^* = and other plugins that utilize this plugin^
+
+## Lazy field
+Special type of [entry](/guide/entry) field that is bound to a plugin and evaluated only when the field value is needed, thus avoiding unnecessary requests and database queries.

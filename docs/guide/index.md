@@ -20,17 +20,15 @@ filtering
 builtin
 qualities
 daemon
-lazy-field
 jinja
 url-rewriters
-web-ui/index
-api
 ```
 
 ```{toctree}
 :caption: Miscellaneous
 :maxdepth: 2
-
+web-ui/index
+api
 trakt
 support
 ```

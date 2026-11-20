@@ -36,7 +36,6 @@ extensions = [
 ]
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**/_includes', 'drafts']
 suppress_warnings = [
-    'config.cache',
     'ref.python',  # Can be removed after https://github.com/sphinx-doc/sphinx/issues/14223 is resolved
 ]
 nitpicky = False  # TODO: Enable after https://github.com/sphinx-doc/sphinx/issues/11991
@@ -81,21 +80,6 @@ myst_substitutions = {
 copybutton_exclude = '.linenos, .gp, .go'
 
 # -- Options for HTML output -------------------------------------------------
-
-
-def _custom_edit_url(file_name: str) -> str:
-    file_path = 'docs/' + file_name
-    if file_name.startswith('api/'):
-        modpath = Path(file_name.removeprefix('api/').removesuffix('.rst').replace('.', '/'))
-        modpath_parent = Path.cwd().parent
-        if (modpath_parent / modpath).is_dir():
-            file_path = modpath / '__init__.py'
-        elif (modpath_parent / (modpath.with_suffix('.py'))).is_file():
-            file_path = modpath.with_suffix('.py')
-        else:
-            logger.warning('Unknown type, unable to generate the URL for: %s.', file_name)
-    return f'https://github.com/flexget/flexget/edit/develop/{file_path}'
-
 
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
@@ -144,16 +128,36 @@ html_sidebars = {
 }
 html_context = {
     'edit_page_url_template': '{{ custom_edit_url(file_name) }}',
-    'custom_edit_url': _custom_edit_url,
     'edit_page_provider_name': 'GitHub',
 }
 
-# -- Options for LaTeX output -------------------------------------------------
+# -- Options for LaTeX output ------------------------------------------------
 
 latex_engine = 'xelatex'
 latex_use_modindex = False
 
-# -- Miscellaneous ------------------------------------------------------------
+# -- Application setup -------------------------------------------------------
+
+def _custom_edit_url(file_name: str) -> str:
+    file_path = 'docs/' + file_name
+    if file_name.startswith('api/'):
+        modpath = Path(file_name.removeprefix('api/').removesuffix('.rst').replace('.', '/'))
+        modpath_parent = Path.cwd().parent
+        if (modpath_parent / modpath).is_dir():
+            file_path = modpath / '__init__.py'
+        elif (modpath_parent / (modpath.with_suffix('.py'))).is_file():
+            file_path = modpath.with_suffix('.py')
+        else:
+            logger.warning('Unknown type, unable to generate the URL for: %s.', file_name)
+    return f'https://github.com/flexget/flexget/edit/develop/{file_path}'
+
+def _add_custom_edit_url(app, pagename, templatename, context, doctree):
+    context['custom_edit_url'] = _custom_edit_url
+
+def setup(app):
+    app.connect('html-page-context', _add_custom_edit_url)
+
+# -- Miscellaneous -----------------------------------------------------------
 
 # Workaround for https://github.com/sphinx-doc/sphinx/issues/14618
 # Using `autodoc_use_legacy_class_based = True` or downgrading Sphinx to v8 fixes the issue

@@ -29,11 +29,11 @@ def _get_default_display_name(docname):
     return base_name
 
 
-class TocTableDirective(Directive):
+class PluginTableDirective(Directive):
     """
     Usage example:
 
-        ```{toctable}
+        ```{plugintable}
         :caption: Quick Navigation
         :maxdepth: 1
 
@@ -58,7 +58,7 @@ class TocTableDirective(Directive):
         """
         if ':' not in line:
             raise self.error(
-                f'[toctable] Missing description separator ":" in line: "{line}". '
+                f'[plugintable] Missing description separator ":" in line: "{line}". '
                 f'Expected format: "docname : description" (at line {line_lineno}).'
             )
 
@@ -68,12 +68,12 @@ class TocTableDirective(Directive):
 
         if not doc_path:
             raise self.error(
-                f'[toctable] Empty document path before ":" in line: "{line}" (at line {line_lineno}).'
+                f'[plugintable] Empty document path before ":" in line: "{line}" (at line {line_lineno}).'
             )
 
         if not desc:
             raise self.error(
-                f'[toctable] Empty description for target "{doc_path}". '
+                f'[plugintable] Empty description for target "{doc_path}". '
                 f'Please provide a non-empty description after ":" (at line {line_lineno}).'
             )
 
@@ -96,22 +96,22 @@ class TocTableDirective(Directive):
 
     def _register_plugin_ref(self, env, display_name, target_docname, line_lineno):
         """
-        Register `display_name` in `env.toctable_plugin_refs` for `plugin:<name>` links.
+        Register `display_name` in `env.plugintable_plugin_refs` for `plugin:<name>` links.
         """
-        if not hasattr(env, 'toctable_plugin_refs'):
-            env.toctable_plugin_refs = {}
+        if not hasattr(env, 'plugintable_plugin_refs'):
+            env.plugintable_plugin_refs = {}
 
         key_lower = display_name.lower()
-        existing = env.toctable_plugin_refs.get(key_lower)
+        existing = env.plugintable_plugin_refs.get(key_lower)
         if existing and existing[0] != target_docname and existing[2] != env.docname:
             logger.warning(
-                f'[toctable] Duplicate plugin reference "{REF_PREFIX}{display_name}": '
+                f'[plugintable] Duplicate plugin reference "{REF_PREFIX}{display_name}": '
                 f'previously pointed to "{existing[0]}", now overwritten by "{target_docname}".',
                 location=(env.docname, line_lineno)
             )
 
         for key in (display_name, key_lower, nodes.fully_normalize_name(display_name)):
-            env.toctable_plugin_refs[key] = (target_docname, display_name, env.docname)
+            env.plugintable_plugin_refs[key] = (target_docname, display_name, env.docname)
 
     def run(self):
         env = self.state.document.settings.env
@@ -134,7 +134,7 @@ class TocTableDirective(Directive):
 
             if docname not in env.found_docs:
                 logger.warning(
-                    f"[toctable] Document not found: {docname}",
+                    f"[plugintable] Document not found: {docname}",
                     location=(base_doc, line_lineno)
                 )
                 continue
@@ -160,10 +160,10 @@ class TocTableDirective(Directive):
         toctree_node['includefiles'] = docnames
         toctree_node['numbered'] = False
         toctree_node['titlesonly'] = False
-        toctree_node['is_toctable'] = True
+        toctree_node['is_plugintable'] = True
 
         table = nodes.table()
-        table['is_toctable_table'] = True
+        table['is_plugintable_table'] = True
         tgroup = nodes.tgroup(cols=2)
         table += tgroup
         tgroup += nodes.colspec(colwidth=25)
@@ -174,7 +174,7 @@ class TocTableDirective(Directive):
         tgroup += tbody
 
         header = nodes.row()
-        header += nodes.entry('', nodes.paragraph(text='Document'))
+        header += nodes.entry('', nodes.paragraph(text='Keyword'))
         header += nodes.entry('', nodes.paragraph(text='Description'))
         thead += header
 
@@ -207,24 +207,24 @@ class TocTableDirective(Directive):
             return [toctree_node, table]
 
 
-def merge_and_sort_toctables(app, doctree):
+def merge_and_sort_plugintables(app, doctree):
     """
     Runs at priority 100 (before Sphinx's TocTreeCollector at priority 500).
-    Merges all `toctable` toctree nodes on the page into the first one and sorts alphabetically.
+    Merges all `plugintable` toctree nodes on the page into the first one and sorts alphabetically.
     """
-    toctable_nodes = [
+    plugintable_nodes = [
         node for node in doctree.findall(addnodes.toctree)
-        if node.get('is_toctable')
+        if node.get('is_plugintable')
     ]
 
-    if len(toctable_nodes) > 1:
-        primary_toc = toctable_nodes[0]
+    if len(plugintable_nodes) > 1:
+        primary_toc = plugintable_nodes[0]
         seen_docs = set()
         merged_entries = []
 
-        for node in toctable_nodes:
+        for node in plugintable_nodes:
             for title, docname in node['entries']:
-                # Deduplicate by docname across multiple toctables on the same page
+                # Deduplicate by docname across multiple plugintables on the same page
                 if docname not in seen_docs:
                     seen_docs.add(docname)
                     merged_entries.append((title, docname))
@@ -234,15 +234,15 @@ def merge_and_sort_toctables(app, doctree):
         primary_toc['entries'] = merged_entries
         primary_toc['includefiles'] = [docname for _, docname in merged_entries]
 
-        for node in toctable_nodes[1:]:
+        for node in plugintable_nodes[1:]:
             node.parent.remove(node)
 
 
-def merge_toctable_plugin_refs(app, env, docnames, other):
-    if hasattr(other, 'toctable_plugin_refs'):
-        if not hasattr(env, 'toctable_plugin_refs'):
-            env.toctable_plugin_refs = {}
-        env.toctable_plugin_refs.update(other.toctable_plugin_refs)
+def merge_plugintable_plugin_refs(app, env, docnames, other):
+    if hasattr(other, 'plugintable_plugin_refs'):
+        if not hasattr(env, 'plugintable_plugin_refs'):
+            env.plugintable_plugin_refs = {}
+        env.plugintable_plugin_refs.update(other.plugintable_plugin_refs)
 
 
 class PluginReferenceTransform(SphinxPostTransform):
@@ -258,7 +258,7 @@ class PluginReferenceTransform(SphinxPostTransform):
         Look up a single registered plugin name (without subpage or `#anchor`).
         Returns `(target_docname, default_title)` or `None`.
         """
-        labels = getattr(self.env, 'toctable_plugin_refs', {})
+        labels = getattr(self.env, 'plugintable_plugin_refs', {})
         match = (
             labels.get(plugin_name)
             or labels.get(plugin_name.lower())
@@ -267,7 +267,7 @@ class PluginReferenceTransform(SphinxPostTransform):
         if match:
             return match[0], match[1]
 
-        # Fallback for incremental builds when toctable pages were not re-parsed
+        # Fallback for incremental builds when plugintable pages were not re-parsed
         target_lower = plugin_name.lower()
         for doc in self.env.found_docs:
             default_name = _get_default_display_name(doc)
@@ -353,7 +353,7 @@ class PluginReferenceTransform(SphinxPostTransform):
             resolved = self._resolve_plugin_spec(raw_spec)
             if not resolved:
                 logger.warning(
-                    f'[toctable] Unknown plugin reference "{target}".',
+                    f'[plugintable] Unknown plugin reference "{target}".',
                     location=node
                 )
                 node.replace_self(nodes.literal(raw_spec, raw_spec))
@@ -387,7 +387,7 @@ class PluginReferenceTransform(SphinxPostTransform):
             resolved = self._resolve_plugin_spec(raw_spec)
             if not resolved:
                 logger.warning(
-                    f'[toctable] Unknown plugin reference "{refuri}".',
+                    f'[plugintable] Unknown plugin reference "{refuri}".',
                     location=node
                 )
                 continue
@@ -406,20 +406,20 @@ class PluginReferenceTransform(SphinxPostTransform):
                 node += nodes.literal(default_title, default_title)
 
 
-# Patch Sphinx's `TocTree.resolve` so that any TOC entry generated from a `toctable`
+# Patch Sphinx's `TocTree.resolve` so that any TOC entry generated from a `plugintable`
 # renders its link text wrapped in `nodes.literal` (inline code) in the sidebar.
 _orig_toctree_resolve = TocTree.resolve
 
 
 def _patched_toctree_resolve(self, docname, builder, toctree, *args, **kwargs):
     result = _orig_toctree_resolve(self, docname, builder, toctree, *args, **kwargs)
-    if result is not None and toctree.get('is_toctable'):
-        toctable_titles = {title for title, _ in toctree.get('entries', []) if title}
+    if result is not None and toctree.get('is_plugintable'):
+        plugintable_titles = {title for title, _ in toctree.get('entries', []) if title}
         for ref in result.findall(nodes.reference):
             if (
                 len(ref.children) == 1
                 and isinstance(ref.children[0], nodes.Text)
-                and ref.astext() in toctable_titles
+                and ref.astext() in plugintable_titles
             ):
                 text = ref.astext()
                 ref.clear()
@@ -431,8 +431,8 @@ TocTree.resolve = _patched_toctree_resolve
 
 
 def setup(app):
-    app.add_directive('toctable', TocTableDirective)
-    app.connect('doctree-read', merge_and_sort_toctables, priority=100)
-    app.connect('env-merge-info', merge_toctable_plugin_refs)
+    app.add_directive('plugintable', PluginTableDirective)
+    app.connect('doctree-read', merge_and_sort_plugintables, priority=100)
+    app.connect('env-merge-info', merge_plugintable_plugin_refs)
     app.add_post_transform(PluginReferenceTransform)
     return {'version': '3.7', 'parallel_read_safe': True}

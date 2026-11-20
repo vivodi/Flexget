@@ -48,7 +48,7 @@ Most requests are cached so there is no penalty for using the same RSS URL multi
 ### Raw Input
 Input plugins that directly parse data from a source based on its type.
 
-```{toctable}
+```{plugintable}
 csv: Parse any CSV-file
 filesystem: Search through a local directory looking for files as a input.
 html: Parse any HTML-page. 
@@ -64,7 +64,7 @@ ftp_list: Lists the content of a remote FTP server
 ### 3rd party sites input
 Input plugins designed to retrieve data from 3rd party web-sites, such as IMDB, trakt & etc.
 
-```{toctable}
+```{plugintable}
 anidb_list: Create entries from your AniDB wishlist. 
 anilist: Create entries from your AniList watchlist. 
 apple_trailers: Get movie trailers from Apple.com
@@ -94,7 +94,7 @@ lostfilm: Create entries from lostfilm.tv
 ### 3rd party software input
 Input plugins designed to retrieve data from 3rd party software, such as Sonarr, couchpotato, deluge & etc.
 
-```{toctable}
+```{plugintable}
 lists/couchpotato_list: Produce entries from couchpotato wanted movies list. [Managed list](/plugins/index.md#managed-list) 
 from_deluge: Use torrents loaded in a Deluge daemon as input. 
 from_rtorrent: Use torrents loaded in a rTorrent as input. 
@@ -114,7 +114,7 @@ medusa: Produce entries from Medusa's show list
 ### Internal Input
 Input plugins that will generate entries based on preexisting data in FlexGet.
 
-```{toctable}
+```{plugintable}
 configure_series: Configures the series plugin with all the shows given by any input plugin (eg. filesystem, rss).  
 discover: Produce entries from search results. 
 from_digest: Outputs entries which have been collected by the <plugin:digest> plugin. 
@@ -136,7 +136,7 @@ If you plan to use multiple filters per task, you should look at **[filtering op
 ### Content based filters
 Filters based on the nature of the input content (such as movie, series, series premiere & etc.)
 
-```{toctable}
+```{plugintable}
 all_series: Accepts any entry that appears to be an episode of a series. 
 proper_movies: Keep track of downloaded movies and force re-download proper versions. 
 series/index: Accept TV-series episodes. Quality and episode number aware. 
@@ -147,7 +147,7 @@ lists/list_match: Use this plugin to filter entries based on another list plugin
 ### Metadata filters
 Filters based on content's metadata such as size and quality
 
-```{toctable}
+```{plugintable}
 best_quality: Group entries by identifier and accept/reject best/worse qualities within these groups. 
 content_size: Reject torrents and nzb's that do not meet size requirements. 
 quality: Reject entries not of the specified quality. 
@@ -156,7 +156,7 @@ quality: Reject entries not of the specified quality.
 ### FlexGet internal filters
 Filters based on preexisting data or operations within FlexGet
 
-```{toctable}
+```{plugintable}
 upgrade: Accept/Reject better qualities of an entry (tracked by a unique identifier) 
 timeframe: Timeframe in which FlexGet waits for the chosen quality. 
 duplicates: Perform action based on duplicate entries by a field. 
@@ -173,7 +173,7 @@ unique: Accept/Reject entries with duplicate fields, except for the first item.
 ### Torrent specific filters
 Filters based specifically for torrents
 
-```{toctable}
+```{plugintable}
 content_filter: Reject based on filenames within torrents. 
 magnets: Rejects entries with only magnet links. 
 private_torrents: Reject private or public torrents. 
@@ -184,7 +184,7 @@ torrent_alive: Reject any torrents that do not have an active tracker with seeds
 ### Logical and operational filters
 Filters that will accept/reject entries based on logical statements or simple file operations
 
-```{toctable}
+```{plugintable}
 accept_all: Accept all entries. 
 age: Reject, Accept entries based on age by looking at a date in a specified entry field. 
 archives: Accept, reject entries based on if they're valid ZIP/RAR archives. 
@@ -199,7 +199,7 @@ regexp: Reject, Accept entries by using regular expression.
 ### 3rd party sites filters
 Filters based on data retrieved from 3rd party sites
 
-```{toctable}
+```{plugintable}
 imdb: Accept movie entries based on imdb details. 
 rottentomatoes: Accept movie entries based on Rotten Tomatoes details. 
 ```
@@ -210,7 +210,7 @@ Execute operation(s) on accepted entries.
 ### 3rd party software output
 Send accepted entries to 3rd party software, usually downloaders.
 
-```{toctable}
+```{plugintable}
 aria2: Pass URIs to be downloaded to the aria2 downloader. 
 deluge: Pass torrents directly to deluge bittorrent client, supporting magnet links. 
 nzbget: Download nzbs with nzbget. 
@@ -228,7 +228,7 @@ utorrent: Pass torrents directly to uTorrent.
 ### 3rd party sites output
 Send accepted entries to 3rd party sites, usually for tracking purposes. 
 
-```{toctable}
+```{plugintable}
 kodi_library: Send clean/scan requests to a remote/local Kodi server. 
 myepisodes: Mark accepted episodes as acquired on MyEpisodes. 
 pogcal_acquired: Mark accepted episodes on [pogdesign TV calendar](http://pogdesign.co.uk/cat) 
@@ -241,13 +241,13 @@ Send notifications for accepted entries via various notification services. To al
 
 First, configure what notifications should be sent for a given task:
 
-```{toctable}
+```{plugintable}
 notify: Configure what notifications should be sent for a given task.
 ```
 
 Then, choose one or more of the following notifier plugins in the `via` configuration option of the <plugin:notify> plugin to deliver the messages:
 
-```{toctable}
+```{plugintable}
 notifiers/bark: Send a [Bark](https://github.com/Finb/Bark/blob/master/README.en.md) notification 
 notifiers/discord: Send a [Discord](https://discordapp.com/) notification 
 notifiers/email: Send an email message 
@@ -273,14 +273,14 @@ notifiers/ms_teams: Send a [Microsoft Teams](https://products.office.com/en-us/m
 
 There is also a notifier plugin that does not use the `notifier` interface, but is instead used as a regular output plugin:
 
-```{toctable}
+```{plugintable}
 sns: Send notifications via [Amazon SNS](https://aws.amazon.com/sns/)
 ```
 
 ### FlexGet internal output
 Use accepted entries as an input for various FlexGet plugins such as add to movie queue, set series begin & etc.
 
-```{toctable}
+```{plugintable}
 digest: Collects entries from tasks to be combined into another task (usually for notification.) 
 series_remove: Remove accepted series \ episodes from the <plugin:series> plugin 
 set_series_begin: Set the first episode to download for series. 
@@ -291,7 +291,7 @@ lists/list_remove: Use this plugin to remove accepted entries from another list 
 ### File operations output
 Perform different file operations using accepted entries.
 
-```{toctable}
+```{plugintable}
 copy: Copy local files. 
 decompress: Extract Zip and RAR files. 
 delete: Delete local files. 
@@ -307,7 +307,7 @@ symlink: Symlink local files.
 ### Generators output
 Generate custom output using accepted entries.
 
-```{toctable}
+```{plugintable}
 make_html: Generate HTML file from passed entries. 
 make_rss: Generate RSS-feed file from passed entries. 
 ```
@@ -317,7 +317,7 @@ Retrieve additional data from internal parsers or 3rd party sites. Used for popu
 
 These provide metainfo (i.e. fields) to [Entry](/guide/entry).
 
-```{toctable}
+```{plugintable}
 emby_lookup: Performs [Emby](https://emby.media/) search and populates several entry fields that can be used in other plugins.
 imdb_lookup: Enable imdb parsing for imdb fields on-demand. 
 rottentomatoes_lookup: Enable Rotten Tomatoes parsing for Rotten Tomatoes fields on-demand. 
@@ -338,14 +338,14 @@ metainfo_series: Use internal series parser to parse task entries and generated 
 Plugins that can manipulate entry field.
 
 ### Request operations
-```{toctable}
+```{plugintable}
 download_auth: Add a `download_auth` field to entry with a value of <inv:#*HTTPBasicAuth> or <inv:#*HTTPDigestAuth> for use by other plugins.
 ```
 
 ### File operations
 Perform file oriented operations.
 
-```{toctable}
+```{plugintable}
 add_trackers: Add trackers to torrents. 
 extension: Force a file extension. 
 path_by_ext: Change (download) path based on file-type (extension). 
@@ -358,7 +358,7 @@ torrent: Parse torrent files, populate `torrent`, `torrent_info_hash` and `filen
 ### Data operations
 Manipulate relevant data based on input.
 
-```{toctable}
+```{plugintable}
 assume_quality: Make assumptions about the qualities of releases. 
 manipulate: Allows regexp manipulation for entries.   
 torrent_scrub: Removes non-standard keys like libtorrent resume information from downloads (which prevents the torrent from properly starting in Rtorrent). 
@@ -373,7 +373,7 @@ Plugins that can perform various operations and do not readily fit into any cate
 ### Request operations
 Perform various operations on request that are being sent and received. 
 
-```{toctable}
+```{plugintable}
 convert_magnet: Converts magnet uris to torrent files using libtorrent 
 cookies: Use FireFox3 cookies. 
 domain_delay: Sets a minimum interval between requests to specific domains. 
@@ -385,7 +385,7 @@ urlrewrite_search: Search for download URL from supported sites by using entry t
 
 ### 3rd Party Site Request Operations
 
-```{toctable}
+```{plugintable}
 emby_refresh: Triggers a emby refresh.
 rutracker: Supports downloading torrents from rutracker. 
 wp_auth: Access WordPress [s2Member](https://s2member.com/) protected RSS feeds.
@@ -394,13 +394,13 @@ wp_auth: Access WordPress [s2Member](https://s2member.com/) protected RSS feeds.
 ### File operations
 Perform file oriented operations.
 
-```{toctable}
+```{plugintable}
 free_space: Abort task when drive space is low. 
 ```
 
 ### Data operations
 
-```{toctable}
+```{plugintable}
 parsing: Configure another parser for series and movie titles. (can help if IMDB/TMDB/TVDB lookup fails too often)
 pathscrub: Cleans invalid characters from generated path/file names. (Used by other plugins that generate files.)
 urlrewrite: User regexp for URL Rewriting. 
@@ -409,7 +409,7 @@ urlrewrite: User regexp for URL Rewriting.
 ### FlexGet internal operations
 Perform various FlexGet operations.
 
-```{toctable}
+```{plugintable}
 abort_if_exists: Aborts a task if an entry field matches the regexp.
 archive: Archive all seen entries for searchable database for later retrieval. 
 delay: Adds artificial delay into a task. 
@@ -443,7 +443,7 @@ Managed list plugins are managed by list action plugins.
 
 Managed list plugins are a specialized class of plugins that primarily function as input plugins, but can also serve as dynamic targets for list action plugins to add, remove, or match entries across different task phases.
 
-```{toctable}
+```{plugintable}
 lists/couchpotato_list: Use or add entries from one of your couchpotato watch list. 
 lists/emby_list: Allows list management in emby server 
 lists/entry_list: Use or add entries to a custom made entry list. 
@@ -464,7 +464,7 @@ lists/trakt_list: Use or add entries from one of your trakt.tv lists.
 
 These plugins allow you to manipulate or filter entries against any managed list plugin:
 
-```{toctable}
+```{plugintable}
 lists/list_add: Use this plugin to add accepted entries to a list plugin. 
 lists/list_remove: Use this plugin to remove accepted entries from a list plugin. 
 lists/list_match: Use this plugin to filter entries based on the contents of a list. 
@@ -506,21 +506,21 @@ You can always get an up-to-date overview of the available search plugins by usi
 
 ### Internal
 
-```{toctable}
+```{plugintable}
 lists/entry_list: Search in an `entry_list`
 searches/flexget_archive: Searches within previously archived entries
 ```
 
 ### General
 
-```{toctable}
+```{plugintable}
 searches/search_rss: Generates query based rss feeds
 searches/torznab: Generates query based torznab
 ```
 
 ### Public
 
-```{toctable}
+```{plugintable}
 searches/1337x: Search [1337x.to](https://1337x.to/)
 searches/argenteam: Generates entries from [www.argenteam.net](http://www.argenteam.net/)
 searches/descargas2020: Generates entries from [descargas2020.com](http://descargas2020.com) 
@@ -535,7 +535,7 @@ searches/solidtorrents: Generates entries from [solidtorrents](http://solidtorre
 
 ### Private
 
-```{toctable}
+```{plugintable}
 searches/alpharatio: Searches torrent site AlphaRatio
 searches/awesomehd: Searches torrent site AwesomeHD 
 searches/btn: Searches torrent site BTN 
@@ -555,7 +555,7 @@ searches/torrentleech: Generates entries from [torrentleech.org](http://torrentl
 ## Daemon
 These plugins are specifically for when FlexGet is being used in daemon mode. They differ from the other plugins documented here, in that they should be configured at the root of your config. Not inside any tasks or templates.
 
-```{toctable}
+```{plugintable}
 daemon/scheduler: Executes tasks with a given interval or schedule while daemon is running. 
 daemon/irc: Connect a bot to an IRC channel and act on tracker announcements.
 ```

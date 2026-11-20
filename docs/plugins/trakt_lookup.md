@@ -3,10 +3,9 @@
 This plugin returns series information from Trakt.tv. The name of the series usually has to be VERY close to what's shown on Trakt.  
 If you are having problems returning the correct information for a show, please add the `tvdb_id` to the series using the [set](plugin:series/set) plugin.  
 
-<div class="alert alert-info" role="alert">
-
-Please see [Trakt Authentication](/guide/trakt.md/#trakt-authentication) for how to authorize Flexget to access your private Trakt.tv account.</div>
-
+:::{note}
+Please see [Trakt Authentication](/guide/trakt.md/#trakt-authentication) for how to authorize Flexget to access your private Trakt.tv account.
+:::
 
 ## Syntax
 

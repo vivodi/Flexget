@@ -37,10 +37,6 @@ notify:
       - toast:
           timeout: 5
 ```
-<div class="alert alert-warning">
-  
-  <!--<span class="glyphicon glyphicon glyphicon-cog"></span>-->
-  &nbsp; <strong>Warning!</strong> Please ensure you have a notification system on your distribution before enabling this option.
-</div>
-
-
+:::{warning}
+Please ensure you have a notification system on your distribution before enabling this option.
+:::

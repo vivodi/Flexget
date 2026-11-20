@@ -16,7 +16,7 @@ execute/*
 | `--no-cache` | Disable caches; works only in plugins that have explicit support |
 | `--stop-waiting <name>` | Stop [timeframe](plugin:series/timeframe) for a given series |
 | `--tail-reset <file\|task>` | reset <plugin:tail> position for a file or an entire task|
-| `--discover-now` | Immediately try to discover everything, bypassing the `discover` option [`interval`](plugin:discover#interval) |
+| `--discover-now` | Immediately try to discover everything, bypassing the `discover` option [`interval`](plugin:discover#options) |
 | `-T NAME, --template <name>` | Execute tasks using given template |
 | `--now` | Run task(s) even if the <plugin:interval> plugin would normally prevent it |
 | `-v, --verbose` | Verbose undecided entries |

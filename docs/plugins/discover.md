@@ -26,7 +26,7 @@ discover:
 | Option | Default | Description |
 | --- | --- | --- |
 |limit| - | Set max results from each search engine. |
-|<a name="interval"></a>interval| 5 hours| Time between trying searches again. |
+|interval| 5 hours| Time between trying searches again. |
 |release_estimations|strict|Can be `loose`, `strict` or `ignore`, `smart` or `optimistic: <interval>`. <br/><br/> `strict` will reject all episodes/movies without air dates.<br/> `loose` will check for release dates, if release date can not be determined perform search anyway.<br/>`optimistic` sets the estimation mode to `strict` but starts searching `optimistic: <interval>` units (eg. 7 days) before release date. <br/>`ignore` no release date checking will be attempted (try to use `optimistic` if possible)<br/> `smart` will reject entries that are identified but do not contain a release date and accept entries that are not found |
 
 ### Supported search engines

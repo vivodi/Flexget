@@ -1,7 +1,7 @@
 # Python and pip
 
 :::{note}
-The instructions in this step assume you have just installed Homebrew as detailed on the <a href="/InstallWizard/OSX">previous page</a>. There are also instructions available <a href="/InstallWizard/OSX/OtherMethods">for other methods</a> of installing Python, pip, and Flexget.
+The instructions in this step assume you have just installed Homebrew as detailed on the [previous page](index).
 :::
 
 ## Python and pip
